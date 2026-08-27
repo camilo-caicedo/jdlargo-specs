@@ -94,7 +94,7 @@ Medibles, y todos verificables sin interfaz:
 | `HU-005` | Registro de afirmaciones con procedencia | Must | borrador |
 | `HU-006` | Bitácora inmutable transversal | Must | borrador |
 
-Orden sugerido: `HU-001` → `HU-002` → `HU-006` → `HU-003` → `HU-004` → `HU-005`. La bitácora
+Orden sugerido: `HU-001` → `HU-002` → `HU-006` → `HU-004` → `HU-003` → `HU-005`. La bitácora
 se adelanta a propósito: cada historia posterior la usa, y una bitácora retroajustada deja un
 tramo ciego.
 
