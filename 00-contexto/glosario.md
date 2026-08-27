@@ -98,6 +98,35 @@ plataforma. Necesarios desde `EP-000`.
   qué modelo de IA intervino y qué versión de regla estaba vigente (§23). No es un módulo:
   es el sustrato.
 
+### Del expediente y su recorrido
+
+Términos que aparecen a partir de `EP-001`. Los cinco conceptos de la §2 siguen mandando: lo
+que la contraparte escribe es `declarado`, nada más.
+
+- **Tipo de contraparte** — la clasificación configurable que determina qué se le exige a una
+  contraparte: cliente, proveedor, contratista, empleado, accionista, conductor,
+  transportadora aliada, intermediario, tercero pagador. Vive en la configuración, no en el
+  código (`ADR-0004`).
+- **Enlace de acceso** — la dirección de un solo uso previsto con la que la contraparte entra a
+  su expediente. Lleva asociado un **token de acceso** acotado a **un único expediente**, con
+  expiración y revocable. La contraparte no tiene cuenta ni contraseña.
+- **Aviso de privacidad** — el texto, configurable y versionado por cada organización cliente,
+  que informa al titular qué datos se tratan, con qué finalidad, quién responde por ellos y
+  cómo ejercer sus derechos.
+- **Consentimiento** — la aceptación del titular cuando la base jurídica la exige, registrada
+  con la versión exacta del aviso que aceptó, la fecha, la hora y el medio. Un aviso mostrado
+  no es un consentimiento otorgado, y no todo tratamiento necesita el mismo tipo de
+  autorización (§5).
+- **Formulario dinámico** — el formulario que se arma en el momento a partir de la matriz de
+  requisitos: qué campos, cuáles obligatorios y con qué validaciones sale de la configuración
+  vigente, nunca de una pantalla escrita a mano (`ADR-0004`).
+- **Tipo documental** — la clase de documento que la matriz de requisitos puede exigir (cédula,
+  certificado de existencia y representación legal, RUT, estado financiero…), con sus reglas de
+  emisor y vigencia.
+- **Condición de la decisión** — la exigencia con la que se aprueba una vinculación cuando no se
+  aprueba sin reservas. Forma parte de la decisión y es inmutable como ella.
+- **Vigencia de la vinculación** — hasta cuándo vale una decisión antes de exigir actualización.
+
 ## Siglas
 
 - **LA/FT** — Lavado de Activos / Financiación del Terrorismo.
