@@ -92,6 +92,7 @@ plataforma. Necesarios desde `EP-000`.
   intacta (`ADR-0004`).
 - **Configuración vigente** — la versión de configuración que se aplica a lo que empiece
   desde ahora. Es un puntero que se mueve, nunca una edición de la versión anterior.
+- **Sujeto** — la persona u organización sobre la que se afirma algo: la contraparte del expediente o una persona relacionada con ella. Vive a nivel de organización cliente y se reutiliza entre expedientes del mismo cliente, nunca entre clientes distintos (§31, §46).
 - **Bitácora** — el registro de auditoría transversal, de solo inserción: quién, qué,
   cuándo, desde dónde, valor anterior y nuevo, motivo, fuente, si fue automático o manual,
   qué modelo de IA intervino y qué versión de regla estaba vigente (§23). No es un módulo:
