@@ -127,6 +127,63 @@ que la contraparte escribe es `declarado`, nada más.
   aprueba sin reservas. Forma parte de la decisión y es inmutable como ella.
 - **Vigencia de la vinculación** — hasta cuándo vale una decisión antes de exigir actualización.
 
+### De la verificación, el riesgo y el monitoreo
+
+Términos que aparecen a partir de `EP-002`.
+
+- **Ejecución de IA** — cada uso del modelo, registrado con proveedor, modelo, versión,
+  plantilla de instrucciones, documento fuente, resultado, confianza y quién lo validó (§32).
+  La IA es un origen de afirmaciones, nunca una autoridad.
+- **Conciliación** — la comparación entre lo declarado, lo extraído y lo verificado sobre un
+  mismo campo. No es una función que "limpia" el dato: es una consulta que hace visible la
+  diferencia.
+- **Discrepancia** — dos o más afirmaciones vigentes y contradictorias sobre el mismo campo.
+  Permanece abierta hasta que una persona la resuelva dejando registro. Nunca se cierra sola.
+- **Fuente externa** — el registro, la autoridad o el proveedor al que la plataforma consulta
+  para verificar. Vive en un **catálogo de fuentes** configurable, con su tipo, cobertura,
+  condiciones de uso y costo por consulta.
+- **Dato no verificable** — aquel para el que no existe fuente que lo confirme. Es un cuarto
+  estado distinto de declarado, extraído y verificado, y se muestra como tal (Fase 11).
+- **Coincidencia** — el resultado técnico de comparar un nombre o identificador contra una
+  lista. Sus estados son `sin coincidencia`, `posible`, `descartada`, `confirmada` y
+  `pendiente de revisión`. **Una coincidencia técnica no es una persona sancionada.**
+- **Alerta** — el hecho que exige atención humana: una coincidencia posible, una discrepancia,
+  un riesgo alto, un documento vencido o un evento de monitoreo.
+- **Relación** — la arista entre dos sujetos, con su tipo, fuente, fecha, porcentaje de
+  participación, evidencia y estado de verificación. Es una entidad de primera clase, no una
+  columna de la tabla de personas.
+- **Motor de relaciones** — la configuración que decide qué tratamiento requiere cada tipo de
+  persona relacionada: identificación, consulta a listas, revisión de PEP, documentación propia,
+  debida diligencia completa, intensificada, o solo quedar registrada.
+- **Factor de riesgo** — cada elemento que la metodología del cliente pondera: tipo de
+  contraparte, jurisdicción, actividad económica, condición de PEP, resultados de listas,
+  volumen de operación, estructura societaria, señales de alerta.
+- **Clasificación final de riesgo** — el nivel aprobado por la persona responsable. Se distingue
+  siempre del **cálculo automático preliminar**, que el sistema produce pero no impone.
+- **Anulación justificada** — el cambio deliberado que una persona autorizada hace sobre un
+  resultado del sistema, con motivo registrado. Se audita con atención especial (§23).
+- **Evento de monitoreo** — el cambio detectado después de la vinculación: nueva coincidencia,
+  cambio societario, de beneficiario final, de representante legal, de jurisdicción, documento
+  vencido, nueva sanción o cambio en el nivel de riesgo.
+- **Periodicidad de actualización** — cada cuánto debe revisarse un expediente vinculado. No es
+  universal: sale de la metodología del cliente, el estándar aplicable, el nivel de riesgo y los
+  eventos.
+- **Renovación** — el ciclo de actualización de un expediente ya vinculado.
+
+### De la capa comercial
+
+- **Plan** — el paquete comercial que contrata una organización cliente. Incluye un **cupo de
+  consultas** mensuales.
+- **Cupo de consultas** — el número de consultas a fuentes externas incluidas en el plan dentro
+  de un ciclo.
+- **Evento de consumo** — la fila inmutable que registra una consulta facturable: organización
+  cliente, momento, fuente, costo del proveedor y referencia a la evidencia. Es la misma tabla
+  que sirve de evidencia de auditoría (`ADR-0001` §18).
+- **Excedente** — el consumo por encima del cupo dentro de un ciclo, que se cobra aparte o
+  fuerza un cambio de plan.
+- **Ciclo de facturación** — el periodo mensual que se cierra por organización cliente para
+  calcular consumo, excedente y factura.
+
 ## Siglas
 
 - **LA/FT** — Lavado de Activos / Financiación del Terrorismo.
