@@ -13,7 +13,7 @@ historias.
 | ID | Capacidad | Descripción | Épica | Estado |
 |----|-----------|-------------|-------|--------|
 | CAP-00 | Sustrato de cumplimiento auditable | Aislamiento entre organizaciones, procedencia del dato, configuración versionada y bitácora. No es visible para el usuario: es la condición para que todo lo demás sea auditable | `EP-000` | Confirmada |
-| CAP-01 | _TBD_ | | `EP-xxx` | Hipótesis |
+| CAP-01 | Expediente de debida diligencia | Abrir, diligenciar, revisar, decidir y reconstruir un expediente completo sobre una contraparte | `EP-001` | Confirmada |
 
 ## Candidatas iniciales (hipótesis a validar con el cliente)
 
