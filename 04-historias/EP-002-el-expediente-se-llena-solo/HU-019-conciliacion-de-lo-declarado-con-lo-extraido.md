@@ -4,10 +4,16 @@ titulo: Conciliación de lo declarado con lo extraído
 estado: borrador
 epica: EP-002
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-019 — Conciliación de lo declarado con lo extraído
+
+> **Actualización 2026-09-05 (`PA-027`).** La conciliación usa la escala de precedencia
+> configurable de `ADR-0005` §2 —`verificado › documental validado › declarado › extraído`— pero
+> **la precedencia solo decide qué se muestra como vigente**: no borra el origen, no cierra la
+> discrepancia y no autoriza a la IA a sobrescribir lo declarado. La discrepancia sigue abierta
+> hasta que una persona la resuelva dejando registro.
 
 ## Historia
 
@@ -150,9 +156,7 @@ Escenario: Aislamiento entre organizaciones sobre las discrepancias
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-027` — bloqueante para cualquier resolución asistida: cuál es la
-  regla de precedencia por defecto y si el cliente puede cambiarla. `PA-029` — si un expediente
-  con discrepancias abiertas puede llegar a decisión. **Queda en `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-027` y `PA-029` **resueltas**.
 - **Supuestos:** `SUP-006`.
 - **Depende de:** `HU-005` (afirmaciones), `HU-012` (lo declarado), `HU-017` (lo extraído).
 - **Habilita a:** `HU-020`, y en la Fase 3 la conciliación contra lo verificado.

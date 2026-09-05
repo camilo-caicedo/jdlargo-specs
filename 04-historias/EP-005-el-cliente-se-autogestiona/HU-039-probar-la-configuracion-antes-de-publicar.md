@@ -4,10 +4,15 @@ titulo: Probar la configuración antes de publicar
 estado: borrador
 epica: EP-005
 prioridad: Should
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-039 — Probar la configuración antes de publicar
+
+> **Actualización 2026-09-05 (`PA-017`).** El simulador deja de ser un *Should* cómodo: es una
+> de las cuatro piezas que el cliente necesita para configurar por su cuenta. La pregunta que debe
+> responder, en palabras del propio cliente, es **"¿qué le voy a pedir a esta contraparte?"**,
+> antes de publicar la versión.
 
 ## Historia
 
@@ -141,8 +146,7 @@ Escenario: Aislamiento entre organizaciones sobre los ensayos
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-017` — si el cliente no configura por su cuenta, esta historia
-  pierde buena parte de su razón de ser. **Queda en `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-017` **resuelta**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-032` (el evaluador), `HU-034` (borradores), `HU-035`, `HU-036`.
 - **Habilita a:** que `EP-005` se pueda entregar sin trasladar al cliente un riesgo que no puede

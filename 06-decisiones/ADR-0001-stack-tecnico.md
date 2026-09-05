@@ -64,12 +64,18 @@ todas las semanas.
 
 ### Modelo de identidad y pertenencia
 
-7. **Todo es una organización desde el día uno.** El usuario individual no es un caso
-   especial: es una organización de un miembro con un plan de una licencia. El paso de
-   persona a empresa es un cambio de plan y una invitación, nunca una migración de datos.
+7. **Identidad global, separada de la organización** (`PA-013`, confirmado; deroga el
+   supuesto inicial `SUP-005` de "todo es una organización"). Un usuario es una entidad propia
+   que se adhiere a una o varias organizaciones clientes mediante una membresía con rol. La
+   persona individual sin empresa es una organización cliente de un solo miembro, pero la
+   cuenta de usuario no se modela *como* una organización: pasar de individual a empresa es
+   invitar más membresías, nunca migrar datos de identidad.
 8. **Jerarquía:** `Organización → Proyecto/Workspace → Contrapartes y consultas`.
 9. **Membresía N:M** entre usuario y organización (una persona puede pertenecer a varias),
-   con rol por membresía. Registrado como `PA-013` mientras el cliente no lo confirme.
+   con rol por membresía. **Confirmado por el cliente** (`PA-013`): la identidad es global y
+   la membresía organizacional va aparte — `Usuario › Membresía › Organización › Roles`. La
+   autorización es siempre `usuario × organización × acción`; **nunca se autoriza por
+   `user_id` solo**. La interfaz lleva selector de organización.
 10. **Cada tabla del dominio lleva `organization_id` y política RLS**, sin excepciones.
 
 ### Documentos y extracción
@@ -83,13 +89,23 @@ todas las semanas.
     como respaldo** para la cola larga. El motor se aísla tras un puerto reemplazable.
 14. Librerías: `unpdf` / `pdfjs-dist` para texto de PDF digital; **Vercel AI SDK** para la
     capa de LLM, con proveedor intercambiable.
+14b. **Router de IA por organización cliente** (`PA-021`). Nosotros elegimos el proveedor por
+    defecto y lo informamos al cliente desde el contrato, pero el catálogo es configurable y
+    la IA se puede **desactivar por completo** para tenants sensibles. Toda ejecución registra
+    proveedor, modelo, versión y clasificación de los datos enviados; se minimiza y, cuando
+    sea viable, se pseudonimiza antes de enviar. La transferencia internacional se sostiene en
+    contrato/DPA revisado, no solo en una decisión técnica (`SUP-004`, `PA-045`).
 
 ### Screening y agente
 
 15. **OpenSanctions API SaaS** como fuente internacional consolidada (0,10 €/llamada;
     ver `07-integraciones/README.md`). **No auto-hospedar yente en esta fase.**
-16. **Un proveedor local colombiano por cotizar** para Procuraduría, Contraloría, Policía
-    y RUES (`PA-012`).
+16. **Fuentes colombianas: conexión directa preferida.** El cliente fijó el catálogo inicial
+    (`PA-005`): antecedentes penales (Policía), disciplinarios (Procuraduría), fiscales
+    (Contraloría), ONU Res. 1267, OFAC-SDN, GAFI/FATF, listas UIAF y RUNT/SIMIT. La vía
+    ideal es conexión directa entre la plataforma y cada entidad; el intermediario es el
+    plan B. Costo de referencia $1.000–$2.000 COP por consulta, **provisional hasta
+    cotización formal** (`PA-012`, `PA-040`).
 17. **El agente de IA propone y justifica; el humano firma.** El agente descarta ruido,
     prioriza y redacta la justificación con evidencia, pero toda decisión queda registrada
     a nombre de una persona. Es la postura más defendible ante un supervisor y la que
@@ -139,8 +155,10 @@ todas las semanas.
 - **Aprender React "de verdad" queda concentrado** en formularios y analítica; los Server
   Components esconden buena parte del React clásico. Es una pérdida consciente frente al
   plazo de 12 semanas.
-- **El costo variable de screening no está acotado** hasta cotizar al proveedor local y
-  decidir el monitoreo continuo (`PA-011`, `PA-012`).
+- **El costo variable de screening sigue sin acotar del todo.** El monitoreo continuo entra
+  al alcance (`PA-011`) y el cliente estima ~1.000 consultas/mes para una empresa de
+  transporte de carga (`PA-014`); el costo por consulta ($1.000–$2.000 COP) es provisional
+  hasta cotización formal (`PA-012`, `PA-040`).
 - **Sin SSO empresarial.** Supabase Auth no lo cubre cómodamente; si aparece un cliente que
   lo exija, será un ADR nuevo (candidatos: Clerk, WorkOS).
 
@@ -194,5 +212,6 @@ El stack se eligió también por esto, y conviene explotarlo deliberadamente:
   se mantiene completo y lo que se ajusta es el calendario: 20 semanas en vez de 12, según
   `02-producto/roadmap.md`.
 - **Auto-hospedaje del índice de screening** — se reevalúa cuando el monitoreo continuo o
-  el volumen lo justifiquen. Será `ADR-0003`.
+  el volumen lo justifiquen. Será `ADR-0003`. El monitoreo continuo ya está confirmado en
+  alcance (`PA-011`), así que esta reevaluación deja de ser hipotética.
 - **SSO empresarial** — cuando exista un contrato que lo pague.

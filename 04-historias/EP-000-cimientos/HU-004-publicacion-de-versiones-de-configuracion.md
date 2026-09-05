@@ -4,10 +4,17 @@ titulo: Publicación de versiones de configuración inmutables
 estado: borrador
 epica: EP-000
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-004 — Publicación de versiones de configuración inmutables
+
+> **Actualización 2026-09-05 (`PA-025`).** El expediente congela **formulario y matriz de
+> requisitos al abrirse**, y **metodología, reglas y versión normativa al evaluar**. Una
+> evaluación cerrada es inmutable: publicar una versión nueva **nunca** reescribe hacia atrás.
+> Los expedientes en curso siguen con la versión que congelaron; una versión nueva puede
+> **marcarlos para revalidación**, y solo migran si el cliente lo autoriza explícitamente, con
+> registro en bitácora. Ver `ADR-0004` §2b.
 
 ## Historia
 
@@ -150,11 +157,7 @@ Escenario: Publicar exige el permiso correspondiente
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-025` — bloqueante. Al publicar una versión nueva, ¿los expedientes
-  en curso siguen con la anterior o migran? De la respuesta depende si el expediente congela la
-  versión **al abrirse** o **al evaluarse**, y son dos modelos distintos. **No pasa de
-  `borrador` hasta que se responda.** `PA-017` y `PA-018` afectan al esfuerzo de carga inicial,
-  no al modelo.
+- **Preguntas abiertas:** ninguna. `PA-025` **resuelta** → `ADR-0004` §2b.
 - **Supuestos:** `SUP-001` (alcance SARLAFT / SAGRILAFT / PTEE), `SUP-008` (las normas citadas
   por el cliente no están verificadas: el campo de norma de referencia se llena, no se afirma).
 - **Depende de:** `HU-002` (aislamiento), `HU-006` (la publicación se registra en la bitácora).

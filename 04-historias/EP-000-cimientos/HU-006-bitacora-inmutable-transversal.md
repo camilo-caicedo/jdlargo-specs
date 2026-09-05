@@ -4,10 +4,17 @@ titulo: Bitácora inmutable transversal
 estado: borrador
 epica: EP-000
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-006 — Bitácora inmutable transversal
+
+> **Actualización 2026-09-05 (`PA-026`, `PA-009`).** El cliente confirmó que basta con
+> **solo inserción por permisos de base de datos**: no se exige encadenamiento criptográfico ni
+> WORM. Pero se añade **hash por evento desde el día uno**, porque es lo que convierte el
+> endurecimiento posterior en una migración y no en una reescritura. La retención es
+> **configurable por organización cliente**, con 10 años como referencia `(por validar)` y copias
+> periódicas al contacto que designe el cliente. Ver `ADR-0007`, `RNF-006` a `RNF-013`.
 
 ## Historia
 
@@ -153,13 +160,8 @@ Escenario: El registro sobrevive a la baja del usuario
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:**
-  - `PA-026` — bloqueante. La §23 admite "inmutable **o** técnicamente protegido". Si basta con
-    solo inserción por permisos de base de datos, la bitácora es una tabla más; si se exige
-    encadenamiento criptográfico o almacenamiento WORM, cambia la estructura y el costo. **No
-    pasa de `borrador` hasta que se responda**, porque rehacer la bitácora obliga a rehacer todo
-    lo que ya escribió en ella.
-  - `PA-009` — retención y trazabilidad. No bloquea la estructura, sí la política de conservación.
+- **Preguntas abiertas:** ninguna. `PA-026` y `PA-009` **resueltas** → `ADR-0007`. Queda la
+  derivada `PA-044` (quién asume la retención a 10 años), que no afecta la estructura.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-001` (hay un actor que registrar), `HU-002` (aislamiento).
 - **Habilita a:** `HU-003`, `HU-004`, `HU-005` y todas las fases siguientes. Es la primera que

@@ -4,7 +4,7 @@ titulo: Vencimientos y avisos anticipados
 estado: borrador
 epica: EP-006
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-041 — Vencimientos y avisos anticipados
@@ -138,8 +138,7 @@ Escenario: Aislamiento entre organizaciones sobre los vencimientos
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-031` — si los avisos se notifican por correo y a quién. No bloquea
-  el modelo. Queda en `borrador` por arrastre de las historias de las que depende.
+- **Preguntas abiertas:** ninguna. `PA-031` **resuelta**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-021` (vigencias), `HU-015` (vigencia de la vinculación), `HU-027`
   (alertas).

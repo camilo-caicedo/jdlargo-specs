@@ -4,7 +4,7 @@ titulo: Casos — análisis, decisión y cierre
 estado: borrador
 epica: EP-003
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-028 — Casos: análisis, decisión y cierre
@@ -159,8 +159,10 @@ Escenario: Aislamiento entre organizaciones sobre los casos
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** ninguna propia. Queda en `borrador` por arrastre de `HU-026` y
-  `HU-027`.
+- **Preguntas abiertas:** ninguna propia. `PA-033` **resuelta** → `ADR-0008`: de ahí llega la
+  regla que este caso tiene que respetar — **el sistema nunca confirma una coincidencia por sí
+  solo**, la confirmación es siempre humana y queda registrada. El aprendizaje de falsos positivos
+  no altera retroactivamente un caso ya cerrado.
 - **Supuestos:** `SUP-006` (la IA propone y justifica; la persona decide).
 - **Depende de:** `HU-027` (hay alertas), `HU-003` (permisos de cerrar y aprobar), `HU-006`.
 - **Habilita a:** la debida diligencia intensificada de la Fase 4 y el panel de la Fase 6.

@@ -4,10 +4,20 @@ titulo: Monitoreo continuo
 estado: borrador
 epica: EP-006
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-040 — Monitoreo continuo
+
+> **Actualización 2026-09-05 (`PA-011`, `PA-035`).** El monitoreo tiene **tres disparadores**:
+> por **periodicidad** según riesgo (alto mensual o trimestral, medio semestral, bajo anual, como
+> configuración de referencia — **no como obligación normativa**), por **evento** en la fuente
+> (nueva sanción, cambio societario, de representante legal o de beneficiario final), y por
+> **aviso al usuario** de que toca monitorear, que es el modo que el cliente pidió para arrancar y
+> queda como configuración. Cuatro controles de costo obligatorios: planificador por tenant y
+> riesgo, **deduplicación por identidad**, **re-screening incremental** y cuota verificada antes
+> de gastar — con la excepción de que **un monitoreo en curso no se corta en silencio**. Ver
+> `ADR-0009`.
 
 ## Historia
 
@@ -149,10 +159,8 @@ Escenario: Aislamiento entre organizaciones sobre el monitoreo
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-035` — bloqueante: con qué periodicidad y ante qué disparadores se
-  re-consulta. Es la principal fuente de costo variable del producto. `PA-014` — cuántas
-  contrapartes maneja un cliente típico. `PA-005` y `PA-012` — qué fuentes y a qué precio. **No
-  pasa de `borrador` hasta que se responda `PA-035`.**
+- **Preguntas abiertas:** **`PA-040`** — el costo real por consulta determina la viabilidad de
+  cada nivel de servicio. `PA-011`, `PA-014` y `PA-035` **resueltas** → `ADR-0009`.
 - **Supuestos:** `SUP-002`.
 - **Depende de:** `HU-025`, `HU-026`, `HU-027`, `HU-028`, `HU-031`, `HU-005`.
 - **Habilita a:** `HU-042` (los eventos disparan actualización fuera de calendario) y `HU-043`.

@@ -1,16 +1,20 @@
 # jdlargo-specs
 
-Repositorio de **especificaciones** de la Plataforma JD Largo: una plataforma para la
-validación, verificación y certificación de entidades en materia de **SARLAFT,
-SAGRILAFT y PTEE** (alcance final pendiente de definición del cliente).
+Repositorio de **especificaciones** de la Plataforma JD Largo: una plataforma que **automatiza
+y traza la debida diligencia** de contrapartes en materia de **SARLAFT, SAGRILAFT y PTEE**.
+
+> El producto **no certifica**: consulta, verifica, evalúa, documenta y sugiere. La decisión y
+> la responsabilidad son del cliente. Ver `ADR-0006`.
 
 Aquí vive la definición del producto — no hay código. El backend y el frontend irán en
 repos aparte, dentro de la misma carpeta contenedora `Plataforma-jdlargo`.
 
-> **Estado: descubrimiento.** El cliente entregó el
+> **Estado: descubrimiento cerrado, listo para arrancar la Fase 0.** El cliente entregó el
 > [documento funcional completo](01-descubrimiento/entregables-cliente/2026-08-21-flujo-plataforma-debida-diligencia-v2.md)
-> el 2026-08-21, que es la fuente principal del proyecto. El alcance resultante excede lo
-> planificado: ver `PA-023` y el [roadmap](02-producto/roadmap.md).
+> el 2026-08-21 y el 2026-09-05 respondió las **39 preguntas abiertas** (`PA-001` a `PA-039`).
+> El alcance se entrega **por fases verticales**: ver el [roadmap](02-producto/roadmap.md).
+> Quedan seis preguntas derivadas (`PA-040` a `PA-045`); ninguna bloquea las fases 0 a 4. La
+> más urgente es `PA-040`, la cotización de fuentes colombianas.
 
 ## Mapa del repo
 

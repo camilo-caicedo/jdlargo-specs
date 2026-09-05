@@ -4,10 +4,16 @@ titulo: Administrar usuarios, roles y permisos
 estado: borrador
 epica: EP-005
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-038 — Administrar usuarios, roles y permisos
+
+> **Actualización 2026-09-05 (`PA-013`, `PA-024`).** Esta historia administra **membresías**, no
+> usuarios: la identidad es global y un mismo usuario puede pertenecer a varias organizaciones con
+> roles distintos en cada una. Además debe permitir **crear roles propios** a partir de permisos
+> granulares por acción, con los seis roles base como plantillas. El administrador del tenant
+> —Oficial de Cumplimiento o Representante Legal— es quien asigna.
 
 ## Historia
 
@@ -143,10 +149,7 @@ Escenario: Aislamiento entre organizaciones sobre la administración de usuarios
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-024` — bloqueante: si el cliente puede crear roles propios o solo
-  ajustar los definidos, y quién asigna roles. `PA-031` — el envío de invitaciones por correo.
-  **Queda en `borrador`.**
-- **Supuestos:** `SUP-005`.
+- **Preguntas abiertas:** ninguna. `PA-024`, `PA-013` y `PA-031` **resueltas**.
 - **Depende de:** `HU-001`, `HU-003`, `HU-034`.
 - **Habilita a:** que un cliente nuevo se ponga en marcha sin intervención nuestra.
 - **Riesgo:** el Administrador es un rol técnico y los permisos que administra son de

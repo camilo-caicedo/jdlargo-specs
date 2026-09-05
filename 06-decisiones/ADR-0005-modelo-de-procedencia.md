@@ -3,9 +3,14 @@ id: ADR-0005
 titulo: Todo dato del expediente lleva su procedencia
 estado: propuesto
 fecha: 2026-08-25
+actualizado: 2026-09-05
 ---
 
 # ADR-0005 — Modelo de procedencia del dato
+
+> **Actualización 2026-09-05.** Las respuestas a `PA-027` y `PA-032` fijan la política de
+> precedencia entre afirmaciones y el papel de la confianza de la IA. Se detalla la §2 y se
+> añade la §4b.
 
 ## Contexto
 
@@ -54,9 +59,26 @@ hasta que una persona la resuelva dejando registro.
 ### 2. El "valor vigente" es un cálculo, no una columna
 
 Cuál de las afirmaciones prevalece sale de una regla de precedencia configurable por cliente
-(`ADR-0004`) — típicamente lo verificado pesa más que lo declarado, y lo declarado más que
-lo extraído. Pero la afirmación descartada **no se borra**: sigue siendo evidencia de que
-hubo una diferencia.
+(`ADR-0004`). **No existe una precedencia universal** (`PA-027`).
+
+Escala de referencia, que es la que trae el producto por defecto:
+
+```
+verificado por fuente independiente
+  › documental validado
+    › declarado por la contraparte
+      › extraído por IA sin validar
+```
+
+Dos precisiones que vienen de la respuesta del cliente y que no se pueden perder:
+
+- **Frente a la IA, manda lo declarado.** La extracción automática nunca desplaza en silencio
+  lo que la contraparte afirmó: es la parte más baja de la escala, y la §4b lo refuerza.
+- La escala **es configurable**, pero la configuración solo cambia qué se muestra como
+  vigente. **Nunca borra el origen** ni las afirmaciones desplazadas.
+
+Toda afirmación se persiste como `campo = valor + fuente + fecha + confianza + estado`, y la
+afirmación descartada **no se borra**: sigue siendo evidencia de que hubo una diferencia.
 
 ### 3. Evaluaciones y decisiones son eventos, no estados
 
@@ -72,6 +94,26 @@ Toda ejecución de IA registra modelo, proveedor, versión, plantilla de instruc
 documento fuente, resultado, confianza y quién lo validó (§32). Una afirmación de origen
 `extraído` **no puede** ascender a `verificado` sin una acción humana o una fuente externa
 que lo respalde.
+
+### 4b. La confianza de la IA es una señal, no un veredicto
+
+Cierra `PA-032`. **No hay un umbral único** por debajo del cual algo se rechaza y por encima
+del cual se acepta. Una cifra como "85 %" puede ser útil para ordenar una cola de trabajo,
+pero no es una garantía de exactitud y no puede tratarse como tal.
+
+La política tiene tres partes:
+
+1. **El umbral es configurable por campo y por tarea**, no global. Depende del impacto de
+   equivocarse en ese dato, no de la dificultad de leerlo.
+2. **Los datos críticos exigen validación humana** siempre que haya incertidumbre,
+   discrepancia o extracción no verificable: identidad, beneficiario final, resultados de
+   listas, factores de riesgo y cualquier insumo de una decisión.
+3. **La decisión es del usuario.** El sistema pregunta y deja modificar; no completa por su
+   cuenta un campo crítico. El camino para reducir errores es dar mejor contexto al modelo,
+   no bajar el listón de la revisión.
+
+Se guardan siempre `confianza` y evidencia junto a la afirmación, para poder auditar después
+con qué margen se trabajó.
 
 ### 5. Una sola bitácora inmutable, transversal
 

@@ -4,10 +4,16 @@ titulo: Crear la solicitud de vinculación y abrir el expediente
 estado: borrador
 epica: EP-001
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-008 — Crear la solicitud de vinculación y abrir el expediente
+
+> **Actualización 2026-09-05 (`PA-025`, `PA-031`).** Al abrir el expediente se congela la
+> versión de **formulario y matriz de requisitos**; la metodología y las reglas se congelan
+> después, al evaluar (`ADR-0004` §2b). El enlace de acceso se entrega por **las dos vías**:
+> envío automático por correo desde la plataforma, con plantilla y marca del tenant, y copia
+> manual para que el usuario operativo lo haga llegar por su cuenta.
 
 ## Historia
 
@@ -143,10 +149,8 @@ Escenario: Crear una solicitud exige permiso
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-025` — bloqueante. Define si el expediente congela la versión de
-  configuración **al abrirse** o **al evaluarse**, y de ahí depende el escenario de "publicar una
-  versión nueva no altera un expediente ya abierto". `PA-031` — quién entrega el enlace a la
-  contraparte, que determina si crear la solicitud dispara un correo. **Queda en `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-025` **resuelta** → `ADR-0004` §2b. `PA-031` **resuelta**:
+  la plataforma envía el enlace por correo **y** permite copiarlo.
 - **Supuestos:** `SUP-002` (aislamiento, confirmado §31).
 - **Depende de:** `HU-004`, `HU-007` (matriz), `HU-009` (estado inicial), `HU-005`
   (afirmaciones), `HU-002`, `HU-006`.

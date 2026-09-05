@@ -4,10 +4,17 @@ titulo: Carga de los documentos exigidos
 estado: borrador
 epica: EP-001
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-013 — Carga de los documentos exigidos
+
+> **Actualización 2026-09-05 (`PA-030`, `PA-009`).** Formatos: **PDF, JPG/JPEG y PNG** como
+> núcleo, DOCX/XLSX según el caso. Tamaño: **20 MB por archivo** como valor inicial, configurable
+> por tenant y plan dentro del rango 15–25 MB, sujeto a pruebas de infraestructura. **Un mismo
+> tipo documental admite varios archivos.** Validaciones obligatorias: antivirus, MIME real (no
+> solo la extensión), hash, deduplicación y compresión opcional. La retención de los archivos
+> sigue la política del tenant (`ADR-0007`).
 
 ## Historia
 
@@ -155,9 +162,8 @@ Escenario: El archivo no es accesible sin autorización
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-030` — bloqueante para las validaciones: qué formatos se admiten,
-  qué tamaño máximo, y si un mismo tipo documental puede llegar repartido en varios archivos.
-  `PA-009` — retención de los archivos. **Queda en `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-030` **resuelta** → `RNF-023` a `RNF-025`. `PA-009`
+  **resuelta** → `ADR-0007`.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-007` (qué documentos se exigen), `HU-008`, `HU-010`, `HU-011`, `HU-005`,
   `HU-009`.

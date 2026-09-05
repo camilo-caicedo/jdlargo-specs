@@ -4,10 +4,17 @@ titulo: Tipos de contraparte y matriz de requisitos
 estado: borrador
 epica: EP-001
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-007 — Tipos de contraparte y matriz de requisitos
+
+> **Actualización 2026-09-05 (`PA-001`, `PA-017`, `PA-018`).** Modelo híbrido: **nosotros
+> entregamos plantillas base** por régimen y sector, y el cliente las ajusta. El primer
+> despliegue arranca con **dos estándares (SARLAFT y PTEE)** y siete tipos de contraparte:
+> conductor, propietario, poseedor, proveedor, cliente, empleado y accionista. **PTEE es un marco
+> complementario**, no un clon de SARLAFT: tiene requisitos propios y no debe modelarse igual.
+> El motor sigue siendo genérico; esto es carga inicial, no especificación. Ver `ADR-0004` §6.
 
 ## Historia
 
@@ -142,10 +149,8 @@ Escenario: Aislamiento entre organizaciones sobre la matriz
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-018` — cuántos estándares y tipos de contraparte hay que soportar
-  en el primer cliente. No cambia el modelo, sí el volumen de carga inicial y si la Fase 5
-  puede esperar. `PA-017` — quién configura en la práctica. `PA-001` — qué estándares existen.
-  **La historia queda en `borrador` mientras sigan abiertas.**
+- **Preguntas abiertas:** ninguna. `PA-017`, `PA-018` y `PA-001` **resueltas** → `ADR-0004` §6 y
+  `00-contexto/vision.md`.
 - **Supuestos:** `SUP-001` (alcance SARLAFT / SAGRILAFT / PTEE), `SUP-008` (la norma del sector
   transporte que cita el cliente no está verificada: se soporta como plantilla configurable,
   no como regla afirmada).

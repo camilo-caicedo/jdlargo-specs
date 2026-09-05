@@ -4,10 +4,23 @@ titulo: Cobro por pasarela
 estado: borrador
 epica: EP-007
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-049 — Cobro por pasarela
+
+> **Actualización 2026-09-05 (`PA-016`) — esta historia cambia de fondo.** El cliente descartó
+> el débito automático con tarjeta: **no se le pide a nadie registrar una tarjeta**. El flujo pasa
+> a ser `cierre de ciclo → factura DIAN → link de pago → conciliación`, con el medio que el
+> cliente elija: **PSE, tarjeta débito/crédito, Efecty o transferencia** a la cuenta bancaria del
+> negocio.
+>
+> Lo que **desaparece** de esta historia: tokenización de tarjetas, protocolo 3RI, 3DS para
+> *payment sources*, reintentos de cobro y *dunning* automático. Wompi sigue, pero en **pago único
+> por link**, que es su caso soportado sin reservas.
+>
+> Lo que **aparece**: conciliación de pagos que **no pasan por la pasarela** (transferencia y
+> Efecty), y por tanto un proceso de cobranza con intervención humana. Ver `ADR-0002` §2.
 
 ## Historia
 
@@ -20,19 +33,24 @@ dos veces.
 ## Contexto
 
 `ADR-0002` decidió **Wompi** por cobertura de métodos locales, por el respaldo comercial en ventas
-entre empresas y porque su plan de pasarela permite negociar tarifas. Y decidió un **patrón dual**,
-que no es una preferencia sino una lectura del mercado:
+entre empresas y porque su plan de pasarela permite negociar tarifas. El **patrón dual** que este
+documento traía —tarjeta tokenizada para clientes pequeños, factura para empresas— quedó
+**descartado** al cerrar `PA-016`.
 
-- **Personas y clientes pequeños:** tarjeta tokenizada, cobro automático al cierre de ciclo por
-  plan más excedente.
-- **Empresas:** factura al inicio del ciclo con el consumo del mes anterior y enlace de pago. Esto
-  además elimina el problema del monto variable, que es donde los motores de tarjeta se rompen.
+Un solo patrón para todos, sin distinguir tipo de cliente:
 
-Sobre todo ello pesa `PA-016`, **bloqueante**: la documentación de Wompi indica que el protocolo
-para transacciones automáticas está disponible solo para una marca de tarjetas, y los métodos de
-pago locales por transferencia no son tokenizables para cobro recurrente. Si el cobro desatendido
-no funciona con la marca mayoritaria, buena parte de los clientes pequeños no es cobrable de forma
-automática.
+1. Se cierra el ciclo y se calcula plan más excedente.
+2. Se emite la **factura electrónica DIAN** (`HU-050`).
+3. Se envía con un **link de pago**, y el cliente elige medio: **PSE, tarjeta débito/crédito,
+   Efecty o transferencia** a la cuenta bancaria del negocio.
+4. La plataforma **concilia el pago** contra la factura y libera el ciclo siguiente.
+
+El riesgo que pesaba sobre esta historia —que el cobro desatendido solo funcionara con una marca
+de tarjetas, dejando a buena parte de los clientes pequeños sin forma automática de cobro— **se
+resolvió eliminando la dependencia**, no llamando al proveedor.
+
+El costo que eso traslada: la cobranza pasa a tener intervención humana (recordatorios, mora, y
+conciliación de los pagos que no cruzan la pasarela: transferencia y Efecty).
 
 La capa de cobro vive **detrás de un puerto**, no acoplada al proveedor: el sistema de pagos
 inmediatos local cambiará la ecuación cuando habilite débitos automáticos.
@@ -40,20 +58,37 @@ inmediatos local cambiará la ecuación cuando habilite débitos automáticos.
 ## Criterios de aceptación
 
 ```gherkin
-Escenario: Cobro automático a un cliente pequeño
-  Dado una organización cliente con medio de pago tokenizado y un ciclo cerrado
-  Cuando se ejecuta el cobro
-  Entonces se cobra el importe del plan más el excedente del ciclo
-  Y el resultado queda registrado con su referencia del proveedor
-  Y el ciclo queda marcado como cobrado o como fallido, según el resultado
+Escenario: Al cerrar el ciclo se emite el cobro con su enlace de pago
+  Dado una organización cliente con un ciclo cerrado
+  Cuando se genera el cobro
+  Entonces el importe es el del plan más el excedente del ciclo
+  Y se emite un enlace de pago asociado a la factura del ciclo
+  Y el enlace ofrece los medios habilitados: PSE, tarjeta, efectivo y transferencia
+  Y el cobro queda en estado pendiente
 ```
 
 ```gherkin
-Escenario: Cobro a una empresa con enlace de pago
-  Dado una organización cliente configurada para pago por transferencia
-  Cuando cierra el ciclo
-  Entonces se emite el cobro con su enlace de pago
-  Y el pago se concilia cuando el proveedor lo confirma
+Escenario: Nadie tiene que registrar una tarjeta
+  Dado una organización cliente que nunca guardó un medio de pago
+  Cuando se le emite un cobro
+  Entonces el cobro se emite igual
+  Y en ningún momento se le exige registrar ni tokenizar una tarjeta
+```
+
+```gherkin
+Escenario: El pago por la pasarela se concilia solo
+  Dado un cobro pendiente con enlace de pago
+  Cuando el proveedor confirma el pago
+  Entonces el cobro queda como pagado con su referencia del proveedor
+  Y el ciclo siguiente queda liberado
+```
+
+```gherkin
+Escenario: El pago que no cruza la pasarela se concilia a mano y deja rastro
+  Dado un cobro pendiente que el cliente pagó por transferencia bancaria
+  Cuando una persona autorizada lo concilia contra el comprobante
+  Entonces el cobro queda como pagado con el medio "transferencia"
+  Y queda registrado quién lo concilió, cuándo y con qué comprobante
 ```
 
 ```gherkin
@@ -83,12 +118,11 @@ Escenario: Un cobro fallido no interrumpe el servicio por sí solo
 ```
 
 ```gherkin
-Escenario: El medio de pago se guarda sin guardar la tarjeta
-  Dado una organización cliente que registra su medio de pago
-  Cuando se tokeniza
-  Entonces se almacena únicamente la referencia del proveedor y los datos no sensibles de
-  presentación
-  Y ningún dato completo de tarjeta se guarda en la plataforma
+Escenario: La plataforma nunca ve los datos de la tarjeta
+  Dado un cliente que paga con tarjeta desde el enlace de pago
+  Cuando completa el pago en la pasarela
+  Entonces la plataforma almacena únicamente la referencia del proveedor y el resultado
+  Y ningún dato de tarjeta pasa por la plataforma ni queda almacenado en ella
 ```
 
 ```gherkin
@@ -108,11 +142,15 @@ Escenario: Aislamiento entre organizaciones sobre los cobros
 
 ## Reglas de negocio
 
-- Dos modos de cobro, según el tipo de cliente: **tarjeta tokenizada** con cobro automático, o
-  **factura más enlace de pago** (`ADR-0002`).
+- **Un solo modo de cobro: factura más enlace de pago** (`ADR-0002` §2). **No hay débito
+  automático ni tarjetas tokenizadas**: nadie registra un medio de pago para que se le cobre solo.
+- Medios habilitados en el enlace: **PSE, tarjeta débito/crédito, Efecty y transferencia** a la
+  cuenta bancaria del negocio. Los dos últimos pueden no cruzar la pasarela y **se concilian a
+  mano**, dejando registro de quién, cuándo y contra qué comprobante.
 - Todo aviso entrante del proveedor **se verifica** —firma— y se procesa con **clave de
   idempotencia**: un reenvío no cobra ni concilia dos veces.
-- La plataforma **no almacena datos completos de tarjeta**: solo la referencia del proveedor.
+- La plataforma **no almacena datos de tarjeta** en ninguna forma: solo la referencia del
+  proveedor y el resultado. El dato de tarjeta no pasa por ella.
 - Un cobro fallido deja el ciclo pendiente de pago y genera aviso. **La suspensión del servicio no
   es automática** mientras no exista una política definida por el cliente.
 - La capa de cobro vive detrás de un **puerto reemplazable**: el proveedor puede cambiar sin tocar
@@ -125,7 +163,9 @@ Escenario: Aislamiento entre organizaciones sobre los cobros
 
 - La emisión de la factura electrónica → `HU-050`.
 - El cálculo del importe → `HU-048`.
-- La gestión elaborada de impagos, reintentos escalonados y recuperación de cartera.
+- La gestión elaborada de impagos, reintentos escalonados y recuperación de cartera. Con cobro por
+  facturación esta parte es **operativa y humana**: recordatorios y seguimiento de mora, no
+  *dunning* automático.
 - El débito automático por llave del sistema de pagos inmediatos local: el puerto queda listo, la
   integración llega cuando el servicio lo habilite.
 - Pagos en moneda distinta del peso colombiano.
@@ -134,13 +174,15 @@ Escenario: Aislamiento entre organizaciones sobre los cobros
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `medio_pago.organization_id` | Sí | Organización cliente existente | No |
-| `medio_pago.referencia_proveedor` | Sí | Token del proveedor; **nunca datos completos de tarjeta** | Sí |
-| `medio_pago.modo` | Sí | `tarjeta_tokenizada` \| `enlace_de_pago` | No |
+| `cobro.organization_id` | Sí | Organización cliente existente | No |
 | `cobro.ciclo_id` | Sí | Ciclo cerrado (`HU-048`) | No |
+| `cobro.factura_id` | Sí | Factura emitida (`HU-050`) | No |
 | `cobro.importe` | Sí | Plan más excedente del ciclo | No |
-| `cobro.estado` | Sí | `pendiente` \| `pagado` \| `fallido` | No |
-| `cobro.referencia_proveedor` | Condicional | Obligatoria una vez enviado al proveedor | No |
+| `cobro.enlace_pago` | Sí | Vigente y ligado a la factura; expira y se puede reemitir | No |
+| `cobro.medio` | Condicional | `pse` \| `tarjeta` \| `efectivo` \| `transferencia`; obligatorio al conciliar | No |
+| `cobro.estado` | Sí | `pendiente` \| `pagado` \| `vencido` | No |
+| `cobro.referencia_proveedor` | Condicional | Obligatoria si el pago cruzó la pasarela | No |
+| `cobro.conciliado_por` | Condicional | Persona identificada; obligatoria si el pago **no** cruzó la pasarela | No |
 | `evento_pasarela.clave_idempotencia` | Sí | Única; impide procesar dos veces | No |
 | `evento_pasarela.firma_verificada` | Sí | Verdadero; un aviso sin firma válida se rechaza | No |
 
@@ -149,15 +191,14 @@ Escenario: Aislamiento entre organizaciones sobre los cobros
 - Épica: `EP-007`
 - Capacidad: `CAP-07`
 - Documento del cliente: §39
-- Decisiones: `ADR-0002` (Wompi, patrón dual, puerto de método de cobro),
+- Decisiones: `ADR-0002` §2 (factura más link de pago, sin débito automático; puerto de método de cobro),
   `08-desarrollo/arquitectura-de-aplicacion.md` (el aviso entrante se verifica, se guarda con
   clave de idempotencia y se delega)
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-016` — **bloqueante y previa a construir**: si el cobro desatendido
-  funciona con la marca de tarjeta mayoritaria o solo con una. Es una llamada al proveedor, no una
-  decisión de arquitectura. **No pasa de `borrador` hasta que se responda.** `PA-036` — precios.
+- **Preguntas abiertas:** **`PA-016` resuelta — y cambia esta historia de fondo.** No hay cobro
+  desatendido: se factura y se envía link de pago. `PA-043` — precios, pendiente.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-048` (hay un importe que cobrar), `HU-046`.
 - **Habilita a:** `HU-050`.

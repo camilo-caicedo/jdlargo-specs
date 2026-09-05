@@ -4,10 +4,15 @@ titulo: Registro de cada ejecución de IA
 estado: borrador
 epica: EP-002
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-018 — Registro de cada ejecución de IA
+
+> **Actualización 2026-09-05 (`PA-021`).** El registro debe incluir **a qué proveedor se envió**
+> y **qué clasificación tenían los datos enviados**, porque hay router de IA por tenant y la IA
+> puede estar desactivada para algunos. Es lo que permite responder "¿a dónde fueron estos
+> datos?" ante una consulta de habeas data. Ver `RNF-016` a `RNF-018`.
 
 ## Historia
 
@@ -143,9 +148,7 @@ Escenario: Aislamiento entre organizaciones sobre el registro de ejecuciones
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-021` — bloqueante: qué proveedores de IA acepta el cliente y bajo
-  qué contrato, dado que implica transferencia internacional de datos personales. **Queda en
-  `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-021` **resuelta**. Queda la derivada `PA-045`.
 - **Supuestos:** `SUP-004` (alojamiento en Estados Unidos, confirmado), `SUP-006`.
 - **Depende de:** `HU-006` (bitácora), `HU-002`.
 - **Habilita a:** `HU-017`, `HU-020`, y toda ejecución de IA de las fases siguientes.

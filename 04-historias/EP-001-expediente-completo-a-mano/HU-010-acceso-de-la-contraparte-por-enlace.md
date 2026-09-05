@@ -4,10 +4,17 @@ titulo: Acceso de la contraparte por enlace
 estado: borrador
 epica: EP-001
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-010 — Acceso de la contraparte por enlace
+
+> **Actualización 2026-09-05 (`PA-019`, `PA-028`, `PA-031`).** El segundo factor del MVP es
+> **correo + OTP por correo**; SMS y WhatsApp quedan como proveedor **opcional**, fuera del MVP,
+> lo que elimina un costo por mensaje que no estaba presupuestado. El enlace se entrega por correo
+> automático **y** por copia manual. Al expirar, el expediente pasa a `Expirado/Pendiente` y admite
+> renovación controlada: enlace nuevo, invalidación del anterior, progreso conservado y registro
+> en bitácora. Ver `ADR-0010`.
 
 ## Historia
 
@@ -148,10 +155,8 @@ Escenario: Límite de peticiones sobre la superficie expuesta
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-028` — bloqueante para el comportamiento al expirar: si el
-  expediente se cierra, si se emite un enlace nuevo solo, o si queda esperando al responsable
-  interno. `PA-031` — quién entrega el enlace. `PA-019` — si el segundo factor por mensaje de
-  texto es necesario o basta el correo. **Queda en `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-019` y `PA-020` **resueltas** → `ADR-0010`. `PA-028` y
+  `PA-031` **resueltas**. Queda la derivada `PA-041`, que no bloquea esta historia.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-008` (existe un expediente), `HU-009` (la entrada dispara una transición),
   `HU-002` (el aislamiento del que este es un segundo modo), `HU-006`.

@@ -4,10 +4,16 @@ titulo: Administrar tipos de contraparte y matriz de requisitos
 estado: borrador
 epica: EP-005
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-035 — Administrar tipos de contraparte y matriz de requisitos
+
+> **Actualización 2026-09-05 (`PA-017`).** Esta historia crece de alcance: el cliente configura,
+> pero **sobre plantillas base que entregamos nosotros** por régimen y sector. Hacen falta cuatro
+> piezas: **asistente de configuración**, **duplicar plantilla**, **versionar** y el **simulador**
+> de `HU-039`. Y la configuración inicial se presta como **servicio de implementación** para el
+> primer cliente — es vendible, no un costo oculto.
 
 ## Historia
 
@@ -140,8 +146,7 @@ Escenario: Aislamiento entre organizaciones sobre la matriz
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-017` (quién configura), `PA-018` (cuántos estándares y tipos).
-  **Queda en `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-017` y `PA-018` **resueltas** → `ADR-0004` §6.
 - **Supuestos:** `SUP-001`, `SUP-008` (la norma del sector transporte no está verificada: se
   soporta como configuración, no como regla afirmada).
 - **Depende de:** `HU-007`, `HU-034`, `HU-003`.

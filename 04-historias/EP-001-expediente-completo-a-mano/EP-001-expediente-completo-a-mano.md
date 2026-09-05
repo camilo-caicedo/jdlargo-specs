@@ -3,7 +3,7 @@ id: EP-001
 titulo: Un expediente completo, a mano
 estado: borrador
 capacidad: CAP-01
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # EP-001 — Un expediente completo, a mano
@@ -120,11 +120,13 @@ modelo de cumplimiento, la pantalla al final.
 
 - **Épicas:** `EP-000` entera. Ninguna historia de esta épica puede escribir una fila antes de
   que exista el aislamiento entre organizaciones, la bitácora y la estructura de afirmaciones.
-- **Preguntas abiertas:** `PA-018` (cuántos estándares y tipos de contraparte), `PA-025`
-  (cuándo congela el expediente su versión de configuración), `PA-028` (qué pasa si expira el
-  enlace), `PA-029` (si se puede decidir con requisitos pendientes), `PA-030` (formatos y
-  tamaño de documentos), `PA-031` (quién entrega el enlace a la contraparte), `PA-019` (si el
-  segundo factor por SMS es necesario).
+- **Preguntas abiertas:** **`PA-042`** — si el formulario se autodiligencia con lo extraído de
+  los documentos o la contraparte lo llena todo a mano. Cambia el orden del recorrido de esta
+  épica y conviene cerrarla antes de diseñar `HU-012`. Las demás están **resueltas**: `PA-018` →
+  dos estándares y siete tipos; `PA-025` → `ADR-0004` §2b; `PA-028` → estado `Expirado/Pendiente`
+  con renovación controlada; `PA-029` → decisión excepcional con motivo, salvo *hard stop*;
+  `PA-030` → `RNF-023` a `RNF-025`; `PA-031` → correo automático **y** copia manual del enlace;
+  `PA-019` → OTP por correo (`ADR-0010`).
 - **Supuestos:** `SUP-001`, `SUP-003` (contexto colombiano), `SUP-008` (las normas citadas por
   el cliente no están verificadas).
 - **Decisiones:** `ADR-0004` (formulario dinámico y matriz como datos), `ADR-0005`
@@ -133,7 +135,15 @@ modelo de cumplimiento, la pantalla al final.
 
 ## Riesgo abierto
 
-`PA-029` es la más incómoda de las seis: si el Oficial de Cumplimiento puede decidir con
-requisitos pendientes, la máquina de estados necesita un camino de excepción registrada; si no
-puede, necesita un bloqueo duro. Son dos diseños distintos de `HU-009` y `HU-015`, y elegir uno
-por omisión es exactamente el tipo de supuesto silencioso que este repositorio no admite.
+`PA-029` era la más incómoda de las seis y **ya tiene respuesta**: sí se puede decidir con
+requisitos pendientes, pero **nunca en silencio** — excepción con motivo obligatorio, usuario
+autorizado según la matriz y advertencia de lo que falta; y los requisitos marcados
+`obligatorio bloqueante` (*hard stop*) no admiten override de nadie.
+
+La consecuencia de diseño es que `HU-009` y `HU-015` necesitan **las dos cosas**: bloqueo duro
+por defecto **y** un camino de excepción registrada, elegido por la criticidad de cada requisito
+en la matriz. No es uno u otro, como se temía.
+
+El riesgo que queda es distinto y es de recorrido, no de estados: **`PA-042`**. Si el formulario
+se autodiligencia desde los documentos, la contraparte sube antes de escribir, y `HU-012` y
+`HU-013` cambian de orden. Conviene cerrarla antes de diseñar la Fase 1, no durante.

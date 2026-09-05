@@ -148,8 +148,16 @@ Decisiones que se derivan:
   queda registrado con fecha, hora, IP y dispositivo** (Fase 4).
 - El contexto de base de datos que se propaga (`ADR-0001`, sección de RLS) no es un usuario
   sino un expediente. Es un segundo modo del mismo mecanismo, no una excepción a él.
-- El OTP por SMS implica un proveedor y un costo por mensaje que hoy no está presupuestado
-  (`PA-019`). Por correo se resuelve con el proveedor de correo ya elegido.
+- **El segundo factor por defecto es el correo** (`PA-019`, resuelta): enlace firmado con
+  expiración, OTP por correo, límite de intentos y registro de eventos. Se resuelve con el
+  proveedor de correo ya elegido. SMS y WhatsApp quedan como proveedor **opcional**, activable
+  por política o por nivel de riesgo — no entran al MVP.
+- **El enlace se entrega por las dos vías** (`PA-031`): envío automático por correo desde la
+  plataforma, con plantillas y marca por organización cliente, y copia manual del enlace para
+  que el usuario operativo lo haga llegar por su cuenta.
+- **La expiración no cierra el expediente** (`PA-028`): pasa a `Expirado/Pendiente`, conserva
+  el progreso válido, admite reactivación con un enlace nuevo que invalida el anterior, y tras
+  un número configurable de intentos escala al responsable interno.
 - Toda la ruta del portal vive bajo un segmento propio del enrutador, con su propio
   middleware. Nunca comparte capa de acceso con la aplicación interna.
 
@@ -173,13 +181,19 @@ La Fase 19 exige niveles configurables por el cliente:
 |---|---|---|
 | 1 | Aceptación electrónica con evidencia | Propio: hash del documento, IP, fecha y hora, versión aceptada |
 | 2 | Firma reforzada con factor adicional | Propio: nivel 1 más OTP verificado |
-| 3 | Firma digital certificada | **Proveedor externo acreditado** (`PA-020`) |
+| 3 | Firma digital certificada | **Proveedor externo acreditado**, configurable por tenant (`ADR-0010`) |
 
 Los niveles 1 y 2 se construyen y comparten la misma estructura de evidencia. El nivel 3 es
-una integración con un tercero, con costo por firma, y **no entra en el primer MVP**.
+una integración con un tercero, con costo por firma, y **no entra en el primer MVP**:
+`ADR-0010` lo confirma al cerrar `PA-020`.
 
 La capa de firma se diseña detrás de un puerto único, para que el nivel 3 se enchufe después
 sin tocar el flujo del expediente.
+
+> Pendiente que no bloquea: Juan David está confirmando con un proveedor si puede emitir
+> certificados para que la contraparte firme desde la plataforma, y si el OTP por correo tiene
+> respaldo legal suficiente (`PA-041`). El nivel 1 debe pasar revisión jurídica antes de
+> producción — `SUP-011`.
 
 ## Dónde vive el motor de reglas
 
@@ -231,7 +245,12 @@ Consecuencias de diseño:
 - Se **minimiza** lo que se envía al modelo: el fragmento necesario, no el expediente entero.
 - Cada ejecución registra a qué proveedor se envió (§32), de modo que la pregunta "¿a dónde
   fueron estos datos?" tenga respuesta.
-- Queda como `PA-021` confirmar con el cliente qué proveedores acepta y bajo qué contrato.
+- **El proveedor lo definimos nosotros y se informa al cliente desde el contrato** (`PA-021`,
+  resuelta), pero el router es por organización cliente y la IA se puede **desactivar por
+  completo** para tenants sensibles (`RNF-016`).
+- Cuando sea viable se **pseudonimiza o se redactan** los campos sensibles antes de enviarlos.
+- La elección concreta de proveedor y su contrato/DPA quedan como `PA-045`: es una decisión
+  jurídica y contractual, no solo técnica.
 
 ## Cuándo dejaría de servir este modelo
 

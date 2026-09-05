@@ -4,10 +4,17 @@ titulo: Decisión del Oficial de Cumplimiento
 estado: borrador
 epica: EP-001
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-015 — Decisión del Oficial de Cumplimiento
+
+> **Actualización 2026-09-05 (`PA-029`).** El Oficial de Cumplimiento **sí puede decidir con
+> requisitos pendientes**, con tres condiciones que la historia tiene que exigir: motivo
+> obligatorio, usuario autorizado según la matriz de permisos, y advertencia explícita de lo que
+> queda pendiente. **Salvo en los requisitos marcados `obligatorio bloqueante` (*hard stop*), que
+> no admiten override de nadie.** Por defecto el sistema bloquea; la excepción es explícita,
+> configurable y queda registrada como tal.
 
 ## Historia
 
@@ -163,10 +170,7 @@ Escenario: Cerrar el expediente
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-029` — bloqueante. Si el Oficial de Cumplimiento puede decidir con
-  requisitos pendientes, hace falta registrar esa excepción como parte de la decisión; si no
-  puede, hace falta impedirlo en la transición. `PA-031` — si la decisión se notifica y a quién.
-  **No pasa de `borrador` hasta que se responda `PA-029`.**
+- **Preguntas abiertas:** ninguna. `PA-029` y `PA-031` **resueltas**.
 - **Supuestos:** `SUP-006`, `SUP-007` (el posicionamiento es automatizar y trazar la debida
   diligencia, no responder por el cumplimiento).
 - **Depende de:** `HU-014` (el expediente está revisado), `HU-009`, `HU-003`, `HU-006`.

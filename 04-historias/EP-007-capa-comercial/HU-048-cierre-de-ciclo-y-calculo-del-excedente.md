@@ -4,7 +4,7 @@ titulo: Cierre de ciclo y cálculo del excedente
 estado: borrador
 epica: EP-007
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-048 — Cierre de ciclo y cálculo del excedente
@@ -139,8 +139,7 @@ Escenario: Aislamiento entre organizaciones sobre los ciclos
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-036` (cupos y precios), `PA-037` (si se permite excedente o se
-  bloquea, que determina si esta historia tiene algo que calcular). **Queda en `borrador`.**
+- **Preguntas abiertas:** **`PA-043`** — precios. `PA-036` y `PA-037` **resueltas**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-046` (planes), `HU-047` (eventos de consumo).
 - **Habilita a:** `HU-049`, `HU-050`, y el seguimiento real del margen por cliente.

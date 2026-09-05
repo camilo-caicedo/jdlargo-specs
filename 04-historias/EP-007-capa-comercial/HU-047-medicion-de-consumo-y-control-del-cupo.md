@@ -4,10 +4,17 @@ titulo: Medición de consumo y control del cupo
 estado: borrador
 epica: EP-007
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-047 — Medición de consumo y control del cupo
+
+> **Actualización 2026-09-05 (`PA-037`).** Al agotarse el cupo el comportamiento **depende del
+> plan**: en Starter, bloqueo con propuesta de *upgrade* o *top-up*; en Professional y Enterprise,
+> **excedente facturable** con período de gracia, siempre declarado en el contrato y visible en la
+> plataforma **antes** de generarse. Alertas obligatorias al **80 %, 90 % y 100 %**. Y una regla
+> que manda sobre todas: **nunca se corta un control crítico de cumplimiento por un límite
+> silencioso** — un monitoreo en curso se avisa y se escala, no se interrumpe.
 
 ## Historia
 
@@ -152,8 +159,8 @@ Escenario: Aislamiento entre organizaciones sobre el consumo
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-037` — bloqueante: qué ocurre al agotar el cupo. `PA-036` — cuáles
-  son los cupos. **Queda en `borrador`.**
+- **Preguntas abiertas:** **`PA-043`** — los umbrales concretos de cada plan. `PA-037` y
+  `PA-036` **resueltas** → `ADR-0002` §2b.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-023` (fuentes con costo), `HU-024` y `HU-025` (donde se consume), `HU-046`
   (planes).

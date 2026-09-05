@@ -4,10 +4,18 @@ titulo: Catálogo de fuentes externas
 estado: borrador
 epica: EP-003
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-023 — Catálogo de fuentes externas
+
+> **Actualización 2026-09-05 (`PA-005`, `PA-012`).** El catálogo inicial ya está definido:
+> antecedentes penales (Policía), disciplinarios (Procuraduría), fiscales (Contraloría), ONU
+> Res. 1267, OFAC-SDN, GAFI/FATF, listas UIAF y RUNT/SIMIT. ONU y OFAC entran consolidadas por
+> OpenSanctions. **La conexión directa con cada entidad es la vía preferida**; el proveedor
+> intermediario es el plan B. De cada fuente hay que guardar `fuente · proveedor · fecha y hora ·
+> versión o corte · request/response o evidencia · resultado · costo` — el costo incluso cuando la
+> consulta sea gratuita.
 
 ## Historia
 
@@ -145,8 +153,9 @@ Escenario: Aislamiento entre organizaciones sobre el catálogo
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-005` — bloqueante: qué fuentes se consultan y con qué proveedor.
-  `PA-012` — cuánto cobra por consulta un proveedor local colombiano. **Queda en `borrador`.**
+- **Preguntas abiertas:** **`PA-040`** — vía de conexión (directa o por proveedor) y costo real
+  por consulta. `PA-005` y `PA-012` **resueltas**: el catálogo y la cifra de referencia están en
+  `07-integraciones/README.md`, pero la cifra es provisional (`SUP-009`, `SUP-010`).
 - **Supuestos:** `SUP-003` (contexto colombiano).
 - **Depende de:** `HU-004` (versiones de configuración), `HU-002`.
 - **Habilita a:** `HU-024`, `HU-025`, y la medición de consumo de la Fase C.

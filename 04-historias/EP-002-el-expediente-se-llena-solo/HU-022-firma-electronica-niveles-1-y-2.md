@@ -4,10 +4,17 @@ titulo: Firma electrónica de niveles 1 y 2
 estado: borrador
 epica: EP-002
 prioridad: Should
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-022 — Firma electrónica de niveles 1 y 2
+
+> **Actualización 2026-09-05 (`PA-019`, `PA-020`).** `ADR-0010` confirma el alcance de esta
+> historia: **niveles 1 y 2 en el MVP, nivel 3 (firma digital certificada) como módulo opcional
+> posterior**, detrás de un adaptador con proveedor configurable por tenant. El segundo factor es
+> **OTP por correo**; SMS queda opcional. La Ley 527 `(por validar)` distingue mensaje de datos,
+> firma electrónica y firma digital: la matriz de requisitos puede exigir uno u otro nivel por
+> tipo de contraparte y por documento, y el producto no impone una modalidad única.
 
 ## Historia
 
@@ -155,10 +162,14 @@ Escenario: Aislamiento entre organizaciones sobre las firmas
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-019` (segundo factor por mensaje de texto), `PA-020` (proveedor de
-  firma certificada y desde qué fase). **Queda en `borrador`.**
-- **Supuestos:** `SUP-008` (las referencias normativas no están verificadas; la plataforma no
-  afirma suficiencia jurídica de ningún nivel).
+- **Preguntas abiertas:** ninguna bloqueante. `PA-019` y `PA-020` **resueltas** → `ADR-0010`.
+  Queda la derivada **`PA-041`**: Juan David está confirmando con un proveedor si puede emitir
+  certificados para que la contraparte firme desde la plataforma, y si el OTP por correo tiene
+  respaldo legal suficiente. No bloquea esta historia, que cubre los niveles 1 y 2.
+- **Supuestos:** `SUP-011` — la aceptación electrónica con OTP por correo tiene valor probatorio
+  suficiente para el MVP; **pendiente de revisión jurídica antes de producción**. `SUP-008` — las
+  referencias normativas no están verificadas; la plataforma no afirma suficiencia jurídica de
+  ningún nivel.
 - **Depende de:** `HU-010` (la contraparte entra), `HU-019` (revisa lo conciliado), `HU-005`,
   `HU-009`.
 - **Habilita a:** la decisión (`HU-015`) sobre un expediente firmado, que es como la §17 lo

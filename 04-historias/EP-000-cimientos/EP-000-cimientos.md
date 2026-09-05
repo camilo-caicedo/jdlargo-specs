@@ -3,7 +3,7 @@ id: EP-000
 titulo: Cimientos
 estado: borrador
 capacidad: CAP-00
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # EP-000 — Cimientos
@@ -51,7 +51,7 @@ tarde deja un tramo del historial sin explicación.
 |---|---|---|
 | Sujetos: Persona, Organización, Relación | Fase 1 | Sin expediente no hay a quién describir |
 | Solicitud, expediente y su máquina de estados (§38) | Fase 1 | El expediente se estrena en la Fase 1; modelarlo antes es especular |
-| Conciliación y cálculo del valor vigente entre afirmaciones | Fase 2 | En Fase 0 solo existe el origen `declarado`: no hay contradicción posible todavía. `HU-005` deja la estructura, la precedencia queda en `PA-027` |
+| Conciliación y cálculo del valor vigente entre afirmaciones | Fase 2 | En Fase 0 solo existe el origen `declarado`: no hay contradicción posible todavía. `HU-005` deja la estructura, la precedencia está resuelta en `ADR-0005` §2 |
 | Portal de la contraparte y su acceso por enlace | Fase 1 | Segunda superficie, con reglas propias. Se estrena con el expediente que la acota |
 | Interfaz de administración de la configuración | Fase 5 | Decisión explícita del roadmap: hasta ahí la configuración se carga a mano |
 | Registro de ejecución de IA (§32) | Fase 2 | `HU-006` deja previstos los campos en la bitácora; el módulo no se construye |
@@ -100,18 +100,21 @@ tramo ciego.
 
 ## Dependencias
 
-- **Preguntas abiertas:** `PA-009` (retención y trazabilidad), `PA-017` y `PA-018` (quién
-  configura y cuánto), `PA-024` (alcance de la configuración de roles), `PA-025` (efecto de
-  publicar una versión sobre lo que está en curso), `PA-026` (nivel de inmutabilidad exigido a
-  la bitácora), `PA-027` (precedencia entre afirmaciones).
-- **Supuestos:** `SUP-002` (multiempresa, confirmado §31), `SUP-005` (todo es una organización).
+- **Preguntas abiertas:** ninguna. Las siete están **resueltas** (2026-09-05): `PA-009` y
+  `PA-026` → `ADR-0007` (*append-only* + hash por evento, retención configurable); `PA-017` y
+  `PA-018` → `ADR-0004` §6 (plantillas base, dos estándares en el primer despliegue); `PA-024` →
+  roles base como plantillas más roles propios por permisos granulares; `PA-025` → `ADR-0004` §2b
+  (congela al abrir y al evaluar); `PA-027` → `ADR-0005` §2 (escala de precedencia configurable).
+  **La Fase 0 puede arrancar sin esperar nada.**
+- **Supuestos:** `SUP-002` (multiempresa, confirmado §31).
 - **Decisiones:** `ADR-0001` (RLS, Postgres, Drizzle), `ADR-0004` (configuración versionada),
   `ADR-0005` (procedencia).
 - **Otras épicas:** ninguna. `EP-000` no depende de nadie; todas las demás dependen de ella.
 
 ## Riesgo abierto
 
-`PA-025` y `PA-026` son de alto impacto y afectan al modelo de datos, no a la interfaz. Se
+~~`PA-025` y `PA-026` son de alto impacto~~ — **ambas resueltas.** Lo que sigue siendo cierto es
+por qué urgían: afectan al modelo de datos, no a la interfaz. Se
 pueden empezar `HU-001`, `HU-002`, `HU-003` y `HU-005` sin ellas, pero **`HU-004` y `HU-006`
 no deberían pasar de `borrador`** hasta tener respuesta: elegir mal ahí se paga rehaciendo la
 tabla y todo lo que ya escribió en ella.

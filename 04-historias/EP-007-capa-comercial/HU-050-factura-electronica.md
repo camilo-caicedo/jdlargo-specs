@@ -4,7 +4,7 @@ titulo: Factura electrónica
 estado: borrador
 epica: EP-007
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-050 — Factura electrónica
@@ -147,8 +147,8 @@ Escenario: Aislamiento entre organizaciones sobre las facturas
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-036` (precios e importes), `PA-038` (si el alta es por autoservicio,
-  los datos de facturación hay que pedirlos en el registro). **Queda en `borrador`.**
+- **Preguntas abiertas:** **`PA-043`** — precios. `PA-036` y `PA-038` **resueltas**: el alta es
+  manual al principio, así que la factura del primer cliente se emite sobre un alta asistida.
 - **Supuestos:** `SUP-008` (las referencias normativas del proyecto no están verificadas; aquí
   además hay un pendiente explícito de asesoría contable).
 - **Depende de:** `HU-048` (ciclo cerrado), `HU-049` (el cobro que la acompaña).

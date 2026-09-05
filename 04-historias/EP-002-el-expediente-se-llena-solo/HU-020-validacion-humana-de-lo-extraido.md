@@ -4,10 +4,16 @@ titulo: Validación humana de lo extraído
 estado: borrador
 epica: EP-002
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-020 — Validación humana de lo extraído
+
+> **Actualización 2026-09-05 (`PA-032`).** El cliente fue explícito: el sistema puede preguntar
+> y ofrecer el valor extraído para que el usuario lo modifique, pero **la decisión es
+> completamente humana**. El camino para reducir errores es dar mejor contexto al modelo, no bajar
+> el listón de la revisión. El umbral de confianza ordena la cola de trabajo; no autoriza a nadie
+> a saltarse la validación de un dato crítico.
 
 ## Historia
 
@@ -132,8 +138,7 @@ Escenario: Aislamiento entre organizaciones sobre la validación
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-032` — bloqueante: qué umbral obliga a validación. **Queda en
-  `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-032` **resuelta** → `ADR-0005` §4b.
 - **Supuestos:** `SUP-006` (la IA propone; la persona firma).
 - **Depende de:** `HU-017`, `HU-018`, `HU-005`, `HU-003`.
 - **Habilita a:** `HU-019` (una discrepancia entre datos ya validados es más informativa), y la

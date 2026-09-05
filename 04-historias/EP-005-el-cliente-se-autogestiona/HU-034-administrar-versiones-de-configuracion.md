@@ -4,10 +4,16 @@ titulo: Administrar versiones de configuración
 estado: borrador
 epica: EP-005
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-034 — Administrar versiones de configuración
+
+> **Actualización 2026-09-05 (`PA-025`).** Publicar una versión nueva **no migra** los
+> expedientes en curso: cada uno sigue con la versión que congeló al abrirse. Lo que sí puede
+> hacer la publicación es **marcarlos para revalidación**. La migración explícita existe como
+> operación aparte y **solo se ejecuta si el cliente la autoriza**, con su registro en bitácora.
+> Un expediente cerrado nunca se toca.
 
 ## Historia
 
@@ -139,9 +145,7 @@ Escenario: Aislamiento entre organizaciones sobre la administración
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-017` — quién configura en la práctica; define si esta historia es
-  central o marginal. `PA-025` — qué pasa con los expedientes en curso al publicar. **Queda en
-  `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-017` y `PA-025` **resueltas** → `ADR-0004` §2b y §6.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-004`, `HU-003`.
 - **Habilita a:** el resto de `EP-005`.

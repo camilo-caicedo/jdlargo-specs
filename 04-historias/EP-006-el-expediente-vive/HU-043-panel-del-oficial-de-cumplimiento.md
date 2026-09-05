@@ -4,10 +4,18 @@ titulo: Panel del Oficial de Cumplimiento
 estado: borrador
 epica: EP-006
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-043 — Panel del Oficial de Cumplimiento
+
+> **Actualización 2026-09-05 (`PA-039`).** Indicadores del panel inicial, en palabras del
+> cliente: expedientes pendientes, tiempo promedio, % de completos, alertas por tipo, *aging*,
+> DDI, riesgo, vencimientos, re-screenings, excepciones, falsos positivos y productividad. Se
+> definen **KPI estándar más KPI configurables**, con **SLA por etapa**, semáforos, filtros y
+> exportación. Las dos medidas que importan de verdad: **tiempo desde la solicitud hasta la
+> decisión** y **tiempo desde la alerta hasta su resolución**. El panel debe medir la reducción de
+> carga administrativa, no la cantidad de consultas.
 
 ## Historia
 
@@ -151,9 +159,7 @@ No introduce entidades nuevas: es una vista sobre lo existente.
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-039` — bloqueante: qué indicadores y qué tiempos de respuesta quiere
-  ver el Oficial de Cumplimiento. La §22 da categorías, no métricas. **No pasa de `borrador` hasta
-  que se responda.**
+- **Preguntas abiertas:** ninguna. `PA-039` **resuelta**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** prácticamente todas las épicas anteriores. Es una vista sobre lo que ellas
   producen.

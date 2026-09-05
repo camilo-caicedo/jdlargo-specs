@@ -3,7 +3,7 @@ id: EP-007
 titulo: Capa comercial
 estado: borrador
 capacidad: CAP-07
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # EP-007 — Capa comercial
@@ -24,8 +24,11 @@ puede ir después de la Fase 4; si se abre registro público antes, hay que adel
 1. **El motor de medición y facturación es propio.** Ningún proveedor de pagos colombiano tiene
    motor de medición de consumo con cupo incluido y excedente. Se construye sobre las tablas que el
    proyecto ya necesita para auditoría.
-2. **El cobro va por Wompi**, con patrón dual: tarjeta tokenizada para clientes pequeños, factura
-   más enlace de pago para empresas.
+2. **El cobro va por Wompi, por facturación con enlace de pago** (PSE, tarjeta, Efecty o
+   transferencia), para todo cliente por igual. `PA-016` cerró a favor de esta única vía: se
+   descartó la tarjeta tokenizada con débito automático que este documento traía como patrón
+   dual, porque obligaba a registrar tarjeta y el cobro desatendido de Wompi solo está
+   documentado para Mastercard.
 3. **La factura electrónica es obligatoria** y va por interfaz de programación, con Alegra en el
    piloto.
 
@@ -40,14 +43,14 @@ en SaaS, en el mercado que peor lo soporta"*.
 - Planes, licencias y cupo de consultas (`HU-046`).
 - Medición de consumo y control del cupo antes de gastar (`HU-047`).
 - Cierre de ciclo y cálculo del excedente (`HU-048`).
-- Cobro por pasarela, con patrón dual (`HU-049`).
+- Cobro por pasarela, vía única de factura más enlace de pago (`HU-049`).
 - Factura electrónica (`HU-050`).
 
 **No incluye —y por qué:**
 
 | Fuera de alcance | Dónde va | Razón |
 |---|---|---|
-| Registro público de clientes nuevos por autoservicio | Depende de `PA-038` | Si el alta es siempre manual, no hace falta |
+| Registro público de clientes nuevos por autoservicio | **Fuera del MVP** (`PA-038`) | El alta es manual al principio; el autoservicio con KYB llega después, para planes bajos |
 | Motor de suscripciones de terceros | — | `ADR-0002` lo descarta: ninguno cubre cupo más excedente en Colombia |
 | Pagos con débito automático por llave del sistema local de pagos inmediatos | Cuando exista | `ADR-0002` deja el puerto listo; hoy no está habilitado |
 | Prorrateo, periodos de prueba y gestión de impagos elaborada | Fase posterior | El piloto no lo necesita |
@@ -82,26 +85,32 @@ en SaaS, en el mercado que peor lo soporta"*.
 | `HU-050` | Factura electrónica | Must | borrador |
 
 Orden sugerido: el de la lista. La medición va antes que el cobro porque sin ella no hay qué
-cobrar, y porque es también el instrumento que responde `PA-011` y `PA-014` con datos reales.
+cobrar, y porque es también el instrumento que permitirá fijar los precios de `PA-043` con datos
+reales de consumo.
 
 ## Dependencias
 
 - **Épicas:** `EP-000` (aislamiento y bitácora) y `EP-003` (es donde se genera el consumo).
-- **Preguntas abiertas:** `PA-016` (**bloqueante**: si Wompi permite cobro desatendido con Visa o
-  solo con Mastercard), `PA-036` (planes, precios y cupos), `PA-037` (qué pasa al agotar el cupo),
-  `PA-038` (alta por autoservicio o manual), `PA-014` (cuántas contrapartes por cliente),
-  `PA-012` (costo de los proveedores), `PA-035` (cuánto consume el monitoreo).
+- **Preguntas abiertas:** **`PA-043`** (precios y cupos concretos de cada plan) y **`PA-040`**
+  (costo real por consulta, del que depende `PA-043`). Resueltas: `PA-016` → **no hay débito
+  automático**, se factura y se envía link de pago (`ADR-0002` §2); `PA-015` y `PA-036` → modelo
+  híbrido de suscripción + créditos + módulos; `PA-037` → excedente facturable en
+  Professional/Enterprise, bloqueo con *upgrade* en Starter, alertas al 80/90/100 %; `PA-038` →
+  alta manual al principio, **el MVP no necesita registro público**; `PA-014` → `RNF-019`;
+  `PA-035` → `ADR-0009`.
 - **Decisiones:** `ADR-0002` entera.
 
 ## Riesgo abierto
 
-**`PA-016` es bloqueante y es una llamada de teléfono, no una decisión de arquitectura.** Si el
-cobro desatendido solo funciona con Mastercard, una parte grande de los clientes pequeños no es
-cobrable de forma automática, y el patrón dual de `ADR-0002` deja de ser una preferencia para
-convertirse en la única vía.
+~~**`PA-016` es bloqueante**~~ — **resuelta, y desactivada por la vía más limpia**: el cliente
+descartó el débito automático con tarjeta, así que la pregunta dejó de importar. El análisis
+original se conserva porque explica qué se evitó: el cobro desatendido de Wompi solo está
+documentado para Mastercard, así que una parte grande de los clientes pequeños no habría sido
+cobrable de forma automática. En vez de mantener el patrón dual como respaldo para ese caso, el
+cliente lo descartó entero — factura más enlace de pago es la única vía, para todos.
 
-El segundo riesgo es que el margen **no se puede calcular todavía**: depende de `PA-012` (cuánto
-cuesta cada consulta), `PA-014` (cuántas contrapartes tiene un cliente) y `PA-035` (con qué
+El segundo riesgo es que el margen **sigue sin poderse calcular**: `PA-014` y `PA-035` ya están
+respondidas, pero falta `PA-040` (cuánto
 frecuencia se re-consultan). Fijar precios de plan antes de tener esos tres números es fijarlos a
 ciegas.
 

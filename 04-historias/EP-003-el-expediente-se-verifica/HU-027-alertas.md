@@ -4,7 +4,7 @@ titulo: Alertas
 estado: borrador
 epica: EP-003
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-027 — Alertas
@@ -137,8 +137,7 @@ Escenario: Aislamiento entre organizaciones sobre las alertas
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-031` — si las alertas se notifican y a quién. No bloquea el modelo.
-  Queda en `borrador` por arrastre de las historias de las que depende.
+- **Preguntas abiertas:** ninguna. `PA-031` **resuelta**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-026` (coincidencias), `HU-019` (discrepancias), `HU-021` (vencimientos),
   `HU-006`.

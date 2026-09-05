@@ -4,10 +4,21 @@ titulo: Máquina de estados del expediente
 estado: borrador
 epica: EP-001
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-009 — Máquina de estados del expediente
+
+> **Actualización 2026-09-05 (`PA-028`, `PA-029`).** Dos estados y una regla que la máquina
+> tiene que reflejar:
+>
+> - **La expiración del enlace no cierra el expediente.** Pasa a **`Expirado/Pendiente`**,
+>   conserva el progreso válido y admite reactivación con un enlace nuevo que invalida el
+>   anterior. Tras un número configurable de intentos, escala al responsable interno.
+> - **Se puede decidir con requisitos pendientes, pero nunca en silencio**: es una *decisión
+>   excepcional* con motivo obligatorio, usuario autorizado según la matriz y advertencia de lo
+>   que falta. Cada requisito lleva su criticidad: `obligatorio bloqueante` (*hard stop*, sin
+>   override posible), `obligatorio con excepción` o `recomendado`.
 
 ## Historia
 
@@ -150,11 +161,7 @@ Escenario: Aislamiento entre organizaciones sobre estados y transiciones
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-029` — bloqueante. Si el Oficial de Cumplimiento puede decidir con
-  requisitos pendientes, hace falta una transición de excepción registrada hacia "pendiente de
-  decisión"; si no puede, hace falta un bloqueo duro. Son dos máquinas distintas. **No pasa de
-  `borrador` hasta que se responda.** `PA-028` — qué transición corresponde cuando el enlace
-  expira sin completarse.
+- **Preguntas abiertas:** ninguna. `PA-029` y `PA-028` **resueltas**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-003` (permisos por transición), `HU-006` (bitácora), `HU-002`.
 - **Habilita a:** todo el recorrido de la épica. Ninguna historia posterior mueve un expediente

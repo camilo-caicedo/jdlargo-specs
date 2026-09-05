@@ -4,10 +4,17 @@ titulo: Registro de afirmaciones con procedencia
 estado: borrador
 epica: EP-000
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-005 — Registro de afirmaciones con procedencia
+
+> **Actualización 2026-09-05 (`PA-027`).** No hay precedencia universal. La escala por defecto
+> es `verificado por fuente independiente › documental validado › declarado › extraído por IA sin
+> validar`, y es **configurable por organización cliente**. Dos reglas que no se negocian: frente
+> a la IA **manda lo declarado**, y la precedencia **nunca borra el origen** ni las afirmaciones
+> desplazadas. Cada afirmación se persiste como `campo = valor + fuente + fecha + confianza +
+> estado`. Ver `ADR-0005` §2.
 
 ## Historia
 
@@ -161,10 +168,7 @@ Escenario: Aislamiento entre organizaciones sobre las afirmaciones
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-027` — no bloquea esta historia, porque la precedencia se calcula
-  en la Fase 2 y aquí no se calcula nada. Sí queda anotada: si la respuesta obligara a guardar
-  la precedencia como atributo de la afirmación en vez de como regla de configuración, cambiaría
-  el modelo. La historia queda en `borrador` mientras siga abierta.
+- **Preguntas abiertas:** ninguna. `PA-027` **resuelta** → `ADR-0005` §2.
 - **Supuestos:** `SUP-006` (la IA propone y justifica; la decisión la firma una persona).
 - **Depende de:** `HU-002` (aislamiento), `HU-004` (versión de configuración que se cita),
   `HU-006` (bitácora).

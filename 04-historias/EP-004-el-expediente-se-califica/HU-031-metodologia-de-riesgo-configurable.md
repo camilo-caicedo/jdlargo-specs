@@ -4,10 +4,17 @@ titulo: Metodología de riesgo configurable
 estado: borrador
 epica: EP-004
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-031 — Metodología de riesgo configurable
+
+> **Actualización 2026-09-05 (`PA-006`, `PA-017`).** El producto **trae una metodología base de
+> referencia** conforme a los estándares, y cada cliente la parametriza según su política:
+> factores, ponderaciones, umbrales, reglas de escalamiento, excepciones y override autorizado.
+> Se guardan riesgo **inherente**, controles, **residual** y decisión final cuando aplique. La
+> norma exige enfoque basado en riesgo: el sistema **apoya** esa metodología, no impone una
+> universal.
 
 ## Historia
 
@@ -144,9 +151,7 @@ Escenario: Aislamiento entre organizaciones sobre la metodología
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-017` (quién configura en la práctica) y `PA-018` (cuántos
-  estándares y tipos), que determinan si esto es viable sin la interfaz de la Fase 5. **Queda en
-  `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-006`, `PA-017` y `PA-018` **resueltas**.
 - **Supuestos:** `SUP-001`.
 - **Depende de:** `HU-004` (versiones), `HU-003` (permiso de modificar la metodología).
 - **Habilita a:** `HU-032`, `HU-033`, y la periodicidad de la Fase 6.

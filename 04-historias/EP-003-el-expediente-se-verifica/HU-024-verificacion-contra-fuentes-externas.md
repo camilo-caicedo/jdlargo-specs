@@ -4,10 +4,16 @@ titulo: Verificación de datos contra fuentes externas
 estado: borrador
 epica: EP-003
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-024 — Verificación de datos contra fuentes externas
+
+> **Actualización 2026-09-05 (`PA-005`).** El catálogo de fuentes está cerrado (ver `HU-023`).
+> Lo que falta para construir es **cómo** se conecta cada una: el cliente prefiere conexión
+> directa con la entidad, sin intermediario, y eso está por establecer fuente por fuente
+> (`PA-040`). La evidencia de cada consulta se guarda como **snapshot del resultado, nunca un
+> enlace**.
 
 ## Historia
 
@@ -141,8 +147,8 @@ Escenario: Aislamiento entre organizaciones sobre las verificaciones
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-005` (qué fuentes), `PA-012` (costo del proveedor local).
-  **Queda en `borrador`.**
+- **Preguntas abiertas:** **`PA-040`** — vía de conexión y costo real. `PA-005` y `PA-012`
+  **resueltas**.
 - **Supuestos:** `SUP-003`.
 - **Depende de:** `HU-023` (catálogo), `HU-012` (hay algo declarado que verificar), `HU-005`,
   `HU-019` (las diferencias abren discrepancia).

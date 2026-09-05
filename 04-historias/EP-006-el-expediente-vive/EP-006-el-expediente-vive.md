@@ -3,7 +3,7 @@ id: EP-006
 titulo: El expediente vive
 estado: borrador
 capacidad: CAP-06
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # EP-006 — El expediente vive
@@ -89,9 +89,11 @@ infraestructura de tareas.
 
 - **Épicas:** `EP-000` a `EP-004`. `EP-005` no es requisito, aunque hace más útil la
   configuración de periodicidad.
-- **Preguntas abiertas:** `PA-035` (periodicidad y disparadores del re-screening: es el número
-  que decide el costo), `PA-039` (qué indicadores quiere el Oficial en su panel), `PA-009`
-  (retención), `PA-014` (cuántas contrapartes por cliente), `PA-031` (notificaciones).
+- **Preguntas abiertas:** **`PA-040`** — el costo real por consulta, del que depende la
+  viabilidad de cada nivel de servicio de monitoreo. Resueltas: `PA-035` y `PA-011` → `ADR-0009`
+  (tres disparadores: periodicidad por riesgo, evento en la fuente y aviso al usuario); `PA-039` →
+  KPI estándar más configurables con SLA por etapa; `PA-009` → `ADR-0007`; `PA-014` → `RNF-019`;
+  `PA-031` → correo automático y copia manual.
 - **Decisiones:** `ADR-0001` y `08-desarrollo/arquitectura-de-aplicacion.md` (trabajos
   programados dentro de Postgres), `ADR-0005` (un cambio detectado es una afirmación nueva que
   contradice a otra).
@@ -100,6 +102,6 @@ infraestructura de tareas.
 
 **Esta es la épica que puede arruinar el margen.** El monitoreo continuo multiplica las consultas
 externas por el número de contrapartes vinculadas y por la frecuencia de revisión, y la §31
-impide compartir esas consultas entre clientes del SaaS. Con `PA-035` y `PA-014` abiertas, el
+impide compartir esas consultas entre clientes del SaaS. Mientras `PA-040` siga abierta, el
 costo mensual recurrente por cliente no se puede estimar, y es exactamente el número que decide si
 los planes de `EP-007` tienen margen o lo pierden.

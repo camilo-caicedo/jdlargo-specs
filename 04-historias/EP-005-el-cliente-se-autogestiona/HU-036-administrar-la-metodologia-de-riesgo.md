@@ -4,7 +4,7 @@ titulo: Administrar la metodología de riesgo
 estado: borrador
 epica: EP-005
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-036 — Administrar la metodología de riesgo
@@ -137,8 +137,7 @@ Escenario: Los expedientes ya evaluados no cambian
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-017`, `PA-034` (si la clasificación exige segunda aprobación, la
-  metodología debe poder configurarlo). **Queda en `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-017`, `PA-006` y `PA-034` **resueltas**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-031`, `HU-034`, `HU-003`.
 - **Habilita a:** que el cliente responda de verdad por su metodología, que es lo que la §40 le

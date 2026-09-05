@@ -4,10 +4,19 @@ titulo: Comparación de nombres e identificadores
 estado: borrador
 epica: EP-003
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-026 — Comparación de nombres e identificadores
+
+> **Actualización 2026-09-05 (`PA-033`).** **No existe un "85 % = positivo".** El matching es
+> multicriterio —nombre, identificador, alias, fecha de nacimiento, país, transliteración— con
+> **tres zonas**: descarte, candidato (desde ~85 % de similitud de nombre, como referencia
+> inicial) y confirmada. **El sistema nunca pasa por sí solo de `posible` a `confirmada`**: la
+> confirmación es siempre humana. Los umbrales se configuran **por fuente**, porque la calidad del
+> dato no es la misma en OFAC que en un listado local sin identificadores. Los falsos positivos
+> alimentan una lista de exclusión por tenant que **jamás altera retroactivamente** una decisión
+> ya tomada. Ver `ADR-0008`.
 
 ## Historia
 
@@ -146,10 +155,7 @@ Escenario: Aislamiento entre organizaciones sobre las coincidencias
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-033` — bloqueante: qué umbral de similitud dispara una coincidencia
-  y quién lo configura. Un umbral bajo inunda al analista de falsos positivos hasta que deja de
-  mirarlos; uno alto deja pasar coincidencias reales. **No pasa de `borrador` hasta que se
-  responda.**
+- **Preguntas abiertas:** ninguna. `PA-033` **resuelta** → `ADR-0008`.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-025` (hay coincidencias que revisar), `HU-003` (permiso de revisar),
   `HU-006`.

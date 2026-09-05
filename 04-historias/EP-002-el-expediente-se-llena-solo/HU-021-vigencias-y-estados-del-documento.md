@@ -4,7 +4,7 @@ titulo: Vigencias y estados del documento
 estado: borrador
 epica: EP-002
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-021 — Vigencias y estados del documento
@@ -135,9 +135,7 @@ Escenario: Aislamiento entre organizaciones sobre las vigencias
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-018` — qué tipos documentales hay que soportar y con qué vigencias
-  en el primer cliente. `PA-027` — precedencia entre la fecha declarada y la extraída. **Queda en
-  `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-018` y `PA-027` **resueltas**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-013` (documentos), `HU-017` (fechas extraídas), `HU-019` (discrepancias),
   `HU-007` (la configuración de vigencias).

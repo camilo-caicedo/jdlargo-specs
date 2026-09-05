@@ -4,10 +4,15 @@ titulo: Administrar fuentes y aviso de privacidad
 estado: borrador
 epica: EP-005
 prioridad: Should
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-037 — Administrar fuentes y aviso de privacidad
+
+> **Actualización 2026-09-05 (`PA-021`).** La administración de fuentes ahora incluye también la
+> **configuración de IA por organización cliente**: qué proveedor se usa y la opción de
+> **desactivar la IA por completo** para tenants sensibles (`RNF-016`). Es una palanca de
+> cumplimiento, no una preferencia técnica.
 
 ## Historia
 
@@ -142,8 +147,8 @@ Escenario: Aislamiento entre organizaciones sobre fuentes y avisos
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-005` (qué fuentes existen para activar), `PA-012` (su costo),
-  `PA-021` (qué proveedores de IA se declaran en el aviso). **Queda en `borrador`.**
+- **Preguntas abiertas:** **`PA-040`** (vía y costo de las fuentes) y **`PA-045`** (proveedor de
+  IA y su contrato). `PA-005`, `PA-012` y `PA-021` **resueltas**.
 - **Supuestos:** `SUP-004`, `SUP-008`.
 - **Depende de:** `HU-023`, `HU-011`, `HU-034`, `HU-003`.
 - **Habilita a:** que el cliente controle su costo variable y su exposición jurídica sin

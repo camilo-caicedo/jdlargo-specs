@@ -4,10 +4,16 @@ titulo: Formulario dinámico de identificación
 estado: borrador
 epica: EP-001
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-012 — Formulario dinámico de identificación
+
+> **Actualización 2026-09-05 (`PA-018`, `PA-042`).** Los tipos de contraparte del primer
+> despliegue ya están definidos (siete, ver `HU-007`). **Queda abierto `PA-042`**: si la
+> contraparte sube documentos primero y confirma lo extraído, el formulario deja de ser el primer
+> paso del recorrido. Lo que no cambia en ninguno de los dos escenarios: lo extraído por IA
+> **nunca** se guarda como `declarado` sin que la contraparte lo confirme (`ADR-0005`).
 
 ## Historia
 
@@ -161,9 +167,10 @@ Reglas que sí son de esta historia:
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-018` — cuántos tipos de contraparte hay que soportar, que determina
-  cuánta variedad tiene que absorber el constructor del formulario. Queda en `borrador` también
-  por arrastre de `HU-007`.
+- **Preguntas abiertas:** **`PA-042`** — deriva de `PA-027` y **afecta directamente a esta
+  historia**: falta decidir si el formulario se autodiligencia con lo extraído de los documentos
+  que carga la contraparte (dejando los campos abiertos para que ella corrija) o si la contraparte
+  llena todos los campos a mano. Cambia el orden del recorrido. `PA-018` **resuelta**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-007` (la matriz), `HU-008` (el expediente y su versión citada), `HU-010`
   (la contraparte entró), `HU-011` (el aviso se resolvió primero), `HU-005` (afirmaciones).

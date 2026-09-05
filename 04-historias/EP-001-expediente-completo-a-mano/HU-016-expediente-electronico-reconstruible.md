@@ -4,10 +4,17 @@ titulo: Expediente electrónico reconstruible
 estado: borrador
 epica: EP-001
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-016 — Expediente electrónico reconstruible
+
+> **Actualización 2026-09-05 (`PA-003`, `PA-022`, `PA-009`).** La salida de esta historia se
+> llama **Informe de Debida Diligencia** y **constancia de proceso ejecutado**, con disclaimer de
+> responsabilidad. **Nunca "certificado" ni "certificación de cumplimiento"**, ni siquiera como
+> nombre de reporte (`ADR-0006`). La reconstrucción tiene que seguir siendo posible durante todo
+> el periodo de retención del tenant, con la versión normativa y de configuración con la que se
+> evaluó.
 
 ## Historia
 
@@ -159,10 +166,8 @@ No introduce entidades nuevas. Consulta las de las historias anteriores:
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-009` — retención y trazabilidad: cuánto tiempo debe conservarse un
-  expediente cerrado y en qué condiciones. No bloquea la consulta, sí la política de
-  conservación. **Queda en `borrador` mientras siga abierta y mientras lo estén las historias de
-  las que depende.**
+- **Preguntas abiertas:** ninguna. `PA-009` **resuelta** → `ADR-0007`. `PA-003` y `PA-022`
+  **resueltas** → `ADR-0006`.
 - **Supuestos:** `SUP-008` (las referencias normativas no están verificadas).
 - **Depende de:** todas las historias anteriores de `EP-001`, y de `HU-006`.
 - **Habilita a:** la demostración con la que arranca la Fase 2, que según el roadmap se hace con

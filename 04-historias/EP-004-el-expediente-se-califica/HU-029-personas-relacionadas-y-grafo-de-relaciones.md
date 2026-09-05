@@ -4,7 +4,7 @@ titulo: Personas relacionadas y grafo de relaciones
 estado: borrador
 epica: EP-004
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-029 — Personas relacionadas y grafo de relaciones
@@ -159,8 +159,7 @@ Escenario: Aislamiento entre organizaciones sobre el grafo
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-018` (cuántos tipos de relación hay que soportar), `PA-017` (quién
-  los configura). **Queda en `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-017` y `PA-018` **resueltas** → `ADR-0004` §6.
 - **Supuestos:** `SUP-002` (aislamiento).
 - **Depende de:** `HU-008` (sujetos), `HU-012` y `HU-017` (de dónde salen las relaciones),
   `HU-031` (qué factores pondera la metodología).

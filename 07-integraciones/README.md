@@ -1,7 +1,7 @@
 ---
 id: INT-catalogo
-estado: borrador
-actualizado: 2026-08-21
+estado: propuesto
+actualizado: 2026-09-05
 ---
 
 # Integraciones externas
@@ -20,11 +20,40 @@ y reportes. Ver `ADR-0001`.
 
 ## Catálogo
 
+El cliente fijó el catálogo inicial al cerrar `PA-005`. Se agrupa por naturaleza, porque la
+forma de conectarse y el costo cambian por completo entre un grupo y otro.
+
 | ID | Sistema / fuente | Para qué | Tipo | Estado |
 |----|------------------|----------|------|--------|
-| INT-001 | **OpenSanctions** | Índice consolidado internacional: OFAC, ONU, UE, PEPs y cientos de fuentes normalizadas | API SaaS | Elegido (`ADR-0001`) |
-| INT-002 | **Proveedor local colombiano** (por definir) | Procuraduría, Contraloría, Policía, RUES | API | **Por cotizar** (`PA-012`) |
-| INT-003 | Registro mercantil / RUES | Datos societarios, representante legal, beneficiario final | Por definir | Por evaluar |
+| INT-001 | **OpenSanctions** | Índice consolidado internacional: OFAC-SDN, ONU (Res. 1267), UE, PEPs y cientos de fuentes normalizadas | API SaaS | Elegido (`ADR-0001`) |
+| INT-002 | **Antecedentes penales** — Policía Nacional | Antecedentes de la persona natural | Directa o proveedor | **Por definir vía** (`PA-040`) |
+| INT-003 | **Antecedentes disciplinarios** — Procuraduría | Inhabilidades y sanciones disciplinarias | Directa o proveedor | **Por definir vía** (`PA-040`) |
+| INT-004 | **Antecedentes fiscales** — Contraloría | Responsabilidad fiscal | Directa o proveedor | **Por definir vía** (`PA-040`) |
+| INT-005 | **Listas UIAF Colombia** | Listado nacional | Directa o proveedor | **Por definir vía** (`PA-040`) |
+| INT-006 | **GAFI / FATF** | Jurisdicciones de alto riesgo y bajo monitoreo | Publicación periódica | Por evaluar |
+| INT-007 | **RUNT / SIMIT** | Antecedentes de tránsito — clave para el sector transporte (conductor, propietario, poseedor) | Directa o proveedor | **Por definir vía** (`PA-040`) |
+| INT-008 | **Registro mercantil / RUES** | Datos societarios, representante legal, insumo de beneficiario final | Por definir | Por evaluar |
+
+> ONU y OFAC-SDN entran por INT-001 (OpenSanctions ya los consolida y normaliza). Consultarlos
+> por separado sería pagar dos veces por el mismo dato.
+
+### Cómo se conecta: directa antes que intermediada
+
+Decisión del cliente (`PA-005`): **la conexión ideal es directa entre la plataforma y cada
+entidad**; el proveedor intermediario es el plan B, no el punto de partida. Qué fuentes
+admiten conexión directa y con qué condiciones es lo que falta por establecer (`PA-040`), y es
+la investigación más urgente junto con la cotización.
+
+### Qué se guarda de cada consulta
+
+De **toda** consulta, sea directa o por proveedor, se persiste:
+
+`fuente · proveedor · fecha y hora · versión o corte del dato · request/response o evidencia
+equivalente · resultado · costo`
+
+El costo se guarda incluso cuando la consulta es gratuita: es la única forma de saber después
+qué habría costado, y de comparar la vía directa contra la intermediada con datos y no con
+impresiones.
 
 ### INT-001 — OpenSanctions
 
@@ -48,41 +77,57 @@ mensual supere el punto de equilibrio.
 - Docs: <https://www.opensanctions.org/docs/api/>
 - Costo SaaS vs on-premise: <https://www.opensanctions.org/faq/api/license-cost/>
 
-### INT-002 — Fuentes colombianas
+### INT-002 a INT-007 — Fuentes colombianas
 
-OpenSanctions **no cubre** Procuraduría, Contraloría, Policía ni RUES, y esas son buena
-parte de lo que el cliente colombiano entiende por "la consulta". No tienen API pública
-utilizable, así que hay que comprarlas.
+OpenSanctions **no cubre** Procuraduría, Contraloría, Policía, RUNT/SIMIT ni RUES, y esas son
+buena parte de lo que el cliente colombiano entiende por "la consulta".
 
-Por cotizar (`PA-012`), en orden de prioridad:
+**Costo de referencia: $1.000–$2.000 COP por consulta** (`PA-012`), según el cliente, para
+consulta hecha directamente desde la plataforma sin intermediación de terceros.
+
+> ⚠️ **Ese número no es un costo definitivo y no debe usarse para fijar precios.** Es un
+> costo provisional para el modelo financiero. Antes de publicar un precio hay que cotizar
+> formalmente y negociar API, volumen, SLA y licenciamiento. Y hay que presupuestar por
+> **"consulta de persona/entidad + paquete de fuentes"**, no fuente por fuente: es como se
+> comporta el gasto real y como lo cobran los proveedores.
+
+Candidatos si se va por la vía intermediada, en orden de prioridad:
 
 - [Tusdatos.co](https://www.tusdatos.co/pages/cumplimiento)
 - [Datacrédito Experian](https://www.datacredito.com.co/empresas/listas-restrictivas)
 - [Compliance.com.co](https://www.compliance.com.co/)
 
-**Su precio por consulta define el modelo de precios del producto, no al revés.** Es la
-cotización más urgente del proyecto.
+**El precio por consulta define el modelo de precios del producto, no al revés** (`PA-043`).
 
 ## El modelo de costos, y su trampa
 
 Con un presupuesto pre-ingresos de 100 USD/mes y 0,10 € por llamada, el techo son unas
 **800-900 consultas mensuales**. Suficiente para un piloto de consulta puntual.
 
-El riesgo aparece con el **monitoreo continuo** (`PA-011`): un solo cliente con 5.000
-contrapartes re-escaneadas cada mes son 5.000 llamadas, unos 500 €. Con una suscripción de
-tarifa plana, ese cliente deja el negocio en pérdida y no hay forma de enterarse hasta que
-llega la factura.
+El riesgo se materializó: el **monitoreo continuo está confirmado en alcance** (`PA-011`) y
+la capacidad objetivo del MVP es de **10.000 a 50.000 contrapartes por organización cliente**
+(`PA-014`). Un cliente con 50.000 contrapartes re-escaneadas cada mes son 50.000 llamadas. Con
+una suscripción de tarifa plana, ese cliente deja el negocio en pérdida y no hay forma de
+enterarse hasta que llega la factura.
+
+Referencia real que dio el cliente: una empresa de transporte de carga hace **~1.000 consultas
+al mes** (`PA-014`). Es el dato con el que se dimensiona el primer plan — no la cifra con la
+que se dimensiona la arquitectura.
 
 Consecuencias de diseño, desde el día uno:
 
 1. **Medir el consumo por organización** en la misma tabla inmutable que sirve de evidencia
-   de auditoría. Es el instrumento que responderá `PA-011` y `PA-014` con datos reales en
-   tres meses, en vez de adivinarlas hoy.
+   de auditoría. Es el instrumento que permitirá fijar los precios de `PA-043` con datos
+   reales en tres meses, en vez de adivinarlos hoy.
 2. **Deduplicar por identidad**: no re-consultar la misma contraparte dos veces en una ventana.
-3. **Re-screening incremental**: cuando el monitoreo exista, re-evaluar contra lo que cambió
-   en el dataset, no lanzar una llamada por contraparte. Este requisito es, por sí solo, el
-   principal argumento a favor del auto-hospedaje.
-4. **Cuotas duras por plan**, aplicadas antes de gastar, no después.
+3. **Re-screening incremental**: re-evaluar contra lo que cambió en el conjunto de datos, no
+   lanzar una llamada por contraparte. Este requisito es, por sí solo, el principal argumento
+   a favor del auto-hospedaje.
+4. **Cuotas por plan aplicadas antes de gastar**, no después — con una excepción: un
+   monitoreo en curso **no se corta en silencio** por un límite. Se avisa al 80 %, 90 % y
+   100 %, y se ofrece excedente o cambio de plan (`ADR-0002` §2b, `ADR-0009`).
+5. **Planificador por riesgo y por evento**, no barrido global: alto mensual o trimestral,
+   medio semestral, bajo anual, como configuración de referencia (`ADR-0009`, `PA-035`).
 
 ## Reglas para toda integración
 

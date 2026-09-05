@@ -1,7 +1,7 @@
 ---
 id: CTX-glosario
 estado: propuesto
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # Glosario (lenguaje ubicuo)
@@ -15,7 +15,7 @@ Formato: **Término** — definición acordada. `(por validar)` mientras no lo c
 
 Definiciones tomadas del
 [documento funcional del cliente](../01-descubrimiento/entregables-cliente/2026-08-21-flujo-plataforma-debida-diligencia-v2.md).
-Cierra parcialmente `PA-003`.
+Cierra `PA-003` y `PA-022`.
 
 ### Los cinco conceptos que nunca se mezclan (§2)
 
@@ -64,14 +64,37 @@ Es la distinción central de todo el producto. Ver `ADR-0005`.
 
 - ~~**Validación / verificación / certificación**~~ — el nombre inicial del proyecto hablaba
   de "validación, verificación y certificación de entidades". El documento del cliente **no
-  usa "certificación"**: el producto no certifica nada, automatiza y traza el proceso de
-  debida diligencia. Ver §39 y `PA-022`.
+  usa "certificación"** y el cliente lo confirmó al cerrar `PA-003` y `PA-022`: el producto no
+  certifica nada, consulta, sugiere, automatiza y traza el proceso de debida diligencia. Ver
+  §39 y `ADR-0006`. Prohibido en producto, interfaz, contrato y material comercial:
+  "certificación de cumplimiento", "empresa certificada" y equivalentes.
+
+### Salidas del producto
+
+- **Informe de Debida Diligencia** — el documento (PDF y JSON) que la plataforma emite al
+  cerrar un expediente: fecha, metodología, fuentes consultadas, resultados, alertas,
+  decisiones y versión normativa aplicada. Es la salida principal y **no es un certificado**.
+- **Constancia de proceso ejecutado** — el acuse de que un proceso se ejecutó tal como quedó
+  configurado, con su fecha y su alcance. Acompaña al informe y lleva el mismo disclaimer de
+  responsabilidad: la decisión es del cliente.
+- **Expediente de evidencia** — el conjunto exportable de todo lo que sostiene el informe:
+  afirmaciones, documentos, snapshots de consulta, evaluaciones, decisiones y bitácora.
 
 ### Del sustrato del sistema
 
 Términos que no vienen del proceso de cumplimiento sino de cómo está construida la
 plataforma. Necesarios desde `EP-000`.
 
+- **Membresía** — el vínculo entre un usuario y una organización cliente, con sus roles y
+  permisos en esa organización. Un usuario tiene identidad global y **una membresía por cada
+  organización** en la que trabaja; la autorización se evalúa siempre sobre la membresía, nunca
+  sobre el usuario suelto (`PA-013`).
+- **Rol personalizado** — el rol que el administrador de una organización cliente compone a
+  partir de permisos granulares por acción (`ver · crear · editar · aprobar · exportar ·
+  configurar · administrar`). Los seis roles base son plantillas, no un catálogo cerrado
+  (`PA-024`).
+- **Facultad de decisión** — la potestad de aprobar o rechazar, que se otorga **aparte del
+  rol** y respeta la segregación de funciones. Un rol da acceso; la facultad decide.
 - **Organización cliente** — la empresa que contrata la plataforma, vista como unidad de
   aislamiento de datos. Es el *tenant* de la §31: usuarios propios, expedientes
   independientes, configuración y bitácora propias. Toda fila del dominio pertenece a
@@ -125,6 +148,18 @@ que la contraparte escribe es `declarado`, nada más.
   emisor y vigencia.
 - **Condición de la decisión** — la exigencia con la que se aprueba una vinculación cuando no se
   aprueba sin reservas. Forma parte de la decisión y es inmutable como ella.
+- **Criticidad del requisito** — el grado con el que la matriz exige un requisito. Tres valores
+  (`PA-029`): **obligatorio bloqueante** (*hard stop*: nadie puede decidir sin él),
+  **obligatorio con excepción** (se puede decidir dejando una excepción registrada) y
+  **recomendado**.
+- **Decisión excepcional** — la decisión que se toma con requisitos pendientes. Exige motivo
+  obligatorio, usuario autorizado según la matriz y advertencia explícita de lo que falta.
+  Nunca ocurre en silencio.
+- **Precedencia de afirmaciones** — la política, configurable por organización cliente, que
+  decide qué afirmación se muestra como valor vigente cuando hay varias sobre el mismo campo.
+  Referencia por defecto: verificado por fuente independiente › documental validado ›
+  declarado › extraído por IA sin validar. **La precedencia nunca borra el origen** ni las
+  afirmaciones descartadas (`PA-027`, `ADR-0005`).
 - **Vigencia de la vinculación** — hasta cuándo vale una decisión antes de exigir actualización.
 
 ### De la verificación, el riesgo y el monitoreo
@@ -147,6 +182,13 @@ Términos que aparecen a partir de `EP-002`.
 - **Coincidencia** — el resultado técnico de comparar un nombre o identificador contra una
   lista. Sus estados son `sin coincidencia`, `posible`, `descartada`, `confirmada` y
   `pendiente de revisión`. **Una coincidencia técnica no es una persona sancionada.**
+- **Zona de candidato** — el rango de similitud en el que el sistema no descarta ni confirma,
+  y genera una coincidencia para revisión humana. El matching es **multicriterio** (nombre,
+  identificador, fecha de nacimiento, país, alias, transliteración), no un único porcentaje:
+  no existe un "85 % = positivo". Los umbrales se configuran por fuente (`PA-033`).
+- **Re-screening** — la nueva consulta de una contraparte ya vinculada durante el monitoreo
+  continuo. Se dispara por periodicidad según riesgo o por evento relevante en la fuente, y
+  pasa por deduplicación para no repetir consultas innecesarias (`PA-011`, `PA-035`).
 - **Alerta** — el hecho que exige atención humana: una coincidencia posible, una discrepancia,
   un riesgo alto, un documento vencido o un evento de monitoreo.
 - **Relación** — la arista entre dos sujetos, con su tipo, fuente, fecha, porcentaje de

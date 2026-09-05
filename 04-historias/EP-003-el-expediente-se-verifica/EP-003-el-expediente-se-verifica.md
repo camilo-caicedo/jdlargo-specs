@@ -3,7 +3,7 @@ id: EP-003
 titulo: El expediente se verifica
 estado: borrador
 capacidad: CAP-03
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # EP-003 — El expediente se verifica
@@ -97,9 +97,12 @@ tiene dónde caer.
 ## Dependencias
 
 - **Épicas:** `EP-000`, `EP-001`, `EP-002`.
-- **Preguntas abiertas:** `PA-005` (qué fuentes y con qué proveedor), `PA-012` (cuánto cobra un
-  proveedor local colombiano), `PA-033` (umbral de similitud del matching), `PA-014` (cuántas
-  contrapartes maneja un cliente típico, que determina el costo real).
+- **Preguntas abiertas:** **`PA-040`** — con qué fuentes colombianas se puede conectar
+  directamente y a qué costo real. Es la única que sigue abierta y **bloquea esta épica**.
+  Resueltas: `PA-005` → catálogo en `07-integraciones/`; `PA-012` → $1.000–$2.000 COP por consulta
+  como cifra **provisional** (`SUP-009`); `PA-033` → `ADR-0008` (matching multicriterio, tres
+  zonas, confirmación humana); `PA-014` → ~1.000 consultas/mes y 10.000–50.000 contrapartes por
+  tenant (`RNF-019`).
 - **Decisiones:** `ADR-0001` (proveedor internacional consolidado; no auto-hospedar; cada
   screening se persiste como evento inmutable con su costo), `ADR-0005` (lo verificado es un
   origen, la coincidencia no es una alerta y la alerta no es un caso).
@@ -110,5 +113,5 @@ tiene dónde caer.
 Es la épica que introduce **costo variable por uso**. La §31 prohíbe reutilizar datos de
 contrapartes entre clientes del SaaS, así que la deduplicación de consultas solo puede darse
 dentro de una misma organización cliente: si dos clientes verifican al mismo proveedor, se paga
-dos veces, sin excepción. Con `PA-005`, `PA-012` y `PA-014` abiertas, **el costo por cliente no
+dos veces, sin excepción. Mientras `PA-040` siga abierta, **el costo por cliente no
 se puede estimar todavía**, y de eso depende que el modelo comercial de `EP-007` cierre.

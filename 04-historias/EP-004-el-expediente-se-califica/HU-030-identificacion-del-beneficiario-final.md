@@ -4,7 +4,7 @@ titulo: Identificación del beneficiario final
 estado: borrador
 epica: EP-004
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-030 — Identificación del beneficiario final
@@ -144,9 +144,8 @@ Escenario: Aislamiento entre organizaciones sobre el beneficiario final
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-005` — si existe una fuente consultable de beneficiarios finales y
-  a qué costo. `PA-018` — qué criterios de suficiencia usa el primer cliente. **Queda en
-  `borrador`.**
+- **Preguntas abiertas:** **`PA-040`** — de ella depende si RUES se consulta directo o por
+  proveedor. `PA-005` y `PA-018` **resueltas**.
 - **Supuestos:** `SUP-006`.
 - **Depende de:** `HU-029` (el grafo), `HU-024` (evidencia verificada), `HU-027` (alertas).
 - **Habilita a:** `HU-032` (factor de riesgo por estructura y por beneficiario final poco claro),

@@ -4,10 +4,16 @@ titulo: Aviso de privacidad y evidencia del consentimiento
 estado: borrador
 epica: EP-001
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-011 — Aviso de privacidad y evidencia del consentimiento
+
+> **Actualización 2026-09-05 (`PA-021`).** El aviso de privacidad tiene que cubrir el
+> tratamiento con IA y la transferencia internacional. Hay **router de IA por organización
+> cliente**, con opción de **desactivar la IA por completo** para tenants sensibles, y se aplica
+> minimización —y pseudonimización cuando sea viable— antes de enviar nada a un modelo externo.
+> La base jurídica de la transferencia se sostiene en contrato/DPA, no en una decisión técnica.
 
 ## Historia
 
@@ -146,9 +152,8 @@ Escenario: La evidencia sobrevive al cierre del expediente
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-031` — cómo se notifica al responsable interno cuando la
-  contraparte no acepta. `PA-021` — qué proveedores de IA se declaran en el aviso, dado que
-  implican transferencia internacional de datos (§33). **Queda en `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-021` **resuelta** → `RNF-016` a `RNF-018`. Queda la
+  derivada `PA-045` (qué proveedor de IA y bajo qué contrato).
 - **Supuestos:** `SUP-004` (los datos pueden alojarse en Estados Unidos, confirmado), `SUP-008`
   (las referencias normativas no están verificadas: el aviso se almacena y se muestra, la
   plataforma no afirma su suficiencia jurídica).

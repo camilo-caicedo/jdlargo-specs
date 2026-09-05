@@ -4,10 +4,16 @@ titulo: Screening contra listas, PEP y sanciones
 estado: borrador
 epica: EP-003
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-025 — Screening contra listas, PEP y sanciones
+
+> **Actualización 2026-09-05 (`PA-014`, `PA-011`, `PA-035`).** Volumen de referencia: **~1.000
+> consultas/mes** en el primer cliente, con capacidad objetivo de **10.000–50.000 contrapartes
+> por tenant** (`RNF-019`). El screening no es solo puntual: alimenta el monitoreo continuo, con
+> deduplicación por identidad para no consultar dos veces al mismo sujeto dentro de una ventana
+> (`ADR-0009`).
 
 ## Historia
 
@@ -143,9 +149,8 @@ Escenario: Aislamiento entre organizaciones sobre el screening
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-005` (qué fuentes de listas), `PA-012` (costo por consulta del
-  proveedor local), `PA-014` (cuántas contrapartes maneja un cliente típico). **Queda en
-  `borrador`.**
+- **Preguntas abiertas:** **`PA-040`** — costo real por consulta. `PA-005`, `PA-012` y `PA-014`
+  **resueltas**; el monitoreo continuo y su control de costo están en `ADR-0009`.
 - **Supuestos:** `SUP-003`.
 - **Depende de:** `HU-023` (catálogo), `HU-008` (hay un sujeto), `HU-026` (los resultados se
   comparan), `HU-027` (las coincidencias generan alertas).

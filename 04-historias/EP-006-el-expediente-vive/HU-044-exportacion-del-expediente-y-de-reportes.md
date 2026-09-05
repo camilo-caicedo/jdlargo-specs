@@ -4,10 +4,18 @@ titulo: Exportación del expediente y de reportes
 estado: borrador
 epica: EP-006
 prioridad: Should
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-044 — Exportación del expediente y de reportes
+
+> **Actualización 2026-09-05 (`PA-007`, `PA-022`).** Salidas mínimas: **expediente de debida
+> diligencia, informe ejecutivo, informe detallado, reporte de alertas, matriz de riesgo, DDI,
+> auditoría y monitoreo**, en PDF, Excel/CSV, API y vista web, exportables con filtros y con la
+> versión normativa aplicada. Dos límites que la historia debe respetar: **nada se llama
+> "certificado"** (`ADR-0006`), y **no se incluyen reportes regulatorios (ROS y similares) como
+> consecuencia automática** de una debida diligencia — una consulta de contraparte no equivale a
+> un reporte a la autoridad.
 
 ## Historia
 
@@ -139,8 +147,7 @@ Escenario: Los documentos originales se pueden incluir
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-007` (resuelta en cuanto a que hace falta exportación), `PA-009`
-  (retención de lo exportado). Queda en `borrador` por arrastre.
+- **Preguntas abiertas:** ninguna. `PA-007`, `PA-009`, `PA-003` y `PA-022` **resueltas**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-016` (el expediente reconstruible), `HU-043` (los reportes de gestión),
   `HU-003`.

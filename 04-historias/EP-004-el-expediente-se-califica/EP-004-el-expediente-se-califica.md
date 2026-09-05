@@ -3,7 +3,7 @@ id: EP-004
 titulo: El expediente se califica
 estado: borrador
 capacidad: CAP-04
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # EP-004 — El expediente se califica
@@ -93,9 +93,11 @@ lleva a recoger lo que no se usa.
 ## Dependencias
 
 - **Épicas:** `EP-000` a `EP-003`.
-- **Preguntas abiertas:** `PA-006` (resuelta: cada cliente configura la suya), `PA-034` (si la
-  clasificación final exige segunda aprobación), `PA-017` y `PA-018` (quién configura y cuánto),
-  `PA-005` (fuentes para el screening de relacionados).
+- **Preguntas abiertas:** **`PA-040`** — las fuentes para el screening de relacionados y el
+  beneficiario final (RUES incluido). Las demás están **resueltas**: `PA-006` → metodología base
+  parametrizable por cliente; `PA-034` → maker-checker configurable, obligatorio en riesgo alto,
+  PEP, coincidencia confirmada, DDI y excepciones a controles bloqueantes; `PA-017` y `PA-018` →
+  `ADR-0004` §6; `PA-005` → catálogo en `07-integraciones/`.
 - **Decisiones:** `ADR-0004` (metodología y motor de relaciones son configuración versionada; el
   evaluador es una función pura y explicable), `ADR-0005` (la evaluación es un evento con sus
   entradas y su versión; recalcular no reemplaza, crea otra).

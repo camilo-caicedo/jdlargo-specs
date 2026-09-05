@@ -4,7 +4,7 @@ titulo: Debida diligencia intensificada
 estado: borrador
 epica: EP-004
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-033 — Debida diligencia intensificada
@@ -154,9 +154,7 @@ Escenario: Aislamiento entre organizaciones sobre la diligencia intensificada
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-018` (qué causales usa el primer cliente), `PA-029` (si un
-  expediente con diligencia intensificada incompleta puede llegar a decisión). **Queda en
-  `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-018` y `PA-029` **resueltas**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-032` (riesgo), `HU-026` (coincidencias confirmadas), `HU-030` (beneficiario
   final poco claro), `HU-013` (documentos), `HU-010` (la contraparte aporta por su enlace).

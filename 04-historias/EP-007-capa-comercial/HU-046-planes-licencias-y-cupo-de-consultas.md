@@ -4,10 +4,17 @@ titulo: Planes, licencias y cupo de consultas
 estado: borrador
 epica: EP-007
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-046 — Planes, licencias y cupo de consultas
+
+> **Actualización 2026-09-05 (`PA-015`, `PA-036`, `PA-038`).** La "licencia" **no es la métrica
+> única**. El modelo es híbrido: `suscripción base + usuarios incluidos + cupo de consultas o
+> créditos + módulos premium + excedente por consumo`. Tres planes de referencia —Starter,
+> Professional, Enterprise— con límites por usuarios, contrapartes, consultas, OCR/IA y monitoreo.
+> **Los planes son configuración, no código.** Y el alta de organizaciones es **manual al
+> principio**, híbrida después: **el MVP no necesita registro público**.
 
 ## Historia
 
@@ -97,8 +104,10 @@ Escenario: Aislamiento entre organizaciones sobre planes y consumo
   actual.
 - Los planes no se editan cuando ya tienen ciclos calculados: se define una versión nueva. Es la
   misma regla de inmutabilidad de `ADR-0004`, aplicada a lo comercial.
-- **Todo es una organización** (`ADR-0001`, `SUP-005`): el usuario individual es una organización
-  de un miembro, y no hay un modelo aparte para él.
+- Toda organización cliente tiene un plan vigente, incluida una organización de un solo
+  miembro (persona individual con su propia membresía): no hay un modelo de facturación aparte
+  para el caso individual (`SUP-005` **derribado y reemplazado** — modelo confirmado
+  `Usuario › Membresía › Organización` en `actores-y-roles.md`).
 - El plan y el consumo son datos de la organización cliente, con su aislamiento (`HU-002`).
 
 ## Fuera de alcance
@@ -131,15 +140,13 @@ Escenario: Aislamiento entre organizaciones sobre planes y consumo
 - Épica: `EP-007`
 - Capacidad: `CAP-07`
 - Documento del cliente: §39
-- Decisiones: `ADR-0002` (modelo de cupo más excedente), `ADR-0001` (todo es una organización)
+- Decisiones: `ADR-0002` (modelo de cupo más excedente), `ADR-0001` (stack técnico y aislamiento por organización)
 - Preguntas: cierra la implementación de `PA-015`
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-036` — bloqueante: cuáles son los planes, sus precios y sus cupos.
-  `PA-038` — si el alta es por autoservicio. `PA-012`, `PA-014` y `PA-035`, que son las que
-  permiten saber si un cupo tiene margen. **Queda en `borrador`.**
-- **Supuestos:** `SUP-005` (todo es una organización).
+- **Preguntas abiertas:** **`PA-043`** — precios y cupos concretos de cada plan, que dependen de
+  `PA-040`. `PA-015`, `PA-036` y `PA-038` **resueltas** → `ADR-0002` §2b y §2c.
 - **Depende de:** `HU-001`, `HU-002`.
 - **Habilita a:** `HU-047` a `HU-050`.
 - **Riesgo:** fijar el cupo de un plan sin saber cuánto cuesta una consulta (`PA-012`), cuántas

@@ -4,10 +4,15 @@ titulo: Organizaciones, cuentas de usuario y pertenencia
 estado: borrador
 epica: EP-000
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-001 — Organizaciones, cuentas de usuario y pertenencia
+
+> **Actualización 2026-09-05 (`PA-013`, `PA-024`).** El modelo confirmado es
+> `Usuario (identidad global) › Membresía › Organización › Roles`. Un mismo usuario puede tener
+> varias membresías con roles distintos, y la interfaz necesita **selector de organización**.
+> **Nunca se autoriza por `user_id` solo.** Ver `00-contexto/actores-y-roles.md` y `RNF-002`.
 
 ## Historia
 
@@ -25,9 +30,11 @@ entre organizaciones (§31).
 
 Dos decisiones ya tomadas la delimitan:
 
-- **Todo es una organización desde el día uno** (`ADR-0001`, `SUP-005`). El usuario individual
-  no es un caso especial: es una organización cliente de un miembro. No hay migración de
-  persona a empresa, hay una invitación.
+- **Identidad global separada de la organización** (`ADR-0001` §7, `PA-013`). El usuario es
+  una entidad propia con membresía a una o varias organizaciones clientes; la persona
+  individual sin empresa es una organización cliente de un solo miembro, pero eso es un caso
+  de la membresía, no un modelo de identidad aparte. No hay migración de persona a empresa,
+  hay una invitación más. (Sustituye al supuesto inicial `SUP-005`, derribado.)
 - **Un usuario puede pertenecer a varias organizaciones clientes** (`PA-013`, resuelta), con un
   rol distinto en cada una. El caso real es el consultor que atiende a varios clientes.
 
@@ -126,15 +133,14 @@ Escenario: Retirar a un miembro no borra lo que ya hizo
 - Épica: `EP-000`
 - Capacidad: `CAP-00`
 - Documento del cliente: §30 (roles), §31 (multiempresa)
-- Decisiones: `ADR-0001` (identidad, organización desde el día uno)
+- Decisiones: `ADR-0001` (identidad global y membresía por organización)
 - Contexto: `00-contexto/actores-y-roles.md`
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-024` — si el cliente puede crear roles propios, `membresia.rol_id`
-  apunta a una tabla configurable por organización cliente; si solo ajusta la matriz de los seis
-  roles definidos, apunta a un catálogo común. **La historia queda en `borrador` hasta que se
-  responda.**
-- **Supuestos:** `SUP-005` (todo es una organización), `SUP-002` (multiempresa, confirmado §31).
+- **Preguntas abiertas:** ninguna. `PA-024` **resuelta**: el administrador del tenant (Oficial
+  de Cumplimiento o Representante Legal) asigna roles y define la matriz. `PA-013` **resuelta**:
+  identidad global + membresía por organización.
+- **Supuestos:** `SUP-002` (multiempresa, confirmado §31).
 - **Depende de:** nada. Es la primera de la épica.
 - **Habilita a:** `HU-002`, `HU-003`, `HU-006`.

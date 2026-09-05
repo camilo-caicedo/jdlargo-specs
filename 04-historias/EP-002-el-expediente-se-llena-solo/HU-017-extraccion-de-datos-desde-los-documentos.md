@@ -4,10 +4,17 @@ titulo: Extracción de datos desde los documentos
 estado: borrador
 epica: EP-002
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-017 — Extracción de datos desde los documentos
+
+> **Actualización 2026-09-05 (`PA-032`, `PA-021`).** **No hay un umbral único de confianza.**
+> El umbral es configurable **por campo y por tarea**, según el impacto de equivocarse, no según
+> la dificultad de leer el documento. Todo dato crítico —identidad, beneficiario final, listas,
+> factores de riesgo, insumos de una decisión— exige validación humana ante incertidumbre,
+> discrepancia o extracción no verificable. La confianza se guarda junto a la afirmación como
+> evidencia, nunca como veredicto. Ver `ADR-0005` §4b.
 
 ## Historia
 
@@ -141,9 +148,9 @@ Escenario: Aislamiento entre organizaciones sobre lo extraído
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-032` — bloqueante: por debajo de qué confianza la extracción exige
-  validación humana, y si lo fija cada organización cliente o hay un mínimo del producto.
-  `PA-021` — qué proveedores de IA acepta el cliente. **Queda en `borrador`.**
+- **Preguntas abiertas:** ninguna bloqueante. `PA-032` **resuelta** → `ADR-0005` §4b; `PA-021`
+  **resuelta**. Quedan las derivadas `PA-045` (proveedor de IA) y **`PA-042`** (si esta extracción
+  alimenta el formulario de la contraparte).
 - **Supuestos:** `SUP-006` (la IA propone; la persona firma), `SUP-004` (alojamiento en Estados
   Unidos, confirmado).
 - **Depende de:** `HU-013` (hay documentos), `HU-005` (afirmaciones), `HU-018` (registro de

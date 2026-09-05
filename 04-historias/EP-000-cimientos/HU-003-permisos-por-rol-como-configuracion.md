@@ -4,10 +4,16 @@ titulo: Permisos por rol como configuración de la organización
 estado: borrador
 epica: EP-000
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-003 — Permisos por rol como configuración de la organización
+
+> **Actualización 2026-09-05 (`PA-024`).** Los permisos se expresan por acción —`ver · crear ·
+> editar · aprobar · exportar · configurar · administrar`— sobre cada módulo, y el administrador
+> del tenant compone roles propios con ellos. Dos límites que ningún rol personalizado puede
+> saltarse: **no autoaprobarse** y no tocar la bitácora. Y **"rol" no es "facultad de decisión"**:
+> la potestad de aprobar se otorga aparte (`PA-034`, maker-checker).
 
 ## Historia
 
@@ -132,12 +138,8 @@ Escenario: El Auditor solo consulta
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-024` — bloqueante. Si el cliente puede **crear roles propios**, el
-  rol es una fila configurable por organización cliente; si solo puede **ajustar los permisos de
-  los seis roles definidos**, el catálogo de roles es común y solo la asignación es
-  configurable. Son dos modelos de datos distintos. **La historia no pasa de `borrador` hasta
-  que se responda.** También queda pendiente quién asigna roles a los miembros.
-  `PA-017` y `PA-018` afectan al esfuerzo, no al modelo.
+- **Preguntas abiertas:** ninguna. `PA-024` **resuelta**: los seis roles base son plantillas y
+  el cliente puede crear **roles propios** combinando permisos granulares.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-001` (roles y membresías), `HU-002` (aislamiento), `HU-004` (mecanismo de
   publicación versionada).

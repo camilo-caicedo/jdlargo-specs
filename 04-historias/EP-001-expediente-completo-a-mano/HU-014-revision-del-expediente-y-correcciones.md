@@ -4,10 +4,16 @@ titulo: Revisión del expediente y solicitud de correcciones
 estado: borrador
 epica: EP-001
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-014 — Revisión del expediente y solicitud de correcciones
+
+> **Actualización 2026-09-05 (`PA-028`, `PA-029`).** Al pedir correcciones, el expediente no se
+> pierde si el enlace expira: pasa a `Expirado/Pendiente`, se envían recordatorios automáticos y
+> se puede emitir un enlace nuevo conservando el progreso válido. Y la revisión debe distinguir
+> los requisitos `obligatorio bloqueante` de los `obligatorio con excepción`, porque solo los
+> segundos admiten avanzar con pendientes.
 
 ## Historia
 
@@ -151,9 +157,7 @@ Escenario: Aislamiento entre organizaciones sobre la revisión
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-028` — si al solicitar correcciones el enlace de acceso sigue
-  sirviendo o hay que emitir uno nuevo. `PA-029` — si el expediente puede pasar a decisión con
-  requisitos pendientes. **Queda en `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-028` y `PA-029` **resueltas**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-012` (hay datos que revisar), `HU-013` (hay documentos que revisar),
   `HU-009`, `HU-003`, `HU-006`.

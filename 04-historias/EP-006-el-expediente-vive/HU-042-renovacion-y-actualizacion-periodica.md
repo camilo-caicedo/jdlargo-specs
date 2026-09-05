@@ -4,10 +4,15 @@ titulo: Renovación y actualización periódica
 estado: borrador
 epica: EP-006
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-042 — Renovación y actualización periódica
+
+> **Actualización 2026-09-05 (`PA-025`, `PA-035`).** La renovación es el momento en que un
+> expediente **sí** pasa a la versión de configuración más reciente: se vuelve a hacer debida
+> diligencia bajo las reglas vigentes, y el expediente anterior queda intacto con las suyas. La
+> periodicidad sale de la metodología del cliente y del nivel de riesgo, no de un plazo universal.
 
 ## Historia
 
@@ -151,9 +156,8 @@ Escenario: Aislamiento entre organizaciones sobre las renovaciones
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-035` (periodicidad y disparadores), `PA-025` (qué versión de
-  configuración aplica a un expediente en curso, que aquí reaparece con otra cara). **Queda en
-  `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-035` y `PA-025` **resueltas** → `ADR-0009` y `ADR-0004`
+  §2b.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-031` (metodología), `HU-032` (nivel de riesgo), `HU-040` (eventos),
   `HU-041` (plazos), `HU-015` (decisión).

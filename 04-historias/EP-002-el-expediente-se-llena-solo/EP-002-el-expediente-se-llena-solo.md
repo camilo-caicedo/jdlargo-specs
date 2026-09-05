@@ -3,7 +3,7 @@ id: EP-002
 titulo: El expediente se llena solo
 estado: borrador
 capacidad: CAP-02
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # EP-002 — El expediente se llena solo
@@ -46,7 +46,7 @@ Deja contestada la pregunta **D** de la §44: qué información fue extraída au
 | Fuera de alcance | Dónde va | Razón |
 |---|---|---|
 | Verificación contra fuentes externas | Fase 3 | Extraer no es verificar: son dos orígenes distintos (§2) |
-| Firma digital certificada de nivel 3 | Sin fase asignada | Es una integración con un tercero acreditado, con costo por firma → `PA-020` |
+| Firma digital certificada de nivel 3 | Sin fase asignada | Es una integración con un tercero acreditado, con costo por firma → `ADR-0010` |
 | Extracción de estructuras societarias y relaciones | Fase 4 | El grafo de relaciones necesita su propio modelo |
 | Modelos de IA propios o entrenados | Fase posterior (§36) | El MVP usa modelos de terceros tras un puerto intercambiable |
 | Cálculo de riesgo a partir de lo extraído | Fase 4 | — |
@@ -90,10 +90,12 @@ registro es una afirmación sin procedencia.
 ## Dependencias
 
 - **Épicas:** `EP-000` y `EP-001` completas.
-- **Preguntas abiertas:** `PA-021` (qué proveedores de IA acepta el cliente, dado que implica
-  transferencia internacional de datos), `PA-032` (umbral de confianza que obliga a validación
-  humana), `PA-019` (segundo factor para la firma de nivel 2), `PA-020` (proveedor de firma de
-  nivel 3), `PA-027` (regla de precedencia entre orígenes).
+- **Preguntas abiertas:** derivadas, no bloqueantes — **`PA-045`** (qué proveedor de IA y bajo
+  qué contrato), **`PA-042`** (si la extracción alimenta el formulario de la contraparte) y
+  `PA-041` (firma certificada). Las cinco originales están **resueltas**: `PA-021` → router de IA
+  por tenant con opción de desactivarla (`RNF-016`); `PA-032` → `ADR-0005` §4b (la confianza es
+  señal, no veredicto; umbral por campo y tarea); `PA-019` y `PA-020` → `ADR-0010` (OTP por correo;
+  nivel 3 como módulo opcional); `PA-027` → `ADR-0005` §2.
 - **Decisiones:** `ADR-0005` (la IA es un origen, nunca una autoridad), `ADR-0001` (estrategia
   híbrida de extracción, puerto intercambiable), `08-desarrollo/arquitectura-de-aplicacion.md`
   (minimizar lo que se envía al modelo).
@@ -102,7 +104,8 @@ registro es una afirmación sin procedencia.
 
 ## Riesgo abierto
 
-`PA-027` se vuelve exigible aquí. Mientras solo existía el origen `declarado` no había
+`PA-027` se volvía exigible aquí, y ya está respondida (`ADR-0005` §2): escala configurable, y
+**frente a la IA manda lo declarado**. El razonamiento sigue siendo el correcto. Mientras solo existía el origen `declarado` no había
 contradicción posible; a partir de esta épica sí, y hace falta saber qué prevalece y quién puede
 cambiarlo. Sin esa respuesta, `HU-019` se puede construir —la discrepancia se muestra igual—
 pero no se puede resolver de forma automática en ningún caso, ni siquiera en los evidentes.

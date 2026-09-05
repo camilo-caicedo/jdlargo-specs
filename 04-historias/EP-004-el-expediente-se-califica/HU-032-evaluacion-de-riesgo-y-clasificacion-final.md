@@ -4,10 +4,17 @@ titulo: Evaluación de riesgo y clasificación final
 estado: borrador
 epica: EP-004
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-032 — Evaluación de riesgo y clasificación final
+
+> **Actualización 2026-09-05 (`PA-034`).** La segunda aprobación es **configurable**, no una
+> regla fija. Se recomienda obligatoria en: **riesgo alto, PEP, coincidencia confirmada en fuente
+> crítica, debida diligencia intensificada y excepciones sobre controles bloqueantes**. El
+> workflow es *maker-checker* con **dos personas distintas**, y el sistema debe **bloquear la
+> autoaprobación del propio analista**. La plataforma soporta la segregación; no impone una
+> estructura organizacional única.
 
 ## Historia
 
@@ -167,9 +174,7 @@ Escenario: Aislamiento entre organizaciones sobre las evaluaciones
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-034` — bloqueante para el flujo de aprobación: si la clasificación
-  final exige una segunda aprobación y en qué casos. **No pasa de `borrador` hasta que se
-  responda.**
+- **Preguntas abiertas:** ninguna. `PA-034` **resuelta**.
 - **Supuestos:** `SUP-006`.
 - **Depende de:** `HU-031` (metodología), `HU-024` y `HU-026` (datos verificados y coincidencias
   como factores), `HU-029` y `HU-030` (estructura societaria y beneficiario final como factores).

@@ -3,7 +3,7 @@ id: EP-005
 titulo: El cliente se autogestiona
 estado: borrador
 capacidad: CAP-05
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # EP-005 — El cliente se autogestiona
@@ -88,16 +88,22 @@ los expedientes que se abran después.
 
 - **Épicas:** `EP-000` a `EP-004`. Esta épica **no añade capacidades nuevas al motor**: le pone
   interfaz a lo que ya existe.
-- **Preguntas abiertas:** `PA-017` — la que decide el tamaño real de esta épica: si el cliente
-  configura por su cuenta, la interfaz es el producto; si lo hacemos nosotros como servicio de
-  implementación, buena parte de esta épica se puede recortar. `PA-018`, `PA-024`.
+- **Preguntas abiertas:** ninguna. `PA-017`, `PA-018` y `PA-024` **resueltas**. La respuesta:
+  modelo híbrido — entregamos plantillas base por régimen y sector, el cliente las ajusta, y **la
+  interfaz de administración entra al MVP** (`ADR-0004` §6). La configuración inicial se presta
+  como servicio de implementación para el primer cliente.
 - **Decisiones:** `ADR-0004`.
 
 ## Riesgo abierto
 
-**`PA-017` puede reducir esta épica a la mitad o duplicarla.** Es la pregunta de mayor impacto
-sobre el esfuerzo de todo el proyecto y sigue abierta. Conviene responderla antes de estimar la
-Fase 5, no durante.
+**`PA-017` está resuelta y el resultado es intermedio:** la épica no se recorta a la mitad
+—porque el cliente sí configura y la interfaz entra al MVP— pero tampoco se duplica, porque no
+parte de cero: arranca sobre plantillas base. Lo que se adelanta a la Fase 1 es el **contenido**
+(las plantillas), no la **interfaz**; ver `02-producto/roadmap.md`.
+
+Era la pregunta de mayor impacto sobre el esfuerzo de todo el proyecto, y su respuesta añade dos
+piezas que antes no estaban dimensionadas: el **asistente de configuración** y el **simulador**
+de `HU-039`, que deja de ser opcional.
 
 El segundo riesgo es de diseño, no de alcance: una interfaz que exponga el modelo de datos tal
 cual —tablas, claves, condiciones anidadas— cumple el criterio de existir y falla el de ser

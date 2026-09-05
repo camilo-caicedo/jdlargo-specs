@@ -4,10 +4,15 @@ titulo: Recordatorios a la contraparte
 estado: borrador
 epica: EP-006
 prioridad: Could
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-045 — Recordatorios a la contraparte
+
+> **Actualización 2026-09-05 (`PA-028`, `PA-019`).** Los recordatorios dejan de ser un *Could*
+> cómodo: son la pieza que evita que un expediente muera por expiración del enlace. Tras un número
+> configurable de intentos, el sistema **escala al responsable interno**. Canal por defecto:
+> **correo**; SMS y WhatsApp, opcionales y fuera del MVP.
 
 ## Historia
 
@@ -138,10 +143,7 @@ Escenario: Aislamiento entre organizaciones sobre los recordatorios
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** `PA-031` — bloqueante: si la plataforma envía correos a la contraparte o
-  el enlace lo entrega el usuario operativo por su cuenta. Si es lo segundo, esta historia no
-  existe tal como está escrita. `PA-028` — qué pasa al expirar. `PA-019` — mensajes de texto.
-  **Queda en `borrador`.**
+- **Preguntas abiertas:** ninguna. `PA-031`, `PA-028` y `PA-019` **resueltas**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-010` (enlace y su expiración), `HU-041` (plazos), `HU-042` (renovaciones).
 - **Habilita a:** que el equipo de cumplimiento deje de perseguir documentos, que es la promesa

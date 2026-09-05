@@ -1,7 +1,7 @@
 ---
 id: DESC-plan
 estado: vivo
-actualizado: 2026-08-21
+actualizado: 2026-09-05
 ---
 
 # Plan de definición — qué hacer ahora
@@ -31,33 +31,41 @@ nuevos ADR · `/engineering:code-review` obligatorio en RLS, cuotas y cobro.
 
 > **Actualización 2026-08-25.** El cliente entregó su
 > [documento funcional v2](entregables-cliente/2026-08-21-flujo-plataforma-debida-diligencia-v2.md),
-> que cierra ocho preguntas abiertas y abre siete nuevas. La más importante es **`PA-023`**:
-> el alcance descrito excede el calendario planificado. **Esa decisión bloquea el arranque** —
-> ver [roadmap](../02-producto/roadmap.md).
+> que cerró ocho preguntas abiertas y abrió siete nuevas, entre ellas `PA-023`.
+>
+> **Actualización 2026-09-05.** El cliente respondió **las 39 preguntas abiertas**
+> (`PA-001` a `PA-039`). Ya no queda ninguna pregunta bloqueante para construir. Lo que quedó
+> son seis preguntas derivadas (`PA-040` a `PA-045`), ninguna de las cuales frena las fases 0
+> a 4, y cinco ADR nuevos (`ADR-0006` a `ADR-0010`).
 
-## Dónde estamos hoy (21-ago-2026)
+## Dónde estamos hoy (05-sep-2026)
 
-**Decidido:** el stack (`ADR-0001`), el cobro y la facturación (`ADR-0002`), las
-integraciones de screening, y el plan de 20 semanas.
+**Decidido:** el stack (`ADR-0001`), el cobro por facturación (`ADR-0002`), la configuración
+como datos (`ADR-0004`), la procedencia del dato (`ADR-0005`), el posicionamiento sin
+certificación (`ADR-0006`), la retención y la bitácora (`ADR-0007`), el matching (`ADR-0008`),
+el monitoreo continuo (`ADR-0009`) y la firma (`ADR-0010`).
 
-**Sin definir:** casi todo `00-contexto/`. La visión, los actores y el glosario siguen en `TBD`.
+**Definido con las respuestas del cliente:** `vision.md`, `actores-y-roles.md`, `glosario.md`,
+`no-funcionales.md`, el catálogo de fuentes y el modelo comercial.
 
-Esa es la brecha exacta del proyecto en este momento: **el "cómo" está decidido y el "qué"
-está en blanco.** Toca cerrarla antes de la semana 1, porque no se pueden escribir historias
-sobre roles y organizaciones sin saber quiénes son los roles.
+**Sin definir:** `funcionales.md` (los `RF-xxx` siguen en `TBD`), los flujos `FL-xxx`, y el
+alcance del MVP4 (salida por API hacia otros sistemas del cliente, `PA-010`).
+
+La brecha ya no es el "qué": es que el "qué" está en historias y en ADR, pero todavía no en
+requisitos funcionales numerados ni en flujos dibujados.
 
 ## Qué debe estar aprobado antes de cada bloque
 
 | Bloque | Definir antes de | Artefactos que deben estar aprobados | Preguntas que deben estar cerradas |
 |---|---|---|---|
 | **0 · Cimientos** | **Ya** | `vision.md`, `EP-000`. Contexto y modelo ya están listos | Ninguna — no está bloqueada |
-| **1 · Expediente a mano** | Semana 4 | `FL-001` (recorrido completo de vinculación), matriz de requisitos del cliente ancla, `EP-001` | `PA-018` |
-| **2 · Extracción** | Semana 9 | Catálogo de tipos de documento y campos a extraer, `EP-002` | `PA-021` |
-| **3 · Verificación** | Semana 14 | `FL-002` (screening y gestión de alertas), `EP-003` | `PA-012` |
-| **4 · Riesgo** | Semana 19 | Metodología del cliente ancla, reglas de relaciones, `EP-004` | `PA-006` (cerrada) |
-| **5 · Autogestión** | Semana 25 | Diseño de la interfaz de configuración, `EP-005` | `PA-017` |
-| **6 · Monitoreo** | Semana 30 | `FL-003` (eventos y renovaciones), `EP-006` | `PA-011` (cerrada), `PA-014` |
-| **C · Comercial** | 2 semanas antes de arrancarla | Planes, cupos y precios; `FL-004`; `EP-00C` | `PA-012`, `PA-016` |
+| **1 · Expediente a mano** | Semana 4 | `FL-001` (recorrido completo de vinculación), plantillas base y matriz de requisitos del cliente ancla, `EP-001` | Ninguna. `PA-018` cerrada; conviene cerrar `PA-042` antes de diseñar el recorrido de la contraparte |
+| **2 · Extracción** | Semana 9 | Catálogo de tipos de documento y campos a extraer, `EP-002` | `PA-045` (proveedor de IA y su contrato) |
+| **3 · Verificación** | Semana 14 | `FL-002` (screening y gestión de alertas), `EP-003` | **`PA-040`** — sin cotización ni vía de conexión no se puede construir la integración |
+| **4 · Riesgo** | Semana 19 | Metodología del cliente ancla, reglas de relaciones, `EP-004` | Ninguna. `PA-006` y `PA-034` cerradas |
+| **5 · Autogestión** | Semana 25 | Diseño de la interfaz de configuración, `EP-005` | Ninguna. `PA-017` cerrada: plantillas base + ajuste del cliente |
+| **6 · Monitoreo** | Semana 30 | `FL-003` (eventos y renovaciones), `EP-006` | Ninguna. `PA-011`, `PA-014` y `PA-035` cerradas → `ADR-0009` |
+| **C · Comercial** | 2 semanas antes de arrancarla | Planes, cupos y precios; `FL-004`; `EP-00C` | **`PA-043`** (precios), que depende de `PA-040` |
 
 La definición va siempre una fase por delante de la construcción. La capa comercial es móvil:
 se ubica donde aparezca el primer cliente que pague.
@@ -66,23 +74,28 @@ se ubica donde aparezca el primer cliente que pague.
 
 | Sesión | Cuándo | Agenda | Preguntas |
 |---|---|---|---|
-| **1 · Producto y actores** | Esta semana | Qué es certificar, a quién se evalúa, quién usa la plataforma y con qué rol, qué se lleva el usuario al final | `PA-001` a `PA-004`, `PA-007`, `PA-013` |
-| **2 · Riesgo y evidencia** | En 2 semanas | Qué dispara una alerta, cómo se califica el riesgo, qué evidencia exige un supervisor | `PA-006`, `PA-009` |
-| **3 · Comercial** | En 4 semanas | Planes, cupos, monitoreo continuo, volumen esperado por cliente | `PA-011`, `PA-014` |
+| ~~1 · Producto y actores~~ | — | — | **Hecha.** `PA-001` a `PA-004`, `PA-007`, `PA-013` cerradas |
+| ~~2 · Riesgo y evidencia~~ | — | — | **Hecha.** `PA-006`, `PA-009` cerradas |
+| ~~3 · Comercial~~ | — | — | **Hecha.** `PA-011`, `PA-014` cerradas |
+| **4 · Recorrido de la contraparte** | Antes de la Fase 1 | Si el formulario se autodiligencia desde los documentos o la contraparte lo llena a mano; cómo se ve el portal externo | `PA-042` |
+| **5 · Precios** | Antes del bloque C, después de `PA-040` | Precio y cupo de cada plan sobre costo variable real | `PA-043`, `PA-044` |
 
 Cada sesión deja una nota en [`notas/`](notas/) con la plantilla
 [`nota-reunion.md`](../_plantillas/nota-reunion.md).
 
-## Las dos llamadas que no dependen del cliente
+## La llamada que no depende del cliente
 
-Estas no son preguntas para Juan David y **son las únicas que pueden tumbar el plan**:
+De las dos que había, una se cerró sola: **`PA-016`** dejó de importar porque el cliente
+descartó el débito automático con tarjeta y optó por facturación (`ADR-0002`). Queda una, y
+sigue siendo la única gestión capaz de tumbar el modelo de negocio:
 
-1. **`PA-012`** — cotizar al proveedor local de fuentes colombianas (Tusdatos.co,
-   Datacrédito Experian, Compliance.com.co). Define el modelo de precios.
-2. **`PA-016`** — confirmar con Wompi si el cobro desatendido funciona con Visa o solo con
-   Mastercard. Define el patrón de cobro del bloque 4.
+1. **`PA-040`** — establecer con qué fuentes colombianas se puede conectar directamente y a
+   qué costo real, y cotizar formalmente la alternativa intermediada (Tusdatos.co, Datacrédito
+   Experian, Compliance.com.co). El cliente estima $1.000–$2.000 COP por consulta, pero es una
+   estimación, no una cotización (`SUP-009`, `SUP-010`). Define el modelo de precios entero.
 
-**Ambas, esta semana.**
+**Esta semana.** Y en paralelo, Juan David tiene pendiente `PA-041` (firma digital y validez
+del OTP por correo), que no bloquea el MVP pero sí condiciona `ADR-0010`.
 
 ## Tu próxima tarea concreta
 
@@ -95,11 +108,15 @@ Lo que queda, en orden:
 (ver [roadmap](../02-producto/roadmap.md)).
 
 1. **Validar el faseo con Juan David**, en particular que la Fase 1 —sin IA ni screening— le
-   sirva para usarla de verdad. Todo el plan depende de eso.
-2. **`vision.md`**, con el posicionamiento de la §39 y los **no-objetivos**, que la §34 del
-   documento del cliente prácticamente redacta.
-3. **`EP-000` (cimientos) y `EP-001` (un expediente completo, a mano)** con `/user-story-writing`.
-   La Fase 0 no depende de ninguna pregunta abierta: se puede arrancar ya.
+   sirva para usarla de verdad. Todo el plan depende de eso. Añadir a esa conversación el
+   encaje con su escalera MVP1–MVP5 y dónde entra el **MVP4** (salida por API, `PA-010`).
+2. ~~`vision.md`~~ — **hecha** con las respuestas a `PA-001`, `PA-003`, `PA-004`, `PA-010`,
+   `PA-022` y `PA-023`.
+3. ~~`EP-000` y `EP-001`~~ — **hechas**. La Fase 0 no depende de ninguna pregunta abierta: se
+   puede arrancar ya.
+4. **`03-requisitos/funcionales.md`** — es el hueco más grande que queda. Los `RF-xxx` siguen
+   en `TBD` mientras las historias ya están escritas; la trazabilidad está rota por ahí.
+5. **`FL-001`** — el recorrido completo de vinculación, que además fuerza a cerrar `PA-042`.
 
 ## El ciclo de trabajo, en cinco pasos
 

@@ -4,7 +4,7 @@ titulo: Aislamiento entre organizaciones con contexto de usuario
 estado: borrador
 epica: EP-000
 prioridad: Must
-actualizado: 2026-08-27
+actualizado: 2026-09-05
 ---
 
 # HU-002 — Aislamiento entre organizaciones con contexto de usuario
@@ -127,8 +127,10 @@ Escenario: La conexión de administrador está acotada y deja rastro
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** ninguna bloquea el diseño. Queda en `borrador` porque depende de
-  `HU-001`, que sí está bloqueada por `PA-024`.
+- **Preguntas abiertas:** ninguna. `PA-024` **resuelta** (2026-09-05), así que `HU-001` ya no
+  la arrastra. Nota de diseño derivada de `PA-013`: el aislamiento se evalúa sobre la **membresía
+  activa**, no sobre el usuario — un mismo usuario puede pertenecer a varias organizaciones y
+  cambiar de contexto **nunca** debe arrastrar datos de la anterior (`RNF-001`, `RNF-002`).
 - **Supuestos:** `SUP-002` (multiempresa, confirmado §31).
 - **Depende de:** `HU-001`.
 - **Habilita a:** todas las demás historias de la plataforma. Ninguna tabla del dominio puede
