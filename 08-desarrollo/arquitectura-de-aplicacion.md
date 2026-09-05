@@ -1,7 +1,7 @@
 ---
 id: DEV-arquitectura
 estado: propuesto
-actualizado: 2026-08-21
+actualizado: 2026-09-05
 ---
 
 # Arquitectura de la aplicación
@@ -251,6 +251,39 @@ Consecuencias de diseño:
 - Cuando sea viable se **pseudonimiza o se redactan** los campos sensibles antes de enviarlos.
 - La elección concreta de proveedor y su contrato/DPA quedan como `PA-045`: es una decisión
   jurídica y contractual, no solo técnica.
+
+## Metodología de construcción: Superpowers
+
+> **2026-09-05.** Con el descubrimiento cerrado (`PA-001` a `PA-039` resueltas, `RF-001` a
+> `RF-050` trazados) y `jdlargo-api`/`jdlargo-web` a punto de crearse, se decide construir con
+> [Superpowers](https://github.com/obra/superpowers): TDD en ciclo rojo-verde-refactor,
+> debugging sistemático de 4 fases, revisión de código, git worktrees y desarrollo por
+> subagentes. Se descartó `awslabs/aidlc-workflows` para este repo de specs (ver discusión en
+> el hilo de trabajo: es *code-forward* para *brownfield* y trata la documentación existente
+> como no autoritativa — no encajaba aquí), pero su técnica de análisis de brechas de seis
+> dimensiones sí se aplicó a mano (`01-descubrimiento/hallazgos-gap-analysis-2026-09-05.md`).
+
+**Por qué ahora y no antes.** Superpowers es una metodología de construcción: no tenía nada
+que hacer mientras el único repo era `jdlargo-specs` y no había código que escribir. Encaja
+justo ahora porque cada `HU-xxx` ya trae sus criterios de aceptación en Gherkin y su `RF-xxx`
+trazado — el ciclo de Superpowers (brainstorm → plan → implementación por subagentes → TDD →
+revisión → git) recibe requisitos verificables en vez de tener que inferirlos.
+
+**Dónde se instala.** Es un plugin de Claude Code (`/plugin install
+superpowers@claude-plugins-official`), no algo que viva en esta sesión de `jdlargo-specs`. Se
+instala en la sesión de Claude Code que trabaje dentro de `jdlargo-api` o `jdlargo-web` cuando
+se cree cada repo — ver `CLAUDE.md` (raíz) §4 y §5.
+
+**Advertencias, para no adoptarlo a ciegas:**
+
+- Es prescriptivo: 7 etapas por *feature*. Antes de imponerlo a todo el backlog, probarlo
+  primero con `HU-001` o `HU-002` de `EP-000-cimientos` — las más atómicas y con menos
+  dependencias — y ajustar de ahí.
+- Trae telemetría básica activada por defecto (versión, sin datos del proyecto); se
+  desactiva con la variable de entorno `SUPERPOWERS_DISABLE_TELEMETRY`.
+- Lo mantiene una sola persona y no acepta *skills* nuevos de la comunidad: si algo no calza
+  con el flujo de este proyecto, la salida es adaptarlo del lado de acá, no esperar un cambio
+  upstream.
 
 ## Cuándo dejaría de servir este modelo
 
