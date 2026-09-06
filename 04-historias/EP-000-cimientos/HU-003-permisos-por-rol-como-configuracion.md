@@ -1,7 +1,7 @@
 ---
 id: HU-003
 titulo: Permisos por rol como configuración de la organización
-estado: en-revision
+estado: implementado
 epica: EP-000
 prioridad: Must
 actualizado: 2026-09-06
