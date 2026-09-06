@@ -1,7 +1,7 @@
 ---
 id: HU-002
 titulo: Aislamiento entre organizaciones con contexto de usuario
-estado: en-revision
+estado: implementado
 epica: EP-000
 prioridad: Must
 actualizado: 2026-09-06
