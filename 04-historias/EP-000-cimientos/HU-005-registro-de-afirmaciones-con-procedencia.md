@@ -1,7 +1,7 @@
 ---
 id: HU-005
 titulo: Registro de afirmaciones con procedencia
-estado: en-revision
+estado: implementado
 epica: EP-000
 prioridad: Must
 actualizado: 2026-09-06
