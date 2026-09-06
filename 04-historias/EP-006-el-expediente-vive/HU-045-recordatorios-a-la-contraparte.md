@@ -125,14 +125,14 @@ Escenario: Aislamiento entre organizaciones sobre los recordatorios
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `recordatorio.organization_id` | Sí | Organización cliente existente | No |
-| `recordatorio.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `recordatorio.motivo` | Sí | `diligenciamiento_pendiente` \| `enlace_por_expirar` \| `renovacion` | No |
-| `recordatorio.destinatario` | Sí | Correo de la contraparte registrado en el expediente | Sí (dato personal) |
-| `recordatorio.enviado_en` | Sí | Momento; se escribe una sola vez | No |
-| `recordatorio.numero_envio` | Sí | Menor o igual al máximo configurado | No |
-| `configuracion.antelacion_dias` y `cadencia` | Sí | Por organización cliente | No |
-| `configuracion.maximo_recordatorios` | Sí | Numérico, mayor que cero | No |
+| `reminder.organization_id` | Sí | Organización cliente existente | No |
+| `reminder.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `reminder.reason` | Sí | `pending_diligence` \| `link_expiring` \| `renewal` | No |
+| `reminder.recipient` | Sí | Correo de la contraparte registrado en el expediente | Sí (dato personal) |
+| `reminder.sent_at` | Sí | Momento; se escribe una sola vez | No |
+| `reminder.send_number` | Sí | Menor o igual al máximo configurado | No |
+| `configuration.advance_notice_days` y `cadence` | Sí | Por organización cliente | No |
+| `configuration.max_reminders` | Sí | Numérico, mayor que cero | No |
 
 ## Trazabilidad
 

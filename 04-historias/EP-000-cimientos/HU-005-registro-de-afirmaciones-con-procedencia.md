@@ -45,7 +45,7 @@ razon_social · "Ficticia Logistica S.A.S."  · verificado · Cámara de Comerci
 ```
 
 Esta historia construye la estructura y sus invariantes. En la Fase 0 solo existirá el origen
-`declarado`, así que todavía no hay contradicción posible: lo que se garantiza aquí es que
+`declared`, así que todavía no hay contradicción posible: lo que se garantiza aquí es que
 cuando lleguen la extracción y la verificación, el modelo ya las admita sin reescribirse.
 
 ## Criterios de aceptación
@@ -116,15 +116,15 @@ Escenario: Aislamiento entre organizaciones sobre las afirmaciones
 - Toda afirmación guarda: organización cliente, expediente, sujeto, campo, valor, **origen**,
   quién o qué la produjo, cuándo, evidencia asociada, nivel de confianza si vino de un modelo, y
   estado.
-- Los orígenes son cuatro y forman un conjunto cerrado: `declarado`, `extraído`, `verificado`,
-  `evaluado`. **La decisión no es un origen**: es un evento aparte, con persona identificada,
+- Los orígenes son cuatro y forman un conjunto cerrado: `declared`, `extracted`, `verified`,
+  `evaluated`. **La decisión no es un origen**: es un evento aparte, con persona identificada,
   cargo y fundamento.
 - La tabla de afirmaciones es de **solo inserción**. Corregir es añadir una afirmación nueva;
   nunca modificar la anterior.
 - Un mismo campo admite varias afirmaciones vigentes a la vez, incluso contradictorias.
-- Una afirmación de origen `extraído` **no puede** ascender a `verificado`. Lo verificado se
+- Una afirmación de origen `extracted` **no puede** ascender a `verified`. Lo verificado se
   crea, citando la fuente externa o la persona que lo respalda; no se asciende.
-- Toda afirmación de origen `extraído` registra el modelo, el proveedor y la confianza que
+- Toda afirmación de origen `extracted` registra el modelo, el proveedor y la confianza que
   reportó, y una afirmación producida por la IA **no puede quedar sin constancia de que la
   produjo ella** (§32).
 - Ningún camino del sistema escribe un dato del expediente por fuera de esta estructura. Un
@@ -145,18 +145,18 @@ Escenario: Aislamiento entre organizaciones sobre las afirmaciones
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `afirmacion.organization_id` | Sí | Organización cliente existente | No |
-| `afirmacion.expediente_id` | Sí | Expediente de la misma organización cliente (Fase 1) | No |
-| `afirmacion.sujeto_id` | Sí | Sujeto del expediente (Fase 1) | Sí |
-| `afirmacion.campo` | Sí | Campo definido en la versión de configuración aplicable | No |
-| `afirmacion.valor` | Sí | Según el tipo del campo en la configuración | Sí (puede ser dato personal) |
-| `afirmacion.origen` | Sí | `declarado` \| `extraído` \| `verificado` \| `evaluado` | No |
-| `afirmacion.producida_por` | Sí | Usuario, contraparte, fuente externa o ejecución de IA | No |
-| `afirmacion.producida_en` | Sí | Momento; se escribe una sola vez | No |
-| `afirmacion.evidencia_id` | Condicional | Obligatoria si el origen es `extraído` o `verificado` | Sí |
-| `afirmacion.confianza` | Condicional | Obligatoria si el origen es `extraído`; entre 0 y 1 | No |
-| `afirmacion.version_configuracion_id` | Sí | Versión con la que se registró (`HU-004`) | No |
-| `afirmacion.estado` | Sí | `vigente` \| `descartada` — descartar no borra | No |
+| `assertion.organization_id` | Sí | Organización cliente existente | No |
+| `assertion.dossier_id` | Sí | Expediente de la misma organización cliente (Fase 1) | No |
+| `assertion.party_id` | Sí | Sujeto del expediente (Fase 1) | Sí |
+| `assertion.field` | Sí | Campo definido en la versión de configuración aplicable | No |
+| `assertion.value` | Sí | Según el tipo del campo en la configuración | Sí (puede ser dato personal) |
+| `assertion.origin` | Sí | `declared` \| `extracted` \| `verified` \| `evaluated` | No |
+| `assertion.produced_by` | Sí | Usuario, contraparte, fuente externa o ejecución de IA | No |
+| `assertion.produced_at` | Sí | Momento; se escribe una sola vez | No |
+| `assertion.evidence_id` | Condicional | Obligatoria si el origen es `extracted` o `verified` | Sí |
+| `assertion.confidence` | Condicional | Obligatoria si el origen es `extracted`; entre 0 y 1 | No |
+| `assertion.configuration_version_id` | Sí | Versión con la que se registró (`HU-004`) | No |
+| `assertion.status` | Sí | `active` \| `discarded` — descartar no borra | No |
 
 ## Trazabilidad
 

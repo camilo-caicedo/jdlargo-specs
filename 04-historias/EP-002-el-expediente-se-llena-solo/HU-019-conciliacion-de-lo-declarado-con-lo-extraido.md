@@ -126,7 +126,7 @@ Escenario: Aislamiento entre organizaciones sobre las discrepancias
 - La regla de precedencia automática entre orígenes → `PA-027`. Mientras no se responda, **toda**
   discrepancia se resuelve a mano, incluso las evidentes.
 - La conciliación contra fuentes externas → Fase 3. La estructura ya la admite: es una
-  afirmación más, con origen `verificado`.
+  afirmación más, con origen `verified`.
 - La corrección del dato por parte de la contraparte tras ver la discrepancia → forma parte de
   `HU-014` y de la firma previa a la decisión (`HU-022`).
 - La detección de inconsistencias entre documentos distintos → fase posterior.
@@ -136,16 +136,16 @@ Escenario: Aislamiento entre organizaciones sobre las discrepancias
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `discrepancia.organization_id` | Sí | Organización cliente existente | No |
-| `discrepancia.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `discrepancia.campo` | Sí | Campo definido en la versión de configuración citada | No |
-| `discrepancia.afirmaciones` | Sí | Al menos dos afirmaciones vigentes en conflicto | Sí |
-| `discrepancia.estado` | Sí | `abierta` \| `resuelta` | No |
-| `discrepancia.abierta_en` | Sí | Momento; se escribe una sola vez | No |
-| `resolucion.afirmacion_elegida_id` | Sí | Una de las afirmaciones en conflicto | No |
-| `resolucion.fundamento` | Sí | Texto no vacío | No |
-| `resolucion.resuelta_por` | Sí | Usuario con permiso de resolver | No |
-| `resolucion.resuelta_en` | Sí | Momento; se escribe una sola vez | No |
+| `discrepancy.organization_id` | Sí | Organización cliente existente | No |
+| `discrepancy.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `discrepancy.field` | Sí | Campo definido en la versión de configuración citada | No |
+| `discrepancy.assertions` | Sí | Al menos dos afirmaciones vigentes en conflicto | Sí |
+| `discrepancy.status` | Sí | `open` \| `resolved` | No |
+| `discrepancy.opened_at` | Sí | Momento; se escribe una sola vez | No |
+| `resolution.chosen_assertion_id` | Sí | Una de las afirmaciones en conflicto | No |
+| `resolution.rationale` | Sí | Texto no vacío | No |
+| `resolution.resolved_by` | Sí | Usuario con permiso de resolver | No |
+| `resolution.resolved_at` | Sí | Momento; se escribe una sola vez | No |
 
 ## Trazabilidad
 

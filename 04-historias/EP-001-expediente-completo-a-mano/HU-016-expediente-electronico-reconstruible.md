@@ -146,7 +146,7 @@ No introduce entidades nuevas. Consulta las de las historias anteriores:
 | Origen del dato | Historia | Qué aporta a la reconstrucción |
 |---|---|---|
 | Requisitos de la matriz | `HU-007` | Qué se preguntó y por qué |
-| Expediente y sujeto | `HU-008` | Quién era la contraparte (§44 A) |
+| Dossier y party | `HU-008` | Quién era la contraparte (§44 A) |
 | Transiciones | `HU-009` | Cuándo avanzó y por quién |
 | Usos del enlace de acceso | `HU-010` | Cuándo entró la contraparte y desde dónde |
 | Evidencia del consentimiento | `HU-011` | Qué versión del aviso aceptó y cuándo |

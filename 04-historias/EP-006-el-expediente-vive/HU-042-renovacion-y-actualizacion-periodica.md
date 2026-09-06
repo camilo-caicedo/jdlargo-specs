@@ -136,15 +136,15 @@ Escenario: Aislamiento entre organizaciones sobre las renovaciones
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `programacion_actualizacion.organization_id` | Sí | Organización cliente existente | No |
-| `programacion_actualizacion.expediente_id` | Sí | Expediente vinculado | No |
-| `programacion_actualizacion.proxima_fecha` | Sí | Calculada; nunca fija por defecto para todos | No |
-| `programacion_actualizacion.origen_calculo` | Sí | Qué regla produjo el plazo | No |
-| `renovacion.expediente_id` | Sí | El mismo expediente, no uno nuevo | No |
-| `renovacion.version_configuracion_id` | Sí | Versión vigente al renovar | No |
-| `renovacion.disparada_por` | Sí | `calendario` \| `evento` \| `manual` | No |
-| `renovacion.estado` | Sí | `pendiente` \| `en_curso` \| `completada` \| `vencida` | No |
-| `renovacion.decision_id` | Condicional | Obligatoria al completar | No |
+| `update_schedule.organization_id` | Sí | Organización cliente existente | No |
+| `update_schedule.dossier_id` | Sí | Expediente vinculado | No |
+| `update_schedule.next_date` | Sí | Calculada; nunca fija por defecto para todos | No |
+| `update_schedule.calculation_source` | Sí | Qué regla produjo el plazo | No |
+| `renewal.dossier_id` | Sí | El mismo expediente, no uno nuevo | No |
+| `renewal.configuration_version_id` | Sí | Versión vigente al renovar | No |
+| `renewal.triggered_by` | Sí | `calendar` \| `event` \| `manual` | No |
+| `renewal.status` | Sí | `pending` \| `in_progress` \| `completed` \| `expired` | No |
+| `renewal.decision_id` | Condicional | Obligatoria al completar | No |
 
 ## Trazabilidad
 

@@ -136,19 +136,19 @@ Escenario: Aislamiento entre organizaciones sobre los casos
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `caso.organization_id` | Sí | Organización cliente existente | No |
-| `caso.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `caso.sujeto_id` | Sí | Persona o contraparte afectada | Sí |
-| `caso.alertas` | Sí | Al menos una alerta; ninguna en dos casos abiertos a la vez | No |
-| `caso.abierto_por` y `abierto_en` | Sí | Usuario y momento | No |
-| `caso.estado` | Sí | `abierto` \| `pendiente_aprobacion` \| `cerrado` | No |
-| `analisis.autor_id` y `registrado_en` | Sí | Usuario y momento; se apila | No |
-| `analisis.texto` | Sí | Texto no vacío | Sí |
-| `cierre.conclusion` | Sí | Conclusión del caso | No |
-| `cierre.justificacion` | Sí | **Texto no vacío. Sin ella no hay cierre** | No |
-| `cierre.cerrado_por` | Sí | Usuario con permiso de cerrar | No |
-| `cierre.aprobado_por` | Condicional | Obligatorio si la configuración exige aprobación | No |
-| `reapertura.motivo` | Sí | Obligatorio al reabrir | No |
+| `case.organization_id` | Sí | Organización cliente existente | No |
+| `case.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `case.party_id` | Sí | Persona o contraparte afectada | Sí |
+| `case.alerts` | Sí | Al menos una alerta; ninguna en dos casos abiertos a la vez | No |
+| `case.opened_by` y `case.opened_at` | Sí | Usuario y momento | No |
+| `case.status` | Sí | `open` \| `pending_approval` \| `closed` | No |
+| `analysis.author_id` y `analysis.recorded_at` | Sí | Usuario y momento; se apila | No |
+| `analysis.text` | Sí | Texto no vacío | Sí |
+| `closure.conclusion` | Sí | Conclusión del caso | No |
+| `closure.justification` | Sí | **Texto no vacío. Sin ella no hay cierre** | No |
+| `closure.closed_by` | Sí | Usuario con permiso de cerrar | No |
+| `closure.approved_by` | Condicional | Obligatorio si la configuración exige aprobación | No |
+| `reopening.reason` | Sí | Obligatorio al reabrir | No |
 
 ## Trazabilidad
 

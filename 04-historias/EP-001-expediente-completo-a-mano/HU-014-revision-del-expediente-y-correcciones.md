@@ -138,15 +138,15 @@ Escenario: Aislamiento entre organizaciones sobre la revisión
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `revision.organization_id` | Sí | Organización cliente existente | No |
-| `revision.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `revision.revisor_id` | Sí | Usuario con permiso de revisar | No |
-| `revision.ocurrida_en` | Sí | Momento; se escribe una sola vez | No |
-| `observacion.documento_id` | Condicional | Obligatorio si la observación es sobre un documento | No |
-| `observacion.requisito` | Condicional | Obligatorio si la observación es sobre un campo | No |
-| `observacion.motivo` | Sí | Texto no vacío | No |
-| `documento.estado` | Sí | Solo transiciones válidas del estado del documento (`HU-013`) | No |
-| `documento.validado_por` | Sí | Usuario que marcó el estado | No |
+| `review.organization_id` | Sí | Organización cliente existente | No |
+| `review.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `review.reviewer_id` | Sí | Usuario con permiso de revisar | No |
+| `review.occurred_at` | Sí | Momento; se escribe una sola vez | No |
+| `observation.document_id` | Condicional | Obligatorio si la observación es sobre un documento | No |
+| `observation.requirement` | Condicional | Obligatorio si la observación es sobre un campo | No |
+| `observation.reason` | Sí | Texto no vacío | No |
+| `document.state` | Sí | Solo transiciones válidas del estado del documento (`HU-013`) | No |
+| `document.validated_by` | Sí | Usuario que marcó el estado | No |
 
 ## Trazabilidad
 

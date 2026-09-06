@@ -90,15 +90,15 @@ Escenario: Aislamiento entre organizaciones sobre las credenciales
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `credencial_integracion.organization_id` | Sí | Organización cliente existente | No |
-| `credencial_integracion.hash` | Sí | Nunca se guarda en claro | Sí |
-| `credencial_integracion.creada_en` / `creada_por` | Sí | Usuario que la generó | No |
-| `credencial_integracion.revocada_en` / `revocada_por` | No | Nula mientras esté vigente | No |
-| `bitacora_extraccion.organization_id` | Sí | Organización cliente existente | No |
-| `bitacora_extraccion.expediente_id` | Sí | Expediente al que se accedió | No |
-| `bitacora_extraccion.medio` | Sí | `archivo` \| `interfaz_programacion` | No |
-| `bitacora_extraccion.resultado` | Sí | `entregado` \| `rechazado`, con motivo | No |
-| `bitacora_extraccion.actor` | Sí | Usuario o credencial de integración que la generó | No |
+| `integration_credential.organization_id` | Sí | Organización cliente existente | No |
+| `integration_credential.hash` | Sí | Nunca se guarda en claro | Sí |
+| `integration_credential.created_at` / `created_by` | Sí | Usuario que la generó | No |
+| `integration_credential.revoked_at` / `revoked_by` | No | Nula mientras esté vigente | No |
+| `extraction_log.organization_id` | Sí | Organización cliente existente | No |
+| `extraction_log.dossier_id` | Sí | Expediente al que se accedió | No |
+| `extraction_log.channel` | Sí | `file` \| `api` | No |
+| `extraction_log.result` | Sí | `delivered` \| `rejected`, con motivo | No |
+| `extraction_log.actor` | Sí | Usuario o credencial de integración que la generó | No |
 
 ## Trazabilidad
 

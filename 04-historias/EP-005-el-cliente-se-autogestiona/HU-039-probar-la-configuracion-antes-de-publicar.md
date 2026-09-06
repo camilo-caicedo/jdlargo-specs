@@ -126,14 +126,14 @@ Escenario: Aislamiento entre organizaciones sobre los ensayos
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `caso_prueba.organization_id` | Sí | Organización cliente existente | No |
-| `caso_prueba.nombre` | Sí | Texto no vacío | No |
-| `caso_prueba.tipo_contraparte` | Sí | Tipo de la versión que se ensaya | No |
-| `caso_prueba.datos` | Sí | **Datos ficticios**; nunca de una contraparte real | No |
-| `ensayo.version_configuracion_id` | Sí | Borrador o versión publicada que se ensaya | No |
-| `ensayo.resultado` | Sí | Requisitos exigidos y nivel de riesgo | No |
-| `ensayo.explicacion` | Sí | Reglas disparadas con sus entradas | No |
-| `ensayo.efectos` | Sí | Ninguno: sin expediente, sin consultas, sin costo | No |
+| `simulation_case.organization_id` | Sí | Organización cliente existente | No |
+| `simulation_case.name` | Sí | Texto no vacío | No |
+| `simulation_case.counterparty_type` | Sí | Tipo de la versión que se ensaya | No |
+| `simulation_case.data` | Sí | **Datos ficticios**; nunca de una contraparte real | No |
+| `simulation_execution.configuration_version_id` | Sí | Borrador o versión publicada que se ensaya | No |
+| `simulation_execution.result` | Sí | Requisitos exigidos y nivel de riesgo | No |
+| `simulation_execution.explanation` | Sí | Reglas disparadas con sus entradas | No |
+| `simulation_execution.effects` | Sí | Ninguno: sin expediente, sin consultas, sin costo | No |
 
 ## Trazabilidad
 

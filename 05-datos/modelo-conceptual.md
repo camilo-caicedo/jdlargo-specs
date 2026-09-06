@@ -1,7 +1,7 @@
 ---
 id: DATA-modelo
 estado: propuesto
-actualizado: 2026-08-25
+actualizado: 2026-09-06
 ---
 
 # Modelo conceptual
@@ -24,32 +24,39 @@ reglas distintas**, y mezclarlos es lo que rompe la auditoría:
 
 ## Diagrama
 
+> Nombres de entidad en inglés desde el 2026-09-06 (`05-datos/diccionario-de-datos.md`):
+> este diagrama es la forma más cercana a un esquema que hay en `jdlargo-specs`, así que
+> sigue la regla de "código en inglés" (`AGENTS.md` raíz §5.4) aunque el resto del documento
+> esté en español. `ORGANIZATION` es siempre la organización cliente (el *tenant*); una
+> organización como tipo de `PARTY` es `LEGAL_ENTITY`, nunca `ORGANIZATION` — ver la
+> advertencia del diccionario.
+
 ```mermaid
 erDiagram
-    ORGANIZACION_CLIENTE ||--o{ CONFIGURACION_VERSION : "publica"
-    ORGANIZACION_CLIENTE ||--o{ SUJETO : "conoce"
-    ORGANIZACION_CLIENTE ||--o{ EXPEDIENTE : "gestiona"
+    ORGANIZATION ||--o{ CONFIGURATION_VERSION : "publishes"
+    ORGANIZATION ||--o{ PARTY : "knows"
+    ORGANIZATION ||--o{ DOSSIER : "manages"
 
-    CONFIGURACION_VERSION ||--o{ MATRIZ_REQUISITOS : "contiene"
-    CONFIGURACION_VERSION ||--o{ METODOLOGIA_RIESGO : "contiene"
-    CONFIGURACION_VERSION ||--o{ TIPO_CONTRAPARTE : "contiene"
+    CONFIGURATION_VERSION ||--o{ REQUIREMENT_MATRIX : "contains"
+    CONFIGURATION_VERSION ||--o{ RISK_METHODOLOGY : "contains"
+    CONFIGURATION_VERSION ||--o{ COUNTERPARTY_TYPE : "contains"
 
-    EXPEDIENTE }o--|| CONFIGURACION_VERSION : "congelado contra"
-    EXPEDIENTE }o--|| SUJETO : "sobre"
-    EXPEDIENTE ||--o{ AFIRMACION : "acumula"
-    EXPEDIENTE ||--o{ DOCUMENTO : "recibe"
-    EXPEDIENTE ||--o{ EVALUACION : "produce"
-    EXPEDIENTE ||--o{ CASO : "abre"
-    EXPEDIENTE ||--o| DECISION : "cierra con"
+    DOSSIER }o--|| CONFIGURATION_VERSION : "frozen against"
+    DOSSIER }o--|| PARTY : "about"
+    DOSSIER ||--o{ ASSERTION : "accumulates"
+    DOSSIER ||--o{ DOCUMENT : "receives"
+    DOSSIER ||--o{ RISK_ASSESSMENT : "produces"
+    DOSSIER ||--o{ CASE : "opens"
+    DOSSIER ||--o| DECISION : "closes with"
 
-    SUJETO ||--o{ RELACION : "origen"
-    SUJETO ||--o{ RELACION : "destino"
+    PARTY ||--o{ RELATIONSHIP : "source"
+    PARTY ||--o{ RELATIONSHIP : "target"
 
-    AFIRMACION }o--o| DOCUMENTO : "evidenciada por"
-    AFIRMACION }o--o| VERIFICACION : "respaldada por"
-    CASO ||--o{ ALERTA : "agrupa"
-    SCREENING ||--o{ COINCIDENCIA : "produce"
-    COINCIDENCIA }o--|| ALERTA : "genera"
+    ASSERTION }o--o| DOCUMENT : "evidenced by"
+    ASSERTION }o--o| VERIFICATION : "backed by"
+    CASE ||--o{ ALERT : "groups"
+    SCREENING ||--o{ MATCH : "produces"
+    MATCH }o--|| ALERT : "generates"
 ```
 
 ## Decisiones de modelado que no son obvias

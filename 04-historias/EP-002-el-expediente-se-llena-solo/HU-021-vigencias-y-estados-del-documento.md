@@ -99,7 +99,7 @@ Escenario: Aislamiento entre organizaciones sobre las vigencias
 - La vigencia de cada tipo documental es **configuración versionada** (`ADR-0004`), no una
   constante. Puede expresarse como duración desde la expedición, como fecha propia del
   documento, o como "sin vencimiento".
-- El estado del documento sigue el ciclo completo de la Fase 7, incluido `vencido`, y solo
+- El estado del documento sigue el ciclo completo de la Fase 7, incluido `expired`, y solo
   cambia por transiciones válidas.
 - Un documento vencido **no cubre** su requisito. El expediente lo refleja de inmediato.
 - Las fechas de expedición y vencimiento son afirmaciones con origen. Si la declarada y la
@@ -120,11 +120,11 @@ Escenario: Aislamiento entre organizaciones sobre las vigencias
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `tipo_documental.vigencia` | Sí | `sin_vencimiento` \| duración desde la expedición \| fecha propia del documento | No |
-| `documento.fecha_expedicion` | Condicional | Obligatoria si la vigencia se calcula desde ella; es una afirmación con origen | Sí |
-| `documento.fecha_caducidad` | Condicional | Calculada o declarada; es una afirmación con origen | Sí |
-| `documento.estado` | Sí | `no_recibido` \| `recibido` \| `en_validacion` \| `valido` \| `requiere_revision` \| `rechazado` \| `vencido` | No |
-| `transicion_documento.motivo` | Condicional | Obligatorio al rechazar o marcar para revisión | No |
+| `document_type.validity` | Sí | `no_expiration` \| duración desde la expedición \| fecha propia del documento | No |
+| `document.issued_at` | Condicional | Obligatoria si la vigencia se calcula desde ella; es una afirmación con origen | Sí |
+| `document.expires_at` | Condicional | Calculada o declarada; es una afirmación con origen | Sí |
+| `document.state` | Sí | `not_received` \| `received` \| `under_review` \| `valid` \| `requires_review` \| `rejected` \| `expired` | No |
+| `document_transition.reason` | Condicional | Obligatorio al rechazar o marcar para revisión | No |
 
 ## Trazabilidad
 

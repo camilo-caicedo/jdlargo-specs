@@ -133,17 +133,17 @@ Escenario: Aislamiento entre organizaciones sobre la diligencia intensificada
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `ddi.organization_id` | Sí | Organización cliente existente | No |
-| `ddi.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `ddi.causal` | Sí | Regla configurada que la activó, o `manual` | No |
-| `ddi.activada_por` | Condicional | Obligatorio si la activación fue manual | No |
-| `ddi.motivo` | Condicional | Obligatorio si la activación fue manual | No |
-| `ddi.metodologia_version_id` | Sí | Versión vigente al activarla | No |
-| `solicitud_ddi.tipo` | Sí | `informacion` \| `origen_recursos` \| `soportes_financieros` \| `documentos_societarios` \| `beneficiario_final` \| `referencias` \| `visita` \| `entrevista` \| `explicacion_operacion` \| `aprobacion_alta_gerencia` \| `controles` | No |
-| `solicitud_ddi.estado` | Sí | `pendiente` \| `atendida` \| `no_atendida` | No |
-| `visita.lista_comprobacion` | Condicional | Obligatoria si hay visita; respuestas registradas | Sí |
-| `visita.firma_visitante` | Condicional | Obligatoria si hay visita | Sí |
-| `ddi.conclusion` y `concluida_por` | Condicional | Obligatorias al concluir | No |
+| `edd.organization_id` | Sí | Organización cliente existente | No |
+| `edd.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `edd.trigger` | Sí | Regla configurada que la activó, o `manual` | No |
+| `edd.activated_by` | Condicional | Obligatorio si la activación fue manual | No |
+| `edd.reason` | Condicional | Obligatorio si la activación fue manual | No |
+| `edd.risk_methodology_version_id` | Sí | Versión vigente al activarla | No |
+| `edd_request.type` | Sí | `information` \| `source_of_funds` \| `financial_statements` \| `corporate_documents` \| `beneficial_owner` \| `references` \| `visit` \| `interview` \| `operation_explanation` \| `senior_management_approval` \| `controls` | No |
+| `edd_request.status` | Sí | `pending` \| `addressed` \| `not_addressed` | No |
+| `visit.checklist` | Condicional | Obligatoria si hay visita; respuestas registradas | Sí |
+| `visit.visitor_signature` | Condicional | Obligatoria si hay visita | Sí |
+| `edd.conclusion` y `edd.concluded_by` | Condicional | Obligatorias al concluir | No |
 
 ## Trazabilidad
 

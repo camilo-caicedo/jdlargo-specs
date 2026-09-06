@@ -128,12 +128,12 @@ Escenario: Aislamiento entre organizaciones sobre la matriz
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `tipo_contraparte.nombre` | Sí | Único dentro de la versión | No |
-| `tipo_contraparte.naturaleza` | Sí | `persona_natural` \| `persona_juridica` | No |
-| `tipo_contraparte.estado` | Sí | `activo` \| `retirado` | No |
-| `requisito.clase` | Sí | `campo` \| `tipo_documental` | No |
-| `requisito.obligatorio` | Sí | `siempre` \| `condicional` \| `opcional` | No |
-| `requisito.condicion` | Condicional | Solo del conjunto cerrado; obligatoria si es condicional | No |
+| `counterparty_type.name` | Sí | Único dentro de la versión | No |
+| `counterparty_type.nature` | Sí | `natural_person` \| `legal_entity` | No |
+| `counterparty_type.status` | Sí | `active` \| `retired` | No |
+| `requirement.type` | Sí | `field` \| `document_type` | No |
+| `requirement.mandatory` | Sí | `always` \| `conditional` \| `optional` | No |
+| `requirement.condition` | Condicional | Solo del conjunto cerrado; obligatoria si es condicional | No |
 | Cobertura de la matriz | Sí | Toda combinación activa tiene al menos un requisito | No |
 
 ## Trazabilidad

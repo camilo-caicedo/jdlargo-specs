@@ -121,8 +121,8 @@ Escenario: El archivo no es accesible sin autorización
   aplicación (`ADR-0001`).
 - La descarga exige autorización: miembro de la organización cliente con permiso, o portador del
   enlace de acceso de ese mismo expediente (`HU-010`).
-- El estado del documento en la Fase 1 se limita a `no recibido → recibido → en revisión →
-  válido | requiere revisión | rechazado`. **El estado `vencido` y las vigencias llegan en la
+- El estado del documento en la Fase 1 se limita a `not_received → received → under_review →
+  valid | requires_review | rejected`. **El estado `expired` y las vigencias llegan en la
   Fase 2.**
 - Un documento rechazado se puede volver a cargar **sin perder lo diligenciado en el formulario**
   (§46).
@@ -140,17 +140,17 @@ Escenario: El archivo no es accesible sin autorización
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `documento.organization_id` | Sí | Organización cliente existente | No |
-| `documento.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `documento.tipo_documental` | Sí | Exigido por la matriz de la versión citada | No |
-| `documento.version` | Sí | Correlativa por tipo documental dentro del expediente | No |
-| `documento.huella` | Sí | Huella digital del archivo; se calcula al cargar y no se modifica | No |
-| `documento.tamano` | Sí | Menor o igual al máximo configurado `(TBD — PA-030)` | No |
-| `documento.formato` | Sí | Formato admitido `(TBD — PA-030)` | No |
-| `documento.emisor_declarado` | No | Texto; se guarda como afirmación declarada | Sí |
-| `documento.fecha_expedicion` / `fecha_vencimiento` | No | Fechas declaradas; se guardan como afirmaciones declaradas | Sí |
-| `documento.estado` | Sí | `no_recibido` \| `recibido` \| `en_revision` \| `valido` \| `requiere_revision` \| `rechazado` | No |
-| `documento.cargado_por` | Sí | Contraparte o usuario, con su tipo de actor | No |
+| `document.organization_id` | Sí | Organización cliente existente | No |
+| `document.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `document.document_type` | Sí | Exigido por la matriz de la versión citada | No |
+| `document.version` | Sí | Correlativa por tipo documental dentro del expediente | No |
+| `document.hash` | Sí | Huella digital del archivo; se calcula al cargar y no se modifica | No |
+| `document.size` | Sí | Menor o igual al máximo configurado `(TBD — PA-030)` | No |
+| `document.format` | Sí | Formato admitido `(TBD — PA-030)` | No |
+| `document.declared_issuer` | No | Texto; se guarda como afirmación declarada | Sí |
+| `document.issued_at` / `expires_at` | No | Fechas declaradas; se guardan como afirmaciones declaradas | Sí |
+| `document.state` | Sí | `not_received` \| `received` \| `under_review` \| `valid` \| `requires_review` \| `rejected` | No |
+| `document.uploaded_by` | Sí | Contraparte o usuario, con su tipo de actor | No |
 
 ## Trazabilidad
 

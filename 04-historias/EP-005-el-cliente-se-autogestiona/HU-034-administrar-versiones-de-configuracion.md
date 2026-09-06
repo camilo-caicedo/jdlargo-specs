@@ -129,10 +129,10 @@ Escenario: Aislamiento entre organizaciones sobre la administración
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `version_configuracion.estado` | Sí | `borrador` \| `publicada` \| `reemplazada` | No |
+| `configuration_version.status` | Sí | `draft` \| `published` \| `replaced` | No |
 | Borrador activo | Sí | Como máximo uno por organización cliente | No |
-| `version_configuracion.motivo` | Sí | Texto no vacío al publicar | No |
-| `version_configuracion.publicada_por` | Sí | Usuario con permiso de publicar | No |
+| `configuration_version.reason` | Sí | Texto no vacío al publicar | No |
+| `configuration_version.published_by` | Sí | Usuario con permiso de publicar | No |
 | Validación de coherencia | Sí | Bloquea la publicación si algo falta o es incoherente | No |
 
 ## Trazabilidad

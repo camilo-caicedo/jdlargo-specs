@@ -106,8 +106,8 @@ Escenario: El registro sobrevive a la baja del usuario
 
 - La bitácora es de **solo inserción**. No existe operación de modificación ni de borrado, y la
   restricción se impone en la base de datos: ni siquiera la conexión de administrador la evita.
-- Cada entrada registra como mínimo, según la §23: actor, tipo de actor (`usuario`, `sistema` o
-  —desde la Fase 1— `contraparte`), acción, entidad y fila afectadas, momento, origen de la
+- Cada entrada registra como mínimo, según la §23: actor, tipo de actor (`user`, `system` o
+  —desde la Fase 1— `counterparty`), acción, entidad y fila afectadas, momento, origen de la
   petición, valor anterior, valor nuevo, motivo, fuente, si fue automático o manual, qué modelo
   de IA intervino y qué versión de configuración regía.
 - La entrada de bitácora se escribe **en la misma transacción** que el cambio que describe. Si
@@ -135,19 +135,19 @@ Escenario: El registro sobrevive a la baja del usuario
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `bitacora.organization_id` | Sí | Organización cliente existente | No |
-| `bitacora.actor_id` | Condicional | Obligatorio si el tipo de actor es `usuario` | No |
-| `bitacora.actor_tipo` | Sí | `usuario` \| `sistema` \| `contraparte` (este último desde la Fase 1) | No |
-| `bitacora.accion` | Sí | Valor del catálogo cerrado de acciones | No |
-| `bitacora.entidad` y `bitacora.entidad_id` | Sí | Identifican la fila afectada | No |
-| `bitacora.ocurrido_en` | Sí | Momento; se escribe una sola vez | No |
-| `bitacora.origen_peticion` | Sí | Dirección de red y agente desde donde se actuó | Sí (dato personal indirecto) |
-| `bitacora.valor_anterior` / `valor_nuevo` | Condicional | Obligatorios en toda modificación | Sí |
-| `bitacora.motivo` | Condicional | Obligatorio en las acciones que la configuración exige justificar | No |
-| `bitacora.fuente` | No | Fuente externa que originó el cambio, si la hubo | No |
-| `bitacora.automatico` | Sí | Verdadero o falso | No |
-| `bitacora.modelo_ia` | No | Modelo, proveedor y versión, si intervino IA (§32) | No |
-| `bitacora.version_configuracion_id` | Sí | Versión vigente en ese momento (`HU-004`) | No |
+| `audit_log.organization_id` | Sí | Organización cliente existente | No |
+| `audit_log.actor_id` | Condicional | Obligatorio si el tipo de actor es `user` | No |
+| `audit_log.actor_type` | Sí | `user` \| `system` \| `counterparty` (este último desde la Fase 1) | No |
+| `audit_log.action` | Sí | Valor del catálogo cerrado de acciones | No |
+| `audit_log.entity` y `audit_log.entity_id` | Sí | Identifican la fila afectada | No |
+| `audit_log.occurred_at` | Sí | Momento; se escribe una sola vez | No |
+| `audit_log.request_origin` | Sí | Dirección de red y agente desde donde se actuó | Sí (dato personal indirecto) |
+| `audit_log.previous_value` / `audit_log.new_value` | Condicional | Obligatorios en toda modificación | Sí |
+| `audit_log.reason` | Condicional | Obligatorio en las acciones que la configuración exige justificar | No |
+| `audit_log.source` | No | Fuente externa que originó el cambio, si la hubo | No |
+| `audit_log.automatic` | Sí | Verdadero o falso | No |
+| `audit_log.ai_model` | No | Modelo, proveedor y versión, si intervino IA (§32) | No |
+| `audit_log.configuration_version_id` | Sí | Versión vigente en ese momento (`HU-004`) | No |
 
 ## Trazabilidad
 

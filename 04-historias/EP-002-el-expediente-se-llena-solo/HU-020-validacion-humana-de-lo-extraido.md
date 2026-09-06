@@ -94,11 +94,11 @@ Escenario: Aislamiento entre organizaciones sobre la validación
 
 ## Reglas de negocio
 
-- Toda afirmación de origen `extraído` nace **pendiente de validación** si su confianza está por
+- Toda afirmación de origen `extracted` nace **pendiente de validación** si su confianza está por
   debajo del umbral configurado; por encima, la configuración decide si se valida igualmente.
-- **Validar no cambia el origen.** Una afirmación extraída y validada sigue siendo extraída, con
+- **Validar no cambia el origen.** Una afirmación extraída y validada sigue siendo `extracted`, con
   la marca de quién la validó (§2).
-- Descartar no borra: la afirmación queda en estado `descartada` y sigue siendo evidencia.
+- Descartar no borra: la afirmación queda en estado `discarded` y sigue siendo evidencia.
 - Corregir a mano produce una afirmación nueva atribuida a la persona que la escribió, con su
   momento. No se edita la que produjo el modelo.
 - La validación queda registrada también en la ejecución de IA correspondiente, como "resultado
@@ -120,13 +120,13 @@ Escenario: Aislamiento entre organizaciones sobre la validación
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `validacion.organization_id` | Sí | Organización cliente existente | No |
-| `validacion.afirmacion_id` | Sí | Afirmación de origen `extraído` | No |
-| `validacion.resultado` | Sí | `confirmada` \| `descartada` \| `corregida` | No |
-| `validacion.motivo` | Condicional | Obligatorio si se descarta o se corrige | No |
-| `validacion.validada_por` | Sí | Usuario con permiso de validar | No |
-| `validacion.validada_en` | Sí | Momento; se escribe una sola vez | No |
-| `afirmacion.estado` | Sí | `pendiente_validacion` \| `vigente` \| `descartada` | No |
+| `validation.organization_id` | Sí | Organización cliente existente | No |
+| `validation.assertion_id` | Sí | Afirmación de origen `extracted` | No |
+| `validation.result` | Sí | `confirmed` \| `discarded` \| `corrected` | No |
+| `validation.reason` | Condicional | Obligatorio si se descarta o se corrige | No |
+| `validation.validated_by` | Sí | Usuario con permiso de validar | No |
+| `validation.validated_at` | Sí | Momento; se escribe una sola vez | No |
+| `assertion.status` | Sí | `pending_validation` \| `active` \| `discarded` | No |
 
 ## Trazabilidad
 

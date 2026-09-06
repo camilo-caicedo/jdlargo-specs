@@ -114,7 +114,7 @@ Escenario: La conexión de administrador está acotada y deja rastro
 | `organization_id` (en toda tabla del dominio) | Sí | Organización cliente existente; inmutable una vez escrito | No |
 | Contexto de transacción: usuario | Sí | Cuenta existente y activa | No |
 | Contexto de transacción: organización cliente | Sí | Debe corresponder a una membresía activa del usuario (`HU-001`) | No |
-| Contexto de transacción: tipo de actor | Sí | `usuario` \| `sistema` — el valor `contraparte` se reserva para la Fase 1 | No |
+| Contexto de transacción: tipo de actor | Sí | `user` \| `system` — el valor `counterparty` se reserva para la Fase 1 | No |
 
 ## Trazabilidad
 

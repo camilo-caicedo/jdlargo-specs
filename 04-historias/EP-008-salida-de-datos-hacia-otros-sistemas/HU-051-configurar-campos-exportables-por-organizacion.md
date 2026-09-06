@@ -97,11 +97,11 @@ Escenario: Aislamiento entre organizaciones sobre esta configuración
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `campo_exportable.organization_id` | Sí | Organización cliente existente | No |
-| `campo_exportable.version_configuracion_id` | Sí | Versión existente (`HU-004`) | No |
-| `campo_exportable.campo` | Sí | Referencia a un campo del diccionario de datos (`05-datos/diccionario-de-datos.md`) | No |
-| `campo_exportable.habilitado` | Sí | Booleano; por defecto `falso` | No |
-| `campo_exportable.bloqueado_por_politica` | Sí | Booleano; solo lo fija el sistema, no el cliente `(TBD — PA-048)` | No |
+| `exportable_field.organization_id` | Sí | Organización cliente existente | No |
+| `exportable_field.configuration_version_id` | Sí | Versión existente (`HU-004`) | No |
+| `exportable_field.field` | Sí | Referencia a un campo del diccionario de datos (`05-datos/diccionario-de-datos.md`) | No |
+| `exportable_field.enabled` | Sí | Booleano; por defecto `false` | No |
+| `exportable_field.blocked_by_policy` | Sí | Booleano; solo lo fija el sistema, no el cliente `(TBD — PA-048)` | No |
 
 ## Trazabilidad
 

@@ -128,14 +128,14 @@ Escenario: Los documentos originales se pueden incluir
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `exportacion.organization_id` | Sí | Organización cliente existente | No |
-| `exportacion.tipo` | Sí | `expediente` \| `reporte` | No |
-| `exportacion.alcance` | Sí | Expediente concreto, o filtros y periodo del reporte | No |
-| `exportacion.formato` | Sí | `pdf` \| `hoja_de_calculo` \| `paquete_con_documentos` | No |
-| `exportacion.solicitada_por` | Sí | Usuario con permiso de exportar | No |
-| `exportacion.generada_en` | Sí | Momento; se escribe una sola vez | No |
-| `exportacion.huella_archivo` | Sí | Huella digital del archivo generado | No |
-| `exportacion.direccion_red` | Sí | Desde dónde se solicitó | Sí (dato personal indirecto) |
+| `report_export.organization_id` | Sí | Organización cliente existente | No |
+| `report_export.type` | Sí | `dossier` \| `report` | No |
+| `report_export.scope` | Sí | Expediente concreto, o filtros y periodo del reporte | No |
+| `report_export.format` | Sí | `pdf` \| `spreadsheet` \| `package_with_documents` | No |
+| `report_export.requested_by` | Sí | Usuario con permiso de exportar | No |
+| `report_export.generated_at` | Sí | Momento; se escribe una sola vez | No |
+| `report_export.file_hash` | Sí | Huella digital del archivo generado | No |
+| `report_export.ip_address` | Sí | Desde dónde se solicitó | Sí (dato personal indirecto) |
 
 ## Trazabilidad
 

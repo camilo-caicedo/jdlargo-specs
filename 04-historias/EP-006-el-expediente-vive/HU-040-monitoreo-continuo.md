@@ -4,7 +4,7 @@ titulo: Monitoreo continuo
 estado: borrador
 epica: EP-006
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-040 — Monitoreo continuo
@@ -139,15 +139,15 @@ Escenario: Aislamiento entre organizaciones sobre el monitoreo
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `evento_monitoreo.organization_id` | Sí | Organización cliente existente | No |
-| `evento_monitoreo.expediente_id` | Sí | Expediente vinculado de esa organización | No |
-| `evento_monitoreo.tipo` | Sí | `coincidencia` \| `pep` \| `societario` \| `beneficiario_final` \| `representante_legal` \| `jurisdiccion` \| `documento_vencido` \| `cuenta_bancaria` \| `sancion` \| `riesgo` | No |
-| `evento_monitoreo.detectado_en` | Sí | Momento; se escribe una sola vez | No |
-| `evento_monitoreo.evidencia` | Sí | Respuesta congelada de la fuente | Sí |
-| `evento_monitoreo.alerta_id` | Sí | Alerta generada | No |
-| `programacion.periodicidad` | Sí | Calculada según `HU-042`; nunca fija para todos | No |
-| `ejecucion_monitoreo.costo` | Sí | Costo de las consultas ejecutadas | No |
-| `ejecucion_monitoreo.clave_idempotencia` | Sí | Impide consultar y cobrar dos veces un reintento | No |
+| `monitoring_event.organization_id` | Sí | Organización cliente existente | No |
+| `monitoring_event.dossier_id` | Sí | Expediente vinculado de esa organización | No |
+| `monitoring_event.type` | Sí | `match` \| `pep` \| `corporate` \| `beneficial_owner` \| `legal_representative` \| `jurisdiction` \| `expired_document` \| `bank_account` \| `sanction` \| `risk` | No |
+| `monitoring_event.detected_at` | Sí | Momento; se escribe una sola vez | No |
+| `monitoring_event.evidence` | Sí | Respuesta congelada de la fuente | Sí |
+| `monitoring_event.alert_id` | Sí | Alerta generada | No |
+| `schedule.frequency` | Sí | Calculada según `HU-042`; nunca fija para todos | No |
+| `monitoring_execution.cost` | Sí | Costo de las consultas ejecutadas | No |
+| `monitoring_execution.idempotency_key` | Sí | Impide consultar y cobrar dos veces un reintento | No |
 
 ## Trazabilidad
 

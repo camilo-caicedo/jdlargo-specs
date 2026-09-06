@@ -4,7 +4,7 @@ titulo: Formulario dinámico de identificación
 estado: borrador
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-012 — Formulario dinámico de identificación
@@ -13,7 +13,7 @@ actualizado: 2026-09-05
 > despliegue ya están definidos (siete, ver `HU-007`). **Queda abierto `PA-042`**: si la
 > contraparte sube documentos primero y confirma lo extraído, el formulario deja de ser el primer
 > paso del recorrido. Lo que no cambia en ninguno de los dos escenarios: lo extraído por IA
-> **nunca** se guarda como `declarado` sin que la contraparte lo confirme (`ADR-0005`).
+> **nunca** se guarda como `declared` sin que la contraparte lo confirme (`ADR-0005`).
 
 ## Historia
 
@@ -31,7 +31,7 @@ obligatoriedad, sus validaciones y su condicionalidad salen de la matriz de requ
 almacenada. No hay una pantalla por tipo de contraparte: hay una pantalla que se arma sola.
 
 Y la regla que gobierna lo que se guarda viene de `ADR-0005`: **lo que la contraparte escribe
-es una afirmación de origen `declarado`**, con su autor y su momento. No es un hecho verificado
+es una afirmación de origen `declared`**, con su autor y su momento. No es un hecho verificado
 y el sistema no debe presentarlo como tal. Verificarlo es la Fase 3.
 
 El documento del cliente añade una advertencia que conviene tener presente: *"el formulario es
@@ -111,7 +111,7 @@ Escenario: Las validaciones vienen de la configuración, no del programa
 
 - El formulario se **construye** a partir de la matriz de requisitos de la versión de
   configuración que cita el expediente. Ningún campo está escrito en la pantalla.
-- Toda respuesta se guarda como **afirmación de origen `declarado`** (`HU-005`), con autor y
+- Toda respuesta se guarda como **afirmación de origen `declared`** (`HU-005`), con autor y
   momento. Nunca como valor plano.
 - Corregir es añadir una afirmación nueva; la anterior no se borra.
 - Las validaciones se aplican **en el servidor**. Lo que valide el navegador es comodidad, no
@@ -151,7 +151,7 @@ Reglas que sí son de esta historia:
 
 | Regla | Validación |
 |---|---|
-| Todo campo diligenciado | Se guarda como afirmación con origen `declarado` |
+| Todo campo diligenciado | Se guarda como afirmación con origen `declared` |
 | Obligatoriedad | Sale de la matriz; se verifica en el servidor |
 | Condicionalidad | Solo con el conjunto cerrado de condiciones de `ADR-0004` |
 | Tipos de dato y formatos | Salen de la matriz; el programa no conoce formatos por campo |

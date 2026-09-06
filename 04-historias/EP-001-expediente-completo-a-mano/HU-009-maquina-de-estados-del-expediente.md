@@ -140,16 +140,16 @@ Escenario: Aislamiento entre organizaciones sobre estados y transiciones
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `estado.clave` | Sí | Único; pertenece al catálogo declarado | No |
-| `estado.es_final` | Sí | Verdadero o falso | No |
-| `transicion_valida.origen` / `destino` | Sí | Estados declarados; el destino no puede ser el origen | No |
-| `transicion_valida.permiso` | Sí | Permiso del catálogo (`HU-003`) | No |
-| `transicion_valida.exige_motivo` | Sí | Verdadero o falso | No |
-| `transicion.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `transicion.actor_id` y `actor_tipo` | Sí | `usuario` \| `sistema` \| `contraparte` | No |
-| `transicion.ocurrida_en` | Sí | Momento; se escribe una sola vez | No |
-| `transicion.motivo` | Condicional | Obligatorio si la transición lo exige | No |
-| `transicion.version_configuracion_id` | Sí | Versión vigente al ejecutarla | No |
+| `state.key` | Sí | Único; pertenece al catálogo declarado | No |
+| `state.is_final` | Sí | Verdadero o falso | No |
+| `valid_transition.source` / `target` | Sí | Estados declarados; el destino no puede ser el origen | No |
+| `valid_transition.permission` | Sí | Permiso del catálogo (`HU-003`) | No |
+| `valid_transition.requires_reason` | Sí | Verdadero o falso | No |
+| `transition.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `transition.actor_id` y `actor_type` | Sí | `user` \| `system` \| `counterparty` | No |
+| `transition.occurred_at` | Sí | Momento; se escribe una sola vez | No |
+| `transition.reason` | Condicional | Obligatorio si la transición lo exige | No |
+| `transition.configuration_version_id` | Sí | Versión vigente al ejecutarla | No |
 
 ## Trazabilidad
 

@@ -4,7 +4,7 @@ titulo: Screening contra listas, PEP y sanciones
 estado: borrador
 epica: EP-003
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-025 — Screening contra listas, PEP y sanciones
@@ -129,15 +129,15 @@ Escenario: Aislamiento entre organizaciones sobre el screening
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
 | `screening.organization_id` | Sí | Organización cliente existente | No |
-| `screening.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `screening.sujeto_id` | Sí | Sobre quién se consultó | Sí |
-| `screening.fuentes` | Sí | Al menos una fuente del catálogo | No |
-| `screening.ejecutado_en` | Sí | Momento; se escribe una sola vez | No |
-| `screening.disparado_por` | Sí | Usuario o proceso automático | No |
-| `screening.respuesta` | Sí | Respuesta completa congelada | Sí |
-| `screening.version_datos` | No | Versión del conjunto de datos, si la fuente la reporta | No |
-| `screening.costo` | Sí | Costo de la consulta | No |
-| `screening.clave_idempotencia` | Sí | Impide consultar y cobrar dos veces un reintento | No |
+| `screening.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `screening.party_id` | Sí | Sobre quién se consultó | Sí |
+| `screening.sources` | Sí | Al menos una fuente del catálogo | No |
+| `screening.executed_at` | Sí | Momento; se escribe una sola vez | No |
+| `screening.triggered_by` | Sí | Usuario o proceso automático | No |
+| `screening.response` | Sí | Respuesta completa congelada | Sí |
+| `screening.data_version` | No | Versión del conjunto de datos, si la fuente la reporta | No |
+| `screening.cost` | Sí | Costo de la consulta | No |
+| `screening.idempotency_key` | Sí | Impide consultar y cobrar dos veces un reintento | No |
 
 ## Trazabilidad
 

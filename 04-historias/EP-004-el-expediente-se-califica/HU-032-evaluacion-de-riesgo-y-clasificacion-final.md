@@ -150,20 +150,20 @@ Escenario: Aislamiento entre organizaciones sobre las evaluaciones
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `evaluacion.organization_id` | Sí | Organización cliente existente | No |
-| `evaluacion.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `evaluacion.metodologia_version_id` | Sí | Versión con la que se evaluó | No |
-| `evaluacion.entradas` | Sí | Datos de entrada usados, congelados | Sí |
-| `evaluacion.reglas_disparadas` | Sí | Lista de reglas con su resultado | No |
-| `evaluacion.riesgo_inherente` | Sí | Según la escala de la metodología | No |
-| `evaluacion.controles_aplicados` | No | Los que la metodología defina | No |
-| `evaluacion.riesgo_residual` | Sí | Según la escala | No |
-| `evaluacion.factores_criticos` | No | Los que más pesaron | No |
-| `evaluacion.ejecutada_en` | Sí | Momento; se escribe una sola vez | No |
-| `clasificacion.nivel_final` | Sí | Nivel aprobado | No |
-| `clasificacion.aprobada_por` y `cargo` | Sí | Usuario con permiso y su cargo | No |
-| `clasificacion.es_anulacion` | Sí | Verdadero si difiere del calculado | No |
-| `clasificacion.motivo` | Condicional | **Obligatorio si es anulación** | No |
+| `risk_assessment.organization_id` | Sí | Organización cliente existente | No |
+| `risk_assessment.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `risk_assessment.risk_methodology_version_id` | Sí | Versión con la que se evaluó | No |
+| `risk_assessment.inputs` | Sí | Datos de entrada usados, congelados | Sí |
+| `risk_assessment.triggered_rules` | Sí | Lista de reglas con su resultado | No |
+| `risk_assessment.inherent_risk` | Sí | Según la escala de la metodología | No |
+| `risk_assessment.applied_controls` | No | Los que la metodología defina | No |
+| `risk_assessment.residual_risk` | Sí | Según la escala | No |
+| `risk_assessment.critical_factors` | No | Los que más pesaron | No |
+| `risk_assessment.executed_at` | Sí | Momento; se escribe una sola vez | No |
+| `classification.final_level` | Sí | Nivel aprobado | No |
+| `classification.approved_by` y `role` | Sí | Usuario con permiso y su cargo | No |
+| `classification.is_override` | Sí | Verdadero si difiere del calculado | No |
+| `classification.reason` | Condicional | **Obligatorio si es anulación** | No |
 
 ## Trazabilidad
 

@@ -82,12 +82,12 @@ Escenario: Aislamiento entre organizaciones
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `exportacion.organization_id` | Sí | Organización cliente existente | No |
-| `exportacion.expediente_id` | Sí | Expediente en estado cerrado | No |
-| `exportacion.formato` | Sí | `json` \| `txt`, según configuración de la organización `(TBD — PA-046)` | No |
-| `exportacion.campos_incluidos` | Sí | Subconjunto de los campos marcados exportables (`HU-051`) | Depende del campo |
-| `exportacion.solicitado_por` | Sí | Usuario que la pidió | No |
-| `exportacion.fecha` | Sí | Momento de la generación | No |
+| `export.organization_id` | Sí | Organización cliente existente | No |
+| `export.dossier_id` | Sí | Expediente en estado cerrado | No |
+| `export.format` | Sí | `json` \| `txt`, según configuración de la organización `(TBD — PA-046)` | No |
+| `export.included_fields` | Sí | Subconjunto de los campos marcados exportables (`HU-051`) | Depende del campo |
+| `export.requested_by` | Sí | Usuario que la pidió | No |
+| `export.generated_at` | Sí | Momento de la generación | No |
 
 ## Trazabilidad
 

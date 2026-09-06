@@ -12,7 +12,7 @@ actualizado: 2026-09-06
 > **Actualización 2026-09-05 (`PA-033`).** **No existe un "85 % = positivo".** El matching es
 > multicriterio —nombre, identificador, alias, fecha de nacimiento, país, transliteración— con
 > **tres zonas**: descarte, candidato (desde ~85 % de similitud de nombre, como referencia
-> inicial) y confirmada. **El sistema nunca pasa por sí solo de `posible` a `confirmada`**: la
+> inicial) y confirmada. **El sistema nunca pasa por sí solo de `possible` a `confirmed`**: la
 > confirmación es siempre humana. Los umbrales se configuran **por fuente**, porque la calidad del
 > dato no es la misma en OFAC que en un listado local sin identificadores. Los falsos positivos
 > alimentan una lista de exclusión por tenant que **jamás altera retroactivamente** una decisión
@@ -110,8 +110,8 @@ Escenario: Aislamiento entre organizaciones sobre las coincidencias
 
 ## Reglas de negocio
 
-- Los estados de una coincidencia son cinco: `sin_coincidencia`, `posible`, `descartada`,
-  `confirmada`, `pendiente_revision` (§12.4). No hay más y no se colapsan.
+- Los estados de una coincidencia son cinco: `no_match`, `possible`, `discarded`,
+  `confirmed`, `pending_review` (§12.4). No hay más y no se colapsan.
 - **Toda coincidencia nace pendiente de revisión.** El sistema no confirma ni descarta, aunque la
   similitud sea del cien por ciento.
 - Descartar o confirmar exige **fundamento registrado** y queda atribuido a una persona.
@@ -134,16 +134,16 @@ Escenario: Aislamiento entre organizaciones sobre las coincidencias
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `coincidencia.organization_id` | Sí | Organización cliente existente | No |
-| `coincidencia.screening_id` | Sí | Screening que la produjo (`HU-025`) | No |
-| `coincidencia.sujeto_id` | Sí | Sobre quién es la coincidencia | Sí |
-| `coincidencia.registro_lista` | Sí | Entrada de la lista con la que coincidió, congelada | Sí |
-| `coincidencia.tipo_similitud` | Sí | `exacta` \| `similitud` \| `alias` \| `invertido` \| `digitacion` \| `transliteracion` \| `identificador` | No |
-| `coincidencia.puntaje` | Sí | Grado de similitud reportado | No |
-| `coincidencia.estado` | Sí | `sin_coincidencia` \| `posible` \| `descartada` \| `confirmada` \| `pendiente_revision` | No |
-| `revision_coincidencia.revisada_por` | Condicional | Obligatorio al descartar o confirmar | No |
-| `revision_coincidencia.fundamento` | Condicional | Obligatorio al descartar o confirmar; texto no vacío | No |
-| `revision_coincidencia.identificadores_comparados` | Sí | Qué identificadores se contrastaron | Sí |
+| `match.organization_id` | Sí | Organización cliente existente | No |
+| `match.screening_id` | Sí | Screening que la produjo (`HU-025`) | No |
+| `match.party_id` | Sí | Sobre quién es la coincidencia | Sí |
+| `match.list_entry` | Sí | Entrada de la lista con la que coincidió, congelada | Sí |
+| `match.similarity_type` | Sí | `exact` \| `similarity` \| `alias` \| `inverted` \| `typo` \| `transliteration` \| `identifier` | No |
+| `match.score` | Sí | Grado de similitud reportado | No |
+| `match.status` | Sí | `no_match` \| `possible` \| `discarded` \| `confirmed` \| `pending_review` | No |
+| `match_review.reviewed_by` | Condicional | Obligatorio al descartar o confirmar | No |
+| `match_review.rationale` | Condicional | Obligatorio al descartar o confirmar; texto no vacío | No |
+| `match_review.compared_identifiers` | Sí | Qué identificadores se contrastaron | Sí |
 
 ## Trazabilidad
 

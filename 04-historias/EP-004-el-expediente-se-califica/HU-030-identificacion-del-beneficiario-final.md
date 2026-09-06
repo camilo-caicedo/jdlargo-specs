@@ -4,7 +4,7 @@ titulo: Identificación del beneficiario final
 estado: borrador
 epica: EP-004
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-030 — Identificación del beneficiario final
@@ -122,16 +122,16 @@ Escenario: Aislamiento entre organizaciones sobre el beneficiario final
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `beneficiario_final.organization_id` | Sí | Organización cliente existente | No |
-| `beneficiario_final.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `beneficiario_final.sujeto_id` | Condicional | Obligatorio si se determinó a alguien | Sí |
-| `beneficiario_final.estado` | Sí | `sugerido` \| `determinado` \| `no_determinable` | No |
-| `beneficiario_final.fundamento` | Condicional | Obligatorio al determinar; texto no vacío | No |
-| `beneficiario_final.evidencia` | Condicional | Obligatoria al determinar; relaciones y documentos citados | Sí |
-| `beneficiario_final.determinado_por` y `cargo` | Condicional | Obligatorios al determinar | No |
-| `beneficiario_final.determinado_en` | Condicional | Momento; se escribe una sola vez | No |
-| `criterio_suficiencia` | Sí | Configuración: qué evidencia se considera suficiente | No |
-| `umbral_participacion` | Sí | Configuración: desde qué porcentaje se sugiere | No |
+| `beneficial_owner.organization_id` | Sí | Organización cliente existente | No |
+| `beneficial_owner.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `beneficial_owner.party_id` | Condicional | Obligatorio si se determinó a alguien | Sí |
+| `beneficial_owner.status` | Sí | `suggested` \| `determined` \| `not_determinable` | No |
+| `beneficial_owner.rationale` | Condicional | Obligatorio al determinar; texto no vacío | No |
+| `beneficial_owner.evidence` | Condicional | Obligatoria al determinar; relaciones y documentos citados | Sí |
+| `beneficial_owner.determined_by` y `role` | Condicional | Obligatorios al determinar | No |
+| `beneficial_owner.determined_at` | Condicional | Momento; se escribe una sola vez | No |
+| `sufficiency_criteria` | Sí | Configuración: qué evidencia se considera suficiente | No |
+| `participation_threshold` | Sí | Configuración: desde qué porcentaje se sugiere | No |
 
 ## Trazabilidad
 

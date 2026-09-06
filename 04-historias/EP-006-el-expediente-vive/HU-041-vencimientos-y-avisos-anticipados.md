@@ -18,7 +18,7 @@ incompleto.
 
 ## Contexto
 
-`HU-021` construyó las vigencias y el estado `vencido`; esta historia le pone el trabajo
+`HU-021` construyó las vigencias y el estado `expired`; esta historia le pone el trabajo
 programado que las vigila a diario, tal como lo previó
 `08-desarrollo/arquitectura-de-aplicacion.md`: un trabajo diario que revisa vigencias y genera
 alertas.
@@ -120,13 +120,13 @@ Escenario: Aislamiento entre organizaciones sobre los vencimientos
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `vencimiento.organization_id` | Sí | Organización cliente existente | No |
-| `vencimiento.objeto` | Sí | `documento` \| `vinculacion` \| `actualizacion` | No |
-| `vencimiento.objeto_id` | Sí | Documento, expediente o programación afectada | No |
-| `vencimiento.fecha` | Sí | Fecha de caducidad o de plazo | No |
-| `vencimiento.antelacion_dias` | Sí | Configurable por organización cliente y tipo | No |
-| `vencimiento.estado` | Sí | `proximo` \| `vencido` \| `resuelto` | No |
-| `vencimiento.alerta_id` | Sí | Alerta generada | No |
+| `expiration.organization_id` | Sí | Organización cliente existente | No |
+| `expiration.object` | Sí | `document` \| `onboarding` \| `update` | No |
+| `expiration.object_id` | Sí | Documento, expediente o programación afectada | No |
+| `expiration.date` | Sí | Fecha de caducidad o de plazo | No |
+| `expiration.advance_notice_days` | Sí | Configurable por organización cliente y tipo | No |
+| `expiration.status` | Sí | `upcoming` \| `expired` \| `resolved` | No |
+| `expiration.alert_id` | Sí | Alerta generada | No |
 
 ## Trazabilidad
 

@@ -126,17 +126,17 @@ Escenario: Crear una solicitud exige permiso
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `expediente.organization_id` | Sí | Organización cliente existente | No |
-| `expediente.codigo` | Sí | Único dentro de la organización cliente; no se reutiliza | No |
-| `expediente.sujeto_id` | Sí | Sujeto de la misma organización cliente | Sí |
-| `expediente.tipo_contraparte_id` | Sí | Tipo de la versión de configuración citada | No |
-| `expediente.estandar` | Sí | Estándar declarado en esa versión | No |
-| `expediente.version_configuracion_id` | Sí | Versión publicada (`HU-004`); no cambia después | No |
-| `expediente.responsable_interno_id` | Sí | Usuario miembro activo de la organización cliente | No |
-| `expediente.fecha_limite` | No | Fecha futura | No |
-| `expediente.estado` | Sí | Estado válido de la máquina de estados (`HU-009`) | No |
-| `sujeto.identificacion` | Sí | Tipo y número de documento; único por organización cliente | Sí (dato personal) |
-| `sujeto.nombre_declarado` | Sí | Texto no vacío; se guarda como afirmación de origen `declarado` | Sí (dato personal) |
+| `dossier.organization_id` | Sí | Organización cliente existente | No |
+| `dossier.code` | Sí | Único dentro de la organización cliente; no se reutiliza | No |
+| `dossier.party_id` | Sí | Sujeto de la misma organización cliente | Sí |
+| `dossier.counterparty_type_id` | Sí | Tipo de la versión de configuración citada | No |
+| `dossier.standard` | Sí | Estándar declarado en esa versión | No |
+| `dossier.configuration_version_id` | Sí | Versión publicada (`HU-004`); no cambia después | No |
+| `dossier.internal_owner_id` | Sí | Usuario miembro activo de la organización cliente | No |
+| `dossier.deadline` | No | Fecha futura | No |
+| `dossier.state` | Sí | Estado válido de la máquina de estados (`HU-009`) | No |
+| `party.identification` | Sí | Tipo y número de documento; único por organización cliente | Sí (dato personal) |
+| `party.declared_name` | Sí | Texto no vacío; se guarda como afirmación de origen `declared` | Sí (dato personal) |
 
 ## Trazabilidad
 

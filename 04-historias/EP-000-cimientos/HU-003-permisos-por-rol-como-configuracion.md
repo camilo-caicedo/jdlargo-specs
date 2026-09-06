@@ -121,12 +121,12 @@ Escenario: El Auditor solo consulta
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `rol.organization_id` | Sí | Organización cliente existente | No |
-| `rol.nombre` | Sí | Único dentro de la organización cliente y de la versión de configuración | No |
-| `permiso.clave` | Sí | Debe existir en el catálogo cerrado de permisos de la versión | No |
-| `asignacion.rol_id` | Sí | Rol de la misma versión de configuración | No |
-| `asignacion.permiso_clave` | Sí | Permiso del catálogo | No |
-| `asignacion.version_configuracion_id` | Sí | Versión de configuración existente (`HU-004`) | No |
+| `role.organization_id` | Sí | Organización cliente existente | No |
+| `role.name` | Sí | Único dentro de la organización cliente y de la versión de configuración | No |
+| `permission.key` | Sí | Debe existir en el catálogo cerrado de permisos de la versión | No |
+| `assignment.role_id` | Sí | Rol de la misma versión de configuración | No |
+| `assignment.permission_key` | Sí | Permiso del catálogo | No |
+| `assignment.configuration_version_id` | Sí | Versión de configuración existente (`HU-004`) | No |
 
 ## Trazabilidad
 

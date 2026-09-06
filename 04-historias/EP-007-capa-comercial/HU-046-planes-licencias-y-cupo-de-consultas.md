@@ -4,7 +4,7 @@ titulo: Planes, licencias y cupo de consultas
 estado: borrador
 epica: EP-007
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-046 — Planes, licencias y cupo de consultas
@@ -125,15 +125,15 @@ Escenario: Aislamiento entre organizaciones sobre planes y consumo
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `plan.nombre` | Sí | Único | No |
-| `plan.cupo_consultas` | Sí | Entero positivo `(TBD — PA-036)` | No |
-| `plan.precio_ciclo` | Sí | Monto y moneda `(TBD — PA-036)` | No |
-| `plan.precio_excedente` | Sí | Monto por consulta excedente `(TBD — PA-036)` | No |
+| `plan.name` | Sí | Único | No |
+| `plan.query_quota` | Sí | Entero positivo `(TBD — PA-036)` | No |
+| `plan.billing_cycle_price` | Sí | Monto y moneda `(TBD — PA-036)` | No |
+| `plan.overage_price` | Sí | Monto por consulta excedente `(TBD — PA-036)` | No |
 | `plan.version` | Sí | Correlativa; no se edita una versión con ciclos calculados | No |
-| `suscripcion.organization_id` | Sí | Organización cliente existente | No |
-| `suscripcion.plan_version_id` | Sí | Versión de plan existente | No |
-| `suscripcion.vigente_desde` / `hasta` | Sí | Una sola suscripción vigente a la vez | No |
-| `ciclo.desde` / `hasta` | Sí | Periodo mensual por organización cliente | No |
+| `subscription.organization_id` | Sí | Organización cliente existente | No |
+| `subscription.plan_version_id` | Sí | Versión de plan existente | No |
+| `subscription.active_from` / `active_to` | Sí | Una sola suscripción vigente a la vez | No |
+| `billing_cycle.start_date` / `end_date` | Sí | Periodo mensual por organización cliente | No |
 
 ## Trazabilidad
 

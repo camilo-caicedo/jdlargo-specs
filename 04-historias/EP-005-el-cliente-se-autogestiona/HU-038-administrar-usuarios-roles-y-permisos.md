@@ -129,12 +129,12 @@ Escenario: Aislamiento entre organizaciones sobre la administración de usuarios
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `invitacion.correo` | Sí | Correo válido | Sí (dato personal) |
-| `invitacion.rol_id` | Sí | Rol vigente de esa organización cliente | No |
-| `invitacion.expira_en` | Sí | Momento futuro | No |
-| `invitacion.estado` | Sí | `pendiente` \| `aceptada` \| `vencida` \| `revocada` | No |
-| `membresia.rol_id` | Sí | Rol vigente de la organización cliente | No |
-| `membresia.estado` | Sí | `activa` \| `revocada` | No |
+| `invitation.email` | Sí | Correo válido | Sí (dato personal) |
+| `invitation.role_id` | Sí | Rol vigente de esa organización cliente | No |
+| `invitation.expires_at` | Sí | Momento futuro | No |
+| `invitation.status` | Sí | `pending` \| `accepted` \| `expired` \| `revoked` | No |
+| `membership.role_id` | Sí | Rol vigente de la organización cliente | No |
+| `membership.status` | Sí | `active` \| `revoked` | No |
 | Administradores mínimos | Sí | Al menos uno activo por organización cliente | No |
 | Otorgamiento de permisos | Sí | Nadie otorga lo que no tiene | No |
 

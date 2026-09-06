@@ -4,7 +4,7 @@ titulo: Factura electrónica
 estado: borrador
 epica: EP-007
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-050 — Factura electrónica
@@ -124,16 +124,16 @@ Escenario: Aislamiento entre organizaciones sobre las facturas
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `factura.organization_id` | Sí | Organización cliente existente | No |
-| `factura.ciclo_id` | Sí | Ciclo cerrado (`HU-048`); uno por ciclo | No |
-| `factura.numero` | Sí | Asignado por el proveedor de facturación | No |
-| `factura.fecha_emision` | Sí | Momento; se escribe una sola vez | No |
-| `factura.importe` | Sí | Coincide con el importe del ciclo | No |
-| `factura.detalle` | Sí | Concepto de plan y concepto de excedente, rastreables | No |
-| `factura.referencia_autoridad` | Sí | Identificación del documento ante la autoridad tributaria | No |
-| `factura.estado` | Sí | `pendiente` \| `emitida` \| `fallida` | No |
-| `factura.clave_idempotencia` | Sí | Única por ciclo; impide emitir dos veces | No |
-| `datos_facturacion.organization_id` | Sí | Razón social, identificación tributaria, dirección y correo | Sí |
+| `invoice.organization_id` | Sí | Organización cliente existente | No |
+| `invoice.billing_cycle_id` | Sí | Ciclo cerrado (`HU-048`); uno por ciclo | No |
+| `invoice.number` | Sí | Asignado por el proveedor de facturación | No |
+| `invoice.issued_at` | Sí | Momento; se escribe una sola vez | No |
+| `invoice.amount` | Sí | Coincide con el importe del ciclo | No |
+| `invoice.details` | Sí | Concepto de plan y concepto de excedente, rastreables | No |
+| `invoice.authority_reference` | Sí | Identificación del documento ante la autoridad tributaria | No |
+| `invoice.status` | Sí | `pending` \| `issued` \| `failed` | No |
+| `invoice.idempotency_key` | Sí | Única por ciclo; impide emitir dos veces | No |
+| `billing_data.organization_id` | Sí | Razón social, identificación tributaria, dirección y correo | Sí |
 
 ## Trazabilidad
 

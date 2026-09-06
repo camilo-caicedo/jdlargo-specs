@@ -4,7 +4,7 @@ titulo: Verificación de datos contra fuentes externas
 estado: borrador
 epica: EP-003
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-024 — Verificación de datos contra fuentes externas
@@ -98,7 +98,7 @@ Escenario: Aislamiento entre organizaciones sobre las verificaciones
 
 ## Reglas de negocio
 
-- Una verificación produce una **afirmación de origen `verificado`** (`HU-005`) que cita la
+- Una verificación produce una **afirmación de origen `verified`** (`HU-005`) que cita la
   fuente, la consulta y su evidencia.
 - La evidencia se guarda **congelada**: la respuesta tal como llegó, con la versión del conjunto
   de datos consultado, no un enlace ni una referencia externa (`ADR-0001` §18).
@@ -126,16 +126,16 @@ Escenario: Aislamiento entre organizaciones sobre las verificaciones
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `verificacion.organization_id` | Sí | Organización cliente existente | No |
-| `verificacion.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `verificacion.campo` | Sí | Campo definido en la versión de configuración citada | No |
-| `verificacion.fuente_id` | Sí | Fuente del catálogo (`HU-023`) | No |
-| `verificacion.ejecutada_en` | Sí | Momento; se escribe una sola vez | No |
-| `verificacion.resultado` | Sí | `confirmado` \| `difiere` \| `sin_datos` \| `no_disponible` | Sí |
-| `verificacion.evidencia` | Sí | Respuesta congelada de la fuente | Sí |
-| `verificacion.version_datos` | No | Versión del conjunto de datos consultado, si la fuente la reporta | No |
-| `verificacion.costo` | Sí | Costo de la consulta; puede ser cero | No |
-| `verificacion.clave_idempotencia` | Sí | Impide cobrar dos veces el mismo reintento | No |
+| `verification.organization_id` | Sí | Organización cliente existente | No |
+| `verification.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `verification.field` | Sí | Campo definido en la versión de configuración citada | No |
+| `verification.source_id` | Sí | Fuente del catálogo (`HU-023`) | No |
+| `verification.executed_at` | Sí | Momento; se escribe una sola vez | No |
+| `verification.result` | Sí | `confirmed` \| `differs` \| `no_data` \| `unavailable` | Sí |
+| `verification.evidence` | Sí | Respuesta congelada de la fuente | Sí |
+| `verification.data_version` | No | Versión del conjunto de datos consultado, si la fuente la reporta | No |
+| `verification.cost` | Sí | Costo de la consulta; puede ser cero | No |
+| `verification.idempotency_key` | Sí | Impide cobrar dos veces el mismo reintento | No |
 
 ## Trazabilidad
 

@@ -141,15 +141,15 @@ Escenario: Aislamiento entre organizaciones sobre las firmas
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `firma.organization_id` | Sí | Organización cliente existente | No |
-| `firma.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `firma.nivel` | Sí | `1` \| `2`; el `3` no está disponible | No |
-| `firma.huella_contenido` | Sí | Huella digital de lo firmado; se calcula al firmar | No |
-| `firma.direccion_red` | Sí | Dirección desde la que se firmó | Sí (dato personal indirecto) |
-| `firma.firmada_en` | Sí | Momento; se escribe una sola vez | No |
-| `firma.factor_adicional` | Condicional | Obligatorio si el nivel es 2; registra el medio y su verificación | Sí |
-| `firma.version_contenido` | Sí | Versión exacta del contenido firmado | No |
-| `firma.estado` | Sí | `vigente` \| `no_correspondiente` (si el contenido cambió después) | No |
+| `signature.organization_id` | Sí | Organización cliente existente | No |
+| `signature.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `signature.level` | Sí | `1` \| `2`; el `3` no está disponible | No |
+| `signature.content_hash` | Sí | Huella digital de lo firmado; se calcula al firmar | No |
+| `signature.ip_address` | Sí | Dirección desde la que se firmó | Sí (dato personal indirecto) |
+| `signature.signed_at` | Sí | Momento; se escribe una sola vez | No |
+| `signature.additional_factor` | Condicional | Obligatorio si el nivel es 2; registra el medio y su verificación | Sí |
+| `signature.content_version` | Sí | Versión exacta del contenido firmado | No |
+| `signature.status` | Sí | `active` \| `invalid` (si el contenido cambió después) | No |
 
 ## Trazabilidad
 

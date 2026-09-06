@@ -33,7 +33,7 @@ de decisión.
 
 `ADR-0005` añade la forma: una decisión **es un evento inmutable**, con persona identificada,
 cargo, fundamento, evidencia en la que se basó, condiciones y vigencia. No es una columna
-`aprobado` que alguien puede cambiar después. Cambiar de parecer es tomar una decisión nueva,
+`approved` que alguien puede cambiar después. Cambiar de parecer es tomar una decisión nueva,
 que se apila sobre la anterior sin borrarla.
 
 Esta historia contesta tres de las dieciséis preguntas del criterio de aceptación del cliente
@@ -147,17 +147,17 @@ Escenario: Cerrar el expediente
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
 | `decision.organization_id` | Sí | Organización cliente existente | No |
-| `decision.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `decision.tipo` | Sí | `aprobar` \| `aprobar_con_condiciones` \| `no_aprobar` \| `rechazar` \| `solicitar_mas_informacion` \| `suspender` \| `terminar_relacion` | No |
-| `decision.responsable_id` | Sí | Usuario con permiso de decidir | No |
-| `decision.cargo` | Sí | Cargo del responsable en el momento de decidir | No |
-| `decision.fecha` | Sí | Momento; se escribe una sola vez | No |
-| `decision.fundamento` | Sí | Texto no vacío | No |
-| `decision.evidencia` | Sí | Al menos una afirmación o documento del expediente | Sí |
-| `decision.vigencia_hasta` | Sí | Fecha futura | No |
-| `decision.version_configuracion_id` | Sí | Versión con la que se evaluó el expediente | No |
-| `condicion.decision_id` | Condicional | Obligatoria si el tipo es `aprobar_con_condiciones` | No |
-| `condicion.texto` | Sí | Texto no vacío, una condición por fila | No |
+| `decision.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `decision.type` | Sí | `approve` \| `approve_with_conditions` \| `disapprove` \| `reject` \| `request_more_information` \| `suspend` \| `terminate_relationship` | No |
+| `decision.responsible_id` | Sí | Usuario con permiso de decidir | No |
+| `decision.title` | Sí | Cargo del responsable en el momento de decidir | No |
+| `decision.made_at` | Sí | Momento; se escribe una sola vez | No |
+| `decision.rationale` | Sí | Texto no vacío | No |
+| `decision.evidence` | Sí | Al menos una afirmación o documento del expediente | Sí |
+| `decision.valid_until` | Sí | Fecha futura | No |
+| `decision.configuration_version_id` | Sí | Versión con la que se evaluó el expediente | No |
+| `condition.decision_id` | Condicional | Obligatoria si el tipo es `approve_with_conditions` | No |
+| `condition.text` | Sí | Texto no vacío, una condición por fila | No |
 
 ## Trazabilidad
 

@@ -126,19 +126,19 @@ Escenario: La evidencia sobrevive al cierre del expediente
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `aviso.version_configuracion_id` | Sí | Versión publicada (`HU-004`) | No |
-| `aviso.texto` | Sí | Texto no vacío; inmutable una vez publicado | No |
-| `aviso.finalidades` | Sí | Al menos una finalidad declarada | No |
-| `aviso.exige_autorizacion` | Sí | Verdadero o falso, por finalidad | No |
-| `aviso.responsable` y `aviso.encargado` | Sí | Texto no vacío | No |
-| `aviso.canales_derechos` | Sí | Texto no vacío | No |
-| `consentimiento.organization_id` | Sí | Organización cliente existente | No |
-| `consentimiento.expediente_id` | Sí | Expediente al que pertenece | No |
-| `consentimiento.aviso_version` | Sí | Versión exacta mostrada | No |
-| `consentimiento.resultado` | Sí | `aceptado` \| `no_aceptado` | No |
-| `consentimiento.ocurrido_en` | Sí | Momento; se escribe una sola vez | No |
-| `consentimiento.medio` | Sí | Por dónde se aceptó | No |
-| `consentimiento.direccion_red` | Sí | Dirección desde la que se aceptó | Sí (dato personal indirecto) |
+| `privacy_notice.configuration_version_id` | Sí | Versión publicada (`HU-004`) | No |
+| `privacy_notice.text` | Sí | Texto no vacío; inmutable una vez publicado | No |
+| `privacy_notice.purposes` | Sí | Al menos una finalidad declarada | No |
+| `privacy_notice.requires_authorization` | Sí | Verdadero o falso, por finalidad | No |
+| `privacy_notice.data_controller` y `privacy_notice.data_processor` | Sí | Texto no vacío | No |
+| `privacy_notice.rights_channels` | Sí | Texto no vacío | No |
+| `consent.organization_id` | Sí | Organización cliente existente | No |
+| `consent.dossier_id` | Sí | Expediente al que pertenece | No |
+| `consent.privacy_notice_version` | Sí | Versión exacta mostrada | No |
+| `consent.result` | Sí | `accepted` \| `not_accepted` | No |
+| `consent.occurred_at` | Sí | Momento; se escribe una sola vez | No |
+| `consent.channel` | Sí | Por dónde se aceptó | No |
+| `consent.ip_address` | Sí | Dirección desde la que se aceptó | Sí (dato personal indirecto) |
 
 ## Trazabilidad
 

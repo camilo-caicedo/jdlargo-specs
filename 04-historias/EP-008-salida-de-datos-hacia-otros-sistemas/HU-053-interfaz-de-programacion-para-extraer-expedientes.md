@@ -82,10 +82,10 @@ Escenario: La interfaz es de solo lectura
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `consulta_integracion.organization_id` | Sí | Debe coincidir con la organización de la credencial usada | No |
-| `consulta_integracion.expediente_id` | Sí | Expediente en estado cerrado | No |
-| `consulta_integracion.campos_solicitados` | Sí | Subconjunto de los campos marcados exportables (`HU-051`) | Depende del campo |
-| `consulta_integracion.resultado` | Sí | `entregado` \| `rechazado`, con motivo | No |
+| `integration_query.organization_id` | Sí | Debe coincidir con la organización de la credencial usada | No |
+| `integration_query.dossier_id` | Sí | Expediente en estado cerrado | No |
+| `integration_query.requested_fields` | Sí | Subconjunto de los campos marcados exportables (`HU-051`) | Depende del campo |
+| `integration_query.result` | Sí | `delivered` \| `rejected`, con motivo | No |
 
 ## Trazabilidad
 

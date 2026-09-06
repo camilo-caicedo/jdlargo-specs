@@ -4,7 +4,7 @@ titulo: Catálogo de fuentes externas
 estado: borrador
 epica: EP-003
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-023 — Catálogo de fuentes externas
@@ -130,17 +130,17 @@ Escenario: Aislamiento entre organizaciones sobre el catálogo
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `fuente.organization_id` | Sí | Organización cliente existente | No |
-| `fuente.version_configuracion_id` | Sí | Versión existente (`HU-004`) | No |
-| `fuente.nombre` | Sí | Único dentro de la versión | No |
-| `fuente.proveedor` | Sí | Texto no vacío | No |
-| `fuente.tipo` | Sí | `registro_empresarial` \| `identidad` \| `transito` \| `autoridad` \| `lista_restrictiva` \| `pep` \| `sanciones` \| `antecedentes` \| `medios` \| `comercial` | No |
-| `fuente.pais` y `fuente.cobertura` | Sí | Texto no vacío | No |
-| `fuente.frecuencia_actualizacion` | No | Cada cuánto actualiza el proveedor su información | No |
-| `fuente.condiciones_uso` | Sí | Texto no vacío: qué permite el licenciamiento | No |
-| `fuente.costo_consulta` | Sí | Monto y moneda; puede ser cero | No |
-| `fuente.vigencia_resultado` | No | Cuánto tiempo se considera vigente una consulta dentro de la misma organización cliente | No |
-| `credencial.organization_id` | Sí | Credenciales propias por organización cliente (§31) | Sí |
+| `source.organization_id` | Sí | Organización cliente existente | No |
+| `source.configuration_version_id` | Sí | Versión existente (`HU-004`) | No |
+| `source.name` | Sí | Único dentro de la versión | No |
+| `source.provider` | Sí | Texto no vacío | No |
+| `source.type` | Sí | `business_registry` \| `identity` \| `transit` \| `authority` \| `restrictive_list` \| `pep` \| `sanctions` \| `history` \| `media` \| `commercial` | No |
+| `source.country` y `source.coverage` | Sí | Texto no vacío | No |
+| `source.update_frequency` | No | Cada cuánto actualiza el proveedor su información | No |
+| `source.terms_of_use` | Sí | Texto no vacío: qué permite el licenciamiento | No |
+| `source.query_cost` | Sí | Monto y moneda; puede ser cero | No |
+| `source.result_validity_period` | No | Cuánto tiempo se considera vigente una consulta dentro de la misma organización cliente | No |
+| `credential.organization_id` | Sí | Credenciales propias por organización cliente (§31) | Sí |
 
 ## Trazabilidad
 

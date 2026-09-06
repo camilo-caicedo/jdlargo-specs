@@ -137,15 +137,15 @@ Escenario: Publicar exige el permiso correspondiente
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `version_configuracion.organization_id` | Sí | Organización cliente existente | No |
-| `version_configuracion.numero` | Sí | Entero correlativo por organización cliente, nunca reutilizado | No |
-| `version_configuracion.estado` | Sí | `borrador` \| `publicada` \| `reemplazada` | No |
-| `version_configuracion.estandar` | Sí | Valor del catálogo de estándares `(por validar — PA-001)` | No |
-| `version_configuracion.norma_referencia` | No | Texto; se cita solo si está verificada contra fuente oficial | No |
-| `version_configuracion.fecha_vigencia_desde` | Sí | Fecha; no anterior a la de la versión previa | No |
-| `version_configuracion.publicada_por` | Sí | Usuario con permiso de publicar | No |
-| `version_configuracion.publicada_en` | Sí | Momento de la publicación; se escribe una sola vez | No |
-| `version_configuracion.motivo` | Sí | Texto no vacío: por qué se publica esta versión | No |
+| `configuration_version.organization_id` | Sí | Organización cliente existente | No |
+| `configuration_version.number` | Sí | Entero correlativo por organización cliente, nunca reutilizado | No |
+| `configuration_version.status` | Sí | `draft` \| `published` \| `replaced` | No |
+| `configuration_version.standard` | Sí | Valor del catálogo de estándares `(por validar — PA-001)` | No |
+| `configuration_version.reference_regulation` | No | Texto; se cita solo si está verificada contra fuente oficial | No |
+| `configuration_version.effective_date_from` | Sí | Fecha; no anterior a la de la versión previa | No |
+| `configuration_version.published_by` | Sí | Usuario con permiso de publicar | No |
+| `configuration_version.published_at` | Sí | Momento de la publicación; se escribe una sola vez | No |
+| `configuration_version.reason` | Sí | Texto no vacío: por qué se publica esta versión | No |
 
 ## Trazabilidad
 

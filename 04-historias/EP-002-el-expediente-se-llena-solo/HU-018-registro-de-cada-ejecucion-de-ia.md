@@ -104,7 +104,7 @@ Escenario: Aislamiento entre organizaciones sobre el registro de ejecuciones
   quién validó el resultado final (§32).
 - El registro es de **solo inserción**. Es parte de la bitácora en sentido amplio y comparte su
   regla (`HU-006`).
-- Toda afirmación de origen `extraído` **cita** su ejecución. No existe una afirmación extraída
+- Toda afirmación de origen `extracted` **cita** su ejecución. No existe una afirmación extraída
   huérfana.
 - La IA no puede: inventar datos, completar sin constancia, convertir inferencia en hecho,
   eliminar una discrepancia, cerrar una alerta, aprobar o rechazar, ni modificar un documento
@@ -125,18 +125,18 @@ Escenario: Aislamiento entre organizaciones sobre el registro de ejecuciones
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `ejecucion_ia.organization_id` | Sí | Organización cliente existente | No |
-| `ejecucion_ia.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `ejecucion_ia.proveedor` | Sí | Proveedor del catálogo aceptado `(TBD — PA-021)` | No |
-| `ejecucion_ia.modelo` y `version` | Sí | Texto no vacío | No |
-| `ejecucion_ia.plantilla_instrucciones` | Sí | Identificador y versión de la plantilla usada | No |
-| `ejecucion_ia.documento_id` | Condicional | Obligatorio si la ejecución partió de un documento | No |
-| `ejecucion_ia.destino_datos` | Sí | País o región a la que se enviaron los datos | No |
-| `ejecucion_ia.ocurrida_en` | Sí | Momento; se escribe una sola vez | No |
-| `ejecucion_ia.resultado` | Sí | Resultado devuelto, o la causa del fallo | Sí |
-| `ejecucion_ia.confianza` | Condicional | Obligatoria si hubo resultado | No |
-| `ejecucion_ia.validada_por` | No | Usuario que validó el resultado final (`HU-020`) | No |
-| `ejecucion_ia.resultado_final` | No | Lo que quedó tras la validación humana | Sí |
+| `ai_execution.organization_id` | Sí | Organización cliente existente | No |
+| `ai_execution.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `ai_execution.provider` | Sí | Proveedor del catálogo aceptado `(TBD — PA-021)` | No |
+| `ai_execution.model` y `version` | Sí | Texto no vacío | No |
+| `ai_execution.instruction_template` | Sí | Identificador y versión de la plantilla usada | No |
+| `ai_execution.document_id` | Condicional | Obligatorio si la ejecución partió de un documento | No |
+| `ai_execution.data_destination` | Sí | País o región a la que se enviaron los datos | No |
+| `ai_execution.occurred_at` | Sí | Momento; se escribe una sola vez | No |
+| `ai_execution.result` | Sí | Resultado devuelto, o la causa del fallo | Sí |
+| `ai_execution.confidence` | Condicional | Obligatoria si hubo resultado | No |
+| `ai_execution.validated_by` | No | Usuario que validó el resultado final (`HU-020`) | No |
+| `ai_execution.final_result` | No | Lo que quedó tras la validación humana | Sí |
 
 ## Trazabilidad
 

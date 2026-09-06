@@ -103,7 +103,7 @@ Escenario: Aislamiento entre organizaciones sobre lo extraído
 
 ## Reglas de negocio
 
-- Toda extracción produce **afirmaciones de origen `extraído`** (`HU-005`), nunca valores
+- Toda extracción produce **afirmaciones de origen `extracted`** (`HU-005`), nunca valores
   planos, y cada una cita su documento fuente y su ejecución de IA (`HU-018`).
 - **La IA nunca sobrescribe en silencio.** No existe la operación de reemplazar una afirmación
   declarada por una extraída.
@@ -130,13 +130,13 @@ Escenario: Aislamiento entre organizaciones sobre lo extraído
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `afirmacion.origen` | Sí | Siempre `extraído` en esta historia | No |
-| `afirmacion.evidencia_id` | Sí | Documento del que se extrajo | Sí |
-| `afirmacion.confianza` | Sí | Entre 0 y 1, la que reporte el motor | No |
-| `afirmacion.ejecucion_ia_id` | Sí | Ejecución que la produjo (`HU-018`) | No |
-| `extraccion.ubicacion` | No | Página y zona del documento, si se puede determinar | No |
-| `extraccion.estado` | Sí | `pendiente` \| `ejecutada` \| `fallida` \| `pendiente_validacion` | No |
-| `extraccion.umbral_confianza` | Sí | Sale de la configuración `(TBD — PA-032)` | No |
+| `assertion.origin` | Sí | Siempre `extracted` en esta historia | No |
+| `assertion.evidence_id` | Sí | Documento del que se extrajo | Sí |
+| `assertion.confidence` | Sí | Entre 0 y 1, la que reporte el motor | No |
+| `assertion.ai_execution_id` | Sí | Ejecución que la produjo (`HU-018`) | No |
+| `extraction.location` | No | Página y zona del documento, si se puede determinar | No |
+| `extraction.status` | Sí | `pending` \| `executed` \| `failed` \| `pending_validation` | No |
+| `extraction.confidence_threshold` | Sí | Sale de la configuración `(TBD — PA-032)` | No |
 
 ## Trazabilidad
 

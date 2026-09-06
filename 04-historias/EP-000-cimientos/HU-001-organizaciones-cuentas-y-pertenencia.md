@@ -117,16 +117,16 @@ Escenario: Retirar a un miembro no borra lo que ya hizo
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `organizacion.nombre` | Sí | Texto no vacío | No |
-| `organizacion.identificacion_tributaria` | No | Formato colombiano `(por validar)`; único si viene | Sí |
-| `organizacion.estado` | Sí | `activa` \| `suspendida` | No |
-| `usuario.correo` | Sí | Correo válido, único en la plataforma | Sí (dato personal) |
-| `usuario.nombre` | Sí | Texto no vacío | Sí (dato personal) |
-| `membresia.organization_id` | Sí | Organización cliente existente | No |
-| `membresia.usuario_id` | Sí | Cuenta existente | No |
-| `membresia.rol_id` | Sí | Rol vigente de esa organización cliente (`HU-003`) | No |
-| `membresia.estado` | Sí | `activa` \| `revocada` | No |
-| `membresia` (unicidad) | Sí | Una sola membresía activa por par usuario–organización cliente | No |
+| `organization.name` | Sí | Texto no vacío | No |
+| `organization.tax_id` | No | Formato colombiano `(por validar)`; único si viene | Sí |
+| `organization.status` | Sí | `active` \| `suspended` | No |
+| `user.email` | Sí | Correo válido, único en la plataforma | Sí (dato personal) |
+| `user.name` | Sí | Texto no vacío | Sí (dato personal) |
+| `membership.organization_id` | Sí | Organización cliente existente | No |
+| `membership.user_id` | Sí | Cuenta existente | No |
+| `membership.role_id` | Sí | Rol vigente de esa organización cliente (`HU-003`) | No |
+| `membership.status` | Sí | `active` \| `revoked` | No |
+| `membership` (unicidad) | Sí | Una sola membresía activa por par usuario–organización cliente | No |
 
 ## Trazabilidad
 

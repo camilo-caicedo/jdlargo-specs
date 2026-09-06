@@ -4,7 +4,7 @@ titulo: Medición de consumo y control del cupo
 estado: borrador
 epica: EP-007
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-047 — Medición de consumo y control del cupo
@@ -137,16 +137,16 @@ Escenario: Aislamiento entre organizaciones sobre el consumo
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `evento_consumo.organization_id` | Sí | Organización cliente existente | No |
-| `evento_consumo.ciclo_id` | Sí | Ciclo abierto de esa organización | No |
-| `evento_consumo.fuente_id` | Sí | Fuente del catálogo (`HU-023`) | No |
-| `evento_consumo.evidencia_id` | Sí | Verificación o screening asociado | No |
-| `evento_consumo.costo_proveedor` | Sí | Monto y moneda | No |
-| `evento_consumo.ocurrido_en` | Sí | Momento; se escribe una sola vez | No |
-| `evento_consumo.clave_idempotencia` | Sí | Única; impide doble cobro | No |
-| `evento_consumo.dentro_de_cupo` | Sí | Verdadero o falso; los excedentes se marcan al registrarse | No |
-| `plan.umbral_aviso` | Sí | Porcentaje del cupo a partir del cual se avisa | No |
-| `plan.al_agotar_cupo` | Sí | `bloquear` \| `permitir_excedente` `(TBD — PA-037)` | No |
+| `consumption_event.organization_id` | Sí | Organización cliente existente | No |
+| `consumption_event.billing_cycle_id` | Sí | Ciclo abierto de esa organización | No |
+| `consumption_event.source_id` | Sí | Fuente del catálogo (`HU-023`) | No |
+| `consumption_event.evidence_id` | Sí | Verificación o screening asociado | No |
+| `consumption_event.provider_cost` | Sí | Monto y moneda | No |
+| `consumption_event.occurred_at` | Sí | Momento; se escribe una sola vez | No |
+| `consumption_event.idempotency_key` | Sí | Única; impide doble cobro | No |
+| `consumption_event.within_quota` | Sí | Verdadero o falso; los excedentes se marcan al registrarse | No |
+| `plan.alert_threshold` | Sí | Porcentaje del cupo a partir del cual se avisa | No |
+| `plan.quota_exhaustion_behavior` | Sí | `block` \| `allow_overage` `(TBD — PA-037)` | No |
 
 ## Trazabilidad
 

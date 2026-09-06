@@ -126,17 +126,17 @@ Escenario: Aislamiento entre organizaciones sobre la matriz
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `tipo_contraparte.organization_id` | Sí | Organización cliente existente | No |
-| `tipo_contraparte.version_configuracion_id` | Sí | Versión existente (`HU-004`) | No |
-| `tipo_contraparte.nombre` | Sí | Único dentro de la versión | No |
-| `tipo_contraparte.naturaleza` | Sí | `persona_natural` \| `persona_juridica` | No |
-| `requisito.estandar` | Sí | Estándar declarado en la versión `(por validar — PA-001)` | No |
-| `requisito.tipo_contraparte_id` | Sí | Tipo de la misma versión | No |
-| `requisito.clase` | Sí | `campo` \| `tipo_documental` | No |
-| `requisito.clave` | Sí | Identificador del campo o tipo documental | No |
-| `requisito.obligatorio` | Sí | `siempre` \| `condicional` \| `opcional` | No |
-| `requisito.condicion` | Condicional | Obligatoria si la obligatoriedad es `condicional`; solo condiciones del conjunto cerrado | No |
-| `requisito.validacion` | No | Tipo de dato, formato, rango; según el conjunto cerrado | No |
+| `counterparty_type.organization_id` | Sí | Organización cliente existente | No |
+| `counterparty_type.configuration_version_id` | Sí | Versión existente (`HU-004`) | No |
+| `counterparty_type.name` | Sí | Único dentro de la versión | No |
+| `counterparty_type.nature` | Sí | `natural_person` \| `legal_entity` | No |
+| `requirement.standard` | Sí | Estándar declarado en la versión `(por validar — PA-001)` | No |
+| `requirement.counterparty_type_id` | Sí | Tipo de la misma versión | No |
+| `requirement.type` | Sí | `field` \| `document_type` | No |
+| `requirement.key` | Sí | Identificador del campo o tipo documental | No |
+| `requirement.mandatory` | Sí | `always` \| `conditional` \| `optional` | No |
+| `requirement.condition` | Condicional | Obligatoria si la obligatoriedad es `conditional`; solo condiciones del conjunto cerrado | No |
+| `requirement.validation` | No | Tipo de dato, formato, rango; según el conjunto cerrado | No |
 
 ## Trazabilidad
 

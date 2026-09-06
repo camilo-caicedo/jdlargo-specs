@@ -4,7 +4,7 @@ titulo: Cobro por pasarela
 estado: borrador
 epica: EP-007
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-049 — Cobro por pasarela
@@ -174,17 +174,17 @@ Escenario: Aislamiento entre organizaciones sobre los cobros
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `cobro.organization_id` | Sí | Organización cliente existente | No |
-| `cobro.ciclo_id` | Sí | Ciclo cerrado (`HU-048`) | No |
-| `cobro.factura_id` | Sí | Factura emitida (`HU-050`) | No |
-| `cobro.importe` | Sí | Plan más excedente del ciclo | No |
-| `cobro.enlace_pago` | Sí | Vigente y ligado a la factura; expira y se puede reemitir | No |
-| `cobro.medio` | Condicional | `pse` \| `tarjeta` \| `efectivo` \| `transferencia`; obligatorio al conciliar | No |
-| `cobro.estado` | Sí | `pendiente` \| `pagado` \| `vencido` | No |
-| `cobro.referencia_proveedor` | Condicional | Obligatoria si el pago cruzó la pasarela | No |
-| `cobro.conciliado_por` | Condicional | Persona identificada; obligatoria si el pago **no** cruzó la pasarela | No |
-| `evento_pasarela.clave_idempotencia` | Sí | Única; impide procesar dos veces | No |
-| `evento_pasarela.firma_verificada` | Sí | Verdadero; un aviso sin firma válida se rechaza | No |
+| `payment.organization_id` | Sí | Organización cliente existente | No |
+| `payment.billing_cycle_id` | Sí | Ciclo cerrado (`HU-048`) | No |
+| `payment.invoice_id` | Sí | Factura emitida (`HU-050`) | No |
+| `payment.amount` | Sí | Plan más excedente del ciclo | No |
+| `payment.payment_link` | Sí | Vigente y ligado a la factura; expira y se puede reemitir | No |
+| `payment.method` | Condicional | `pse` \| `card` \| `cash` \| `transfer`; obligatorio al conciliar | No |
+| `payment.status` | Sí | `pending` \| `paid` \| `overdue` | No |
+| `payment.provider_reference` | Condicional | Obligatoria si el pago cruzó la pasarela | No |
+| `payment.reconciled_by` | Condicional | Persona identificada; obligatoria si el pago **no** cruzó la pasarela | No |
+| `gateway_event.idempotency_key` | Sí | Única; impide procesar dos veces | No |
+| `gateway_event.signature_verified` | Sí | Verdadero; un aviso sin firma válida se rechaza | No |
 
 ## Trazabilidad
 

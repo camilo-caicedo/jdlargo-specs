@@ -118,15 +118,15 @@ Escenario: Aislamiento entre organizaciones sobre las alertas
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `alerta.organization_id` | Sí | Organización cliente existente | No |
-| `alerta.expediente_id` | Sí | Expediente de la misma organización cliente | No |
-| `alerta.sujeto_id` | Condicional | Obligatorio si la alerta es sobre una persona concreta | Sí |
-| `alerta.tipo` | Sí | `coincidencia` \| `inconsistencia` \| `documento` \| `riesgo` \| `monitoreo` | No |
-| `alerta.origen_id` | Sí | Coincidencia, discrepancia, documento o evento que la originó | No |
-| `alerta.generada_en` | Sí | Momento; se escribe una sola vez | No |
-| `alerta.estado` | Sí | `abierta` \| `en_caso` \| `cerrada` | No |
-| `alerta.caso_id` | Condicional | Obligatorio cuando la alerta se agrupa en un caso | No |
-| `alerta.redetectada_en` | No | Últimas veces que el mismo hecho se volvió a detectar | No |
+| `alert.organization_id` | Sí | Organización cliente existente | No |
+| `alert.dossier_id` | Sí | Expediente de la misma organización cliente | No |
+| `alert.party_id` | Condicional | Obligatorio si la alerta es sobre una persona concreta | Sí |
+| `alert.type` | Sí | `match` \| `inconsistency` \| `document` \| `risk` \| `monitoring` | No |
+| `alert.source_id` | Sí | Coincidencia, discrepancia, documento o evento que la originó | No |
+| `alert.generated_at` | Sí | Momento; se escribe una sola vez | No |
+| `alert.status` | Sí | `open` \| `in_case` \| `closed` | No |
+| `alert.case_id` | Condicional | Obligatorio cuando la alerta se agrupa en un caso | No |
+| `alert.redetected_at` | No | Últimas veces que el mismo hecho se volvió a detectar | No |
 
 ## Trazabilidad
 

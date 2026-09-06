@@ -4,7 +4,7 @@ titulo: Cierre de ciclo y cálculo del excedente
 estado: borrador
 epica: EP-007
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-048 — Cierre de ciclo y cálculo del excedente
@@ -119,16 +119,16 @@ Escenario: Aislamiento entre organizaciones sobre los ciclos
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `ciclo.organization_id` | Sí | Organización cliente existente | No |
-| `ciclo.desde` / `hasta` | Sí | Periodo mensual; sin solapamiento con otro ciclo | No |
-| `ciclo.estado` | Sí | `abierto` \| `cerrado` | No |
-| `ciclo.plan_version_id` | Sí | Plan vigente durante el ciclo | No |
-| `ciclo.consultas_totales` | Sí | Igual al número de eventos de consumo del periodo | No |
-| `ciclo.cupo_incluido` | Sí | Del plan vigente | No |
-| `ciclo.excedente` | Sí | Consultas por encima del cupo; cero o positivo | No |
-| `ciclo.importe_excedente` | Sí | Excedente por el precio de excedente del plan | No |
-| `ciclo.costo_proveedores` | Sí | Suma de los costos de los eventos de consumo | No |
-| `ciclo.cerrado_en` | Condicional | Momento del cierre; se escribe una sola vez | No |
+| `billing_cycle.organization_id` | Sí | Organización cliente existente | No |
+| `billing_cycle.start_date` / `end_date` | Sí | Periodo mensual; sin solapamiento con otro ciclo | No |
+| `billing_cycle.status` | Sí | `open` \| `closed` | No |
+| `billing_cycle.plan_version_id` | Sí | Plan vigente durante el ciclo | No |
+| `billing_cycle.total_queries` | Sí | Igual al número de eventos de consumo del periodo | No |
+| `billing_cycle.included_quota` | Sí | Del plan vigente | No |
+| `billing_cycle.overage` | Sí | Consultas por encima del cupo; cero o positivo | No |
+| `billing_cycle.overage_amount` | Sí | Excedente por el precio de excedente del plan | No |
+| `billing_cycle.provider_costs` | Sí | Suma de los costos de los eventos de consumo | No |
+| `billing_cycle.closed_at` | Condicional | Momento del cierre; se escribe una sola vez | No |
 
 ## Trazabilidad
 

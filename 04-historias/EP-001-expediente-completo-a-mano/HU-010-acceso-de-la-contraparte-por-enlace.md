@@ -110,7 +110,7 @@ Escenario: Límite de peticiones sobre la superficie expuesta
 - El token tiene expiración, es revocable, y **cada uso se registra** con fecha, hora, dirección
   de red y dispositivo (Fase 4).
 - El contexto que se propaga a la base de datos es el **expediente**, no un usuario. El
-  aislamiento se apoya en el mismo mecanismo de `HU-002`, con tipo de actor `contraparte`.
+  aislamiento se apoya en el mismo mecanismo de `HU-002`, con tipo de actor `counterparty`.
 - La ruta del portal vive bajo un segmento propio con su propio control de entrada, y **nunca
   comparte capa de acceso con la aplicación interna**.
 - El límite de peticiones sobre el portal es estricto: es el punto expuesto del sistema.
@@ -133,16 +133,16 @@ Escenario: Límite de peticiones sobre la superficie expuesta
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `acceso.organization_id` | Sí | Organización cliente existente | No |
-| `acceso.expediente_id` | Sí | Un token pertenece a un solo expediente | No |
-| `acceso.token` | Sí | Aleatorio, de longitud suficiente; se almacena su huella, no el valor | Sí |
-| `acceso.expira_en` | Sí | Momento futuro; la duración sale de la configuración | No |
-| `acceso.estado` | Sí | `vigente` \| `expirado` \| `revocado` \| `reemplazado` | No |
-| `acceso.exige_segundo_factor` | Sí | Verdadero o falso; sale de la configuración | No |
-| `uso_acceso.ocurrido_en` | Sí | Momento del uso | No |
-| `uso_acceso.direccion_red` | Sí | Dirección desde la que se accedió | Sí (dato personal indirecto) |
-| `uso_acceso.dispositivo` | Sí | Agente declarado por el navegador | Sí (dato personal indirecto) |
-| `uso_acceso.resultado` | Sí | `concedido` \| `rechazado` con su causa | No |
+| `access.organization_id` | Sí | Organización cliente existente | No |
+| `access.dossier_id` | Sí | Un token pertenece a un solo expediente | No |
+| `access.token` | Sí | Aleatorio, de longitud suficiente; se almacena su huella, no el valor | Sí |
+| `access.expires_at` | Sí | Momento futuro; la duración sale de la configuración | No |
+| `access.state` | Sí | `active` \| `expired` \| `revoked` \| `replaced` | No |
+| `access.requires_second_factor` | Sí | Verdadero o falso; sale de la configuración | No |
+| `access_use.occurred_at` | Sí | Momento del uso | No |
+| `access_use.ip_address` | Sí | Dirección desde la que se accedió | Sí (dato personal indirecto) |
+| `access_use.user_agent` | Sí | Agente declarado por el navegador | Sí (dato personal indirecto) |
+| `access_use.result` | Sí | `granted` \| `denied` con su causa | No |
 
 ## Trazabilidad
 

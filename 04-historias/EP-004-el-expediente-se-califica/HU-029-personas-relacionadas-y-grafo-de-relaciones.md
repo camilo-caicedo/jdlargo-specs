@@ -137,17 +137,17 @@ Escenario: Aislamiento entre organizaciones sobre el grafo
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `relacion.organization_id` | Sí | Organización cliente existente | No |
-| `relacion.origen_sujeto_id` | Sí | Sujeto de la misma organización cliente | Sí |
-| `relacion.destino_sujeto_id` | Sí | Sujeto de la misma organización cliente | Sí |
-| `relacion.tipo` | Sí | Tipo definido en la versión de configuración | No |
-| `relacion.fuente_dato` | Sí | `declarado` \| `extraído` \| `verificado` | No |
-| `relacion.fecha` | No | Fecha desde la que rige la relación | No |
-| `relacion.porcentaje` | Condicional | Obligatorio si el tipo lo requiere; entre 0 y 100 | Sí |
-| `relacion.evidencia_id` | Condicional | Obligatoria si la fuente es extraída o verificada | Sí |
-| `relacion.estado_verificacion` | Sí | `pendiente` \| `verificada` \| `no_verificable` | No |
-| `tratamiento_relacion.tipo` | Sí | Conjunto cerrado del motor de relaciones | No |
-| `profundidad_maxima` | Sí | Configurable; acota el recorrido del grafo | No |
+| `relationship.organization_id` | Sí | Organización cliente existente | No |
+| `relationship.source_party_id` | Sí | Sujeto de la misma organización cliente | Sí |
+| `relationship.target_party_id` | Sí | Sujeto de la misma organización cliente | Sí |
+| `relationship.type` | Sí | Tipo definido en la versión de configuración | No |
+| `relationship.data_source` | Sí | `declared` \| `extracted` \| `verified` | No |
+| `relationship.date` | No | Fecha desde la que rige la relación | No |
+| `relationship.percentage` | Condicional | Obligatorio si el tipo lo requiere; entre 0 y 100 | Sí |
+| `relationship.evidence_id` | Condicional | Obligatoria si la fuente es extraída o verificada | Sí |
+| `relationship.verification_status` | Sí | `pending` \| `verified` \| `not_verifiable` | No |
+| `relationship_treatment.type` | Sí | Conjunto cerrado del motor de relaciones | No |
+| `max_depth` | Sí | Configurable; acota el recorrido del grafo | No |
 
 ## Trazabilidad
 

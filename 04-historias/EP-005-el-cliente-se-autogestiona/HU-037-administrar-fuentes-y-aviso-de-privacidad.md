@@ -4,7 +4,7 @@ titulo: Administrar fuentes y aviso de privacidad
 estado: borrador
 epica: EP-005
 prioridad: Should
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-037 — Administrar fuentes y aviso de privacidad
@@ -127,15 +127,15 @@ Escenario: Aislamiento entre organizaciones sobre fuentes y avisos
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `fuente.activa` | Sí | Verdadero o falso dentro de la versión | No |
-| `fuente.costo_consulta` | Sí | Visible antes de activar | No |
-| `fuente.condiciones_uso` | Sí | Texto no vacío | No |
-| `asociacion_fuente_requisito` | No | La fuente debe estar activa en la misma versión | No |
-| `credencial.organization_id` | Sí | Propias por organización cliente; almacenadas cifradas | Sí |
-| `aviso.finalidades` | Sí | Al menos una | No |
-| `aviso.responsable` / `encargado` | Sí | Texto no vacío | No |
-| `aviso.canales_derechos` | Sí | Texto no vacío | No |
-| `aviso.exige_autorizacion` | Sí | Por finalidad | No |
+| `source.active` | Sí | Verdadero o falso dentro de la versión | No |
+| `source.query_cost` | Sí | Visible antes de activar | No |
+| `source.terms_of_use` | Sí | Texto no vacío | No |
+| `source_requirement_mapping` | No | La fuente debe estar activa en la misma versión | No |
+| `credential.organization_id` | Sí | Propias por organización cliente; almacenadas cifradas | Sí |
+| `privacy_notice.purposes` | Sí | Al menos una | No |
+| `privacy_notice.data_controller` / `data_processor` | Sí | Texto no vacío | No |
+| `privacy_notice.rights_channels` | Sí | Texto no vacío | No |
+| `privacy_notice.requires_authorization` | Sí | Por finalidad | No |
 
 ## Trazabilidad
 

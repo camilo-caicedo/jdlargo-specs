@@ -120,11 +120,11 @@ Escenario: Los expedientes ya evaluados no cambian
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `factor.clave` | Sí | Único dentro de la metodología | No |
-| `factor.origen_dato` | Sí | Campo o resultado que efectivamente existe en el expediente | No |
-| `factor.ponderacion` | Sí | Numérica y coherente con la escala | No |
-| `escala.niveles` | Sí | Al menos dos, sin huecos ni superposiciones | No |
-| `regla_escalamiento.condicion` / `accion` | Sí | Solo del conjunto cerrado | No |
+| `risk_factor.key` | Sí | Único dentro de la metodología | No |
+| `risk_factor.data_source` | Sí | Campo o resultado que efectivamente existe en el expediente | No |
+| `risk_factor.weight` | Sí | Numérica y coherente con la escala | No |
+| `risk_scale.levels` | Sí | Al menos dos, sin huecos ni superposiciones | No |
+| `escalation_rule.condition` / `action` | Sí | Solo del conjunto cerrado | No |
 | Permiso de publicar metodología | Sí | Según la matriz de permisos vigente | No |
 
 ## Trazabilidad

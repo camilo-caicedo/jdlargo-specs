@@ -130,16 +130,16 @@ Escenario: Aislamiento entre organizaciones sobre la metodología
 
 | Campo | Obligatorio | Validación | Sensible |
 |-------|-------------|------------|----------|
-| `metodologia.organization_id` | Sí | Organización cliente existente | No |
-| `metodologia.version_configuracion_id` | Sí | Versión existente (`HU-004`) | No |
-| `metodologia.fecha_vigencia_desde` | Sí | Fecha; no anterior a la de la versión previa | No |
-| `factor.clave` | Sí | Factor del catálogo de la §14 o definido por el cliente | No |
-| `factor.ponderacion` | Sí | Numérica; coherente con la escala declarada | No |
-| `escala.niveles` | Sí | Al menos dos niveles, sin rangos superpuestos ni huecos | No |
-| `umbral.desde` / `hasta` | Sí | Cubren toda la escala sin dejar rangos sin nivel | No |
-| `regla.condicion` | Sí | Solo condiciones del conjunto cerrado | No |
-| `regla.accion` | Sí | Solo acciones del conjunto cerrado | No |
-| `metodologia.estado` | Sí | `borrador` \| `publicada` \| `reemplazada` | No |
+| `risk_methodology.organization_id` | Sí | Organización cliente existente | No |
+| `risk_methodology.configuration_version_id` | Sí | Versión existente (`HU-004`) | No |
+| `risk_methodology.effective_date_from` | Sí | Fecha; no anterior a la de la versión previa | No |
+| `risk_factor.key` | Sí | Factor del catálogo de la §14 o definido por el cliente | No |
+| `risk_factor.weight` | Sí | Numérica; coherente con la escala declarada | No |
+| `risk_scale.levels` | Sí | Al menos dos niveles, sin rangos superpuestos ni huecos | No |
+| `threshold.from` / `threshold.to` | Sí | Cubren toda la escala sin dejar rangos sin nivel | No |
+| `escalation_rule.condition` | Sí | Solo condiciones del conjunto cerrado | No |
+| `escalation_rule.action` | Sí | Solo acciones del conjunto cerrado | No |
+| `risk_methodology.status` | Sí | `draft` \| `published` \| `replaced` | No |
 
 ## Trazabilidad
 
