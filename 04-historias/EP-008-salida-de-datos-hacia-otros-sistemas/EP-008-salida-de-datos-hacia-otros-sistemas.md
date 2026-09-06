@@ -66,15 +66,16 @@ después de la Fase 4, antes o en paralelo con la Fase 6.
 
 ## Historias
 
-> Pendientes de escribir con `/user-story-writing`. Se listan como candidatas para reservar
-> numeración, no como historias ya redactadas.
-
 | ID | Historia | Prioridad | Estado |
 |----|----------|-----------|--------|
-| `HU-051` | Configurar qué campos del expediente son exportables por organización | Must | pendiente |
-| `HU-052` | Exportar un expediente cerrado a archivo estructurado (JSON/TXT) | Must | pendiente |
-| `HU-053` | Exponer una interfaz de programación para que el sistema del cliente extraiga expedientes | Should | pendiente |
-| `HU-054` | Autenticar la integración y dejar bitácora de cada extracción | Must | pendiente |
+| [`HU-051`](HU-051-configurar-campos-exportables-por-organizacion.md) | Configurar qué campos del expediente son exportables por organización | Must | borrador |
+| [`HU-052`](HU-052-exportar-expediente-a-archivo-estructurado.md) | Exportar un expediente cerrado a archivo estructurado (JSON/TXT) | Must | borrador |
+| [`HU-053`](HU-053-interfaz-de-programacion-para-extraer-expedientes.md) | Exponer una interfaz de programación para que el sistema del cliente extraiga expedientes | Should | borrador |
+| [`HU-054`](HU-054-autenticacion-e-bitacora-de-extracciones.md) | Autenticar la integración y dejar bitácora de cada extracción | Must | borrador |
+
+Orden sugerido: `HU-051` → `HU-054` → `HU-052` → `HU-053`. Los campos exportables y la
+autenticación/bitácora son la base común; el archivo es el medio más simple de los dos y la
+interfaz de programación es la apuesta más cara, condicionada a que `PA-046` la confirme.
 
 ## Dependencias
 
@@ -93,7 +94,10 @@ después de la Fase 4, antes o en paralelo con la Fase 6.
 
 ## Riesgo abierto
 
-Esta épica **no tiene todavía ni una historia redactada ni un RF numerado**
-(`03-requisitos/funcionales.md`, nota sobre `CAP-08`). Antes de escribir las historias con
-`/user-story-writing` hace falta cerrar al menos `PA-046`, porque cambia si la épica construye
-una interfaz de programación, un exportador de archivos, o ambos desde el inicio.
+Las cuatro historias están escritas, trazadas a `RF-051`–`RF-054`
+(`03-requisitos/funcionales.md`) y numeradas en `04-historias/backlog.md`, pero **ninguna pasa
+la *Definition of Ready* completa todavía**: las cuatro dependen de `PA-046`, que decide si esta
+épica construye una interfaz de programación (`HU-053`), un exportador de archivos (`HU-052`), o
+ambos — y por tanto qué autenticar (`HU-054`) y con qué urgencia cerrar los campos exportables
+(`HU-051`, que además depende de `PA-048`). Las cuatro quedan en `borrador` hasta que se
+responda.

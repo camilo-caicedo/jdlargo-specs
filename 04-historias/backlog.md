@@ -8,7 +8,8 @@ actualizado: 2026-09-06
 
 Índice de épicas e historias. Se actualiza cada vez que se crea o cambia de estado una historia.
 
-**50 historias en 8 épicas**, una épica por fase del `02-producto/roadmap.md`.
+**54 historias en 9 épicas**, una épica por fase del `02-producto/roadmap.md` (`EP-008` es el
+"MVP4", fuera de la escalera de fases numeradas).
 
 > **Actualización 2026-09-05.** El cliente respondió las 39 preguntas abiertas. **Ninguna
 > historia sigue bloqueada por una pregunta sin responder**, salvo las que dependen de las
@@ -28,6 +29,11 @@ actualizado: 2026-09-06
 >
 > `en-revision` no es `aprobado`: falta que alguien —Juan David o quien defina el equipo—
 > revise cada una antes de darle luz verde a construirla.
+>
+> **Actualización 2026-09-06 (2).** Se escribe `EP-008` (MVP4, `CAP-08`) con sus 4 historias
+> (`HU-051` a `HU-054`) y sus `RF-051` a `RF-054`. Las cuatro se quedan en `borrador`: todas
+> dependen de `PA-046` (qué medio de salida construir), y además `HU-051` de `PA-048` y
+> `HU-052` de `PA-047`. Ninguna pasa a `en-revision` todavía.
 
 ## Épicas
 
@@ -41,6 +47,7 @@ actualizado: 2026-09-06
 | `EP-005` | [El cliente se autogestiona](EP-005-el-cliente-se-autogestiona/EP-005-el-cliente-se-autogestiona.md) | `CAP-05` | 5 | 6 | borrador |
 | `EP-006` | [El expediente vive](EP-006-el-expediente-vive/EP-006-el-expediente-vive.md) | `CAP-06` | 6 | 6 | borrador |
 | `EP-007` | [Capa comercial](EP-007-capa-comercial/EP-007-capa-comercial.md) | `CAP-07` | C | 5 | borrador |
+| `EP-008` | [Salida de datos hacia otros sistemas](EP-008-salida-de-datos-hacia-otros-sistemas/EP-008-salida-de-datos-hacia-otros-sistemas.md) | `CAP-08` | MVP4 | 4 | borrador |
 
 ## EP-000 — Cimientos
 
@@ -148,6 +155,17 @@ Orden: `HU-041` → `HU-040` → `HU-042` → `HU-043` → `HU-044` → `HU-045`
 
 Orden: el de la lista.
 
+## EP-008 — Salida de datos hacia otros sistemas
+
+| ID | Historia | Prioridad | Dependencia y dónde quedó resuelta |
+|----|----------|-----------|---------------|
+| `HU-051` | [Configurar qué campos del expediente son exportables por organización](EP-008-salida-de-datos-hacia-otros-sistemas/HU-051-configurar-campos-exportables-por-organizacion.md) | Must | `PA-010` ✅ origen de la épica. **Pendiente: `PA-048`** (campos bloqueados por política) |
+| `HU-052` | [Exportar un expediente cerrado a archivo estructurado (JSON/TXT)](EP-008-salida-de-datos-hacia-otros-sistemas/HU-052-exportar-expediente-a-archivo-estructurado.md) | Must | `PA-010` ✅. **Pendiente: `PA-046`** (medio), `PA-047` (disparador) |
+| `HU-053` | [Exponer una interfaz de programación para que el sistema del cliente extraiga expedientes](EP-008-salida-de-datos-hacia-otros-sistemas/HU-053-interfaz-de-programacion-para-extraer-expedientes.md) | Should | `PA-010` ✅. **Pendiente: `PA-046`** (medio) |
+| `HU-054` | [Autenticar la integración y dejar bitácora de cada extracción](EP-008-salida-de-datos-hacia-otros-sistemas/HU-054-autenticacion-e-bitacora-de-extracciones.md) | Must | **Pendiente: `PA-046`** (qué medio autenticar) |
+
+Orden sugerido: `HU-051` → `HU-054` → `HU-052` → `HU-053`.
+
 ## Preguntas abiertas que bloqueaban el backlog — estado
 
 Las 39 están **resueltas** (2026-09-05). Estas son las que cambiaron algo del backlog, y qué
@@ -190,6 +208,9 @@ cambiaron:
 | `PA-041` — firma digital certificada y validez del OTP por correo | `HU-022` | No bloquea: `ADR-0010` arranca con aceptación electrónica |
 | `PA-044` — quién asume la retención a 10 años | `HU-006`, `HU-016`, `HU-044` | No bloquea la estructura, sí el contrato |
 | `PA-045` — proveedor de IA y su contrato/DPA | `HU-011`, `HU-017`, `HU-018`, `HU-037` | Antes de la Fase 2 |
+| **`PA-046`** — medio(s) de salida: interfaz de programación, archivo, o ambos | toda `EP-008` | Bloquea las 4 historias de `EP-008` por igual |
+| `PA-047` — disparador de la salida (bajo demanda, programado o por evento) | `HU-052` | No bloquea el disparo manual con el que quedó escrita `HU-052` |
+| `PA-048` — campos bloqueados por ser datos personales sensibles o de terceros | `HU-051` | Antes de fijar la lista de campos exportables por defecto |
 
 **Las tres de la Fase 0 que más urgían** —`PA-025`, `PA-026` y `PA-029`— están resueltas. La
 Fase 0 puede arrancar sin esperar nada.
@@ -216,5 +237,5 @@ Fase 0 puede arrancar sin esperar nada.
 | P · Qué ocurrió durante el monitoreo | `EP-006` |
 
 Al cerrar `EP-006` están las dieciséis: es el producto terminado según el criterio del propio
-cliente. `EP-005` y `EP-007` no añaden respuestas a la §44 —añaden autonomía del cliente y
-capacidad de cobrar.
+cliente. `EP-005`, `EP-007` y `EP-008` no añaden respuestas a la §44 —añaden autonomía del
+cliente, capacidad de cobrar y capacidad de alimentar otros sistemas, respectivamente.

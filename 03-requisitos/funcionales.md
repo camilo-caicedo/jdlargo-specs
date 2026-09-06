@@ -116,11 +116,17 @@ Prioridad: MoSCoW (Must / Should / Could / Won't).
 | RF-049 | El cobro de cada ciclo se emite como factura con enlace de pago (PSE, tarjeta, Efecty o transferencia), sin exigir registro de tarjeta ni débito automático, con conciliación registrada para los pagos que no cruzan la pasarela. | `CAP-07` | `ADR-0002` §2, `PA-016` | Must | `HU-049` | Borrador |
 | RF-050 | Toda factura se emite desde el ciclo cerrado, es inmutable, es rastreable hasta las consultas que la componen, y no se emite si faltan datos de facturación del cliente. | `CAP-07` | `ADR-0002` §3 | Must | `HU-050` | Borrador |
 
+## EP-008 — Salida de datos hacia otros sistemas (`CAP-08`)
+
+| ID | Requisito | Capacidad | Origen | Prioridad | Historias | Estado |
+|----|-----------|-----------|--------|-----------|-----------|--------|
+| RF-051 | Los campos del expediente exportables hacia otro sistema son configuración versionada por organización cliente, con valor por defecto no exportable, y con campos que la plataforma bloquea sin importar la configuración del cliente. | `CAP-08` | `PA-010`, `ADR-0004` | Must | `HU-051` | Borrador |
+| RF-052 | El sistema exporta, bajo demanda, un expediente cerrado a un archivo estructurado (JSON o TXT, configurable por organización) que contiene únicamente los campos marcados como exportables. | `CAP-08` | `PA-010` | Must | `HU-052` | Borrador |
+| RF-053 | El sistema expone una interfaz de programación de solo lectura para que la organización cliente extraiga sus expedientes cerrados y los campos marcados exportables, con el mismo aislamiento por organización que el resto de la plataforma. | `CAP-08` | `PA-010` | Should | `HU-053` | Borrador |
+| RF-054 | Toda extracción de datos hacia otro sistema, por archivo o por interfaz de programación, se autentica con una credencial propia de la organización cliente y queda registrada en la bitácora, incluidos los intentos rechazados. | `CAP-08` | `PA-010`, `ADR-0007` | Must | `HU-054` | Borrador |
+
 ## Requisitos fuera de esta numeración
 
-- **`CAP-08` (salida de datos hacia otros sistemas, `PA-010`) no tiene `RF-xxx` todavía**: no
-  tiene épica ni historias (ver `02-producto/mapa-de-capacidades.md`). Se numera cuando se
-  escriba `EP-008` con `/user-story-writing`.
 - El recorrido exacto de `HU-012` y `HU-017` (si el formulario se autodiligencia desde los
   documentos) depende de `PA-042`. `RF-012` y `RF-017` se redactan sobre el supuesto de que
   ambos caminos son posibles; si `PA-042` cierra a favor de uno solo, se ajustan sin cambiar de
