@@ -1,10 +1,14 @@
 # jdlargo-specs — reglas del repositorio
 
 Repo de **definición** del proyecto Plataforma JD Largo (SARLAFT / SAGRILAFT / PTEE).
-El contexto de producto y el mapa de repos están en `../CLAUDE.md`; aquí van solo las
+El contexto de producto y el mapa de repos están en `../AGENTS.md` (fuente de verdad;
+`../CLAUDE.md` y `../GEMINI.md` son punteros cortos a ese archivo); aquí van solo las
 reglas de cómo se escribe y se organiza la documentación.
 
-Aquí **no hay código**: solo Markdown y diagramas.
+Aquí **no hay código**: solo Markdown y diagramas. Por eso todo este repo se escribe en
+español (regla de idioma más abajo). `jdlargo-api`/`jdlargo-web`, cuando existan, se
+escriben en **inglés** (identificadores, comentarios, nombres de archivo de código) — ver
+`../AGENTS.md` §5.
 
 ## Estructura
 

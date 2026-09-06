@@ -50,14 +50,20 @@ dentro de los componentes y quede imposible de extraer. Se evita con una regla d
 src/
   app/                    Rutas, páginas y Route Handlers — ADAPTADORES DELGADOS
   server/                 ← ESTO ES EL BACKEND
-    organizaciones/       Cada módulo: casos de uso + repositorio + tipos
-    contrapartes/
+    organizations/        Cada módulo: casos de uso + repositorio + tipos
+    counterparties/       (contrapartes)
     screening/            Puertos hacia proveedores externos
-    consumo/              Cuotas, medición y ciclo de facturación
-    documentos/
+    consumption/          Cuotas, medición y ciclo de facturación (consumo)
+    documents/            (documentos)
     db/                   Esquema Drizzle, cliente y migraciones
   components/             Interfaz
 ```
+
+> **Nombres de módulo en inglés.** Este documento está en español porque es una spec, pero
+> el código que describe no lo está: `jdlargo-api`/`jdlargo-web` se escriben en inglés
+> (identificadores, comentarios, nombres de archivo) — ver `AGENTS.md` (raíz) §5. Los
+> nombres de carpeta de arriba son el ejemplo real a seguir, no una traducción de cortesía.
+> El texto de cara al usuario final es la única excepción y sigue en español.
 
 **Un Server Action no contiene lógica de negocio.** Valida su entrada con Zod, llama a un
 caso de uso en `src/server/`, y traduce el resultado a algo que la interfaz entienda. Si un
@@ -69,7 +75,7 @@ y se reescriben solo los bordes. Es lo que mantiene reversible la decisión de `
 ## Tres recorridos reales
 
 **1. Listar las contrapartes de un proyecto.** El Server Component pide los datos a
-`server/contrapartes`, que consulta Postgres con Drizzle en la misma función de servidor.
+`server/counterparties`, que consulta Postgres con Drizzle en la misma función de servidor.
 Se renderiza el HTML y se envía. Cero peticiones desde el navegador, cero endpoints.
 
 **2. Ejecutar un screening.** El usuario aprieta un botón en un Client Component, que invoca
@@ -81,7 +87,7 @@ que un fallo a mitad de camino no deje consumo cobrado sin evidencia guardada.
 
 **3. Recibir la confirmación de un pago.** Wompi llama al Route Handler. Este verifica la
 firma, guarda el evento con su clave de idempotencia —de modo que un reintento de Wompi no
-lo procese dos veces— y delega en `server/consumo` para conciliar la factura.
+lo procese dos veces— y delega en `server/consumption` para conciliar la factura.
 
 ## Acceso a datos y RLS — la decisión que más importa
 
@@ -201,13 +207,14 @@ Siguiendo `ADR-0004`, la configuración de cumplimiento es un módulo de dominio
 
 ```
 src/server/
-  cumplimiento/
-    configuracion/    Estándares, matrices, metodologías — publicación y versionado
-    evaluador/        Evalúa condiciones y produce acciones, con su explicación
-    formularios/      Construye el esquema de validación desde la configuración
-  expedientes/
-    afirmaciones/     ADR-0005: el registro de procedencia
-    estados/          Transiciones válidas
+  compliance/                (cumplimiento)
+    configuration/           Estándares, matrices, metodologías — publicación y versionado
+    evaluator/               Evalúa condiciones y produce acciones, con su explicación
+    forms/                   Construye el esquema de validación desde la configuración
+  dossiers/                  (expedientes — no "cases": ese nombre queda para los casos de
+                              alerta/screening de HU-028, un concepto distinto)
+    assertions/              ADR-0005: el registro de procedencia (afirmaciones)
+    states/                  Transiciones válidas (estados)
 ```
 
 Regla dura: **el evaluador es una función pura.** Recibe la configuración vigente y los
@@ -272,7 +279,13 @@ revisión → git) recibe requisitos verificables en vez de tener que inferirlos
 **Dónde se instala.** Es un plugin de Claude Code (`/plugin install
 superpowers@claude-plugins-official`), no algo que viva en esta sesión de `jdlargo-specs`. Se
 instala en la sesión de Claude Code que trabaje dentro de `jdlargo-api` o `jdlargo-web` cuando
-se cree cada repo — ver `CLAUDE.md` (raíz) §4 y §5.
+se cree cada repo — ver `AGENTS.md` (raíz) §4 y §5.
+
+> **Actualización 2026-09-06 — se reparte entre dos agentes.** Cuando exista código que
+> construir, Superpowers no corre solo en Claude Code: se reparte entre **Claude Code como
+> arquitecto** (planea y audita) y **Antigravity como constructor** (implementa y prueba),
+> los dos con la misma metodología. Detalle completo, matriz de responsabilidades y prompts
+> base en `08-desarrollo/protocolo-multi-agente.md` y `AGENTS.md` (raíz) §8.
 
 **Advertencias, para no adoptarlo a ciegas:**
 
