@@ -20,7 +20,7 @@ historias.
 | CAP-05 | Autogestión de la configuración | Que el cliente administre por sí mismo estándares, matriz, metodología, fuentes y permisos | `EP-005` | Confirmada |
 | CAP-06 | Monitoreo y vida del expediente | Vigilar cambios después de la vinculación, renovar, vencer y dar visibilidad al Oficial de Cumplimiento | `EP-006` | Confirmada |
 | CAP-07 | Capa comercial | Planes, cupos, medición de consumo, facturación electrónica y cobro por link de pago (sin débito automático) | `EP-007` | Confirmada |
-| CAP-08 | Salida de datos hacia otros sistemas | Entregar la información del expediente a otros sistemas del cliente, por API o por archivo estructurado (JSON/TXT configurable) | **Por abrir** | **Confirmada** (`PA-010`) — es el "MVP4" del cliente y no tiene épica todavía |
+| CAP-08 | Salida de datos hacia otros sistemas | Entregar la información del expediente a otros sistemas del cliente, por API o por archivo estructurado (JSON/TXT configurable) | `EP-008` | **Confirmada** (`PA-010`) — es el "MVP4" del cliente; sin historias todavía, pendiente de `PA-046` a `PA-048` |
 
 ## Candidatas iniciales — resueltas
 

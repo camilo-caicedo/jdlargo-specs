@@ -192,4 +192,5 @@ Vale para todas, y es la §45 del cliente:
 3. **Arrancar la Fase 0**, que no depende de ninguna pregunta abierta.
 4. ~~Escribir `EP-000` y `EP-001`~~ — hechas. Sigue: revisar `HU-001` a `HU-016` contra las
    respuestas del cliente y subir a `en-revision` las que ya no dependan de una `PA-xxx`.
-5. Ubicar el **MVP4 (salida por API / archivo estructurado)** en el plan y escribir su épica.
+5. ~~Ubicar el MVP4 (salida por API / archivo estructurado) en el plan y escribir su épica~~ —
+   hecha: `EP-008`. Sus historias siguen sin escribir porque dependen de `PA-046` a `PA-048`.
