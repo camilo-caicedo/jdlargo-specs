@@ -1,10 +1,10 @@
 ---
 id: HU-006
 titulo: Bitácora inmutable transversal
-estado: borrador
+estado: en-revision
 epica: EP-000
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-006 — Bitácora inmutable transversal

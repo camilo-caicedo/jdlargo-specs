@@ -1,10 +1,10 @@
 ---
 id: HU-018
 titulo: Registro de cada ejecución de IA
-estado: borrador
+estado: en-revision
 epica: EP-002
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-018 — Registro de cada ejecución de IA

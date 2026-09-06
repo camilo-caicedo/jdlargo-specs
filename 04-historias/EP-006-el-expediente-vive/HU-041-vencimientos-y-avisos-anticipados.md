@@ -1,10 +1,10 @@
 ---
 id: HU-041
 titulo: Vencimientos y avisos anticipados
-estado: borrador
+estado: en-revision
 epica: EP-006
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-041 — Vencimientos y avisos anticipados

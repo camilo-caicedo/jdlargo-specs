@@ -1,7 +1,7 @@
 ---
 id: HIST-backlog
 estado: vivo
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # Backlog
@@ -15,16 +15,27 @@ actualizado: 2026-09-05
 > derivadas `PA-040` a `PA-045`. La columna "Bloqueada por" pasa a decir **dónde quedó
 > resuelta** cada dependencia, que es lo que hace falta para escribirla.
 >
-> Siguen en `borrador` porque falta el otro requisito de la Definition of Ready: la
-> trazabilidad a `RF-xxx`, que todavía no existe (`03-requisitos/funcionales.md`).
+> **Actualización 2026-09-06.** Cerrado el otro requisito de la *Definition of Ready* que
+> faltaba: la trazabilidad a `RF-xxx` (`03-requisitos/funcionales.md`, `RF-001` a `RF-050`).
+> **38 de las 50 historias pasan a `en-revision`.** Las 12 que siguen en `borrador` son las que
+> dependen *directamente* de una pregunta derivada todavía abierta:
+>
+> | Depende de | Historias |
+> |---|---|
+> | `PA-040` (costo real de fuentes colombianas) | `HU-023`, `HU-024`, `HU-025`, `HU-030`, `HU-037`, `HU-040` |
+> | `PA-042` (orden formulario/documentos) | `HU-012` |
+> | `PA-043` (precios y cupos definitivos) | `HU-046`, `HU-047`, `HU-048`, `HU-049`, `HU-050` |
+>
+> `en-revision` no es `aprobado`: falta que alguien —Juan David o quien defina el equipo—
+> revise cada una antes de darle luz verde a construirla.
 
 ## Épicas
 
 | ID | Épica | Capacidad | Fase | Historias | Estado |
 |----|-------|-----------|------|-----------|--------|
-| `EP-000` | [Cimientos](EP-000-cimientos/EP-000-cimientos.md) | `CAP-00` | 0 | 6 | borrador |
+| `EP-000` | [Cimientos](EP-000-cimientos/EP-000-cimientos.md) | `CAP-00` | 0 | 6 | en-revision |
 | `EP-001` | [Un expediente completo, a mano](EP-001-expediente-completo-a-mano/EP-001-expediente-completo-a-mano.md) | `CAP-01` | 1 | 10 | borrador |
-| `EP-002` | [El expediente se llena solo](EP-002-el-expediente-se-llena-solo/EP-002-el-expediente-se-llena-solo.md) | `CAP-02` | 2 | 6 | borrador |
+| `EP-002` | [El expediente se llena solo](EP-002-el-expediente-se-llena-solo/EP-002-el-expediente-se-llena-solo.md) | `CAP-02` | 2 | 6 | en-revision |
 | `EP-003` | [El expediente se verifica](EP-003-el-expediente-se-verifica/EP-003-el-expediente-se-verifica.md) | `CAP-03` | 3 | 6 | borrador |
 | `EP-004` | [El expediente se califica](EP-004-el-expediente-se-califica/EP-004-el-expediente-se-califica.md) | `CAP-04` | 4 | 5 | borrador |
 | `EP-005` | [El cliente se autogestiona](EP-005-el-cliente-se-autogestiona/EP-005-el-cliente-se-autogestiona.md) | `CAP-05` | 5 | 6 | borrador |

@@ -1,10 +1,10 @@
 ---
 id: HU-028
 titulo: Casos — análisis, decisión y cierre
-estado: borrador
+estado: en-revision
 epica: EP-003
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-028 — Casos: análisis, decisión y cierre

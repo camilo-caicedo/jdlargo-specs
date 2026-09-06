@@ -7,7 +7,7 @@ actualizado: 2026-09-05
 # Actores y roles
 
 Derivado de la §4 y la §30 del
-[documento funcional del cliente](../01-descubrimiento/entregables-cliente/2026-08-21-flujo-plataforma-debida-diligencia-v2.md).
+[documento funcional de Juan David](../01-descubrimiento/entregables-cliente/2026-08-21-flujo-plataforma-debida-diligencia-v2.md).
 Cierra `PA-002`, `PA-013` y `PA-024`.
 
 ## Actores
@@ -73,7 +73,7 @@ que lo que el cliente configuró se cumpla y quede registrado.
 ## Matriz de permisos base
 
 Es un **punto de partida configurable**, no una definición fija: la §30 establece que cada
-cliente ajusta la matriz según su propia segregación de funciones, y el cliente confirmó que
+cliente ajusta la matriz según su propia segregación de funciones, y Juan David confirmó que
 la ajusta él mismo (`PA-024`). Por eso el control de acceso es configuración versionada
 (`ADR-0004`), no un `enum` en el código.
 
@@ -91,7 +91,7 @@ la ajusta él mismo (`PA-024`). Por eso el control de acceso es configuración v
 
 La contraparte **no es un usuario del sistema**: no tiene cuenta ni contraseña, entra con un
 enlace y un token acotado a un solo expediente. Es una superficie distinta, con reglas de
-acceso propias — ver `08-desarrollo/arquitectura-de-aplicacion.md`. El cliente lo confirmó de
+acceso propias — ver `08-desarrollo/arquitectura-de-aplicacion.md`. Juan David lo confirmó de
 forma expresa: *"la contraparte usa un portal externo sin necesidad de cuenta completa ni
 logeo"* (`PA-002`).
 

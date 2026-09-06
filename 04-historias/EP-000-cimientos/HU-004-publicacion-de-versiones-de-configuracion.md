@@ -1,10 +1,10 @@
 ---
 id: HU-004
 titulo: Publicación de versiones de configuración inmutables
-estado: borrador
+estado: en-revision
 epica: EP-000
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-004 — Publicación de versiones de configuración inmutables

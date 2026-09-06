@@ -1,10 +1,10 @@
 ---
 id: HU-022
 titulo: Firma electrónica de niveles 1 y 2
-estado: borrador
+estado: en-revision
 epica: EP-002
 prioridad: Should
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-022 — Firma electrónica de niveles 1 y 2

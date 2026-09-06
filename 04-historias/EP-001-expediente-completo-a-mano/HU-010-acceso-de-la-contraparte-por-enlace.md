@@ -1,10 +1,10 @@
 ---
 id: HU-010
 titulo: Acceso de la contraparte por enlace
-estado: borrador
+estado: en-revision
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-010 — Acceso de la contraparte por enlace

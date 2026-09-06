@@ -1,10 +1,10 @@
 ---
 id: HU-007
 titulo: Tipos de contraparte y matriz de requisitos
-estado: borrador
+estado: en-revision
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-007 — Tipos de contraparte y matriz de requisitos

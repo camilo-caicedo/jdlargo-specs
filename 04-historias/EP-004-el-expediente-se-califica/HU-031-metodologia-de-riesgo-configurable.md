@@ -1,10 +1,10 @@
 ---
 id: HU-031
 titulo: Metodología de riesgo configurable
-estado: borrador
+estado: en-revision
 epica: EP-004
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-031 — Metodología de riesgo configurable

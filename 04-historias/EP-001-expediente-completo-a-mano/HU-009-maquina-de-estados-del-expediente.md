@@ -1,10 +1,10 @@
 ---
 id: HU-009
 titulo: Máquina de estados del expediente
-estado: borrador
+estado: en-revision
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-009 — Máquina de estados del expediente

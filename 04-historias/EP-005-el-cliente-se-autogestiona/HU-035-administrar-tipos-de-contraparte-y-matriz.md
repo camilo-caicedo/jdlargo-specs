@@ -1,10 +1,10 @@
 ---
 id: HU-035
 titulo: Administrar tipos de contraparte y matriz de requisitos
-estado: borrador
+estado: en-revision
 epica: EP-005
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-035 — Administrar tipos de contraparte y matriz de requisitos

@@ -1,10 +1,10 @@
 ---
 id: HU-034
 titulo: Administrar versiones de configuración
-estado: borrador
+estado: en-revision
 epica: EP-005
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-034 — Administrar versiones de configuración

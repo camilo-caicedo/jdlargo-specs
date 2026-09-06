@@ -1,13 +1,13 @@
 ---
 id: DESC-hallazgos-gap-analysis
-titulo: Hallazgos del análisis de brechas post-respuestas del cliente
+titulo: Hallazgos del análisis de brechas post-respuestas de Juan David
 estado: vivo
 actualizado: 2026-09-05
 ---
 
 # Hallazgos del análisis de brechas (2026-09-05)
 
-> Nota de cierre de la segunda tanda de trabajo tras las respuestas del cliente a `PA-001`–
+> Nota de cierre de la segunda tanda de trabajo tras las respuestas de Juan David a `PA-001`–
 > `PA-039`. Documenta qué se encontró al aplicar un barrido sistemático de seis dimensiones
 > (funcional, no funcional, escenarios de usuario, contexto de negocio, contexto técnico,
 > atributos de calidad) más una revisión explícita de contradicciones — el método que usa
@@ -23,7 +23,7 @@ estaban escritas — la cadena `capacidad → requisito → historia` no existí
 
 **Cerrado:** se escribieron `RF-001` a `RF-050`, uno por historia (numeración 1:1 deliberada),
 derivados de releer la sección "Historia" y "Reglas de negocio" de las 50 `HU-xxx`. Cada uno
-cita su capacidad, su origen (sección del documento del cliente, ADR o PA que lo sustenta),
+cita su capacidad, su origen (sección del documento de Juan David, ADR o PA que lo sustenta),
 prioridad heredada del backlog y estado `Borrador` (ninguno pasa a `en-revision` hasta que su
 historia complete la *Definition of Ready*).
 
@@ -55,7 +55,7 @@ viejo como si estuviera vigente:
   negocio que afirmaba el modelo viejo sin ninguna nota de que había cambiado.
 
 Una segunda contradicción, de la misma familia (un documento de resumen sin actualizar tras una
-respuesta del cliente que sí se propagó a la historia detallada): `04-historias/EP-007-capa-
+respuesta de Juan David que sí se propagó a la historia detallada): `04-historias/EP-007-capa-
 comercial/EP-007-capa-comercial.md` seguía describiendo el cobro como "patrón dual: tarjeta
 tokenizada para clientes pequeños, factura para empresas" en tres lugares (objetivo, alcance y
 riesgo), mientras que `HU-049-cobro-por-pasarela.md` ya reflejaba correctamente que `PA-016`
@@ -84,7 +84,7 @@ material concreto para quien las cierre. El detalle completo, con fuentes, queda
 
 - **`PA-040`** (costo real de fuentes colombianas): la pregunta original asumía dos vías —
   conexión directa a cada fuente, o "un intermediario". La investigación encontró una tercera
-  vía que ni `SUP-010` ni el cliente habían nombrado: agregadores colombianos de dominio
+  vía que ni `SUP-010` ni Juan David habían nombrado: agregadores colombianos de dominio
   LA/FT/KYC ya construidos para este caso exacto (Tusdatos, Verdata, RiskTech,
   Compliance.com.co), que combinan RUES, antecedentes judiciales/disciplinarios/fiscales y
   listas restrictivas en una sola API. Ninguno publica precio: sigue sin cotización real, pero el
@@ -102,10 +102,10 @@ material concreto para quien las cierre. El detalle completo, con fuentes, queda
 
 ## 5. Qué no se tocó
 
-- No se inventó ningún requisito, precio, plazo ni cifra donde el cliente o la ley no la han
+- No se inventó ningún requisito, precio, plazo ni cifra donde Juan David o la ley no la han
   dado — cada `RF-xxx` cita su origen y cada hallazgo de `PA-040`/`PA-045` se presenta como
   investigación de apoyo, no como respuesta cerrada.
 - No se cerraron `PA-040` ni `PA-045`: siguen `Abierta`, con responsable asignado, porque cerrarlas
   de verdad requiere una cotización o una firma jurídica que no le corresponde a este documento.
-- No se tocó `01-descubrimiento/entregables-cliente/`: son los documentos crudos que entregó el
-  cliente, se conservan como fuente primaria sin editar.
+- No se tocó `01-descubrimiento/entregables-cliente/`: son los documentos crudos que entregó
+  Juan David, se conservan como fuente primaria sin editar.

@@ -1,10 +1,10 @@
 ---
 id: HU-015
 titulo: Decisión del Oficial de Cumplimiento
-estado: borrador
+estado: en-revision
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-015 — Decisión del Oficial de Cumplimiento

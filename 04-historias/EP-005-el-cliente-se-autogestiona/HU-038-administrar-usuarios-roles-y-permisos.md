@@ -1,10 +1,10 @@
 ---
 id: HU-038
 titulo: Administrar usuarios, roles y permisos
-estado: borrador
+estado: en-revision
 epica: EP-005
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-038 — Administrar usuarios, roles y permisos

@@ -1,9 +1,9 @@
 ---
 id: EP-002
 titulo: El expediente se llena solo
-estado: borrador
+estado: en-revision
 capacidad: CAP-02
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # EP-002 — El expediente se llena solo

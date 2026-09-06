@@ -1,9 +1,9 @@
 ---
 id: EP-000
 titulo: Cimientos
-estado: borrador
+estado: en-revision
 capacidad: CAP-00
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # EP-000 — Cimientos

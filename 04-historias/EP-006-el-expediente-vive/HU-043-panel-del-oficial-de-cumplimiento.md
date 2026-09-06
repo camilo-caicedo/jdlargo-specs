@@ -1,10 +1,10 @@
 ---
 id: HU-043
 titulo: Panel del Oficial de Cumplimiento
-estado: borrador
+estado: en-revision
 epica: EP-006
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-043 — Panel del Oficial de Cumplimiento

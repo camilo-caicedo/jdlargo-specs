@@ -1,10 +1,10 @@
 ---
 id: HU-045
 titulo: Recordatorios a la contraparte
-estado: borrador
+estado: en-revision
 epica: EP-006
 prioridad: Could
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-045 — Recordatorios a la contraparte

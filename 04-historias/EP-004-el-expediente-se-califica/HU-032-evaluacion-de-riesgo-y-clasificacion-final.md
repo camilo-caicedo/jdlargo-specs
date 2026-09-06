@@ -1,10 +1,10 @@
 ---
 id: HU-032
 titulo: Evaluación de riesgo y clasificación final
-estado: borrador
+estado: en-revision
 epica: EP-004
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-032 — Evaluación de riesgo y clasificación final

@@ -9,12 +9,12 @@ actualizado: 2026-09-05
 Fuente de verdad terminológica del proyecto. Si un término no está aquí, no debería
 aparecer en una historia de usuario.
 
-Formato: **Término** — definición acordada. `(por validar)` mientras no lo confirme el cliente.
+Formato: **Término** — definición acordada. `(por validar)` mientras no lo confirme Juan David.
 
 ## Dominio
 
 Definiciones tomadas del
-[documento funcional del cliente](../01-descubrimiento/entregables-cliente/2026-08-21-flujo-plataforma-debida-diligencia-v2.md).
+[documento funcional de Juan David](../01-descubrimiento/entregables-cliente/2026-08-21-flujo-plataforma-debida-diligencia-v2.md).
 Cierra `PA-003` y `PA-022`.
 
 ### Los cinco conceptos que nunca se mezclan (§2)
@@ -30,7 +30,7 @@ Es la distinción central de todo el producto. Ver `ADR-0005`.
 ### Entidades del proceso
 
 - **Contraparte** — la persona o empresa a la que se le hace debida diligencia. Es el término
-  que usa el cliente; sustituye al genérico "entidad".
+  que usa Juan David; sustituye al genérico "entidad".
 - **Persona relacionada** — quien "cuelga" de una contraparte: representante legal,
   beneficiario final, accionista, apoderado, conductor, propietario de un vehículo.
 - **Beneficiario final** — quién realmente controla o se beneficia de una empresa, aunque no
@@ -63,8 +63,8 @@ Es la distinción central de todo el producto. Ver `ADR-0005`.
 ### Términos que el documento redefine
 
 - ~~**Validación / verificación / certificación**~~ — el nombre inicial del proyecto hablaba
-  de "validación, verificación y certificación de entidades". El documento del cliente **no
-  usa "certificación"** y el cliente lo confirmó al cerrar `PA-003` y `PA-022`: el producto no
+  de "validación, verificación y certificación de entidades". El documento de Juan David **no
+  usa "certificación"** y él lo confirmó al cerrar `PA-003` y `PA-022`: el producto no
   certifica nada, consulta, sugiere, automatiza y traza el proceso de debida diligencia. Ver
   §39 y `ADR-0006`. Prohibido en producto, interfaz, contrato y material comercial:
   "certificación de cumplimiento", "empresa certificada" y equivalentes.

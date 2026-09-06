@@ -1,10 +1,10 @@
 ---
 id: HU-008
 titulo: Crear la solicitud de vinculación y abrir el expediente
-estado: borrador
+estado: en-revision
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-008 — Crear la solicitud de vinculación y abrir el expediente

@@ -1,10 +1,10 @@
 ---
 id: HU-039
 titulo: Probar la configuración antes de publicar
-estado: borrador
+estado: en-revision
 epica: EP-005
 prioridad: Should
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-039 — Probar la configuración antes de publicar

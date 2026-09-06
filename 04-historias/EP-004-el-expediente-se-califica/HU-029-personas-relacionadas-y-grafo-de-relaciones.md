@@ -1,10 +1,10 @@
 ---
 id: HU-029
 titulo: Personas relacionadas y grafo de relaciones
-estado: borrador
+estado: en-revision
 epica: EP-004
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-029 — Personas relacionadas y grafo de relaciones

@@ -1,10 +1,10 @@
 ---
 id: HU-036
 titulo: Administrar la metodología de riesgo
-estado: borrador
+estado: en-revision
 epica: EP-005
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-036 — Administrar la metodología de riesgo

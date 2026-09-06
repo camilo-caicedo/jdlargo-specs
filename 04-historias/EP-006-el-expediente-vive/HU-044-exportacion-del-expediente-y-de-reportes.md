@@ -1,10 +1,10 @@
 ---
 id: HU-044
 titulo: Exportación del expediente y de reportes
-estado: borrador
+estado: en-revision
 epica: EP-006
 prioridad: Should
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-044 — Exportación del expediente y de reportes

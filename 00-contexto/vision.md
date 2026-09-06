@@ -6,7 +6,7 @@ actualizado: 2026-09-05
 
 # Visión del producto
 
-> Actualizado con las respuestas del cliente a `PA-001`, `PA-003`, `PA-004`, `PA-010`,
+> Actualizado con las respuestas de Juan David a `PA-001`, `PA-003`, `PA-004`, `PA-010`,
 > `PA-022` y `PA-023` (jornada de cierre de preguntas abiertas).
 
 ## Problema
@@ -97,7 +97,7 @@ Estándar → versión → requisito → regla → formulario → documento → 
 Cada estándar se puede **activar o desactivar** por organización cliente. En el primer
 cliente se despliegan dos: SARLAFT y PTEE (`PA-018`).
 
-> ⚠️ Las referencias normativas concretas que el cliente aporta (circular de Supersociedades
+> ⚠️ Las referencias normativas concretas que Juan David aporta (circular de Supersociedades
 > vigente desde julio de 2026, marco de Supertransporte) **no están verificadas contra fuente
 > oficial**. Se usan como contexto de diseño, nunca como hecho legal — ver `SUP-008`.
 

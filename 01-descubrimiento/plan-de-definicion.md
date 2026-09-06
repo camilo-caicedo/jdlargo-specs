@@ -29,11 +29,11 @@ preguntas bloqueantes sigan abiertas.
 **Herramientas:** `/user-story-writing` para historias · `/engineering:architecture` para
 nuevos ADR · `/engineering:code-review` obligatorio en RLS, cuotas y cobro.
 
-> **Actualización 2026-08-25.** El cliente entregó su
+> **Actualización 2026-08-25.** Juan David entregó su
 > [documento funcional v2](entregables-cliente/2026-08-21-flujo-plataforma-debida-diligencia-v2.md),
 > que cerró ocho preguntas abiertas y abrió siete nuevas, entre ellas `PA-023`.
 >
-> **Actualización 2026-09-05.** El cliente respondió **las 39 preguntas abiertas**
+> **Actualización 2026-09-05.** Juan David respondió **las 39 preguntas abiertas**
 > (`PA-001` a `PA-039`). Ya no queda ninguna pregunta bloqueante para construir. Lo que quedó
 > son seis preguntas derivadas (`PA-040` a `PA-045`), ninguna de las cuales frena las fases 0
 > a 4, y cinco ADR nuevos (`ADR-0006` a `ADR-0010`).
@@ -45,7 +45,7 @@ como datos (`ADR-0004`), la procedencia del dato (`ADR-0005`), el posicionamient
 certificación (`ADR-0006`), la retención y la bitácora (`ADR-0007`), el matching (`ADR-0008`),
 el monitoreo continuo (`ADR-0009`) y la firma (`ADR-0010`).
 
-**Definido con las respuestas del cliente:** `vision.md`, `actores-y-roles.md`, `glosario.md`,
+**Definido con las respuestas de Juan David:** `vision.md`, `actores-y-roles.md`, `glosario.md`,
 `no-funcionales.md`, el catálogo de fuentes y el modelo comercial.
 
 **Sin definir:** `funcionales.md` (los `RF-xxx` siguen en `TBD`), los flujos `FL-xxx`, y el
@@ -70,7 +70,7 @@ requisitos funcionales numerados ni en flujos dibujados.
 La definición va siempre una fase por delante de la construcción. La capa comercial es móvil:
 se ubica donde aparezca el primer cliente que pague.
 
-## Las tres sesiones con el cliente que hay que agendar
+## Las tres sesiones con Juan David que hay que agendar
 
 | Sesión | Cuándo | Agenda | Preguntas |
 |---|---|---|---|
@@ -83,15 +83,15 @@ se ubica donde aparezca el primer cliente que pague.
 Cada sesión deja una nota en [`notas/`](notas/) con la plantilla
 [`nota-reunion.md`](../_plantillas/nota-reunion.md).
 
-## La llamada que no depende del cliente
+## La llamada que no depende de Juan David
 
-De las dos que había, una se cerró sola: **`PA-016`** dejó de importar porque el cliente
+De las dos que había, una se cerró sola: **`PA-016`** dejó de importar porque Juan David
 descartó el débito automático con tarjeta y optó por facturación (`ADR-0002`). Queda una, y
 sigue siendo la única gestión capaz de tumbar el modelo de negocio:
 
 1. **`PA-040`** — establecer con qué fuentes colombianas se puede conectar directamente y a
    qué costo real, y cotizar formalmente la alternativa intermediada (Tusdatos.co, Datacrédito
-   Experian, Compliance.com.co). El cliente estima $1.000–$2.000 COP por consulta, pero es una
+   Experian, Compliance.com.co). Juan David estima $1.000–$2.000 COP por consulta, pero es una
    estimación, no una cotización (`SUP-009`, `SUP-010`). Define el modelo de precios entero.
 
 **Esta semana.** Y en paralelo, Juan David tiene pendiente `PA-041` (firma digital y validez
@@ -99,7 +99,7 @@ del OTP por correo), que no bloquea el MVP pero sí condiciona `ADR-0010`.
 
 ## Tu próxima tarea concreta
 
-~~Llenar `00-contexto/`~~ — el documento del cliente ya permitió redactar
+~~Llenar `00-contexto/`~~ — el documento de Juan David ya permitió redactar
 [`glosario.md`](../00-contexto/glosario.md) y [`actores-y-roles.md`](../00-contexto/actores-y-roles.md).
 
 Lo que queda, en orden:
@@ -120,7 +120,7 @@ Lo que queda, en orden:
 
 ## El ciclo de trabajo, en cinco pasos
 
-1. Sesión con el cliente → nota en `01-descubrimiento/notas/`.
+1. Sesión con Juan David → nota en `01-descubrimiento/notas/`.
 2. Lo que quedó en firme sube a `00-contexto/` o `02-producto/`; lo que quedó en el aire baja
    como `PA-xxx` nueva.
 3. Capacidad estable → se abre una épica en `04-historias/`.

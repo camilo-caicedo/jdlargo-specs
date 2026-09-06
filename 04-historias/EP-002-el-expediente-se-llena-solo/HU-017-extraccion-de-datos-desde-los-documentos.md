@@ -1,10 +1,10 @@
 ---
 id: HU-017
 titulo: Extracción de datos desde los documentos
-estado: borrador
+estado: en-revision
 epica: EP-002
 prioridad: Must
-actualizado: 2026-09-05
+actualizado: 2026-09-06
 ---
 
 # HU-017 — Extracción de datos desde los documentos
