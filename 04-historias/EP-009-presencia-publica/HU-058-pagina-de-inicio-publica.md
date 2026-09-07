@@ -83,11 +83,13 @@ Escenario: El contenido nunca promete certificación
   sigue vigente: no hay autoservicio en el MVP. Si más adelante se quiere un formulario de
   contacto comercial, es una historia aparte, no una ampliación silenciosa de esta.
 
-> **Nota de coordinación con `HU-055`:** esta historia reclama la ruta raíz (`/`) para la
-> página pública. Cuando se construya `HU-055` (inicio de sesión), la app autenticada **no
-> puede vivir también en `/`** — necesita su propio prefijo de ruta (p. ej. `/app`), igual que
-> el portal ya vive bajo `/portal`. Señalarlo aquí para que no se descubra a mitad de camino de
-> `HU-055`.
+> **Decisión de enrutamiento (confirmada 2026-09-07).** La ruta raíz (`/`) es **siempre** esta
+> página pública — nunca la app autenticada. `HU-055` (inicio de sesión), `HU-056`
+> (aceptar invitación) y `HU-057` (recuperar contraseña) viven cada una bajo su propia ruta
+> propia (p. ej. `/login`, `/invitaciones/[token]`, `/recuperar-contrasena`), y la app
+> autenticada en sí vive bajo su propio prefijo (p. ej. `/app`) — nunca en `/`. Mismo principio
+> que ya separa al portal de la contraparte bajo `/portal`: cada superficie tiene su propia
+> raíz de enrutador, y `/` es la de esta historia.
 
 ## Fuera de alcance
 

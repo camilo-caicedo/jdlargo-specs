@@ -115,6 +115,11 @@ Escenario: Cerrar sesión
 - El mensaje de credenciales inválidas nunca distingue "el correo no existe" de "la contraseña
   es incorrecta" — evita que alguien use el formulario para averiguar qué correos están
   registrados.
+- **Enrutamiento (confirmado 2026-09-07, junto con `HU-058`):** la ruta raíz (`/`) es siempre
+  la página de inicio pública, nunca esta pantalla ni la app autenticada. El inicio de sesión
+  vive en su propia ruta (p. ej. `/login`), y la app ya autenticada vive bajo su propio
+  prefijo (p. ej. `/app`) — nunca en `/`. Mismo principio que ya separa al portal de la
+  contraparte bajo `/portal`.
 
 ## Fuera de alcance
 

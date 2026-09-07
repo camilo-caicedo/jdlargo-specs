@@ -127,6 +127,9 @@ Escenario: Invitar exige el permiso correspondiente
   tiempo suficiente para que la persona vea el correo y actúe, sin dejar el enlace abierto
   indefinidamente. Es un valor de arranque del arquitecto, no una cifra normativa: se corrige
   cambiando la configuración, nunca el esquema ni el código, si Juan David pide otra.
+- **Enrutamiento (confirmado 2026-09-07, junto con `HU-058`):** aceptar una invitación vive en
+  su propia ruta (p. ej. `/invitaciones/[token]`), distinta de `/` (página pública, `HU-058`) y
+  de la ruta de inicio de sesión (`HU-055`).
 
 ## Fuera de alcance
 

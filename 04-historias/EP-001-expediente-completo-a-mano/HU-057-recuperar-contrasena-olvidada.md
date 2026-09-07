@@ -77,6 +77,9 @@ Escenario: Un enlace de restablecimiento expirado o ya usado no funciona
 - No se define en esta historia ninguna política de complejidad de contraseña más allá de la
   que Supabase Auth aplica por defecto. Si el negocio necesita una política propia (longitud
   mínima distinta, caracteres exigidos), es una historia aparte, no una suposición de esta.
+- **Enrutamiento (confirmado 2026-09-07, junto con `HU-058`):** recuperar contraseña vive en
+  su propia ruta (p. ej. `/recuperar-contrasena`), distinta de `/` (página pública, `HU-058`)
+  y de la ruta de inicio de sesión (`HU-055`).
 
 ## Fuera de alcance
 
