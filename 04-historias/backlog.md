@@ -8,7 +8,7 @@ actualizado: 2026-09-06
 
 Índice de épicas e historias. Se actualiza cada vez que se crea o cambia de estado una historia.
 
-**58 historias en 10 épicas**, una épica por fase del `02-producto/roadmap.md` (`EP-008` es el
+**59 historias en 10 épicas**, una épica por fase del `02-producto/roadmap.md` (`EP-008` es el
 "MVP4" y `EP-009` es presencia pública, ambas fuera de la escalera de fases numeradas).
 
 > **Actualización 2026-09-07.** Se agregan `HU-055` a `HU-057` (`RF-055` a `RF-057`, `CAP-01`)
@@ -59,7 +59,7 @@ actualizado: 2026-09-06
 | `EP-006` | [El expediente vive](EP-006-el-expediente-vive/EP-006-el-expediente-vive.md) | `CAP-06` | 6 | 6 | borrador |
 | `EP-007` | [Capa comercial](EP-007-capa-comercial/EP-007-capa-comercial.md) | `CAP-07` | C | 5 | borrador |
 | `EP-008` | [Salida de datos hacia otros sistemas](EP-008-salida-de-datos-hacia-otros-sistemas/EP-008-salida-de-datos-hacia-otros-sistemas.md) | `CAP-08` | MVP4 | 4 | borrador |
-| `EP-009` | [Presencia pública](EP-009-presencia-publica/EP-009-presencia-publica.md) | `CAP-09` | — | 1 | borrador |
+| `EP-009` | [Presencia pública](EP-009-presencia-publica/EP-009-presencia-publica.md) | `CAP-09` | — | 2 | borrador |
 
 ## EP-000 — Cimientos
 
@@ -188,6 +188,7 @@ Orden sugerido: `HU-051` → `HU-054` → `HU-052` → `HU-053`.
 | ID | Historia | Prioridad | Dependencia y dónde quedó resuelta |
 |----|----------|-----------|---------------|
 | `HU-058` | [Página de inicio pública](EP-009-presencia-publica/HU-058-pagina-de-inicio-publica.md) | Should | — (vacío detectado 2026-09-07, no depende de ninguna `PA-xxx`) |
+| `HU-059` | [Actualizar la página de inicio con funcionalidad real](EP-009-presencia-publica/HU-059-actualizar-landing-con-funcionalidad-real.md) | Should | Depende de que `EP-003`, `EP-004` o `EP-005` tengan una historia real construida — no depende de ninguna `PA-xxx` |
 
 ## Preguntas abiertas que bloqueaban el backlog — estado
 

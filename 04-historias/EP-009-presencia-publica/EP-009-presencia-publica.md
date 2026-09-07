@@ -63,6 +63,11 @@ embudo de conversión con formulario de registro. Es deliberadamente pequeña.
 | ID | Historia | Prioridad | Estado |
 |----|----------|-----------|--------|
 | [`HU-058`](HU-058-pagina-de-inicio-publica.md) | Página de inicio pública | Should | en-revision |
+| [`HU-059`](HU-059-actualizar-landing-con-funcionalidad-real.md) | Actualizar la página de inicio con funcionalidad real | Should | borrador |
+
+`HU-059` no se construye ahora — depende de que `EP-003`, `EP-004` o `EP-005` tengan algo
+real que mostrar. Queda escrita para que la idea de "vista previa honesta del producto" no se
+improvise otra vez sin la palanca de `ADR-0006` ya puesta.
 
 ## Dependencias
 

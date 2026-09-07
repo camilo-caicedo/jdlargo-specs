@@ -133,6 +133,7 @@ Prioridad: MoSCoW (Must / Should / Could / Won't).
 | ID | Requisito | Capacidad | Origen | Prioridad | Historias | Estado |
 |----|-----------|-----------|--------|-----------|-----------|--------|
 | RF-058 | Existe una página pública, sin autenticación ni dato de dominio, que explica el producto y enlaza al inicio de sesión, cuyo contenido nunca presenta el producto como certificador. | `CAP-09` | `ADR-0006` | Should | `HU-058` | Borrador |
+| RF-059 | La página de inicio pública puede mostrar una vista previa del producto solo cuando corresponde exactamente a funcionalidad ya implementada y verificada; nunca simula una capacidad de una fase todavía no construida. | `CAP-09` | `ADR-0006` | Should | `HU-059` | Borrador |
 
 ## Requisitos fuera de esta numeración
 
