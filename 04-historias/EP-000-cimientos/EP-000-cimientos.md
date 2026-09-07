@@ -56,7 +56,7 @@ tarde deja un tramo del historial sin explicación.
 | Interfaz de administración de la configuración | Fase 5 | Decisión explícita del roadmap: hasta ahí la configuración se carga a mano |
 | Registro de ejecución de IA (§32) | Fase 2 | `HU-006` deja previstos los campos en la bitácora; el módulo no se construye |
 | Cuotas, medición de consumo y facturación | Fase C | `ADR-0002` |
-| Invitaciones, pantallas de usuarios, recuperación de contraseña | Fase 1 o posterior | La Fase 0 no entrega pantallas |
+| Invitaciones, pantallas de usuarios, recuperación de contraseña | Fase 1 — `HU-055` a `HU-057` | La Fase 0 no entrega pantallas |
 | Migraciones, integración continua, entorno | — | Plomería de implementación, no definición de producto |
 
 ## Actores involucrados

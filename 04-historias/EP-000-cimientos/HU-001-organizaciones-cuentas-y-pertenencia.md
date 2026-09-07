@@ -108,7 +108,8 @@ Escenario: Retirar a un miembro no borra lo que ya hizo
 
 - Pantallas: la Fase 0 no entrega interfaz. Se crean organizaciones y membresías por migración
   o por operación de sistema.
-- Flujo de invitación por correo, aceptación y recuperación de contraseña.
+- Flujo de invitación por correo, aceptación y recuperación de contraseña, y el inicio de
+  sesión en sí → `HU-055`, `HU-056`, `HU-057` (`EP-001`).
 - Definición y ajuste de los permisos de cada rol → `HU-003`.
 - Segundo factor de autenticación, y el acceso de la contraparte por enlace.
 - Planes, licencias y cupos → Fase C, `ADR-0002`.

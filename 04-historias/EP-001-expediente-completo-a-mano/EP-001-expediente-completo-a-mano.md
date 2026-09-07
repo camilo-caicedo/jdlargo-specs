@@ -111,10 +111,19 @@ pide la §18.
 | `HU-014` | Revisión del expediente y solicitud de correcciones | Must | borrador |
 | `HU-015` | Decisión del Oficial de Cumplimiento | Must | borrador |
 | `HU-016` | Expediente electrónico reconstruible | Must | borrador |
+| `HU-055` | Inicio de sesión y selección de organización | Must | en-revision |
+| `HU-056` | Invitar miembros a la organización | Must | en-revision |
+| `HU-057` | Recuperar contraseña olvidada | Must | en-revision |
 
 Orden sugerido: `HU-007` → `HU-008` → `HU-009` → `HU-010` → `HU-011` → `HU-012` → `HU-013` →
 `HU-014` → `HU-015` → `HU-016`. Es el orden del recorrido, y coincide con la §45: primero el
 modelo de cumplimiento, la pantalla al final.
+
+`HU-055` a `HU-057` no son del recorrido del expediente: son la base de autenticación de la
+app interna que `HU-001` dejó fuera de la Fase 0 a propósito ("la Fase 0 no entrega
+interfaz") y que ninguna historia posterior recogió — se detectaron como vacío el 2026-09-07,
+al auditar el avance de esta épica, no en el descubrimiento original. Van **antes** de
+`HU-010` en el orden real de construcción: todo lo que sigue asume un usuario ya autenticado.
 
 ## Dependencias
 

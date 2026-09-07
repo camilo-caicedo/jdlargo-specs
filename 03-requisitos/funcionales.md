@@ -51,6 +51,9 @@ Prioridad: MoSCoW (Must / Should / Could / Won't).
 | RF-014 | El Analista puede marcar documentos como válidos, rechazados o pendientes de revisión con motivo obligatorio, y solicitar correcciones como transición del expediente, sin invalidar el resto de lo ya entregado. | `CAP-01` | §30, §46 | Must | `HU-014` | Borrador |
 | RF-015 | El Oficial de Cumplimiento registra una decisión sobre la vinculación (aprobar, aprobar con condiciones, no aprobar, rechazar, solicitar más información, suspender o terminar la relación) con responsable, fundamento, evidencia citada y vigencia; la decisión es inmutable y nunca automática. | `CAP-01` | Fase 17 | Must | `HU-015` | Borrador |
 | RF-016 | Cualquier expediente puede reconstruirse íntegramente —qué se pidió, qué se entregó, quién revisó, quién decidió y por qué— consultando afirmaciones, transiciones, documentos y bitácora ya existentes, sin fabricar el reporte aparte. | `CAP-01` | Fase 18, §44 | Must | `HU-016` | Borrador |
+| RF-055 | Un usuario con cuenta ya creada inicia sesión con correo y contraseña, y si tiene más de una membresía activa elige con cuál organización cliente trabajar antes de ver cualquier dato de dominio; la organización activa siempre es una de sus membresías activas, verificada por el servidor. | `CAP-01` | §30, §31 | Must | `HU-055` | Borrador |
+| RF-056 | Un Administrador con permiso `memberships:manage` invita por correo a una persona a su organización cliente con un rol; la membresía solo se activa cuando esa persona acepta explícitamente, nunca antes. | `CAP-01` | §30 | Must | `HU-056` | Borrador |
+| RF-057 | Un usuario con cuenta puede solicitar el restablecimiento de su contraseña por correo y fijar una nueva mediante un enlace de un solo uso y vigencia limitada, sin revelar si un correo dado está o no registrado. | `CAP-01` | — | Must | `HU-057` | Borrador |
 
 ## EP-002 — El expediente se llena solo (`CAP-02`)
 
