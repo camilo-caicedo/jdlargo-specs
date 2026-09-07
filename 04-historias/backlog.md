@@ -8,8 +8,13 @@ actualizado: 2026-09-06
 
 Índice de épicas e historias. Se actualiza cada vez que se crea o cambia de estado una historia.
 
-**59 historias en 10 épicas**, una épica por fase del `02-producto/roadmap.md` (`EP-008` es el
+**60 historias en 10 épicas**, una épica por fase del `02-producto/roadmap.md` (`EP-008` es el
 "MVP4" y `EP-009` es presencia pública, ambas fuera de la escalera de fases numeradas).
+
+> **Actualización 2026-09-07 (3).** Se agrega `HU-060` (`RF-060`, `EP-001`) — registro público
+> y creación de organización. `PA-038` decía "manual al principio, autoservicio después";
+> Camilo decidió adelantar el mecanismo al MVP actual. La capa comercial que lo rodearía
+> (planes, cobro, KYB) sigue bloqueada por `PA-043`, sin cambios.
 
 > **Actualización 2026-09-07.** Se agregan `HU-055` a `HU-057` (`RF-055` a `RF-057`, `CAP-01`)
 > — inicio de sesión, invitación de miembros y recuperación de contraseña. No son historias del
@@ -51,7 +56,7 @@ actualizado: 2026-09-06
 | ID | Épica | Capacidad | Fase | Historias | Estado |
 |----|-------|-----------|------|-----------|--------|
 | `EP-000` | [Cimientos](EP-000-cimientos/EP-000-cimientos.md) | `CAP-00` | 0 | 6 | en-revision |
-| `EP-001` | [Un expediente completo, a mano](EP-001-expediente-completo-a-mano/EP-001-expediente-completo-a-mano.md) | `CAP-01` | 1 | 13 | borrador |
+| `EP-001` | [Un expediente completo, a mano](EP-001-expediente-completo-a-mano/EP-001-expediente-completo-a-mano.md) | `CAP-01` | 1 | 14 | borrador |
 | `EP-002` | [El expediente se llena solo](EP-002-el-expediente-se-llena-solo/EP-002-el-expediente-se-llena-solo.md) | `CAP-02` | 2 | 6 | en-revision |
 | `EP-003` | [El expediente se verifica](EP-003-el-expediente-se-verifica/EP-003-el-expediente-se-verifica.md) | `CAP-03` | 3 | 6 | borrador |
 | `EP-004` | [El expediente se califica](EP-004-el-expediente-se-califica/EP-004-el-expediente-se-califica.md) | `CAP-04` | 4 | 5 | borrador |
@@ -91,6 +96,7 @@ Orden: `HU-001` → `HU-002` → `HU-006` → `HU-004` → `HU-003` → `HU-005`
 | `HU-055` | [Inicio de sesión y selección de organización](EP-001-expediente-completo-a-mano/HU-055-inicio-de-sesion-y-seleccion-de-organizacion.md) | Must | — (vacío detectado 2026-09-07, no depende de ninguna `PA-xxx`) |
 | `HU-056` | [Invitar miembros a la organización](EP-001-expediente-completo-a-mano/HU-056-invitar-miembros-a-la-organizacion.md) | Must | — |
 | `HU-057` | [Recuperar contraseña olvidada](EP-001-expediente-completo-a-mano/HU-057-recuperar-contrasena-olvidada.md) | Must | — |
+| `HU-060` | [Registro público y creación de organización](EP-001-expediente-completo-a-mano/HU-060-registro-publico-y-creacion-de-organizacion.md) | Must | `PA-038` ✅ mecanismo adelantado al MVP 2026-09-07 (decisión de Camilo) |
 
 Orden: el del recorrido, de `HU-007` a `HU-016`. `HU-055` a `HU-057` son transversales a la
 épica (autenticación de la app interna) y van **antes** de `HU-010` en el orden real de

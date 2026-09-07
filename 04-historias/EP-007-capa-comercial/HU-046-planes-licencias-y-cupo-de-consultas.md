@@ -13,8 +13,10 @@ actualizado: 2026-09-06
 > única**. El modelo es híbrido: `suscripción base + usuarios incluidos + cupo de consultas o
 > créditos + módulos premium + excedente por consumo`. Tres planes de referencia —Starter,
 > Professional, Enterprise— con límites por usuarios, contrapartes, consultas, OCR/IA y monitoreo.
-> **Los planes son configuración, no código.** Y el alta de organizaciones es **manual al
-> principio**, híbrida después: **el MVP no necesita registro público**.
+> **Los planes son configuración, no código.** El alta de organizaciones era manual al
+> principio, híbrida después — **actualización 2026-09-07: el mecanismo de registro público
+> ya se adelantó al MVP (`HU-060`), sin plan ni cupo asignado todavía**; esta historia sigue
+> siendo la que le pone un plan real a cualquier organización, autoregistrada o no.
 
 ## Historia
 
@@ -115,8 +117,9 @@ Escenario: Aislamiento entre organizaciones sobre planes y consumo
 - La medición del consumo en sí → `HU-047`.
 - El cierre de ciclo y el excedente → `HU-048`.
 - El cobro → `HU-049`.
-- El registro público de clientes nuevos, mientras `PA-038` no defina si el alta es por
-  autoservicio o manual.
+- Asignar un plan a una organización recién creada por registro público (`HU-060`) — esta
+  historia define el modelo de planes; conectarlo con el alta autoservicio es trabajo propio,
+  no automático.
 - Periodos de prueba, prorrateo y descuentos.
 - Planes con cupos por tipo de fuente: el modelo admite un cupo global mientras el cliente no pida
   más granularidad.

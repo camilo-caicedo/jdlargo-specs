@@ -114,6 +114,7 @@ pide la §18.
 | `HU-055` | Inicio de sesión y selección de organización | Must | en-revision |
 | `HU-056` | Invitar miembros a la organización | Must | en-revision |
 | `HU-057` | Recuperar contraseña olvidada | Must | en-revision |
+| `HU-060` | Registro público y creación de organización | Must | en-revision |
 
 Orden sugerido: `HU-007` → `HU-008` → `HU-009` → `HU-010` → `HU-011` → `HU-012` → `HU-013` →
 `HU-014` → `HU-015` → `HU-016`. Es el orden del recorrido, y coincide con la §45: primero el
@@ -124,6 +125,11 @@ app interna que `HU-001` dejó fuera de la Fase 0 a propósito ("la Fase 0 no en
 interfaz") y que ninguna historia posterior recogió — se detectaron como vacío el 2026-09-07,
 al auditar el avance de esta épica, no en el descubrimiento original. Van **antes** de
 `HU-010` en el orden real de construcción: todo lo que sigue asume un usuario ya autenticado.
+
+`HU-060` se suma al mismo grupo el 2026-09-07: Camilo decidió adelantar al MVP el mecanismo de
+registro público que `PA-038`/`ADR-0002` §2c dejaban para después (ver esos documentos y
+`EP-007`). No cambia el orden de construcción de las demás — solo agrega una tercera puerta de
+entrada (registrarse) junto a iniciar sesión y aceptar invitación.
 
 ## Dependencias
 

@@ -19,6 +19,12 @@ Es la fase **C** del `02-producto/roadmap.md`, la única pieza del plan **sin lu
 aparezca el primer cliente que pague. Si Juan David opera como cliente ancla facturado a mano,
 puede ir después de la Fase 4; si se abre registro público antes, hay que adelantarla.
 
+> **Actualización 2026-09-07.** Esto ya ocurrió: el *mecanismo* de registro público se
+> adelantó al MVP (`HU-060`, `EP-001`, decisión de Camilo). Lo que **no** se adelantó es esta
+> épica — sigue bloqueada por `PA-043` (precios). Una organización que se registra sola por
+> `HU-060` no tiene plan ni cupo asignado hasta que esta épica exista; es una brecha
+> deliberada, documentada, no un olvido.
+
 `ADR-0002` ya hizo el trabajo difícil y dejó tres conclusiones que esta épica implementa:
 
 1. **El motor de medición y facturación es propio.** Ningún proveedor de pagos colombiano tiene
@@ -50,7 +56,7 @@ en SaaS, en el mercado que peor lo soporta"*.
 
 | Fuera de alcance | Dónde va | Razón |
 |---|---|---|
-| Registro público de clientes nuevos por autoservicio | **Fuera del MVP** (`PA-038`) | El alta es manual al principio; el autoservicio con KYB llega después, para planes bajos |
+| Selección de plan, cobro y verificación KYB al registrarse | **Fuera del MVP**, bloqueado por `PA-043` | El *mecanismo* de registro ya está en el MVP (`HU-060`); esta capa comercial alrededor sigue pendiente |
 | Motor de suscripciones de terceros | — | `ADR-0002` lo descarta: ninguno cubre cupo más excedente en Colombia |
 | Pagos con débito automático por llave del sistema local de pagos inmediatos | Cuando exista | `ADR-0002` deja el puerto listo; hoy no está habilitado |
 | Prorrateo, periodos de prueba y gestión de impagos elaborada | Fase posterior | El piloto no lo necesita |
@@ -96,7 +102,8 @@ reales de consumo.
   automático**, se factura y se envía link de pago (`ADR-0002` §2); `PA-015` y `PA-036` → modelo
   híbrido de suscripción + créditos + módulos; `PA-037` → excedente facturable en
   Professional/Enterprise, bloqueo con *upgrade* en Starter, alertas al 80/90/100 %; `PA-038` →
-  alta manual al principio, **el MVP no necesita registro público**; `PA-014` → `RNF-019`;
+  alta manual al principio, autoservicio después — **el mecanismo se adelantó al MVP
+  (`HU-060`), esta capa comercial sigue igual de bloqueada**; `PA-014` → `RNF-019`;
   `PA-035` → `ADR-0009`.
 - **Decisiones:** `ADR-0002` entera.
 

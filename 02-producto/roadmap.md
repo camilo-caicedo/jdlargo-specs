@@ -120,10 +120,16 @@ ancla. La Fase 5 es, en realidad, **la fase que convierte esto en un producto ve
 segundo cliente**.
 
 **La capa comercial es móvil, y ahora pesa menos.** Va donde aparezca el primer cliente que
-pague. Dos respuestas la aligeran: el alta de organizaciones es **manual al principio**
-(`PA-038`), así que el MVP no necesita registro público; y el cobro es **por facturación, sin
-débito automático** (`PA-016`), lo que elimina la tokenización de tarjetas y el problema del
-monto variable. Lo que no se puede recortar es el **medidor de consumo**, que va en la Fase 0
+pague. Una respuesta la aligera: el cobro es **por facturación, sin débito automático**
+(`PA-016`), lo que elimina la tokenización de tarjetas y el problema del monto variable.
+
+> **Actualización 2026-09-07.** `PA-038` decía "alta manual al principio, autoservicio
+> después" — Camilo decidió adelantar el **mecanismo** de registro público al MVP actual
+> (`HU-060`, `EP-001`). La capa comercial que lo rodea (planes, cobro, KYB) **no** se adelanta:
+> sigue exactamente donde estaba, bloqueada por `PA-043`. Una organización que se registra
+> sola hoy no tiene plan ni cupo asignado hasta que esa capa exista.
+
+Lo que no se puede recortar es el **medidor de consumo**, que va en la Fase 0
 junto con la bitácora porque es la misma tabla.
 
 ## Cómo se mide si una fase está terminada
@@ -171,8 +177,9 @@ Las palancas de compresión, actualizadas con las respuestas del cliente:
   estándares (SARLAFT y PTEE) y siete tipos (`PA-018`). Palanca parcialmente usada.
 - **Firma y segundo factor** — el OTP por SMS queda fuera y la firma digital certificada pasa
   a módulo opcional posterior (`PA-019`, `PA-020`, `ADR-0010`). Palanca **ya aplicada**.
-- **Registro público y débito automático** — fuera del MVP (`PA-038`, `PA-016`). Palanca
-  **ya aplicada**.
+- **Débito automático** — fuera del MVP (`PA-016`). Palanca **ya aplicada**. El registro
+  público como *mecanismo* ya no es una palanca de compresión: se adelantó al MVP (`HU-060`,
+  2026-09-07) — la capa comercial que lo acompañaría sigue siendo la palanca, no el alta en sí.
 - **Un segundo desarrollador** — sigue disponible, sin usar.
 
 ## Orden de construcción dentro de cada fase

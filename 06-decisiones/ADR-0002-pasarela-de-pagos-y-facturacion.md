@@ -127,13 +127,24 @@ Reglas duras, para todos los planes:
 
 ### 2c. Alta de organizaciones cliente
 
-Cierra `PA-038`. **Al principio, alta manual de nuestra parte.** Después, híbrido:
-autoservicio con KYB/validación automática para planes bajos, onboarding asistido para
-Enterprise. La propia empresa cliente pasa por un onboarding comercial/KYB — que es un flujo
-distinto de la debida diligencia que ella aplica a sus terceros (`PA-004`).
+Cierra `PA-038`. La respuesta original: **al principio, alta manual de nuestra parte.**
+Después, híbrido: autoservicio con KYB/validación automática para planes bajos, onboarding
+asistido para Enterprise. La propia empresa cliente pasa por un onboarding comercial/KYB —
+que es un flujo distinto de la debida diligencia que ella aplica a sus terceros (`PA-004`).
 
-Consecuencia de alcance: **el MVP no necesita registro público** ni pasarela de autoservicio
-en la primera fase. Eso descarga la capa comercial del roadmap.
+> **Actualización 2026-09-07 (decisión de Camilo).** El **mecanismo** de autoservicio —
+> registrarse y crear la propia organización cliente, sin invitación ni alta manual— se
+> adelanta al MVP actual (`HU-060`). Lo que **no** se adelanta es la capa comercial que lo
+> rodea: selección de plan, cobro y verificación KYB de la empresa siguen bloqueados por
+> `PA-043` (precios), exactamente donde estaban. Una organización que se registra sola hoy
+> nace sin plan ni cupo asignado — es una brecha deliberada, no un olvido, hasta que `HU-046`
+> exista. `EP-007` ya había anticipado este escenario ("si se abre registro público antes,
+> hay que adelantarla") refiriéndose a la capa comercial completa; esta decisión adelanta
+> solo el mecanismo de alta, no esa capa.
+
+Consecuencia de alcance actualizada: el MVP **sí** tiene registro público desde `HU-060`, sin
+pasarela de autoservicio de pago todavía — eso sigue descargando la capa comercial completa
+del roadmap, solo que el alta en sí ya no espera a que exista.
 
 ### 3. Facturación electrónica DIAN vía API
 

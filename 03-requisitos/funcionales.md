@@ -54,6 +54,7 @@ Prioridad: MoSCoW (Must / Should / Could / Won't).
 | RF-055 | Un usuario con cuenta ya creada inicia sesión con correo y contraseña, y si tiene más de una membresía activa elige con cuál organización cliente trabajar antes de ver cualquier dato de dominio; la organización activa siempre es una de sus membresías activas, verificada por el servidor. | `CAP-01` | §30, §31 | Must | `HU-055` | Borrador |
 | RF-056 | Un Administrador con permiso `memberships:manage` invita por correo a una persona a su organización cliente con un rol; la membresía solo se activa cuando esa persona acepta explícitamente, nunca antes. | `CAP-01` | §30 | Must | `HU-056` | Borrador |
 | RF-057 | Un usuario con cuenta puede solicitar el restablecimiento de su contraseña por correo y fijar una nueva mediante un enlace de un solo uso y vigencia limitada, sin revelar si un correo dado está o no registrado. | `CAP-01` | — | Must | `HU-057` | Borrador |
+| RF-060 | Un visitante puede registrarse creando su propia cuenta y organización cliente, sin invitación ni alta manual, quedando como Administrador de esa organización; el correo debe confirmarse antes de otorgar acceso a datos de dominio. | `CAP-01` | `PA-038`, `ADR-0002` §2c | Must | `HU-060` | Borrador |
 
 ## EP-002 — El expediente se llena solo (`CAP-02`)
 
