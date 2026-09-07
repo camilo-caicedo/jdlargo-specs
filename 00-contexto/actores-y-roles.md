@@ -18,6 +18,7 @@ Cierra `PA-002`, `PA-013` y `PA-024`.
 | **Contraparte** | La persona o empresa a la que se le hace debida diligencia: cliente, proveedor, contratista, empleado, accionista, conductor, transportadora aliada, intermediario, tercero pagador | Entregar su información y documentos sin fricción, y firmar |
 | **Persona relacionada** | Alguien que "cuelga" de una contraparte: representante legal, beneficiario final, accionista, administrador, miembro de junta, apoderado, propietario o conductor de un vehículo | No interactúa necesariamente; puede requerir su propia diligencia según el motor de relaciones (Fase 10) |
 | **Sistema** | Ejecuta lo automatizable: extracción, validaciones, consultas a fuentes, comparación de nombres, aplicación de reglas, cálculos preliminares, notificaciones, vencimientos, monitoreo | **Nunca decide** |
+| **Visitante** | Persona sin cuenta que llega a la página de inicio pública (`EP-009`) desde un enlace o un buscador | Entender qué hace el producto y llegar al inicio de sesión si ya tiene acceso — nunca registro público (`PA-038`) |
 
 ## Roles dentro del cliente del SaaS
 

@@ -8,8 +8,8 @@ actualizado: 2026-09-06
 
 Índice de épicas e historias. Se actualiza cada vez que se crea o cambia de estado una historia.
 
-**57 historias en 9 épicas**, una épica por fase del `02-producto/roadmap.md` (`EP-008` es el
-"MVP4", fuera de la escalera de fases numeradas).
+**58 historias en 10 épicas**, una épica por fase del `02-producto/roadmap.md` (`EP-008` es el
+"MVP4" y `EP-009` es presencia pública, ambas fuera de la escalera de fases numeradas).
 
 > **Actualización 2026-09-07.** Se agregan `HU-055` a `HU-057` (`RF-055` a `RF-057`, `CAP-01`)
 > — inicio de sesión, invitación de miembros y recuperación de contraseña. No son historias del
@@ -17,6 +17,10 @@ actualizado: 2026-09-06
 > excluyó explícitamente pantallas y el flujo de autenticación de la Fase 0, y ninguna historia
 > posterior lo recogió — el código ya asumía un usuario autenticado desde `HU-008`. Van en
 > `EP-001`, no en `EP-000`, porque son interfaz y `EP-000` se define como verificable sin ella.
+>
+> **Actualización 2026-09-07 (2).** Se agrega `EP-009` (`CAP-09`, presencia pública) con
+> `HU-058` (`RF-058`) — página de inicio pública. Tampoco es del descubrimiento original: no
+> existía ninguna capacidad para una superficie pública fuera del portal de la contraparte.
 
 > **Actualización 2026-09-05.** El cliente respondió las 39 preguntas abiertas. **Ninguna
 > historia sigue bloqueada por una pregunta sin responder**, salvo las que dependen de las
@@ -55,6 +59,7 @@ actualizado: 2026-09-06
 | `EP-006` | [El expediente vive](EP-006-el-expediente-vive/EP-006-el-expediente-vive.md) | `CAP-06` | 6 | 6 | borrador |
 | `EP-007` | [Capa comercial](EP-007-capa-comercial/EP-007-capa-comercial.md) | `CAP-07` | C | 5 | borrador |
 | `EP-008` | [Salida de datos hacia otros sistemas](EP-008-salida-de-datos-hacia-otros-sistemas/EP-008-salida-de-datos-hacia-otros-sistemas.md) | `CAP-08` | MVP4 | 4 | borrador |
+| `EP-009` | [Presencia pública](EP-009-presencia-publica/EP-009-presencia-publica.md) | `CAP-09` | — | 1 | borrador |
 
 ## EP-000 — Cimientos
 
@@ -177,6 +182,12 @@ Orden: el de la lista.
 | `HU-054` | [Autenticar la integración y dejar bitácora de cada extracción](EP-008-salida-de-datos-hacia-otros-sistemas/HU-054-autenticacion-e-bitacora-de-extracciones.md) | Must | **Pendiente: `PA-046`** (qué medio autenticar) |
 
 Orden sugerido: `HU-051` → `HU-054` → `HU-052` → `HU-053`.
+
+## EP-009 — Presencia pública
+
+| ID | Historia | Prioridad | Dependencia y dónde quedó resuelta |
+|----|----------|-----------|---------------|
+| `HU-058` | [Página de inicio pública](EP-009-presencia-publica/HU-058-pagina-de-inicio-publica.md) | Should | — (vacío detectado 2026-09-07, no depende de ninguna `PA-xxx`) |
 
 ## Preguntas abiertas que bloqueaban el backlog — estado
 

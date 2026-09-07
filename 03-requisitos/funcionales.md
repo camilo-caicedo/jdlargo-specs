@@ -128,6 +128,12 @@ Prioridad: MoSCoW (Must / Should / Could / Won't).
 | RF-053 | El sistema expone una interfaz de programación de solo lectura para que la organización cliente extraiga sus expedientes cerrados y los campos marcados exportables, con el mismo aislamiento por organización que el resto de la plataforma. | `CAP-08` | `PA-010` | Should | `HU-053` | Borrador |
 | RF-054 | Toda extracción de datos hacia otro sistema, por archivo o por interfaz de programación, se autentica con una credencial propia de la organización cliente y queda registrada en la bitácora, incluidos los intentos rechazados. | `CAP-08` | `PA-010`, `ADR-0007` | Must | `HU-054` | Borrador |
 
+## EP-009 — Presencia pública (`CAP-09`)
+
+| ID | Requisito | Capacidad | Origen | Prioridad | Historias | Estado |
+|----|-----------|-----------|--------|-----------|-----------|--------|
+| RF-058 | Existe una página pública, sin autenticación ni dato de dominio, que explica el producto y enlaza al inicio de sesión, cuyo contenido nunca presenta el producto como certificador. | `CAP-09` | `ADR-0006` | Should | `HU-058` | Borrador |
+
 ## Requisitos fuera de esta numeración
 
 - El recorrido exacto de `HU-012` y `HU-017` (si el formulario se autodiligencia desde los

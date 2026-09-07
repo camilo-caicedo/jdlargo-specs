@@ -21,6 +21,7 @@ historias.
 | CAP-06 | Monitoreo y vida del expediente | Vigilar cambios después de la vinculación, renovar, vencer y dar visibilidad al Oficial de Cumplimiento | `EP-006` | Confirmada |
 | CAP-07 | Capa comercial | Planes, cupos, medición de consumo, facturación electrónica y cobro por link de pago (sin débito automático) | `EP-007` | Confirmada |
 | CAP-08 | Salida de datos hacia otros sistemas | Entregar la información del expediente a otros sistemas del cliente, por API o por archivo estructurado (JSON/TXT configurable) | `EP-008` | **Confirmada** (`PA-010`) — es el "MVP4" del cliente; 4 historias en `borrador`, bloqueadas por `PA-046` a `PA-048` |
+| CAP-09 | Presencia pública | Una página pública que explica el producto y da acceso a quien ya tiene cuenta, sin registro público ni dato de dominio | `EP-009` | Confirmada — agregada 2026-09-07, fuera del descubrimiento original |
 
 ## Candidatas iniciales — resueltas
 
