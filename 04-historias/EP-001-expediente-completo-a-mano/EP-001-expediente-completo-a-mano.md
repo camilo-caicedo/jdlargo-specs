@@ -113,7 +113,7 @@ pide la §18.
 | `HU-016` | Expediente electrónico reconstruible | Must | borrador |
 | `HU-055` | Inicio de sesión y selección de organización | Must | en-revision |
 | `HU-056` | Invitar miembros a la organización | Must | en-revision |
-| `HU-057` | Recuperar contraseña olvidada | Must | en-revision |
+| `HU-057` | Recuperar contraseña olvidada | Must | implementado |
 | `HU-060` | Registro público y creación de organización | Must | implementado |
 
 Orden sugerido: `HU-007` → `HU-008` → `HU-009` → `HU-010` → `HU-011` → `HU-012` → `HU-013` →

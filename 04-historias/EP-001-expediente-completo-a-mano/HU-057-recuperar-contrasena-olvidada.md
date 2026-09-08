@@ -1,7 +1,7 @@
 ---
 id: HU-057
 titulo: Recuperar contraseña olvidada
-estado: en-revision
+estado: implementado
 epica: EP-001
 prioridad: Must
 actualizado: 2026-09-07
