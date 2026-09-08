@@ -1,7 +1,7 @@
 ---
 id: HU-060
 titulo: Registro público y creación de organización
-estado: en-revision
+estado: implementado
 epica: EP-001
 prioridad: Must
 actualizado: 2026-09-07
