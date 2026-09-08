@@ -76,6 +76,20 @@ Escenario: Dos registros independientes no comparten nada entre sí
   Y cada una ve únicamente lo suyo, con el mismo aislamiento que el resto del sistema
 ```
 
+```gherkin
+Escenario: No se puede repetir el identificador único de organización
+  Dado que ya existe una organización cliente con el identificador "hex-avis"
+  Cuando alguien intenta registrarse creando una organización con ese mismo identificador
+  Entonces la operación es rechazada
+  Y se le indica que ese identificador ya está en uso y que elija otro
+
+Escenario: Dos organizaciones pueden compartir nombre si el identificador es distinto
+  Dado que ya existe una organización cliente llamada "Hexavis S.A.S."
+  Cuando alguien se registra creando otra organización también llamada "Hexavis S.A.S." pero con
+    un identificador distinto
+  Entonces la operación se completa sin error
+```
+
 ## Reglas de negocio
 
 - Quien se registra queda como **Administrador** de la organización cliente que crea — mismo
@@ -87,9 +101,14 @@ Escenario: Dos registros independientes no comparten nada entre sí
   nace exactamente igual que una creada por alta manual hoy — sin ningún campo de plan, porque
   ese modelo (`HU-046`) todavía no existe y sigue bloqueado por `PA-043`. No se inventa un
   estado "de prueba" que no está en el modelo de datos.
-- El nombre de la organización cliente no tiene que ser único en la plataforma (mismo criterio
-  que ya rige hoy para el alta manual — dos organizaciones distintas pueden coincidir en
-  nombre).
+- El **nombre** de la organización cliente no tiene que ser único en la plataforma (mismo
+  criterio que ya rige hoy para el alta manual — dos organizaciones distintas pueden coincidir
+  en nombre).
+- Quien se registra también captura un **identificador único (`slug`)** para su organización,
+  pensado para usarse en URLs más adelante — este sí es único en toda la plataforma. Se sugiere
+  automáticamente a partir del nombre, pero la persona puede editarlo antes de enviar. Decisión
+  de Camilo (2026-09-07): mejor que forzar unicidad de nombre, porque muchas empresas pueden
+  llamarse parecido o igual, pero el identificador siempre resuelve sin ambigüedad.
 
 ## Fuera de alcance
 
@@ -101,6 +120,9 @@ Escenario: Dos registros independientes no comparten nada entre sí
 - Recuperar contraseña → `HU-057`.
 - Cualquier límite de cuántas organizaciones puede crear una misma persona — no pedido, no se
   inventa.
+- Usar `organization.slug` en las rutas de la aplicación (`/app/[slug]` en vez de
+  `/app/[organizationId]`) — esta historia solo captura y garantiza la unicidad del dato; el
+  cambio de ruteo, si se hace, es trabajo aparte.
 
 ## Datos y validaciones
 
@@ -109,6 +131,7 @@ Escenario: Dos registros independientes no comparten nada entre sí
 | Correo de registro | Sí | Formato válido; único en la plataforma (`user.email`, `HU-001`) | Sí (dato personal) |
 | Contraseña | Sí | Política por defecto de Supabase Auth, mismo criterio que `HU-057` | Sí |
 | `organization.name` | Sí | Texto no vacío (`HU-001`); no exige unicidad | No |
+| `organization.slug` | Sí | Minúsculas, números y guiones; único en toda la plataforma | No |
 
 ## Trazabilidad
 
