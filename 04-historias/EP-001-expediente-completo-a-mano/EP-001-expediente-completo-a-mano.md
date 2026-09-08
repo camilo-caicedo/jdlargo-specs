@@ -105,7 +105,7 @@ pide la §18.
 | `HU-008` | Crear la solicitud de vinculación y abrir el expediente | Must | borrador |
 | `HU-009` | Máquina de estados del expediente | Must | borrador |
 | `HU-010` | Acceso de la contraparte por enlace | Must | borrador |
-| `HU-011` | Aviso de privacidad y evidencia del consentimiento | Must | borrador |
+| `HU-011` | Aviso de privacidad y evidencia del consentimiento | Must | implementado |
 | `HU-012` | Formulario dinámico de identificación | Must | en-revision |
 | `HU-013` | Carga de los documentos exigidos | Must | borrador |
 | `HU-014` | Revisión del expediente y solicitud de correcciones | Must | borrador |
@@ -115,6 +115,7 @@ pide la §18.
 | `HU-056` | Invitar miembros a la organización | Must | en-revision |
 | `HU-057` | Recuperar contraseña olvidada | Must | implementado |
 | `HU-060` | Registro público y creación de organización | Must | implementado |
+| `HU-061` | Editar el expediente | Should | borrador |
 
 Orden sugerido: `HU-007` → `HU-008` → `HU-009` → `HU-010` → `HU-011` → `HU-012` → `HU-013` →
 `HU-014` → `HU-015` → `HU-016`. Es el orden del recorrido, y coincide con la §45: primero el

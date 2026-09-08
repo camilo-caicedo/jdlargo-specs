@@ -1,10 +1,10 @@
 ---
 id: HU-011
 titulo: Aviso de privacidad y evidencia del consentimiento
-estado: en-revision
+estado: implementado
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-06
+actualizado: 2026-09-08
 ---
 
 # HU-011 — Aviso de privacidad y evidencia del consentimiento

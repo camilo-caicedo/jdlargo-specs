@@ -103,6 +103,7 @@ Orden: `HU-001` → `HU-002` → `HU-006` → `HU-004` → `HU-003` → `HU-005`
 | `HU-056` | [Invitar miembros a la organización](EP-001-expediente-completo-a-mano/HU-056-invitar-miembros-a-la-organizacion.md) | Must | — |
 | `HU-057` | [Recuperar contraseña olvidada](EP-001-expediente-completo-a-mano/HU-057-recuperar-contrasena-olvidada.md) | Must | — |
 | `HU-060` | [Registro público y creación de organización](EP-001-expediente-completo-a-mano/HU-060-registro-publico-y-creacion-de-organizacion.md) | Must | `PA-038` ✅ mecanismo adelantado al MVP 2026-09-07 (decisión de Camilo) |
+| `HU-061` | [Editar el expediente](EP-001-expediente-completo-a-mano/HU-061-editar-el-expediente.md) | Should | — (vacío detectado 2026-09-08 auditando `HU-008`/`HU-010`) |
 
 Orden: el del recorrido, de `HU-007` a `HU-016`. `HU-055` a `HU-057` son transversales a la
 épica (autenticación de la app interna) y van **antes** de `HU-010` en el orden real de
