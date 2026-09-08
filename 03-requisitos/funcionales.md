@@ -138,7 +138,8 @@ Prioridad: MoSCoW (Must / Should / Could / Won't).
 
 ## Requisitos fuera de esta numeración
 
-- El recorrido exacto de `HU-012` y `HU-017` (si el formulario se autodiligencia desde los
-  documentos) depende de `PA-042`. `RF-012` y `RF-017` se redactan sobre el supuesto de que
-  ambos caminos son posibles; si `PA-042` cierra a favor de uno solo, se ajustan sin cambiar de
-  número.
+- **Resuelto 2026-09-07.** `PA-042` cerró a favor de: `RF-012` (formulario manual, `HU-012`) y
+  `RF-017` (extracción propone, nunca sobrescribe lo declarado, `HU-017`) ya estaban redactados
+  exactamente sobre esa respuesta — no hizo falta ajustar ningún texto. Queda derivada `PA-050`
+  (detalle de la interfaz de confirmación del campo extraído), sin `RF-xxx` propio todavía —
+  se numerará cuando se escriba, si el detalle exacto lo exige.

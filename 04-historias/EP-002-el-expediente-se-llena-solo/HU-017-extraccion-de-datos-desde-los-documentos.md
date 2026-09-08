@@ -149,8 +149,9 @@ Escenario: Aislamiento entre organizaciones sobre lo extraído
 ## Dependencias y riesgos
 
 - **Preguntas abiertas:** ninguna bloqueante. `PA-032` **resuelta** → `ADR-0005` §4b; `PA-021`
-  **resuelta**. Quedan las derivadas `PA-045` (proveedor de IA) y **`PA-042`** (si esta extracción
-  alimenta el formulario de la contraparte).
+  **resuelta**; `PA-042` **resuelta** (sí alimenta el formulario de la contraparte — ver
+  `01-descubrimiento/preguntas-abiertas.md`). Queda pendiente `PA-045` (proveedor de IA) y la
+  derivada `PA-050` (detalle de la interfaz de confirmación en `HU-012`).
 - **Supuestos:** `SUP-006` (la IA propone; la persona firma), `SUP-004` (alojamiento en Estados
   Unidos, confirmado).
 - **Depende de:** `HU-013` (hay documentos), `HU-005` (afirmaciones), `HU-018` (registro de

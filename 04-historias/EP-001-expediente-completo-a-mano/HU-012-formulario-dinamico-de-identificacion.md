@@ -1,19 +1,24 @@
 ---
 id: HU-012
 titulo: Formulario dinámico de identificación
-estado: borrador
+estado: en-revision
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-06
+actualizado: 2026-09-07
 ---
 
 # HU-012 — Formulario dinámico de identificación
 
 > **Actualización 2026-09-05 (`PA-018`, `PA-042`).** Los tipos de contraparte del primer
-> despliegue ya están definidos (siete, ver `HU-007`). **Queda abierto `PA-042`**: si la
-> contraparte sube documentos primero y confirma lo extraído, el formulario deja de ser el primer
-> paso del recorrido. Lo que no cambia en ninguno de los dos escenarios: lo extraído por IA
-> **nunca** se guarda como `declared` sin que la contraparte lo confirme (`ADR-0005`).
+> despliegue ya están definidos (siete, ver `HU-007`).
+>
+> **Actualización 2026-09-07 (`PA-042` resuelta).** Esta historia se construye con
+> diligenciamiento **manual**: la contraparte llena el formulario a mano, sin autollenado desde
+> documentos. El autollenado sí va a existir — es alcance ya comprometido de `EP-002`
+> (`HU-017`/`HU-019`) — pero no es parte de `HU-012`, y `HU-012` no necesita rehacerse cuando
+> llegue: el modelo de afirmaciones (`ADR-0005`) ya distingue `extracted` de `declared`. Lo que
+> no cambia en ningún caso: lo extraído por IA **nunca** se guarda como `declared` sin que la
+> contraparte lo confirme.
 
 ## Historia
 
@@ -167,10 +172,12 @@ Reglas que sí son de esta historia:
 
 ## Dependencias y riesgos
 
-- **Preguntas abiertas:** **`PA-042`** — deriva de `PA-027` y **afecta directamente a esta
-  historia**: falta decidir si el formulario se autodiligencia con lo extraído de los documentos
-  que carga la contraparte (dejando los campos abiertos para que ella corrija) o si la contraparte
-  llena todos los campos a mano. Cambia el orden del recorrido. `PA-018` **resuelta**.
+- **Preguntas abiertas:** **`PA-042`** — **resuelta 2026-09-07**. Sí habrá autollenado desde
+  documentos, pero es alcance de `EP-002` (`HU-017`/`HU-019`), no de esta historia: `HU-012`
+  se construye con diligenciamiento manual solamente y queda compatible hacia adelante sin
+  rehacerse (`ADR-0005` ya distingue afirmaciones `extracted` de `declared`). Queda derivada
+  `PA-050` (detalle de la interfaz de confirmación), que no bloquea esta historia. `PA-018`
+  **resuelta**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-007` (la matriz), `HU-008` (el expediente y su versión citada), `HU-010`
   (la contraparte entró), `HU-011` (el aviso se resolvió primero), `HU-005` (afirmaciones).

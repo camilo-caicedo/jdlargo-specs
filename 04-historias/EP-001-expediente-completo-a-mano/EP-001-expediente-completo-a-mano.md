@@ -106,7 +106,7 @@ pide la §18.
 | `HU-009` | Máquina de estados del expediente | Must | borrador |
 | `HU-010` | Acceso de la contraparte por enlace | Must | borrador |
 | `HU-011` | Aviso de privacidad y evidencia del consentimiento | Must | borrador |
-| `HU-012` | Formulario dinámico de identificación | Must | borrador |
+| `HU-012` | Formulario dinámico de identificación | Must | en-revision |
 | `HU-013` | Carga de los documentos exigidos | Must | borrador |
 | `HU-014` | Revisión del expediente y solicitud de correcciones | Must | borrador |
 | `HU-015` | Decisión del Oficial de Cumplimiento | Must | borrador |
@@ -135,13 +135,13 @@ entrada (registrarse) junto a iniciar sesión y aceptar invitación.
 
 - **Épicas:** `EP-000` entera. Ninguna historia de esta épica puede escribir una fila antes de
   que exista el aislamiento entre organizaciones, la bitácora y la estructura de afirmaciones.
-- **Preguntas abiertas:** **`PA-042`** — si el formulario se autodiligencia con lo extraído de
-  los documentos o la contraparte lo llena todo a mano. Cambia el orden del recorrido de esta
-  épica y conviene cerrarla antes de diseñar `HU-012`. Las demás están **resueltas**: `PA-018` →
-  dos estándares y siete tipos; `PA-025` → `ADR-0004` §2b; `PA-028` → estado `Expirado/Pendiente`
-  con renovación controlada; `PA-029` → decisión excepcional con motivo, salvo *hard stop*;
-  `PA-030` → `RNF-023` a `RNF-025`; `PA-031` → correo automático **y** copia manual del enlace;
-  `PA-019` → OTP por correo (`ADR-0010`).
+- **Preguntas abiertas:** ninguna bloqueante para esta épica. `PA-042` **resuelta 2026-09-07**
+  — sí habrá autollenado desde documentos (alcance de `EP-002`, no de esta épica); `HU-012` se
+  construye manual y no queda bloqueada. Las demás están **resueltas**: `PA-018` → dos estándares
+  y siete tipos; `PA-025` → `ADR-0004` §2b; `PA-028` → estado `Expirado/Pendiente` con renovación
+  controlada; `PA-029` → decisión excepcional con motivo, salvo *hard stop*; `PA-030` →
+  `RNF-023` a `RNF-025`; `PA-031` → correo automático **y** copia manual del enlace; `PA-019` →
+  OTP por correo (`ADR-0010`).
 - **Supuestos:** `SUP-001`, `SUP-003` (contexto colombiano), `SUP-008` (las normas citadas por
   el cliente no están verificadas).
 - **Decisiones:** `ADR-0004` (formulario dinámico y matriz como datos), `ADR-0005`
@@ -159,6 +159,7 @@ La consecuencia de diseño es que `HU-009` y `HU-015` necesitan **las dos cosas*
 por defecto **y** un camino de excepción registrada, elegido por la criticidad de cada requisito
 en la matriz. No es uno u otro, como se temía.
 
-El riesgo que queda es distinto y es de recorrido, no de estados: **`PA-042`**. Si el formulario
-se autodiligencia desde los documentos, la contraparte sube antes de escribir, y `HU-012` y
-`HU-013` cambian de orden. Conviene cerrarla antes de diseñar la Fase 1, no durante.
+El riesgo de recorrido que quedaba, **`PA-042`**, ya está resuelto (2026-09-07): `HU-012` se
+construye con diligenciamiento manual, sin depender del orden en que la contraparte suba
+documentos — el autollenado llega después, en `EP-002`, sin que `HU-012`/`HU-013` deban
+cambiar de orden ni rehacerse.

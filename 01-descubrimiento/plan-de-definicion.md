@@ -59,7 +59,7 @@ requisitos funcionales numerados ni en flujos dibujados.
 | Bloque | Definir antes de | Artefactos que deben estar aprobados | Preguntas que deben estar cerradas |
 |---|---|---|---|
 | **0 · Cimientos** | **Ya** | `vision.md`, `EP-000`. Contexto y modelo ya están listos | Ninguna — no está bloqueada |
-| **1 · Expediente a mano** | Semana 4 | `FL-001` (recorrido completo de vinculación), plantillas base y matriz de requisitos del cliente ancla, `EP-001` | Ninguna. `PA-018` cerrada; conviene cerrar `PA-042` antes de diseñar el recorrido de la contraparte |
+| **1 · Expediente a mano** | Semana 4 | `FL-001` (recorrido completo de vinculación), plantillas base y matriz de requisitos del cliente ancla, `EP-001` | Ninguna. `PA-018` y `PA-042` cerradas (2026-09-07) |
 | **2 · Extracción** | Semana 9 | Catálogo de tipos de documento y campos a extraer, `EP-002` | `PA-045` (proveedor de IA y su contrato) |
 | **3 · Verificación** | Semana 14 | `FL-002` (screening y gestión de alertas), `EP-003` | **`PA-040`** — sin cotización ni vía de conexión no se puede construir la integración |
 | **4 · Riesgo** | Semana 19 | Metodología del cliente ancla, reglas de relaciones, `EP-004` | Ninguna. `PA-006` y `PA-034` cerradas |
@@ -77,7 +77,7 @@ se ubica donde aparezca el primer cliente que pague.
 | ~~1 · Producto y actores~~ | — | — | **Hecha.** `PA-001` a `PA-004`, `PA-007`, `PA-013` cerradas |
 | ~~2 · Riesgo y evidencia~~ | — | — | **Hecha.** `PA-006`, `PA-009` cerradas |
 | ~~3 · Comercial~~ | — | — | **Hecha.** `PA-011`, `PA-014` cerradas |
-| **4 · Recorrido de la contraparte** | Antes de la Fase 1 | Si el formulario se autodiligencia desde los documentos o la contraparte lo llena a mano; cómo se ve el portal externo | `PA-042` |
+| ~~4 · Recorrido de la contraparte~~ | — | — | **`PA-042` resuelta sin sesión, por Camilo (2026-09-07):** formulario manual en Fase 1 (`HU-012`), autollenado en `EP-002` — ya construido (`HU-010`, portal por enlace). El detalle de cómo se confirma un campo autollenado queda en `PA-050`, para cuando arranque `EP-002` |
 | **5 · Precios** | Antes del bloque C, después de `PA-040` | Precio y cupo de cada plan sobre costo variable real | `PA-043`, `PA-044` |
 
 Cada sesión deja una nota en [`notas/`](notas/) con la plantilla
@@ -116,7 +116,8 @@ Lo que queda, en orden:
    puede arrancar ya.
 4. **`03-requisitos/funcionales.md`** — es el hueco más grande que queda. Los `RF-xxx` siguen
    en `TBD` mientras las historias ya están escritas; la trazabilidad está rota por ahí.
-5. **`FL-001`** — el recorrido completo de vinculación, que además fuerza a cerrar `PA-042`.
+5. **`FL-001`** — el recorrido completo de vinculación. `PA-042`, que lo condicionaba, ya está
+   cerrada (2026-09-07).
 
 ## El ciclo de trabajo, en cinco pasos
 

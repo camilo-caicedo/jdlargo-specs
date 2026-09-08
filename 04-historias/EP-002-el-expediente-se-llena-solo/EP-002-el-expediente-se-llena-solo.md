@@ -91,8 +91,9 @@ registro es una afirmación sin procedencia.
 
 - **Épicas:** `EP-000` y `EP-001` completas.
 - **Preguntas abiertas:** derivadas, no bloqueantes — **`PA-045`** (qué proveedor de IA y bajo
-  qué contrato), **`PA-042`** (si la extracción alimenta el formulario de la contraparte) y
-  `PA-041` (firma certificada). Las cinco originales están **resueltas**: `PA-021` → router de IA
+  qué contrato), `PA-041` (firma certificada) y **`PA-050`** (detalle de la interfaz de
+  confirmación cuando la extracción alimenta el formulario de la contraparte — deriva de
+  `PA-042`, ya resuelta: sí la alimenta). Las cinco originales están **resueltas**: `PA-021` → router de IA
   por tenant con opción de desactivarla (`RNF-016`); `PA-032` → `ADR-0005` §4b (la confianza es
   señal, no veredicto; umbral por campo y tarea); `PA-019` y `PA-020` → `ADR-0010` (OTP por correo;
   nivel 3 como módulo opcional); `PA-027` → `ADR-0005` §2.

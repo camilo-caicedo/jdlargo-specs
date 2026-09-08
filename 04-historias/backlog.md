@@ -43,6 +43,12 @@ actualizado: 2026-09-06
 > | `PA-042` (orden formulario/documentos) | `HU-012` |
 > | `PA-043` (precios y cupos definitivos) | `HU-046`, `HU-047`, `HU-048`, `HU-049`, `HU-050` |
 >
+> **Actualización 2026-09-07.** `PA-042` se resolvió (ver `preguntas-abiertas.md`): sí habrá
+> autollenado desde documentos, pero es alcance de `EP-002`, no de `HU-012` — `HU-012` se
+> construye manual y **pasa a `en-revision`**. Quedan 11 historias en `borrador`, todas por
+> `PA-040`/`PA-043`. La derivada nueva `PA-050` (detalle de la interfaz de confirmación) no
+> bloquea nada — se resuelve al arrancar `EP-002`.
+>
 > `en-revision` no es `aprobado`: falta que alguien —Juan David o quien defina el equipo—
 > revise cada una antes de darle luz verde a construirla.
 >
@@ -88,7 +94,7 @@ Orden: `HU-001` → `HU-002` → `HU-006` → `HU-004` → `HU-003` → `HU-005`
 | `HU-009` | [Máquina de estados del expediente](EP-001-expediente-completo-a-mano/HU-009-maquina-de-estados-del-expediente.md) | Must | `PA-029` ✅ criticidad del requisito · `PA-028` ✅ estado `Expirado/Pendiente` |
 | `HU-010` | [Acceso de la contraparte por enlace](EP-001-expediente-completo-a-mano/HU-010-acceso-de-la-contraparte-por-enlace.md) | Must | `PA-028`, `PA-031`, `PA-019` ✅ `ADR-0010` y `arquitectura-de-aplicacion.md` |
 | `HU-011` | [Aviso de privacidad y evidencia del consentimiento](EP-001-expediente-completo-a-mano/HU-011-aviso-de-privacidad-y-consentimiento.md) | Must | `PA-031` ✅ · `PA-021` ✅ `RNF-016` a `RNF-018`. Pendiente derivada: `PA-045` |
-| `HU-012` | [Formulario dinámico de identificación](EP-001-expediente-completo-a-mano/HU-012-formulario-dinamico-de-identificacion.md) | Must | `PA-018` ✅ `ADR-0004` §6. **Pendiente derivada: `PA-042`** (autollenado) |
+| `HU-012` | [Formulario dinámico de identificación](EP-001-expediente-completo-a-mano/HU-012-formulario-dinamico-de-identificacion.md) | Must | `PA-018` ✅ `ADR-0004` §6 · `PA-042` ✅ (manual, autollenado es de `EP-002`) |
 | `HU-013` | [Carga de los documentos exigidos](EP-001-expediente-completo-a-mano/HU-013-carga-de-los-documentos-exigidos.md) | Must | `PA-030` ✅ `RNF-023` a `RNF-025` · `PA-009` ✅ `ADR-0007` |
 | `HU-014` | [Revisión del expediente y solicitud de correcciones](EP-001-expediente-completo-a-mano/HU-014-revision-del-expediente-y-correcciones.md) | Must | `PA-028`, `PA-029` ✅ |
 | `HU-015` | [Decisión del Oficial de Cumplimiento](EP-001-expediente-completo-a-mano/HU-015-decision-del-oficial-de-cumplimiento.md) | Must | `PA-029` ✅ decisión excepcional con motivo · `PA-031` ✅ |
@@ -233,7 +239,6 @@ cambiaron:
 | Pregunta | Historias que condiciona | Urgencia |
 |---|---|---|
 | **`PA-040`** — vía de conexión y costo real de las fuentes colombianas | toda `EP-003`, `HU-030`, `HU-037`, `HU-040`, y por dependencia `PA-043` | **La más urgente.** Bloquea la Fase 3, no la 0 a la 2 |
-| **`PA-042`** — si el formulario se autodiligencia desde los documentos | `HU-012`, `HU-017`, `HU-019` | Antes de diseñar el recorrido de la contraparte (Fase 1) |
 | **`PA-043`** — precios y cupos de los planes | toda `EP-007` | Antes del bloque comercial. Depende de `PA-040` |
 | `PA-041` — firma digital certificada y validez del OTP por correo | `HU-022` | No bloquea: `ADR-0010` arranca con aceptación electrónica |
 | `PA-044` — quién asume la retención a 10 años | `HU-006`, `HU-016`, `HU-044` | No bloquea la estructura, sí el contrato |
@@ -241,6 +246,7 @@ cambiaron:
 | **`PA-046`** — medio(s) de salida: interfaz de programación, archivo, o ambos | toda `EP-008` | Bloquea las 4 historias de `EP-008` por igual |
 | `PA-047` — disparador de la salida (bajo demanda, programado o por evento) | `HU-052` | No bloquea el disparo manual con el que quedó escrita `HU-052` |
 | `PA-048` — campos bloqueados por ser datos personales sensibles o de terceros | `HU-051` | Antes de fijar la lista de campos exportables por defecto |
+| `PA-050` — interfaz de confirmación de campos autollenados por extracción | `HU-012`, `HU-017`, `HU-019` | No bloquea nada de Fase 1. Antes de arrancar `EP-002` |
 
 **Las tres de la Fase 0 que más urgían** —`PA-025`, `PA-026` y `PA-029`— están resueltas. La
 Fase 0 puede arrancar sin esperar nada.
