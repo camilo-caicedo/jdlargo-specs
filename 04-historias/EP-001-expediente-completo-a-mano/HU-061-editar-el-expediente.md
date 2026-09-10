@@ -1,10 +1,10 @@
 ---
 id: HU-061
 titulo: Editar el expediente
-estado: borrador
+estado: implementado
 epica: EP-001
 prioridad: Should
-actualizado: 2026-09-08
+actualizado: 2026-09-10
 ---
 
 # HU-061 — Editar el expediente

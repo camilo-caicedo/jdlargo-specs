@@ -115,7 +115,7 @@ pide la §18.
 | `HU-056` | Invitar miembros a la organización | Must | en-revision |
 | `HU-057` | Recuperar contraseña olvidada | Must | implementado |
 | `HU-060` | Registro público y creación de organización | Must | implementado |
-| `HU-061` | Editar el expediente | Should | borrador |
+| `HU-061` | Editar el expediente | Should | implementado |
 
 Orden sugerido: `HU-007` → `HU-008` → `HU-009` → `HU-010` → `HU-011` → `HU-012` → `HU-013` →
 `HU-014` → `HU-015` → `HU-016`. Es el orden del recorrido, y coincide con la §45: primero el
