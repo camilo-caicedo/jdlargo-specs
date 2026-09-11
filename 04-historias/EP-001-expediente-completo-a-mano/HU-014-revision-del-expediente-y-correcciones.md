@@ -1,10 +1,10 @@
 ---
 id: HU-014
 titulo: Revisión del expediente y solicitud de correcciones
-estado: en-revision
+estado: implementado
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-06
+actualizado: 2026-09-11
 ---
 
 # HU-014 — Revisión del expediente y solicitud de correcciones

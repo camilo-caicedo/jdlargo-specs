@@ -108,7 +108,7 @@ pide la §18.
 | `HU-011` | Aviso de privacidad y evidencia del consentimiento | Must | implementado |
 | `HU-012` | Formulario dinámico de identificación | Must | implementado |
 | `HU-013` | Carga de los documentos exigidos | Must | implementado |
-| `HU-014` | Revisión del expediente y solicitud de correcciones | Must | borrador |
+| `HU-014` | Revisión del expediente y solicitud de correcciones | Must | implementado |
 | `HU-015` | Decisión del Oficial de Cumplimiento | Must | borrador |
 | `HU-016` | Expediente electrónico reconstruible | Must | borrador |
 | `HU-055` | Inicio de sesión y selección de organización | Must | en-revision |
