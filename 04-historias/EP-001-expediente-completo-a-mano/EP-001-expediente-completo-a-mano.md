@@ -106,7 +106,7 @@ pide la §18.
 | `HU-009` | Máquina de estados del expediente | Must | borrador |
 | `HU-010` | Acceso de la contraparte por enlace | Must | borrador |
 | `HU-011` | Aviso de privacidad y evidencia del consentimiento | Must | implementado |
-| `HU-012` | Formulario dinámico de identificación | Must | en-revision |
+| `HU-012` | Formulario dinámico de identificación | Must | implementado |
 | `HU-013` | Carga de los documentos exigidos | Must | borrador |
 | `HU-014` | Revisión del expediente y solicitud de correcciones | Must | borrador |
 | `HU-015` | Decisión del Oficial de Cumplimiento | Must | borrador |

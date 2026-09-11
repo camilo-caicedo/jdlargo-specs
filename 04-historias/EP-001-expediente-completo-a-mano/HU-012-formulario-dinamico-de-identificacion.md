@@ -1,10 +1,10 @@
 ---
 id: HU-012
 titulo: Formulario dinámico de identificación
-estado: en-revision
+estado: implementado
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-07
+actualizado: 2026-09-10
 ---
 
 # HU-012 — Formulario dinámico de identificación
