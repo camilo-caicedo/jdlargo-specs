@@ -1,7 +1,7 @@
 ---
 id: HU-063
 titulo: Expiración y reactivación del acceso de la contraparte
-estado: borrador
+estado: implementado
 epica: EP-001
 prioridad: Must
 actualizado: 2026-09-11

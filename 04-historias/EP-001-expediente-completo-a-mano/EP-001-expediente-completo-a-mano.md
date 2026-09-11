@@ -118,7 +118,7 @@ pide la §18.
 | `HU-060` | Registro público y creación de organización | Must | implementado |
 | `HU-061` | Editar el expediente | Should | implementado |
 | `HU-062` | Configurar el aviso de privacidad de la organización cliente | Must | implementado |
-| `HU-063` | Expiración y reactivación del acceso de la contraparte | Must | borrador |
+| `HU-063` | Expiración y reactivación del acceso de la contraparte | Must | implementado |
 
 Orden sugerido: `HU-007` → `HU-008` → `HU-009` → `HU-010` → `HU-011` → `HU-012` → `HU-013` →
 `HU-014` → `HU-015` → `HU-016`. Es el orden del recorrido, y coincide con la §45: primero el
