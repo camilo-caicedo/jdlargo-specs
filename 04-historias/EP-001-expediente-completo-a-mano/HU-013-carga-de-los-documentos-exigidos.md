@@ -4,7 +4,7 @@ titulo: Carga de los documentos exigidos
 estado: implementado
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-10
+actualizado: 2026-09-11
 ---
 
 # HU-013 — Carga de los documentos exigidos
@@ -15,6 +15,16 @@ actualizado: 2026-09-10
 > tipo documental admite varios archivos.** Validaciones obligatorias: antivirus, MIME real (no
 > solo la extensión), hash, deduplicación y compresión opcional. La retención de los archivos
 > sigue la política del tenant (`ADR-0007`).
+
+> **Actualización 2026-09-11 — se construye el antivirus que `PA-030` ya exigía.** Detectado en
+> auditoría pre-despliegue: la validación de antivirus quedó respondida en `PA-030` desde el
+> descubrimiento, pero nunca se implementó — el documento se guardaba con hash y formato real
+> verificados, sin ningún escaneo de malware. Se cierra con **ClamAV autoalojado** (decisión de
+> Camilo): un archivo infectado se rechaza en el mismo paso donde ya se descarga el archivo para
+> calcular su huella y formato real, antes de que llegue a existir como fila en `documents` —
+> mismo camino que ya usa un formato inválido. El tamaño máximo global (20 MB) sigue siendo un
+> valor único para toda la plataforma, no configurable por tenant/plan como sugería `PA-030`:
+> con un solo cliente ancla no se justifica esa complejidad todavía; queda anotado, no resuelto.
 
 ## Historia
 
@@ -98,6 +108,16 @@ Escenario: No se puede dar por completa la entrega con documentos obligatorios p
 ```
 
 ```gherkin
+Escenario: Un archivo infectado se rechaza sin llegar a guardarse
+  Dado un archivo con una firma de malware detectable
+  Cuando la contraparte intenta cargarlo
+  Entonces la carga es rechazada indicando el motivo
+  Y no queda ningún documento asociado al expediente
+  Y el intento queda registrado en la bitácora
+  Y lo que la contraparte ya había diligenciado se conserva intacto
+```
+
+```gherkin
 Escenario: El archivo no es accesible sin autorización
   Dado un documento cargado en un expediente de "Alfa Ficticia S.A.S."
   Cuando alguien intenta descargarlo sin ser miembro de esa organización cliente ni portador del enlace de acceso de ese expediente
@@ -126,6 +146,9 @@ Escenario: El archivo no es accesible sin autorización
   Fase 2.**
 - Un documento rechazado se puede volver a cargar **sin perder lo diligenciado en el formulario**
   (§46).
+- Todo archivo se escanea contra malware **antes** de existir como fila en `documents`. Un
+  archivo infectado se descarta igual que uno con formato inválido: no hay estado intermedio de
+  "documento infectado" que guardar, porque nunca llega a ser documento.
 
 ## Fuera de alcance
 
@@ -145,8 +168,9 @@ Escenario: El archivo no es accesible sin autorización
 | `document.document_type` | Sí | Exigido por la matriz de la versión citada | No |
 | `document.version` | Sí | Correlativa por tipo documental dentro del expediente | No |
 | `document.hash` | Sí | Huella digital del archivo; se calcula al cargar y no se modifica | No |
-| `document.size` | Sí | Menor o igual al máximo configurado `(TBD — PA-030)` | No |
-| `document.format` | Sí | Formato admitido `(TBD — PA-030)` | No |
+| `document.size` | Sí | Menor o igual a 20 MB, único para toda la plataforma (no por tenant/plan — anotado en `PA-030`, no resuelto) | No |
+| `document.format` | Sí | PDF, JPG/JPEG o PNG por magic bytes reales, no por extensión declarada | No |
+| — (previo a existir la fila) | Sí | Escaneo antivirus (ClamAV) sin firma de malware conocida | No |
 | `document.declared_issuer` | No | Texto; se guarda como afirmación declarada | Sí |
 | `document.issued_at` / `expires_at` | No | Fechas declaradas; se guardan como afirmaciones declaradas | Sí |
 | `document.state` | Sí | `not_received` \| `received` \| `under_review` \| `valid` \| `requires_review` \| `rejected` | No |

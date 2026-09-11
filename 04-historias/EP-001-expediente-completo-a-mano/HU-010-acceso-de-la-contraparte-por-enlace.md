@@ -4,7 +4,7 @@ titulo: Acceso de la contraparte por enlace
 estado: en-revision
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-06
+actualizado: 2026-09-11
 ---
 
 # HU-010 — Acceso de la contraparte por enlace
@@ -15,6 +15,13 @@ actualizado: 2026-09-06
 > automático **y** por copia manual. Al expirar, el expediente pasa a `Expirado/Pendiente` y admite
 > renovación controlada: enlace nuevo, invalidación del anterior, progreso conservado y registro
 > en bitácora. Ver `ADR-0010`.
+>
+> **Actualización 2026-09-11 (`PA-049`, resuelta).** Esta historia solo construyó el token de
+> acceso y su propio estado (`active`/`expired`/`revoked`/`replaced`) — el `Expirado/Pendiente`
+> del expediente que el párrafo anterior promete es un estado distinto (del expediente, no del
+> token) y nunca se construyó, detectado en la auditoría pre-despliegue de `EP-001`. Se construye
+> en **`HU-063`**, historia nueva de `EP-001`, que consume `dossier_access_tokens.state` para
+> decidir cuándo el expediente entra y sale de esa situación.
 
 ## Historia
 

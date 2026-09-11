@@ -118,10 +118,16 @@ pide la §18.
 | `HU-060` | Registro público y creación de organización | Must | implementado |
 | `HU-061` | Editar el expediente | Should | implementado |
 | `HU-062` | Configurar el aviso de privacidad de la organización cliente | Must | implementado |
+| `HU-063` | Expiración y reactivación del acceso de la contraparte | Must | borrador |
 
 Orden sugerido: `HU-007` → `HU-008` → `HU-009` → `HU-010` → `HU-011` → `HU-012` → `HU-013` →
 `HU-014` → `HU-015` → `HU-016`. Es el orden del recorrido, y coincide con la §45: primero el
 modelo de cumplimiento, la pantalla al final.
+
+`HU-063` se agrega el 2026-09-11, detectada en la auditoría pre-despliegue de la épica
+(`PA-049`, antes abierta). No es parte del recorrido lineal: es una corrección transversal
+sobre `HU-009`/`HU-010` (el enlace vencido sin que nadie lo note), así que depende de esas dos
+pero no bloquea ni es bloqueada por `HU-011` a `HU-016`.
 
 `HU-055` a `HU-057` no son del recorrido del expediente: son la base de autenticación de la
 app interna que `HU-001` dejó fuera de la Fase 0 a propósito ("la Fase 0 no entrega

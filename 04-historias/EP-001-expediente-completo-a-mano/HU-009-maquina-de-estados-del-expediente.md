@@ -4,7 +4,7 @@ titulo: Máquina de estados del expediente
 estado: en-revision
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-06
+actualizado: 2026-09-11
 ---
 
 # HU-009 — Máquina de estados del expediente
@@ -19,6 +19,14 @@ actualizado: 2026-09-06
 >   excepcional* con motivo obligatorio, usuario autorizado según la matriz y advertencia de lo
 >   que falta. Cada requisito lleva su criticidad: `obligatorio bloqueante` (*hard stop*, sin
 >   override posible), `obligatorio con excepción` o `recomendado`.
+>
+> **Actualización 2026-09-11 (`PA-049`, resuelta).** El estado `Expirado/Pendiente` de este
+> párrafo quedó descrito aquí en abstracto durante meses sin que ninguna historia lo
+> construyera — detectado en la auditoría pre-despliegue de `EP-001`. La segunda regla (decidir
+> con requisitos pendientes) sí se construyó, en `HU-014`/`HU-015` (`requirement.blocking`,
+> "dar por revisado con excepción"). El estado `Expirado/Pendiente`, sus transiciones, los
+> recordatorios automáticos y la escalación se construyen en **`HU-063`**, historia nueva de
+> `EP-001`.
 
 ## Historia
 
