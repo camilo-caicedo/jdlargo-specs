@@ -1,10 +1,10 @@
 ---
 id: HU-013
 titulo: Carga de los documentos exigidos
-estado: en-revision
+estado: implementado
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-06
+actualizado: 2026-09-10
 ---
 
 # HU-013 — Carga de los documentos exigidos

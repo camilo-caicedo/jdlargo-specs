@@ -107,7 +107,7 @@ pide la §18.
 | `HU-010` | Acceso de la contraparte por enlace | Must | borrador |
 | `HU-011` | Aviso de privacidad y evidencia del consentimiento | Must | implementado |
 | `HU-012` | Formulario dinámico de identificación | Must | implementado |
-| `HU-013` | Carga de los documentos exigidos | Must | borrador |
+| `HU-013` | Carga de los documentos exigidos | Must | implementado |
 | `HU-014` | Revisión del expediente y solicitud de correcciones | Must | borrador |
 | `HU-015` | Decisión del Oficial de Cumplimiento | Must | borrador |
 | `HU-016` | Expediente electrónico reconstruible | Must | borrador |
@@ -116,6 +116,7 @@ pide la §18.
 | `HU-057` | Recuperar contraseña olvidada | Must | implementado |
 | `HU-060` | Registro público y creación de organización | Must | implementado |
 | `HU-061` | Editar el expediente | Should | implementado |
+| `HU-062` | Configurar el aviso de privacidad de la organización cliente | Must | implementado |
 
 Orden sugerido: `HU-007` → `HU-008` → `HU-009` → `HU-010` → `HU-011` → `HU-012` → `HU-013` →
 `HU-014` → `HU-015` → `HU-016`. Es el orden del recorrido, y coincide con la §45: primero el

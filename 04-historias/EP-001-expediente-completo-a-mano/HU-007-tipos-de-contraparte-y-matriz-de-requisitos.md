@@ -4,7 +4,7 @@ titulo: Tipos de contraparte y matriz de requisitos
 estado: en-revision
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-06
+actualizado: 2026-09-10
 ---
 
 # HU-007 — Tipos de contraparte y matriz de requisitos
@@ -15,6 +15,17 @@ actualizado: 2026-09-06
 > conductor, propietario, poseedor, proveedor, cliente, empleado y accionista. **PTEE es un marco
 > complementario**, no un clon de SARLAFT: tiene requisitos propios y no debe modelarse igual.
 > El motor sigue siendo genérico; esto es carga inicial, no especificación. Ver `ADR-0004` §6.
+>
+> **Actualización 2026-09-10 (decisión de Camilo).** `seedBaseConfiguration`
+> (`src/server/auth/role-config.ts`) ahora siembra, además de roles, un subconjunto inicial de
+> esta plantilla base — tres tipos (`proveedor`, `cliente`, `empleado`) con su matriz mínima —
+> como versión 1 publicada de **toda** organización cliente nueva, en vez de esperar la carga
+> manual. Es la instancia concreta de "nosotros entregamos plantillas base" que ya describía la
+> nota anterior: antes era una intención sin implementar, ahora es código. No cubre los siete
+> tipos completos (conductor, propietario, poseedor y accionista quedan pendientes de agregar
+> a la plantilla) — el resto se sigue ajustando a mano u, hoy, mediante nueva versión en
+> borrador una vez exista pantalla de configuración para tipos/matriz (`HU-062` es el primer
+> caso de esa pantalla, solo para el aviso de privacidad).
 
 ## Historia
 
