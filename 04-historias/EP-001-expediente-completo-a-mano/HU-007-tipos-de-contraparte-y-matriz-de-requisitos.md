@@ -4,7 +4,7 @@ titulo: Tipos de contraparte y matriz de requisitos
 estado: en-revision
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-10
+actualizado: 2026-09-11
 ---
 
 # HU-007 — Tipos de contraparte y matriz de requisitos
@@ -26,6 +26,15 @@ actualizado: 2026-09-10
 > a la plantilla) — el resto se sigue ajustando a mano u, hoy, mediante nueva versión en
 > borrador una vez exista pantalla de configuración para tipos/matriz (`HU-062` es el primer
 > caso de esa pantalla, solo para el aviso de privacidad).
+>
+> **Actualización 2026-09-11 (`PA-029`, construida en `HU-014`/`HU-015`).** Un requisito con
+> `mandatory: always` puede además marcarse `blocking`: **bloqueante** (por defecto — nadie
+> puede decidir el expediente si falta) o **con excepción** (el Oficial de Cumplimiento puede
+> dar el expediente por revisado sin él, dejando motivo explícito). Es la distinción que
+> `PA-029` pedía entre "obligatorio bloqueante" y "obligatorio con excepción" y que hasta ahora
+> no tenía dónde vivir en la matriz. No aplica a `conditional`/`optional`: esos nunca bloquean
+> una decisión por definición. Ver `HU-014` (dónde se ejerce la excepción) y `HU-015` (dónde el
+> Oficial de Cumplimiento la ve reflejada al decidir).
 
 ## Historia
 
@@ -146,6 +155,7 @@ Escenario: Aislamiento entre organizaciones sobre la matriz
 | `requirement.type` | Sí | `field` \| `document_type` | No |
 | `requirement.key` | Sí | Identificador del campo o tipo documental | No |
 | `requirement.mandatory` | Sí | `always` \| `conditional` \| `optional` | No |
+| `requirement.blocking` | Sí (si `mandatory: always`) | `true` (bloqueante, por defecto) \| `false` (con excepción, `PA-029`); irrelevante si no es `always` | No |
 | `requirement.condition` | Condicional | Obligatoria si la obligatoriedad es `conditional`; solo condiciones del conjunto cerrado | No |
 | `requirement.validation` | No | Tipo de dato, formato, rango; según el conjunto cerrado | No |
 

@@ -7,6 +7,13 @@ prioridad: Must
 actualizado: 2026-09-11
 ---
 
+> **Actualización 2026-09-11 (`PA-029`, construida junto con `HU-015`).** "Dar por revisado"
+> gana un segundo camino: si lo único que falta son requisitos `always` marcados `blocking:
+> false` (`HU-007`), el Oficial de Cumplimiento —no cualquier Analista— puede darlo por
+> revisado igual, dejando un motivo explícito. Si falta aunque sea un requisito `blocking:
+> true`, no hay excepción posible para nadie: el bloqueo por defecto sigue intacto. Ver el
+> nuevo escenario "Dar por revisado con excepción" más abajo.
+
 # HU-014 — Revisión del expediente y solicitud de correcciones
 
 > **Actualización 2026-09-05 (`PA-028`, `PA-029`).** Al pedir correcciones, el expediente no se
@@ -101,6 +108,31 @@ Escenario: Un expediente incompleto no pasa a decisión
 ```
 
 ```gherkin
+Escenario: Dar por revisado con excepción
+  Dado un expediente cuyos únicos requisitos sin cubrir están marcados "obligatorio con excepción"
+  Cuando el Oficial de Cumplimiento lo da por revisado indicando el motivo de la excepción
+  Entonces el expediente transita a "pendiente de decisión"
+  Y queda registrado qué requisitos quedaron pendientes y por qué se autorizó continuar
+```
+
+```gherkin
+Escenario: Ningún requisito bloqueante admite excepción
+  Dado un expediente con al menos un requisito marcado "obligatorio bloqueante" sin cubrir
+  Cuando el Oficial de Cumplimiento intenta darlo por revisado con excepción
+  Entonces la operación es rechazada igual que para cualquier otro usuario
+  Y el expediente permanece en revisión
+```
+
+```gherkin
+Escenario: La excepción no es para cualquiera
+  Dado un Analista de Cumplimiento sin el permiso de decidir
+  Y un expediente cuyos únicos requisitos sin cubrir están marcados "obligatorio con excepción"
+  Cuando intenta darlo por revisado con excepción
+  Entonces la operación es rechazada
+  Y el expediente permanece en revisión
+```
+
+```gherkin
 Escenario: Aislamiento entre organizaciones sobre la revisión
   Dado un analista miembro únicamente de "Alfa Ficticia S.A.S."
   Cuando consulta expedientes pendientes de revisión con su contexto de usuario propagado
@@ -119,8 +151,11 @@ Escenario: Aislamiento entre organizaciones sobre la revisión
 - Solicitar correcciones es una **transición** del expediente (`HU-009`), con motivo obligatorio.
 - El sistema calcula qué requisitos de la matriz están cubiertos y cuáles no; es un cálculo
   sobre las afirmaciones y los documentos, no un campo que alguien marque a mano.
-- Dar un expediente por revisado exige que sus requisitos obligatorios estén cubiertos.
-  `PA-029` define si el Oficial de Cumplimiento puede saltarse esa condición dejando constancia.
+- Dar un expediente por revisado exige que sus requisitos obligatorios estén cubiertos. La
+  única excepción: si todo lo pendiente es `blocking: false` (`HU-007`), el Oficial de
+  Cumplimiento —el mismo permiso que decide, `PA-029`— puede continuar dejando motivo
+  explícito, que queda registrado junto con qué quedó pendiente. Ningún otro rol tiene esa
+  excepción, y ningún requisito `blocking: true` la admite de nadie.
 - La revisión no crea afirmaciones sobre la contraparte: no convierte lo declarado en verificado.
   Verificar exige una fuente externa (Fase 3) y es un origen distinto (§2).
 
@@ -160,5 +195,6 @@ Escenario: Aislamiento entre organizaciones sobre la revisión
 - **Preguntas abiertas:** ninguna. `PA-028` y `PA-029` **resueltas**.
 - **Supuestos:** ninguno propio.
 - **Depende de:** `HU-012` (hay datos que revisar), `HU-013` (hay documentos que revisar),
-  `HU-009`, `HU-003`, `HU-006`.
+  `HU-009`, `HU-003`, `HU-006`, `HU-007` (el campo `blocking` que distingue qué requisito
+  admite excepción, agregado 2026-09-11).
 - **Habilita a:** `HU-015`.

@@ -3,7 +3,7 @@ id: EP-001
 titulo: Un expediente completo, a mano
 estado: borrador
 capacidad: CAP-01
-actualizado: 2026-09-05
+actualizado: 2026-09-11
 ---
 
 # EP-001 — Un expediente completo, a mano
@@ -70,6 +70,7 @@ pide la §18.
 | Debida diligencia intensificada | Fase 4 | Se activa por factores que aquí todavía no se calculan |
 | Interfaz de administración de la configuración | Fase 5 | La matriz se carga a mano hasta entonces (`HU-007`) |
 | Monitoreo continuo, renovaciones y recordatorios automáticos | Fase 6 | Un expediente decidido en la Fase 1 no vuelve a moverse solo |
+| Decisión de "no aprobar", "solicitar más información", "suspender" y "terminar la relación" (`HU-015`, Fase 17 completa) | Fase 6 | `HU-009` solo declaró estado y transición para aprobar/aprobar con condiciones/rechazar. Los otros cuatro verbos suponen mover un expediente ya decidido, que es monitoreo — agregado 2026-09-11 al auditar `HU-015` |
 | Reutilización de un sujeto ya conocido en otro expediente (§46) | Fase 4 | Requiere el motor de relaciones. Aquí cada expediente parte de cero |
 | Exportación del expediente a PDF o Excel | Fase 6 | `HU-016` lo hace reconstruible en pantalla; el reporte exportable llega con el panel |
 
@@ -109,7 +110,7 @@ pide la §18.
 | `HU-012` | Formulario dinámico de identificación | Must | implementado |
 | `HU-013` | Carga de los documentos exigidos | Must | implementado |
 | `HU-014` | Revisión del expediente y solicitud de correcciones | Must | implementado |
-| `HU-015` | Decisión del Oficial de Cumplimiento | Must | borrador |
+| `HU-015` | Decisión del Oficial de Cumplimiento | Must | implementado |
 | `HU-016` | Expediente electrónico reconstruible | Must | borrador |
 | `HU-055` | Inicio de sesión y selección de organización | Must | en-revision |
 | `HU-056` | Invitar miembros a la organización | Must | en-revision |
@@ -160,6 +161,14 @@ autorizado según la matriz y advertencia de lo que falta; y los requisitos marc
 La consecuencia de diseño es que `HU-009` y `HU-015` necesitan **las dos cosas**: bloqueo duro
 por defecto **y** un camino de excepción registrada, elegido por la criticidad de cada requisito
 en la matriz. No es uno u otro, como se temía.
+
+**2026-09-11 — el camino de excepción ya tiene dueño de construcción.** No era `HU-009`
+(máquina de estados) ni directamente `HU-015` quien lo ejerce: es `HU-014` ("dar por revisado
+con excepción"), apalancado en un campo nuevo de la matriz (`requirement.blocking`, `HU-007`)
+que distingue obligatorio-bloqueante de obligatorio-con-excepción. `HU-015` se limita a mostrar
+la advertencia de lo que quedó pendiente cuando el Oficial de Cumplimiento decide. Tres
+historias, no una — se documenta aquí para que quede trazado que ninguna de las tres lo
+resuelve sola.
 
 El riesgo de recorrido que quedaba, **`PA-042`**, ya está resuelto (2026-09-07): `HU-012` se
 construye con diligenciamiento manual, sin depender del orden en que la contraparte suba

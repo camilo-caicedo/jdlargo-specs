@@ -1,10 +1,10 @@
 ---
 id: HU-015
 titulo: Decisión del Oficial de Cumplimiento
-estado: en-revision
+estado: implementado
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-06
+actualizado: 2026-09-11
 ---
 
 # HU-015 — Decisión del Oficial de Cumplimiento
@@ -15,6 +15,22 @@ actualizado: 2026-09-06
 > queda pendiente. **Salvo en los requisitos marcados `obligatorio bloqueante` (*hard stop*), que
 > no admiten override de nadie.** Por defecto el sistema bloquea; la excepción es explícita,
 > configurable y queda registrada como tal.
+
+> **Actualización 2026-09-11.** Dos precisiones sobre el alcance de la Fase 1:
+>
+> 1. **De las siete opciones de la Fase 17, esta historia construye tres**: aprobar, aprobar
+>    con condiciones y rechazar — son las que ya tienen estado y transición en la máquina de
+>    estados de `HU-009`. Las otras cuatro (no aprobar, solicitar más información, suspender,
+>    terminar la relación) no tienen estado propio en `dossier_states` y se dejan explícitamente
+>    para la Fase 6 (monitoreo y renovación), donde un expediente ya cerrado puede necesitar
+>    volver a moverse. No se inventa aquí una máquina de estados nueva para cubrirlas.
+> 2. **El camino de excepción de `PA-029` se construye en `HU-014`**, no en esta historia: es
+>    "dar el expediente por revisado" quien decide si puede avanzar con requisitos `blocking:
+>    false` (`HU-007`) pendientes. Esta historia solo **muestra** esa advertencia —qué quedó
+>    pendiente y por qué se autorizó— cuando el Oficial de Cumplimiento decide sobre un
+>    expediente que llegó así a `pendiente de decisión`, para que decida con la información
+>    completa. No hay un camino de excepción distinto aquí: si el expediente ya está en
+>    `pendiente de decisión`, es porque `HU-014` ya determinó que lo pendiente era admisible.
 
 ## Historia
 
@@ -116,7 +132,9 @@ Escenario: Cerrar el expediente
   decidir. Ningún proceso automático puede producirla.
 - Las opciones son las de la Fase 17: aprobar, aprobar con condiciones, no aprobar, rechazar,
   solicitar más información, suspender, terminar la relación. Cuáles están disponibles en cada
-  estado lo declara la máquina de estados (`HU-009`).
+  estado lo declara la máquina de estados (`HU-009`) — y, en Fase 1, solo aprobar/aprobar con
+  condiciones/rechazar tienen esa declaración; las otras cuatro son Fase 6 (ver actualización
+  2026-09-11).
 - Campos obligatorios de toda decisión: responsable, fecha, **fundamento**, **evidencia en la
   que se basó**, condiciones si aplica, y **vigencia de la vinculación**.
 - La decisión es **inmutable**. Una decisión posterior no reemplaza a la anterior: se apila. El
@@ -148,7 +166,7 @@ Escenario: Cerrar el expediente
 |-------|-------------|------------|----------|
 | `decision.organization_id` | Sí | Organización cliente existente | No |
 | `decision.dossier_id` | Sí | Expediente de la misma organización cliente | No |
-| `decision.type` | Sí | `approve` \| `approve_with_conditions` \| `disapprove` \| `reject` \| `request_more_information` \| `suspend` \| `terminate_relationship` | No |
+| `decision.type` | Sí | Fase 1: `approve` \| `approve_with_conditions` \| `reject`. Fase 6 (no construidos aquí, sin estado propio en `HU-009`): `disapprove` \| `request_more_information` \| `suspend` \| `terminate_relationship` | No |
 | `decision.responsible_id` | Sí | Usuario con permiso de decidir | No |
 | `decision.title` | Sí | Cargo del responsable en el momento de decidir | No |
 | `decision.made_at` | Sí | Momento; se escribe una sola vez | No |
@@ -173,8 +191,11 @@ Escenario: Cerrar el expediente
 - **Preguntas abiertas:** ninguna. `PA-029` y `PA-031` **resueltas**.
 - **Supuestos:** `SUP-006`, `SUP-007` (el posicionamiento es automatizar y trazar la debida
   diligencia, no responder por el cumplimiento).
-- **Depende de:** `HU-014` (el expediente está revisado), `HU-009`, `HU-003`, `HU-006`.
-- **Habilita a:** `HU-016`, y en la Fase 6 el monitoreo y la renovación.
+- **Depende de:** `HU-014` (el expediente está revisado, y es quien ejerce la excepción de
+  `PA-029` — ver actualización 2026-09-11), `HU-009`, `HU-003`, `HU-006`.
+- **Habilita a:** `HU-016`, y en la Fase 6 el monitoreo, la renovación y los cuatro verbos de
+  decisión (`disapprove`, `request_more_information`, `suspend`, `terminate_relationship`) que
+  esta historia deja pendientes.
 - **Riesgo:** el atajo tentador es guardar el resultado como una columna del expediente. En el
   momento en que eso ocurre desaparecen el fundamento, la evidencia y el historial, y con ellos
   tres de las dieciséis preguntas de la §44.
