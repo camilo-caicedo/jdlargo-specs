@@ -1,10 +1,10 @@
 ---
 id: HU-016
 titulo: Expediente electrónico reconstruible
-estado: en-revision
+estado: implementado
 epica: EP-001
 prioridad: Must
-actualizado: 2026-09-06
+actualizado: 2026-09-11
 ---
 
 # HU-016 — Expediente electrónico reconstruible

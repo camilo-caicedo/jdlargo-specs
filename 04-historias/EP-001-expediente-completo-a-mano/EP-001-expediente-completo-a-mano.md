@@ -111,7 +111,7 @@ pide la §18.
 | `HU-013` | Carga de los documentos exigidos | Must | implementado |
 | `HU-014` | Revisión del expediente y solicitud de correcciones | Must | implementado |
 | `HU-015` | Decisión del Oficial de Cumplimiento | Must | implementado |
-| `HU-016` | Expediente electrónico reconstruible | Must | borrador |
+| `HU-016` | Expediente electrónico reconstruible | Must | implementado |
 | `HU-055` | Inicio de sesión y selección de organización | Must | en-revision |
 | `HU-056` | Invitar miembros a la organización | Must | en-revision |
 | `HU-057` | Recuperar contraseña olvidada | Must | implementado |
