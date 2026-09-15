@@ -1,10 +1,10 @@
 ---
 id: HU-020
 titulo: Validación humana de lo extraído
-estado: en-revision
+estado: implementado
 epica: EP-002
 prioridad: Must
-actualizado: 2026-09-06
+actualizado: 2026-09-14
 ---
 
 # HU-020 — Validación humana de lo extraído

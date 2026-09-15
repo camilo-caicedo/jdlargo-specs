@@ -1,10 +1,10 @@
 ---
 id: HU-019
 titulo: Conciliación de lo declarado con lo extraído
-estado: en-revision
+estado: implementado
 epica: EP-002
 prioridad: Must
-actualizado: 2026-09-06
+actualizado: 2026-09-14
 ---
 
 # HU-019 — Conciliación de lo declarado con lo extraído
