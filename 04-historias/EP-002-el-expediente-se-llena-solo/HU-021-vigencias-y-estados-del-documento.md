@@ -1,10 +1,10 @@
 ---
 id: HU-021
 titulo: Vigencias y estados del documento
-estado: en-revision
+estado: implementado
 epica: EP-002
 prioridad: Must
-actualizado: 2026-09-06
+actualizado: 2026-09-15
 ---
 
 # HU-021 — Vigencias y estados del documento
