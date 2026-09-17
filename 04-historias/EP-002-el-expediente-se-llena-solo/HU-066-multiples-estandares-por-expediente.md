@@ -113,14 +113,28 @@ Escenario: Aislamiento entre organizaciones sobre expedientes multi-estándar
 
 ## Fuera de alcance
 
-- El rediseño de cómo se indexa la matriz de requisitos en la base de datos: esta historia
+> **Corrección de alcance (2026-09-17, después de implementar).** El primer punto de abajo
+> ("el rediseño de cómo se indexa la matriz de requisitos") **sí se hizo**, en la misma ronda
+> de trabajo, a pedido directo tras probar en vivo el modelo simplificado descrito en la nota
+> del encabezado: resultó insuficiente para lo que realmente se necesitaba (estándares custom
+> por organización creables sin publicar, y un requisito perteneciendo a varios estándares a
+> la vez sobre una sola fila, no una fila por estándar). El detalle completo quedó en
+> `Planes/Terminados/estandares-dinamicos-por-organizacion.md`: tabla nueva
+> `organization_standards` (catálogo no versionado, deliberadamente fuera del ciclo
+> borrador→publicación de `ADR-0004`) y `requirements.standard` (texto único) migrado a
+> `requirements.standards` (arreglo). El punto queda tachado abajo como registro de que la
+> restricción original de esta historia fue superada, no borrada silenciosamente.
+
+- ~~El rediseño de cómo se indexa la matriz de requisitos en la base de datos: esta historia
   asume que la matriz sigue siendo estándar × tipo de contraparte (`HU-007`), y que "varios
   estándares en un expediente" es una unión de consultas a esa misma matriz, no una matriz
   nueva. Si el diseño técnico concluye que hace falta un modelo distinto, eso se decide en la
-  sesión de diseño dedicada, no aquí.
+  sesión de diseño dedicada, no aquí.~~ — hecho, ver corrección arriba.
 - La migración de expedientes ya abiertos con un solo estándar hacia el modelo de varios.
 - Cambiar la pantalla de administración de la matriz (`HU-035`) más allá de lo que ya hace hoy
-  por estándar.
+  por estándar. *(Nota 2026-09-17: esto también cambió como consecuencia del rediseño de
+  arriba — la matriz ahora usa selección múltiple de estándares con creación inline de
+  estándares custom, ver el plan referenciado.)*
 - Informes o consolidados que crucen resultados entre estándares de expedientes distintos.
 
 ## Datos y validaciones
