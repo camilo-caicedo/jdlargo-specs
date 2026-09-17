@@ -4,7 +4,7 @@ titulo: Administrar tipos de contraparte y matriz de requisitos
 estado: en-revision
 epica: EP-005
 prioridad: Must
-actualizado: 2026-09-06
+actualizado: 2026-09-17
 ---
 
 # HU-035 — Administrar tipos de contraparte y matriz de requisitos
@@ -14,6 +14,12 @@ actualizado: 2026-09-06
 > piezas: **asistente de configuración**, **duplicar plantilla**, **versionar** y el **simulador**
 > de `HU-039`. Y la configuración inicial se presta como **servicio de implementación** para el
 > primer cliente — es vendible, no un costo oculto.
+
+> **Actualización 2026-09-17 — falta editar un requisito ya creado.** Detectado en prueba en
+> vivo: la historia definía crear un requisito, retirar un tipo de contraparte y ver el impacto
+> antes de publicar, pero nunca un Escenario para **corregir** un requisito que ya existe en el
+> borrador (cambiar si es obligatorio, si bloquea, o su condición) sin tener que eliminarlo y
+> volver a crearlo. Se agrega el Escenario correspondiente.
 
 ## Historia
 
@@ -67,6 +73,15 @@ Escenario: No se puede escribir una condición libre
   Cuando se guarda el requisito
   Entonces la operación es rechazada
   Y se indica qué condiciones admite el sistema
+```
+
+```gherkin
+Escenario: Corregir un requisito ya definido en el borrador
+  Dado un borrador con un requisito ya definido para una combinación
+  Cuando el Administrador cambia si es obligatorio, si bloquea, o su condición
+  Entonces el requisito conserva su identidad y su historial, con el cambio reflejado
+  Y no hace falta eliminarlo y volver a crearlo para corregirlo
+  Y el cambio solo aplica cuando se publique el borrador
 ```
 
 ```gherkin
