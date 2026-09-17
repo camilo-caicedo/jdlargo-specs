@@ -3,7 +3,7 @@ id: EP-002
 titulo: El expediente se llena solo
 estado: en-revision
 capacidad: CAP-02
-actualizado: 2026-09-06
+actualizado: 2026-09-17
 ---
 
 # EP-002 — El expediente se llena solo
@@ -40,13 +40,18 @@ Deja contestada la pregunta **D** de la §44: qué información fue extraída au
 - Validación humana de lo extraído antes de que valga como dato del expediente (`HU-020`).
 - Vigencias y ciclo completo de estados del documento, incluido el vencido (`HU-021`).
 - Firma electrónica de niveles 1 y 2 sobre el expediente (`HU-022`).
+- Firma física como modalidad adicional, sin proveedor externo (`HU-064`, agregada 2026-09-17).
+- El nombre y la identificación declarados participan en la conciliación igual que un campo de
+  la matriz, sin que haya que configurarlos (`HU-065`, agregada 2026-09-17).
+- Un expediente puede citar más de un estándar a la vez (`HU-066`, agregada 2026-09-17 — su
+  implementación requiere diseño técnico aparte antes de dispatcharse, ver la historia).
 
 **No incluye —y por qué:**
 
 | Fuera de alcance | Dónde va | Razón |
 |---|---|---|
 | Verificación contra fuentes externas | Fase 3 | Extraer no es verificar: son dos orígenes distintos (§2) |
-| Firma digital certificada de nivel 3 | Sin fase asignada | Es una integración con un tercero acreditado, con costo por firma → `ADR-0010` |
+| Firma digital certificada de nivel 3 (proveedor externo acreditado) | Sin fase asignada | Es una integración con un tercero, con costo por firma → `ADR-0010`. **No confundir con `HU-064`** (firma física en papel, sin proveedor externo, sí incluida en esta épica) |
 | Extracción de estructuras societarias y relaciones | Fase 4 | El grafo de relaciones necesita su propio modelo |
 | Modelos de IA propios o entrenados | Fase posterior (§36) | El MVP usa modelos de terceros tras un puerto intercambiable |
 | Cálculo de riesgo a partir de lo extraído | Fase 4 | — |
@@ -82,10 +87,16 @@ Deja contestada la pregunta **D** de la §44: qué información fue extraída au
 | `HU-020` | Validación humana de lo extraído | Must | borrador |
 | `HU-021` | Vigencias y estados del documento | Must | borrador |
 | `HU-022` | Firma electrónica de niveles 1 y 2 | Should | borrador |
+| `HU-064` | Firma física | Should | borrador |
+| `HU-065` | Validación del nombre e identificación declarados contra los documentos cargados | Must | borrador |
+| `HU-066` | Múltiples estándares sobre un mismo expediente | Should | borrador |
 
 Orden sugerido: `HU-018` → `HU-017` → `HU-019` → `HU-020` → `HU-021` → `HU-022`. El registro de
 ejecuciones va primero por la misma razón que la bitácora en `EP-000`: una ejecución sin
-registro es una afirmación sin procedencia.
+registro es una afirmación sin procedencia. `HU-064`, `HU-065` y `HU-066` se agregaron el
+2026-09-17 sobre una épica que ya tenía HU-017 a HU-022 en producción — no alteran ese orden,
+lo extienden. `HU-066` no debe dispatcharse sin su sesión de diseño técnico dedicada (ver la
+historia).
 
 ## Dependencias
 
