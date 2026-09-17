@@ -4,7 +4,7 @@ titulo: Administrar fuentes y aviso de privacidad
 estado: borrador
 epica: EP-005
 prioridad: Should
-actualizado: 2026-09-06
+actualizado: 2026-09-17
 ---
 
 # HU-037 — Administrar fuentes y aviso de privacidad
@@ -13,6 +13,13 @@ actualizado: 2026-09-06
 > **configuración de IA por organización cliente**: qué proveedor se usa y la opción de
 > **desactivar la IA por completo** para tenants sensibles (`RNF-016`). Es una palanca de
 > cumplimiento, no una preferencia técnica.
+
+> **Actualización 2026-09-17 — falta un nombre corto por finalidad.** Detectado en prueba en
+> vivo: la contraparte ve, en el aviso de privacidad, la clave técnica de cada finalidad (ej.
+> `laft_screening`) como si fuera su título, porque la historia nunca definió un nombre corto
+> legible además de la clave y la descripción larga. Se agrega `purpose.label` como campo nuevo
+> del Escenario de declarar finalidades: la clave sigue existiendo como identificador estable,
+> pero la contraparte nunca debe ver esa clave en pantalla.
 
 ## Historia
 
@@ -72,9 +79,17 @@ Escenario: Publicar una versión nueva del aviso de privacidad
 ```gherkin
 Escenario: Declarar las finalidades y la base jurídica
   Dado un borrador de aviso de privacidad
-  Cuando el Administrador declara las finalidades del tratamiento y si cada una exige autorización explícita
+  Cuando el Administrador declara las finalidades del tratamiento, un nombre corto para cada una, y si exige autorización explícita
   Entonces esa declaración queda registrada como parte de la versión
   Y el sistema no evalúa si la base jurídica es suficiente
+```
+
+```gherkin
+Escenario: La contraparte nunca ve la clave técnica de una finalidad
+  Dado un aviso de privacidad publicado con finalidades declaradas
+  Cuando la contraparte lo consulta desde su enlace de acceso
+  Entonces ve el nombre corto de cada finalidad, no su clave técnica
+  Y ve su descripción completa debajo
 ```
 
 ```gherkin
@@ -133,6 +148,7 @@ Escenario: Aislamiento entre organizaciones sobre fuentes y avisos
 | `source_requirement_mapping` | No | La fuente debe estar activa en la misma versión | No |
 | `credential.organization_id` | Sí | Propias por organización cliente; almacenadas cifradas | Sí |
 | `privacy_notice.purposes` | Sí | Al menos una | No |
+| `purpose.label` | Sí | Texto corto no vacío; es lo único que ve la contraparte como título | No |
 | `privacy_notice.data_controller` / `data_processor` | Sí | Texto no vacío | No |
 | `privacy_notice.rights_channels` | Sí | Texto no vacío | No |
 | `privacy_notice.requires_authorization` | Sí | Por finalidad | No |
