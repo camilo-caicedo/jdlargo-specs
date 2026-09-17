@@ -10,11 +10,20 @@ actualizado: 2026-09-17
 # HU-066 — Múltiples estándares sobre un mismo expediente
 
 > **Nota de alcance (2026-09-17).** Esta historia nace de prueba en vivo, no del documento del
-> cliente. Es, con diferencia, el cambio de mayor tamaño de este lote: toca cómo se indexa toda
-> la matriz de requisitos (`HU-007`, `HU-035`), no solo la pantalla de creación del expediente
-> (`HU-008`). **Se deja especificada aquí para no perder la intención, pero su implementación
-> requiere su propia sesión de exploración y diseño técnico antes de dispatcharse** — no entra
-> en el mismo lote de ajustes rápidos que el resto de hallazgos de esta ronda.
+> cliente.
+
+> **Corrección de alcance (2026-09-17, antes de implementar).** Un primer análisis calificó
+> esto como el cambio de mayor riesgo de la ronda, asumiendo que había que reindexar toda la
+> matriz de requisitos. Verificando el código, **no es así**:
+> `getRequirementsForType`/`getDossierPendingRequirements` nunca filtraron por estándar — ya
+> devuelven la unión de requisitos de un tipo de contraparte sin importar a qué estándar
+> pertenezcan. Lo único que impedía tener varios estándares en una misma versión era un
+> guardia de dos líneas en `addRequirement` que forzaba que cada requisito coincidiera con el
+> estándar único de la versión. Retirar ese guardia, agregar `dossiers.standards` (arreglo) y
+> dejar que la creación del expediente elija un subconjunto de estándares es un cambio
+> acotado, no una reindexación. `getActiveConfiguration`/`getActiveConfigurationVersion`
+> (roles, permisos, nivel de firma) no dependen del estándar y no se tocan. Plan completo en
+> `Planes/multi-estandar-por-expediente.md` — ya no requiere una sesión de diseño aparte.
 
 ## Historia
 
@@ -140,9 +149,7 @@ Escenario: Aislamiento entre organizaciones sobre expedientes multi-estándar
 - **Habilita a:** que un cliente con contrapartes sujetas a SARLAFT y PTEE a la vez (el caso más
   común según `00-contexto/vision.md`) no tenga que fragmentar su evidencia en expedientes
   separados.
-- **Riesgo (el más alto de este lote):** toca el modelo de datos central de la matriz de
-  requisitos y el motor de evaluación, no solo una pantalla. Implementarla sin antes dimensionar
-  el impacto en `requirement-matrix.ts`, en el motor de evaluación de requisitos y en cómo
-  hoy se asume "un estándar por expediente" en el código existente, puede introducir
-  regresiones en `HU-007`, `HU-017` y `HU-019`. Por eso queda fuera del lote de planes rápidos
-  de esta ronda.
+- **Riesgo:** el motor de evaluación de riesgo y de decisión (`EP-003`/`EP-004`) todavía no
+  existe en el código — cuando se construya, debe leer `dossiers.standards` (plural) desde el
+  principio, en vez de asumir un solo estándar por expediente. Mientras tanto, el riesgo real
+  de esta historia es acotado: ver `Planes/multi-estandar-por-expediente.md`.

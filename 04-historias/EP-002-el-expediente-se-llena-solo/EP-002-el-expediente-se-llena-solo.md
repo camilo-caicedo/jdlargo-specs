@@ -43,8 +43,8 @@ Deja contestada la pregunta **D** de la §44: qué información fue extraída au
 - Firma física como modalidad adicional, sin proveedor externo (`HU-064`, agregada 2026-09-17).
 - El nombre y la identificación declarados participan en la conciliación igual que un campo de
   la matriz, sin que haya que configurarlos (`HU-065`, agregada 2026-09-17).
-- Un expediente puede citar más de un estándar a la vez (`HU-066`, agregada 2026-09-17 — su
-  implementación requiere diseño técnico aparte antes de dispatcharse, ver la historia).
+- Un expediente puede citar más de un estándar a la vez (`HU-066`, agregada 2026-09-17; su
+  plan de implementación en `Planes/multi-estandar-por-expediente.md` ya está listo).
 
 **No incluye —y por qué:**
 
@@ -95,8 +95,7 @@ Orden sugerido: `HU-018` → `HU-017` → `HU-019` → `HU-020` → `HU-021` →
 ejecuciones va primero por la misma razón que la bitácora en `EP-000`: una ejecución sin
 registro es una afirmación sin procedencia. `HU-064`, `HU-065` y `HU-066` se agregaron el
 2026-09-17 sobre una épica que ya tenía HU-017 a HU-022 en producción — no alteran ese orden,
-lo extienden. `HU-066` no debe dispatcharse sin su sesión de diseño técnico dedicada (ver la
-historia).
+lo extienden. Las tres tienen ya su plan de implementación listo en `Planes/`.
 
 ## Dependencias
 
