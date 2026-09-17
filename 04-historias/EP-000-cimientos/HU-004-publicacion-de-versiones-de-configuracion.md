@@ -4,7 +4,7 @@ titulo: Publicación de versiones de configuración inmutables
 estado: implementado
 epica: EP-000
 prioridad: Must
-actualizado: 2026-09-06
+actualizado: 2026-09-17
 ---
 
 # HU-004 — Publicación de versiones de configuración inmutables
@@ -15,6 +15,16 @@ actualizado: 2026-09-06
 > Los expedientes en curso siguen con la versión que congelaron; una versión nueva puede
 > **marcarlos para revalidación**, y solo migran si el cliente lo autoriza explícitamente, con
 > registro en bitácora. Ver `ADR-0004` §2b.
+
+> **Actualización 2026-09-17 — se especifica la comparación entre versiones.** Detectado en
+> prueba en vivo: la historia original dejaba la "comparación visual entre versiones" fuera de
+> alcance, pero el comparador ya construido en el panel de administración solo detecta altas y
+> bajas de roles, permisos, tipos de contraparte y claves de requisito — no muestra cambios en
+> el nivel de firma exigido, el estándar, la norma de referencia, la fecha de vigencia, ni
+> cambios internos de un requisito que se mantiene (obligatoriedad, si bloquea, su vigencia) o
+> de las finalidades del aviso de privacidad. Se retira la comparación visual de "fuera de
+> alcance" y se agrega el Escenario correspondiente más abajo. La **aprobación por doble
+> control** sobre una publicación sigue fuera de alcance: no se pidió y no depende de esto.
 
 ## Historia
 
@@ -88,6 +98,16 @@ Escenario: Reconstruir la configuración de una fecha pasada
 ```
 
 ```gherkin
+Escenario: Comparar dos versiones muestra todo lo que cambió
+  Dado una organización cliente con la versión 3 publicada y la versión 4 recién publicada
+  Cuando se pide la comparación entre ambas
+  Entonces se muestran los roles, permisos y tipos de contraparte que se agregaron o se quitaron
+  Y se muestra, para cada requisito que sigue existiendo en ambas, si cambió su obligatoriedad, si bloquea o su vigencia
+  Y se muestra si cambió el nivel de firma exigido, el estándar, la norma de referencia o la fecha de vigencia
+  Y se muestra si cambiaron las finalidades declaradas en el aviso de privacidad, no solo su texto
+```
+
+```gherkin
 Escenario: Aislamiento entre organizaciones sobre la configuración
   Dado un usuario miembro únicamente de "Alfa Ficticia S.A.S."
   Cuando consulta las versiones de configuración con su contexto de usuario propagado
@@ -131,7 +151,7 @@ Escenario: Publicar exige el permiso correspondiente
 - La interfaz de administración de la configuración → Fase 5.
 - El congelamiento de la versión dentro del expediente: no hay expediente todavía. Es lo primero
   que hará la Fase 1, y depende de `PA-025`.
-- Comparación visual entre versiones y aprobación por doble control.
+- La aprobación por doble control de una publicación.
 
 ## Datos y validaciones
 
